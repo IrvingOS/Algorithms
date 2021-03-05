@@ -3,6 +3,11 @@ package top.irvingsoft.leetcode.code207;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * @description: 课程表问题
+ * @author: TimeChaser
+ * @date: 2021/3/6 2:25
+ */
 public class Solution {
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
         Set<Integer> sets[] = new HashSet[numCourses];
