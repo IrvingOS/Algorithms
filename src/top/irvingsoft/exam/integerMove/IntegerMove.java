@@ -1,4 +1,4 @@
-package code1016;
+package top.irvingsoft.exam.integerMove;
 
 public class IntegerMove {
 
@@ -9,21 +9,21 @@ public class IntegerMove {
         Integer[] integers = new Integer[200];
         int index = 0;
 
-        for (int i = 0; i < ints.length; i++) {
-            if (ints[i] > 0) {
-                integers[index++] = ints[i];
+        for (Integer anInt : ints) {
+            if (anInt > 0) {
+                integers[index++] = anInt;
             }
         }
 
-        for (int i = 0; i < ints.length; i++) {
-            if (ints[i] == 0) {
-                integers[index++] = ints[i];
+        for (Integer anInt : ints) {
+            if (anInt == 0) {
+                integers[index++] = anInt;
             }
         }
 
-        for (int i = 0; i < ints.length; i++) {
-            if (ints[i] < 0) {
-                integers[index++] = ints[i];
+        for (Integer anInt : ints) {
+            if (anInt < 0) {
+                integers[index++] = anInt;
             }
         }
 
