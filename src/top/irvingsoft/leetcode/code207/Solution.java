@@ -23,12 +23,12 @@ public class Solution {
             sets[prerequisite[1]].add(prerequisite[0]);
         }
         /* 
-for (int i = 0; i < dCount.length; i++) {
-            if (dCount[i] == 0) {
-                inProcess.add(i);
-            }
-        }
- */
+        for (int i = 0; i < dCount.length; i++) {
+                    if (dCount[i] == 0) {
+                        inProcess.add(i);
+                    }
+                }
+         */
  		int flag = 1;
         for (int i = 0; i < dCount.length; i++) {
             if (dCount[i] == 0) {

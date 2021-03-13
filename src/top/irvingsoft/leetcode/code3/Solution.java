@@ -34,8 +34,8 @@ public class Solution {
     }
 }
 
-/**
- * @description:
+/*
+  @description:
  *
  * Set:
  *      定义 equals();
