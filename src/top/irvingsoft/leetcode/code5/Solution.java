@@ -14,6 +14,7 @@ public class Solution {
      */
     public static String longestPalindromeViolent(String s) {
 
+
         return null;
     }
 
