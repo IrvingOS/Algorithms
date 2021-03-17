@@ -76,10 +76,7 @@ public class Solution {
 
     public static int countMaxLengthByCenterExtension(Integer indexCenterLeft, Integer indexCenterRight, char[] sArray) {
 
-        while (indexCenterLeft >= 0 && indexCenterRight < sArray.length) {
-            if (sArray[indexCenterLeft] != sArray[indexCenterRight]) {
-                break;
-            }
+        while (indexCenterLeft >= 0 && indexCenterRight < sArray.length && sArray[indexCenterLeft] == sArray[indexCenterRight]) {
             indexCenterLeft--;
             indexCenterRight++;
         }
@@ -93,7 +90,30 @@ public class Solution {
      */
     public static String longestPalindromeViolentDynamicProgramming(String s) {
 
-        return null;
+        if (s.length() <= 1) {
+            return s;
+        }
+
+        int length = s.length();
+        boolean[][] dp = new boolean[length][length];
+
+        String subString = "";
+        for (int l = 0; l < length; l++) {
+            for (int i = 0; i < length - l; i++) {
+                int j = i + l;
+                if (l == 0) {
+                    dp[i][j] = true;
+                } else if (l == 1) {
+                    dp[i][j] = s.charAt(i) == s.charAt(j);
+                } else {
+                    dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
+                }
+                if (dp[i][j] && l + 1 > subString.length()) {
+                    subString = s.substring(i, i + l + 1);
+                }
+            }
+        }
+        return subString;
     }
 
     public static void main(String[] args) {
