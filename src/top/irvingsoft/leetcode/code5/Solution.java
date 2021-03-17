@@ -14,8 +14,18 @@ public class Solution {
      */
     public static String longestPalindromeViolent(String s) {
 
+        int length = s.length();
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = i + 1; j < length; j++) {
 
+            }
+        }
         return null;
+    }
+
+    public static boolean isPalindrome(String s) {
+
+        return false;
     }
 
     /**
