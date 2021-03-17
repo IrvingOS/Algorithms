@@ -103,10 +103,13 @@ public class Solution {
                 int j = i + l;
                 if (l == 0) {
                     dp[i][j] = true;
-                } else if (l == 1) {
-                    dp[i][j] = s.charAt(i) == s.charAt(j);
                 } else {
-                    dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
+                    boolean b = s.charAt(i) == s.charAt(j);
+                    if (l == 1) {
+                        dp[i][j] = b;
+                    } else {
+                        dp[i][j] = b && dp[i + 1][j - 1];
+                    }
                 }
                 if (dp[i][j] && l + 1 > subString.length()) {
                     subString = s.substring(i, i + l + 1);
