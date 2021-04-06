@@ -4,7 +4,7 @@ import java.util.*;
 
 public class NestedBuild {
 
-    private static final Map<String, Integer> dictionary = new HashMap() {{
+    private static final Map<String, Integer> DICTIONARY = new HashMap() {{
         put("A", 1);
         put("B.A", 2);
         put("B.B", 3);
@@ -24,11 +24,11 @@ public class NestedBuild {
 
         ArrayList<Tree> treeList = new ArrayList<>();
 
-        for (String dict : dictionary.keySet()) {
+        for (String dict : DICTIONARY.keySet()) {
             String[] splits = dict.split("\\.");
             for (int i = 0; i < splits.length; i++) {
-                if (!treeIsContains(treeList, splits[i], i == splits.length - 1 ? dictionary.get(dict) : null, i != 0 ? splits[i - 1] : null, i, splits.length)) {
-                    Tree tree = new Tree(splits[i], i == splits.length - 1 ? dictionary.get(dict) : null, i != 0 ? splits[i - 1] : null, i != 0, i != splits.length - 1);
+                if (!treeIsContains(treeList, splits[i], i == splits.length - 1 ? DICTIONARY.get(dict) : null, i != 0 ? splits[i - 1] : null, i, splits.length)) {
+                    Tree tree = new Tree(splits[i], i == splits.length - 1 ? DICTIONARY.get(dict) : null, i != 0 ? splits[i - 1] : null, i != 0, i != splits.length - 1);
                     if (i < splits.length - 1) {
                         tree.initChildren();
                     }
