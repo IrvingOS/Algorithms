@@ -5,7 +5,7 @@ package top.irvingsoft.leetcode.code2;
  * @author: TimeChaser
  * @date: 2021/3/6 2:26
  */
-class ListNode {
+public class ListNode {
     int val;
     ListNode next;
 
