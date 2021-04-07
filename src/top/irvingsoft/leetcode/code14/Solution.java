@@ -41,6 +41,14 @@ public class Solution {
         return str1.substring(0, index);
     }
 
+    /**
+     * @description:
+     *
+     * TODO 完善其他两种算法
+     *
+     * @author: TimeChaser
+     * @date: 2021/4/7 13:31
+     */
     public static String longestCommonPrefixLongitudinal(String[] strs) {
 
        return null;
