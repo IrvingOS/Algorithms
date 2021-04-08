@@ -7,52 +7,51 @@ package top.irvingsoft.leetcode.code21;
  */
 public class Solution {
 
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    /**
+     * @description: 迭代，然后拼接迭代后不为空的链表
+     * @author: TimeChaser
+     * @date: 2021/4/8 10:57
+     */
+    public static ListNode mergeTwoListsIteration(ListNode l1, ListNode l2) {
 
-        ListNode head = null, tail = null;
+        ListNode head = new ListNode();
 
-        while (l1 != null || l2 != null) {
-
-            if (l1 != null && l2 != null) {
-                if (l1.val < l2.val) {
-                    if (head == null) {
-                        head = tail = new ListNode(l1.val);
-                    } else {
-                        tail.next = new ListNode(l1.val);
-                        tail = tail.next;
-                    }
-                    l1 = l1.next;
-                } else {
-                    if (head == null) {
-                        head = tail = new ListNode(l2.val);
-                    } else {
-                        tail.next = new ListNode(l2.val);
-                        tail = tail.next;
-                    }
-                    l2 = l2.next;
-                }
-            }
-            if (l1 == null) {
-                if (head == null) {
-                    head = tail = new ListNode(l2.val);
-                } else {
-                    tail.next = new ListNode(l2.val);
-                    tail = tail.next;
-                }
+        ListNode current = head;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                current.next = l1;
+                l1 = l1.next;
+            } else {
+                current.next = l2;
                 l2 = l2.next;
             }
-            if (l2 == null) {
-                if (head == null) {
-                    head = tail = new ListNode(l1.val);
-                } else {
-                    tail.next = new ListNode(l1.val);
-                    tail = tail.next;
-                }
-                l1 = l1.next;
-            }
+            current = current.next;
         }
+        current.next = l1 == null ? l2 : l1;
+        return head.next;
+    }
 
-        return head;
+    /**
+     * @description:
+     *
+     * 递归
+     *
+     * @author: TimeChaser
+     * @date: 2021/4/8 10:59
+     */
+    public static ListNode mergeTwoListsRecursion(ListNode l1, ListNode l2) {
+
+        if (l1 == null) {
+            return l2;
+        } else if (l2 == null) {
+            return l1;
+        } else if (l1.val < l2.val) {
+            l1.next = mergeTwoListsRecursion(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoListsRecursion(l1, l2.next);
+            return l2;
+        }
     }
 
     public static void main(String[] args) {
@@ -60,7 +59,7 @@ public class Solution {
         ListNode listNode = new ListNode();
         ListNode listNode1 = new ListNode();
         listNode1.val = 0;
-        System.out.println(mergeTwoLists(listNode, listNode1));
+        System.out.println(mergeTwoListsIteration(listNode, listNode1));
     }
 }
 
