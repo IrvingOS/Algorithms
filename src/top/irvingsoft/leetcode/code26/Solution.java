@@ -6,8 +6,8 @@ import java.util.Arrays;
  * @description: 删除有序数组中的重复项
  *
  * Java 的值传递和引用传递
- * 1. 值传递：基本数据类型、String 对象（String 类的值不能被改变：重新赋值是指向一块新的存储空间，所以在这里默认是值传递）
- * 2. 引用传递：对象的引用
+ * 1. 值传递：基本数据类型、String 对象（String 类的值不能被改变：重新赋值是指向一块新的存储空间，所以在这里默认是值传递）的值
+ * 2. 引用传递：基本数据类型的数组、类的对象及数组的引用
  *
  * 解题思路：
  *      有序数组，重复项都相邻。
@@ -26,8 +26,7 @@ public class Solution {
         int i = 0;
         for (int j = 1; j < nums.length; j++) {
             if (nums[i] != nums[j]) {
-                i++;
-                nums[i] = nums[j];
+                nums[++i] = nums[j];
             }
         }
         return i + 1;
