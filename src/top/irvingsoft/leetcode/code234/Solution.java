@@ -47,7 +47,7 @@ public class Solution {
         return recursivelyCheck(head);
     }
 
-    public static boolean recursivelyCheck(ListNode currentNode) {
+    private static boolean recursivelyCheck(ListNode currentNode) {
         if (currentNode != null) {
             if (!recursivelyCheck(currentNode.next)) {
                 return false;
@@ -73,17 +73,48 @@ public class Solution {
      */
     public static boolean isPalindromeFastAndSlowPointer(ListNode head) {
 
-        int length = 0;
-        ListNode fastPointer = head, slowPointer = head;
-        while (fastPointer != null) {
-            length++;
-            fastPointer = fastPointer.next;
+        if (head == null) {
+            return true;
+        }
+        ListNode firstHalfEnd = endOfFirstHalf(head);
+        ListNode secondHalfStart = reverseList(firstHalfEnd.next);
+
+        ListNode firstHalf = head;
+        ListNode secondHalf = secondHalfStart;
+        while (secondHalf != null) {
+            if (firstHalf.val != secondHalf.val) {
+                return false;
+            }
+            firstHalf = firstHalf.next;
+            secondHalf = secondHalf.next;
         }
 
-
-
+        firstHalfEnd.next = reverseList(secondHalfStart);
         return true;
     }
+
+    private static ListNode endOfFirstHalf(ListNode head) {
+        
+        ListNode fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    
+    private static ListNode reverseList(ListNode head) {
+        
+        ListNode prev = null, curr = head;
+        while (curr != null) {
+            ListNode nextTemp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextTemp;
+        }
+        return prev;
+    }
+
 
     public static void main(String[] args) {
 
