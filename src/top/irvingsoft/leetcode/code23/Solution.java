@@ -3,7 +3,9 @@ package top.irvingsoft.leetcode.code23;
 /**
  * @description: 合并 K 个升序链表
  *
- * 分治法
+ * 1. 顺序合并
+ * 2. 分治法
+ * 3. 使用优先队列合并
  *
  * @author: TimeChaser
  * @date: 2021/4/19 19:54
@@ -11,7 +13,19 @@ package top.irvingsoft.leetcode.code23;
 
 public class Solution {
 
-    public static ListNode mergeKLists(ListNode[] lists) {
+    public static ListNode mergeKListsOrder(ListNode[] lists) {
+
+        if (lists.length == 0) {
+            return null;
+        }
+        ListNode merge = null;
+        for (ListNode list : lists) {
+            merge = merge(merge, list);
+        }
+        return merge;
+    }
+
+    public static ListNode mergeKListsDivide(ListNode[] lists) {
 
         if (lists.length == 0) {
             return null;
