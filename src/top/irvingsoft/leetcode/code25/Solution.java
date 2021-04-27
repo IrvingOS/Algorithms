@@ -55,7 +55,29 @@ public class Solution {
 
     public static ListNode reverseKGroupNode(ListNode head, int k) {
 
-        return null;
+        ListNode start = head;
+        ListNode curr = head;
+        int i = 0;
+        while (curr != null) {
+            i++;
+            if (i == k) {
+                ListNode nextNode = curr.next;
+                curr.next = null;
+                ListNode reverse = null;
+                while (start != null) {
+                    ListNode temp = start.next;
+                    start.next = reverse;
+                    reverse = start;
+                    start = temp;
+                }
+                reverse.next = nextNode;
+                start = reverse.next;
+
+                i = 0;
+            }
+            curr = curr.next;
+        }
+        return head;
     }
 
 

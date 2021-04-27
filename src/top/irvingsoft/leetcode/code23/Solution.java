@@ -67,7 +67,7 @@ public class Solution {
         return head.next;
     }
 
-    static class Status implements Comparable<Status> {
+    public static class Status implements Comparable<Status> {
         int val;
         ListNode ptr;
 
@@ -82,7 +82,7 @@ public class Solution {
         }
     }
 
-    static PriorityQueue<Status> queue = new PriorityQueue<>();
+    public static PriorityQueue<Status> queue = new PriorityQueue<>();
 
     public static ListNode mergeKListsPriority(ListNode[] lists) {
         for (ListNode node: lists) {
