@@ -17,5 +17,22 @@ public class BaseDataTypeTest {
         char c = 12123;
         c = (char) i2;
         System.out.println(c);
+        int i4 = '\u8010';
+        short s1 = (short) i4;
+
+        /**
+         * @description:
+         *
+         * '\u8010'：
+         *          char 类型，16 位
+         *          8 * (16^3) + 1 * (16^1) = 32784;
+         *
+         * @author: TimeChaser
+         * @date: 2021/4/27 14:48
+         */
+
+        System.out.println('\u8010');
+        System.out.println(i4);
+        System.out.println(s1);
     }
 }
