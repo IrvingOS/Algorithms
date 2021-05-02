@@ -34,5 +34,7 @@ public class BaseDataTypeTest {
         System.out.println('\u8010');
         System.out.println(i4);
         System.out.println(s1);
+
+        Integer integer = 11;
     }
 }
