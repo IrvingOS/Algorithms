@@ -1,4 +1,4 @@
-package top.irvingsoft.test;
+package top.irvingsoft.test.jvm;
 
 /**
  * @description: 运行时内存测试

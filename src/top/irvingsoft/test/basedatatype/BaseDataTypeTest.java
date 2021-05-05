@@ -1,4 +1,4 @@
-package top.irvingsoft.test;
+package top.irvingsoft.test.basedatatype;
 
 public class BaseDataTypeTest {
 
