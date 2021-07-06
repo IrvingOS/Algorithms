@@ -1,4 +1,4 @@
-package top.irvingsoft.test.containers.hashcode;
+package top.irvingsoft.code.containers.hashcode;
 
 import java.util.Random;
 

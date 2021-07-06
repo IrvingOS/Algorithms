@@ -1,4 +1,4 @@
-package top.irvingsoft.test.containers.hashcode;
+package top.irvingsoft.code.containers.hashcode;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
