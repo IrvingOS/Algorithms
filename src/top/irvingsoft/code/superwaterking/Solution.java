@@ -5,6 +5,9 @@ import java.util.Map;
 
 /**
  * @description: 超级水王问题
+ * 要求：
+ * 时间复杂度：O(n)
+ * 空间复杂度：O(1)
  * @author: TimeChaser
  * @date: 2021/7/5 12:35
  */
@@ -42,6 +45,8 @@ public class Solution {
 
     /**
      * @description: 依次删掉两个不同的数
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(1)
      * 摩尔投票算法
      * 候选/血量
      * 存在候选时血量不为 0，血量为 0 时不存在候选
