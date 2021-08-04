@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @description: K 个一组翻转链表
+ * @author TimeChaser
+ * K 个一组翻转链表
  * <p>
  * 1、暴力法：
  * 把链表提取成数组，对数组进行 K 个字符的翻转，然后构造链表返回
  * 2、模拟：
  * 遍历链表，每 K 个节点进行翻转
- * @author: TimeChaser
- * @date: 2021/4/20 12:31
+ * @date 2021/4/20 12:31
  */
 public class Solution {
 

@@ -3,16 +3,14 @@ package top.irvingsoft.leetcode.code23;
 import java.util.PriorityQueue;
 
 /**
- * @description: 合并 K 个升序链表
- *
+ * @author TimeChaser
+ * 合并 K 个升序链表
+ * <p>
  * 1. 顺序合并
  * 2. 分治法
  * 3. 使用优先队列合并
- *      优先队列：
- *
- *
- * @author: TimeChaser
- * @date: 2021/4/19 19:54
+ * 优先队列：
+ * @date 2021/4/19 19:54
  */
 
 public class Solution {

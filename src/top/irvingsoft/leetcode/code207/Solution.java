@@ -1,12 +1,15 @@
 package top.irvingsoft.leetcode.code207;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Set;
 
 /**
- * @description: 课程表问题
- * @author: TimeChaser
- * @date: 2021/3/6 2:25
+ * @author TimeChaser
+ * 课程表问题
+ * @date 2021/3/6 2:25
  */
 public class Solution {
     public static boolean canFinish(int numCourses, int[][] prerequisites) {

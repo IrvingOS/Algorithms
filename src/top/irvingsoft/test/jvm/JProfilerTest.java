@@ -3,12 +3,11 @@ package top.irvingsoft.test.jvm;
 import java.util.ArrayList;
 
 /**
- * @description: JProfiler 生成并分析 Dump
- *
+ * @author TimeChaser
+ * JProfiler 生成并分析 Dump
+ * <p>
  * 虚拟机参数：-Xms1m -Xmx1m -XX:+HeapDumpOnOutOfMemoryError
- *
- * @author: TimeChaser
- * @date: 2021/5/5 10:32
+ * @date 2021/5/5 10:32
  */
 public class JProfilerTest {
 

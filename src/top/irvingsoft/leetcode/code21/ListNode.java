@@ -1,9 +1,8 @@
 package top.irvingsoft.leetcode.code21;
 
 /**
- * @description:
- * @author: TimeChaser
- * @date: 2021/4/7 13:34
+ * @author TimeChaser
+ * @date 2021/4/7 13:34
  */
 public class ListNode {
     int val;

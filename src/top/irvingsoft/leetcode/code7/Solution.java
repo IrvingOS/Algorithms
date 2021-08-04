@@ -1,13 +1,12 @@
 package top.irvingsoft.leetcode.code7;
 
 /**
- * @description: 整数反转
- * @author: TimeChaser
- * @date: 2021/4/1 11:22
- *
+ * @author TimeChaser
+ * 整数反转
+ * @date 2021/4/1 11:22
+ * <p>
  * MAX_INT: 2^31 - 1 = 2147483647
  * MIN_INT:  - 2^31  = -2147483648
- *
  */
 public class Solution {
 

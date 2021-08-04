@@ -3,11 +3,10 @@ package top.irvingsoft.code.containers.map;
 import java.util.*;
 
 /**
- * @description:
+ * @author TimeChaser
  * 比直接操作 ArrayList 的 Map 稍快一些
  * 直接将 key、value 作为一个 Entry 存储
- * @author: TimeChaser
- * @date: 2021/5/6 11:40
+ * @date 2021/5/6 11:40
  */
 public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
 

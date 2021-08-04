@@ -1,9 +1,9 @@
 package top.irvingsoft.leetcode.code9;
 
 /**
- * @description: 回文数
- * @author: TimeChaser
- * @date: 2021/4/1 11:49
+ * @author TimeChaser
+ * 回文数
+ * @date 2021/4/1 11:49
  */
 public class Solution {
 

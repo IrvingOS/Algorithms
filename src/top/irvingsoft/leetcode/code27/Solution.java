@@ -1,14 +1,13 @@
 package top.irvingsoft.leetcode.code27;
 
 /**
- * @description: 移除元素
- *
+ * @author TimeChaser
+ * 移除元素
+ * <p>
  * 解题思路：
- *      1. 还是双指针
- *      2. 优化：当删除的元素很少时，避免做不必要的赋值操作，可以将不符合的元素与最后一个元素进行交换并释放最后一个元素。
- *
- * @author: TimeChaser
- * @date: 2021/4/9 10:14
+ * 1. 还是双指针
+ * 2. 优化：当删除的元素很少时，避免做不必要的赋值操作，可以将不符合的元素与最后一个元素进行交换并释放最后一个元素。
+ * @date 2021/4/9 10:14
  */
 public class Solution {
 

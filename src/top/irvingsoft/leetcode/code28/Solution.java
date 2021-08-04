@@ -1,9 +1,9 @@
 package top.irvingsoft.leetcode.code28;
 
 /**
- * @description: 实现 strStr() | indexOf()
- * @author: TimeChaser
- * @date: 2021/4/9 10:35
+ * @author TimeChaser
+ * 实现 strStr() | indexOf()
+ * @date 2021/4/9 10:35
  */
 public class Solution {
 

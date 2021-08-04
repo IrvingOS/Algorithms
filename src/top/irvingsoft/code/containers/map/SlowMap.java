@@ -3,9 +3,8 @@ package top.irvingsoft.code.containers.map;
 import java.util.*;
 
 /**
- * @description:
- * @author: TimeChaser
- * @date: 2021/5/6 9:37
+ * @author TimeChaser
+ * @date 2021/5/6 9:37
  */
 public class SlowMap<K, V> extends AbstractMap<K, V> {
 

@@ -1,19 +1,19 @@
 package top.irvingsoft.leetcode.code4;
 
 /**
- * @description: 寻找两个正序数组的中位数
- * @author: TimeChaser
- * @date: 2021/3/17 19:23
+ * @author TimeChaser
+ * 寻找两个正序数组的中位数
+ * @date 2021/3/17 19:23
  */
 public class Solution {
 
     /**
-     * @description: 暴力解法
-     *
+     * 暴力解法
+     * <p>
      * 合并数组，然后找中位数
      *
-     * @author: TimeChaser
-     * @date: 2021/5/3 0:57
+     * @author TimeChaser
+     * @date 2021/5/3 0:57
      */
     public static double findMedianSortedArraysViolence(int[] nums1, int[] nums2) {
         int length = nums1.length + nums2.length;

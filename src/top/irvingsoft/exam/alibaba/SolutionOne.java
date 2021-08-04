@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 /**
- * @description: 阿里巴巴笔试第一题
- * @author: TimeChaser
- * @date: 2021/3/12 18:59
+ * @author TimeChaser
+ * 阿里巴巴笔试第一题
+ * @date 2021/3/12 18:59
  */
 public class SolutionOne {
 

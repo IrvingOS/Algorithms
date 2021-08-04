@@ -1,20 +1,18 @@
 package top.irvingsoft.leetcode.code26;
 
-import java.util.Arrays;
-
 /**
- * @description: 删除有序数组中的重复项
- *
+ * 删除有序数组中的重复项
+ * <p>
  * Java 的值传递和引用传递
  * 1. 值传递：基本数据类型、String 对象（String 类的值不能被改变：重新赋值是指向一块新的存储空间，所以在这里默认是值传递）的值
  * 2. 引用传递：基本数据类型的数组、类的对象及数组的引用
- *
+ * <p>
  * 解题思路：
- *      有序数组，重复项都相邻。
- *      用快指针进行遍历，如果与慢指针的值不同，则慢指针后移并赋上快指针的值
+ * 有序数组，重复项都相邻。
+ * 用快指针进行遍历，如果与慢指针的值不同，则慢指针后移并赋上快指针的值
  *
- * @author: TimeChaser
- * @date: 2021/4/9 9:24
+ * @author TimeChaser
+ * @date 2021/4/9 9:24
  */
 public class Solution {
 

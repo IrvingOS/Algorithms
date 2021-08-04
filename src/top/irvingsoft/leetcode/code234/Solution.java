@@ -3,18 +3,19 @@ package top.irvingsoft.leetcode.code234;
 import java.util.ArrayList;
 
 /**
- * @description: 回文链表
- * @author: TimeChaser
- * @date: 2021/4/12 10:13
+ * @author TimeChaser
+ * 回文链表
+ * @date 2021/4/12 10:13
  */
 public class Solution {
 
     private static ListNode frontPointer;
 
     /**
-     * @description: 将链表转换成数组后用双指针（首尾指针）
-     * @author: TimeChaser
-     * @date: 2021/4/12 10:41
+     * 将链表转换成数组后用双指针（首尾指针）
+     *
+     * @author TimeChaser
+     * @date 2021/4/12 10:41
      */
     public static boolean isPalindromeToList(ListNode head) {
 
@@ -38,9 +39,9 @@ public class Solution {
     }
 
     /**
-     * @description: 递归。用外部指针指向头部，直到递归到尾部时开始首尾比较
-     * @author: TimeChaser
-     * @date: 2021/4/12 10:42
+     *  递归。用外部指针指向头部，直到递归到尾部时开始首尾比较
+     * @author TimeChaser
+     * @date 2021/4/12 10:42
      */
     public static boolean isPalindromeRecursion(ListNode head) {
         frontPointer = head;
@@ -61,15 +62,15 @@ public class Solution {
     }
 
     /**
-     * @description: 快慢指针
+     *  快慢指针
      * <p>
      * 1. 找到前半部分链表的尾节点
      * 2. 反转后半部分链表
      * 3. 判断是否回文
      * 4. 恢复链表
      * 5. 返回结果
-     * @author: TimeChaser
-     * @date: 2021/4/12 10:44
+     * @author TimeChaser
+     * @date 2021/4/12 10:44
      */
     public static boolean isPalindromeFastAndSlowPointer(ListNode head) {
 

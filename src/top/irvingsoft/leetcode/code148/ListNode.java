@@ -1,9 +1,9 @@
 package top.irvingsoft.leetcode.code148;
 
 /**
- * @description: 自定义单链表
- * @author: TimeChaser
- * @date: 2021/3/6 2:26
+ * @author TimeChaser
+ * 自定义单链表
+ * @date 2021/3/6 2:26
  */
 public class ListNode {
     int val;

@@ -4,23 +4,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @description: 超级水王问题
+ * @author TimeChaser
+ * 超级水王问题
  * 要求：
  * 时间复杂度：O(n)
  * 空间复杂度：O(1)
- * @author: TimeChaser
- * @date: 2021/7/5 12:35
+ * @date 2021/7/5 12:35
  */
 public class Solution {
 
     /**
-     * @description: 使用 Hash 表
+     * 使用 Hash 表
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
-     * @author: TimeChaser
-     * @date: 2021/7/6 22:54
+     *
+     * @author TimeChaser
+     * @date 2021/7/6 22:54
      */
     public static int verify(int[] arr) {
+
         if (arr == null || arr.length == 0) {
             return -1;
         }
@@ -44,16 +46,17 @@ public class Solution {
     }
 
     /**
-     * @description: 依次删掉两个不同的数
+     *  依次删掉两个不同的数
      * 时间复杂度：O(n)
      * 空间复杂度：O(1)
      * 摩尔投票算法
      * 候选/血量
      * 存在候选时血量不为 0，血量为 0 时不存在候选
-     * @author: TimeChaser
-     * @date: 2021/7/6 23:00
+     * @author TimeChaser
+     * @date 2021/7/6 23:00
      */
     public static int waterKing(int[] arr) {
+
         if (arr == null || arr.length == 0) {
             return -1;
         }

@@ -1,16 +1,17 @@
 package top.irvingsoft.leetcode.code21;
 
 /**
- * @description: 合并两个有序链表
- * @author: TimeChaser
- * @date: 2021/4/7 13:32
+ * @author TimeChaser
+ * 合并两个有序链表
+ * @date 2021/4/7 13:32
  */
 public class Solution {
 
     /**
-     * @description: 迭代，然后拼接迭代后不为空的链表
-     * @author: TimeChaser
-     * @date: 2021/4/8 10:57
+     * 迭代，然后拼接迭代后不为空的链表
+     *
+     * @author TimeChaser
+     * @date 2021/4/8 10:57
      */
     public static ListNode mergeTwoListsIteration(ListNode l1, ListNode l2) {
 
@@ -32,12 +33,9 @@ public class Solution {
     }
 
     /**
-     * @description:
-     *
-     * 递归
-     *
-     * @author: TimeChaser
-     * @date: 2021/4/8 10:59
+     *  递归
+     * @author TimeChaser
+     * @date 2021/4/8 10:59
      */
     public static ListNode mergeTwoListsRecursion(ListNode l1, ListNode l2) {
 

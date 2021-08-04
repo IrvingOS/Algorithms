@@ -21,14 +21,14 @@ public class BaseDataTypeTest {
         short s1 = (short) i4;
 
         /**
-         * @description:
+         *
          *
          * '\u8010'：
          *          char 类型，16 位
          *          8 * (16^3) + 1 * (16^1) = 32784;
          *
-         * @author: TimeChaser
-         * @date: 2021/4/27 14:48
+         * @author TimeChaser
+         * @date 2021/4/27 14:48
          */
 
         System.out.println('\u8010');
