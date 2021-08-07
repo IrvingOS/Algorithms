@@ -28,6 +28,18 @@ public class Solution {
         return last;
     }
 
+    public static Node reverseListNormal(Node head, Node tail) {
+
+        Node last = null, cur = head;
+        while (cur != tail) {
+            Node temp = cur.next;
+            cur.next = last;
+            last = cur;
+            cur = temp;
+        }
+        return last;
+    }
+
     /**
      * 翻转链表
      *

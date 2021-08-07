@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class Solution {
 
-    public static ListNode reverseKGroupList(ListNode head, int k) {
+    public static Node reverseKGroupList(Node head, int k) {
 
         ArrayList<Integer> integerList = new ArrayList<>();
 
@@ -31,10 +31,10 @@ public class Solution {
             reverseList(integerList, (count - 1) * k, count * k - 1);
             count++;
         }
-        head = new ListNode();
-        ListNode tail = head;
+        head = new Node();
+        Node tail = head;
         for (Integer integer : integerList) {
-            tail.next = new ListNode(integer);
+            tail.next = new Node(integer);
             tail = tail.next;
         }
         return head.next;
@@ -55,33 +55,68 @@ public class Solution {
         }
     }
 
-    public static ListNode reverseKGroupNode(ListNode head, int k) {
+    public static Node reverseKGroupNode(Node head, int k) {
 
-        // TODO 完成模拟 K 个一组翻转链表
-        ListNode start = head;
-        ListNode curr = head;
-        int i = 0;
-        while (curr != null) {
-            i++;
-            if (i == k) {
-                ListNode nextNode = curr.next;
-                curr.next = null;
-                ListNode reverse = null;
-                while (start != null) {
-                    ListNode temp = start.next;
-                    start.next = reverse;
-                    reverse = start;
-                    start = temp;
+        Node hair = new Node(0);
+        hair.next = head;
+        Node pre = hair;
+
+        while (head != null) {
+
+            Node tail = pre;
+            for (int i = 0; i < k; i++) {
+                tail = tail.next;
+                if (tail == null) {
+                    return hair.next;
                 }
-                reverse.next = nextNode;
-                start = reverse.next;
-
-                i = 0;
             }
-            curr = curr.next;
+
+            Node next = tail.next;
+            reverseList(head, tail);
+            // 翻转之后，head 即是尾结点，tail 即是头结点
+            // 把前缀的 next 指向翻转后的头部
+            pre.next = tail;
+            // 把后缀拼接到翻转后的尾部
+            head.next = next;
+            // 把前缀指针移到已翻转部分的尾部
+            pre = head;
+            // 把 head 移到下次翻转部分的头部
+            head = head.next;
         }
-        return head;
+
+        return hair.next;
     }
 
+    public static void reverseList(Node head, Node tail) {
 
+        Node last = null, current = head;
+        while (current != tail) {
+            Node next = current.next;
+            current.next = last;
+            last = current;
+            current = next;
+        }
+        tail.next = last;
+    }
+
+    public static void print(Node head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Node node = new Node(5);
+        node.next = new Node(3);
+        node.next.next = new Node(6);
+        node.next.next.next = new Node(7);
+        node.next.next.next.next = new Node(9);
+        node.next.next.next.next.next = new Node(2);
+        Node tail = node.next.next.next.next.next;
+        print(reverseKGroupList(node, 2));
+        System.out.println();
+        print(reverseKGroupNode(node, 2));
+    }
 }

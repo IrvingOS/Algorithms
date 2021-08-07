@@ -5,18 +5,19 @@ package top.irvingsoft.leetcode.code25;
  * 自定义单链表
  * @date 2021/3/6 2:26
  */
-public class ListNode {
+public class Node {
     int val;
-    ListNode next;
+    Node next;
 
-    ListNode() {
+    Node() {
     }
 
-    ListNode(int val) {
+    Node(int val) {
         this.val = val;
+        this.next = null;
     }
 
-    ListNode(int val, ListNode next) {
+    Node(int val, Node next) {
         this.val = val;
         this.next = next;
     }
