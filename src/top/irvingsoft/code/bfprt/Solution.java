@@ -5,7 +5,7 @@ package top.irvingsoft.code.bfprt;
  * <br>
  * 找出无序数组中第 k 小的数（从 1 开始）
  * <br>
- * 其他问法：找出前 k 位数数组
+ * 其他问法：找出前 k 小数组成的数组（先找出第 k 小的数，然后遍历原数组找出小于第 k 小的数的所有数）
  * <p/>
  * BFPRT 算法，注重的是 pivot 的选举，
  * 通过合理的选举 pivot 以排除更多无效数据的比较过程，
@@ -118,7 +118,6 @@ public class Solution {
             return arr[left];
         }
         int pivot = medianOfMedians(arr, left, right);
-//        System.out.println(pivot);
         int[] partition = partition(arr, left, right, pivot);
 
         if (index >= partition[0] && index <= partition[1]) {

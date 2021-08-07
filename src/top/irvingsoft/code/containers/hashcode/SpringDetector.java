@@ -4,8 +4,9 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 
 /**
- * @author TimeChaser
  * Groundhog 没有重写 hashCode() 和 equals()
+ *
+ * @author TimeChaser
  * @date 2021/5/6 10:38
  */
 public class SpringDetector {

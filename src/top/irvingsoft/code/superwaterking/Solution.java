@@ -4,11 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author TimeChaser
  * 超级水王问题
  * 要求：
  * 时间复杂度：O(n)
  * 空间复杂度：O(1)
+ *
+ * @author TimeChaser
  * @date 2021/7/5 12:35
  */
 public class Solution {
