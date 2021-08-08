@@ -12,16 +12,19 @@ import java.util.Stack;
  */
 public class UnionSet<T> {
 
-    private HashMap<T, Node<T>> nodes;
-    private HashMap<Node<T>, Node<T>> parents;
-    private HashMap<Node<T>, Integer> sizeMap;
+    // 存储泛型实体的结点
+    private final HashMap<T, Node<T>> nodeMap = new HashMap<>();
+    // 存储结点的父结点
+    private final HashMap<Node<T>, Node<T>> parentMap = new HashMap<>();
+    // 存储父结点集的大小（包含多少个子结点，包括自身）
+    private final HashMap<Node<T>, Integer> sizeMap = new HashMap<>();
 
     public UnionSet(List<T> values) {
 
         for (T value : values) {
             Node<T> node = new Node<>(value);
-            nodes.put(value, node);
-            parents.put(node, node);
+            nodeMap.put(value, node);
+            parentMap.put(node, node);
             sizeMap.put(node, 1);
         }
     }
@@ -29,36 +32,39 @@ public class UnionSet<T> {
     public Node<T> findFather(Node<T> value) {
 
         Stack<Node<T>> path = new Stack<>();
-        while (value != parents.get(value)) {
+        while (value != parentMap.get(value)) {
+            // 结点的父结点另有其人
             path.push(value);
-            value = parents.get(value);
+            value = parentMap.get(value);
         }
         while (!path.isEmpty()) {
-            parents.put(path.pop(), value);
+            // 确保搜索路径上的所有结点能直接指向根父结点，节省后续路径上结点查找其父结点的时间
+            parentMap.put(path.pop(), value);
         }
         return value;
     }
 
     public boolean isSameSet(T a, T b) {
-        if (!nodes.containsKey(a) || !nodes.containsKey(b)) {
+        if (!nodeMap.containsKey(a) || !nodeMap.containsKey(b)) {
             return false;
         }
-        return findFather(nodes.get(a)) == findFather(nodes.get(b));
+        return findFather(nodeMap.get(a)) == findFather(nodeMap.get(b));
     }
 
     public void union(T a, T b) {
 
-        if (!nodes.containsKey(a) || !nodes.containsKey(b)) {
+        // 只能合并 nodes 中已存在的元素结点
+        if (!nodeMap.containsKey(a) || !nodeMap.containsKey(b)) {
             return;
         }
-        Node<T> aHead = findFather(nodes.get(a));
-        Node<T> bHead = findFather(nodes.get(b));
+        Node<T> aHead = findFather(nodeMap.get(a));
+        Node<T> bHead = findFather(nodeMap.get(b));
         if (aHead != bHead) {
             Integer aSetSize = sizeMap.get(aHead);
             Integer bSetSize = sizeMap.get(bHead);
             Node<T> big = aSetSize > bSetSize ? aHead : bHead;
             Node<T> small = big == aHead ? bHead : aHead;
-            parents.put(small, big);
+            parentMap.put(small, big);
             sizeMap.put(big, aSetSize + bSetSize);
             sizeMap.remove(small);
         }
