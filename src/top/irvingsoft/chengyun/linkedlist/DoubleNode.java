@@ -15,4 +15,13 @@ public class DoubleNode {
     public DoubleNode(int data) {
         this.value = data;
     }
+
+    @Override
+    public String toString() {
+        return "DoubleNode{" +
+                "value=" + value +
+                ", last=" + last +
+                ", next=" + next +
+                '}';
+    }
 }
