@@ -46,6 +46,14 @@ public class JosephusKill {
         return head;
     }
 
+    /**
+     * 求 i 个节点组成的环在 m 位淘汰制中被淘汰的节点，
+     * <p>
+     * 可以由 i - 1 个节点组成的环在 m 位淘汰制中被淘汰的节点计算而来
+     *
+     * @author TimeChaser
+     * @date 2021/9/18 9:24
+     */
     public static int getLive(int i, int m) {
         if (i == 1) {
             return 1;
