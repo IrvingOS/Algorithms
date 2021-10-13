@@ -39,22 +39,19 @@ public class TCPServer extends Thread {
     public void run() {
 
         Socket socket = null;
-        Thread inputThread = null;
-        Thread outputThread = null;
         try {
             System.out.println("等待客户端的连接，端口号为：" + serverSocket.getLocalPort());
             socket = serverSocket.accept();
             System.out.println("远程客户端主机地址为：" + socket.getRemoteSocketAddress());
-            InputStream inputFromClient = socket.getInputStream();
-            DataInputStream in = new DataInputStream(inputFromClient);
-            OutputStream outToClient = socket.getOutputStream();
-            DataOutputStream out = new DataOutputStream(outToClient);
+            DataInputStream in = new DataInputStream(socket.getInputStream());
+            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
             Scanner scan = new Scanner(System.in);
 
+            Thread inputThread = null;
+            Thread outputThread = null;
             inputThread = new Thread(() -> {
                 try {
                     while (true) {
-
                         String inputString = in.readUTF();
                         if (inputString.length() != 0) {
                             System.out.println("Client: " + inputString);
@@ -69,6 +66,8 @@ public class TCPServer extends Thread {
                     while (true) {
                         String outputString = scan.nextLine();
                         if (outputString.equals(EXIT)) {
+                            in.close();
+                            out.close();
                             break;
                         }
                         if (outputString.length() != 0) {

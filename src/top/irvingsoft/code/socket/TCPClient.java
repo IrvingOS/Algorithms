@@ -25,25 +25,21 @@ public class TCPClient {
     public static void main(String[] args) {
 
         if (validatePort(args[1])) {
-            Socket client = null;
-            Thread inputThread = null;
-            Thread outputThread = null;
-            try {
+            try (Socket client = new Socket(args[0], Integer.parseInt(args[1]))){
                 System.out.println("连接到主机：" + args[0] + "，端口号：" + args[1]);
-                client = new Socket(args[0], Integer.parseInt(args[1]));
                 System.out.println("远程主机地址：" + client.getRemoteSocketAddress());
-                InputStream inputFromServer = client.getInputStream();
-                DataInputStream in = new DataInputStream(inputFromServer);
-                OutputStream outputToServer = client.getOutputStream();
-                DataOutputStream out = new DataOutputStream(outputToServer);
+                DataInputStream in = new DataInputStream(client.getInputStream());
+                DataOutputStream out = new DataOutputStream(client.getOutputStream());
                 Scanner scan = new Scanner(System.in);
 
+                Thread inputThread = null;
+                Thread outputThread = null;
                 inputThread = new Thread(() -> {
                     try {
                         while (true) {
                             String inputString = in.readUTF();
                             if (inputString.length() != 0) {
-                                System.out.println("Client: " + inputString);
+                                System.out.println("Server: " + inputString);
                             }
                         }
                     } catch (IOException e) {
@@ -55,6 +51,8 @@ public class TCPClient {
                         while (true) {
                             String outputString = scan.nextLine();
                             if (outputString.equals(EXIT)) {
+                                in.close();
+                                out.close();
                                 break;
                             }
                             if (outputString.length() != 0) {
@@ -72,14 +70,6 @@ public class TCPClient {
                 inputThread.interrupt();
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    if (client != null) {
-                        client.close();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
