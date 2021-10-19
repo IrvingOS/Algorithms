@@ -10,10 +10,18 @@ import java.util.Arrays;
  * @author TimeChaser
  * @date 2021/10/14 15:05
  */
-public class InsertSort {
+public class InsertSort implements IArraySort {
 
-    public static void insertSort(int[] arr) {
+    public static void main(String[] args) {
 
+        int[] arr = {22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 70};
+        System.out.println(Arrays.toString(new InsertSort().sort(arr)));
+    }
+
+    @Override
+    public int[] sort(int[] sourceArray) {
+
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
         for (int i = 1; i < arr.length; i++) {
             int temp = arr[i];
             int j = i;
@@ -25,12 +33,6 @@ public class InsertSort {
                 arr[j] = temp;
             }
         }
-    }
-
-    public static void main(String[] args) {
-
-        int[] arr = {22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 70};
-        insertSort(arr);
-        System.out.println(Arrays.toString(arr));
+        return arr;
     }
 }

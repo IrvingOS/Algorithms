@@ -4,18 +4,18 @@ import java.util.Arrays;
 
 /**
  * @author TimeChaser
- * @date 2021/10/13 15:16
+ * @date 2021/10/19 15:14
  */
-public class BubbleSort {
+public class MergeSort {
 
-    public static void bubbleSort(int[] arr) {
+    public static int[] mergeSort(int[] arr) {
 
+        return arr;
     }
 
     public static void main(String[] args) {
 
         int[] arr = {11, 91, 41, 10, 36, 14, 82, 8, 4, 5};
-        bubbleSort(arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(mergeSort(arr)));
     }
 }

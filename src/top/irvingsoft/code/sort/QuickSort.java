@@ -15,7 +15,20 @@ import java.util.Arrays;
  * @author TimeChaser
  * @date 2021/10/13 12:03
  */
-public class QuickSort {
+public class QuickSort implements IArraySort {
+
+    public static void main(String[] args) {
+
+        int[] arr = {11, 91, 41, 10, 36, 14, 82, 8, 4, 5};
+        System.out.println(Arrays.toString(new InsertSort().sort(arr)));
+    }
+
+    @Override
+    public int[] sort(int[] sourceArray) {
+
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        return quickSort(arr, 0, arr.length - 1);
+    }
 
     public static int getMid(int[] arr, int left, int right) {
 
@@ -34,19 +47,13 @@ public class QuickSort {
         return left;
     }
 
-    public static void quickSort(int[] arr, int left, int right) {
+    public static int[] quickSort(int[] arr, int left, int right) {
 
         if (left < right) {
             int mid = getMid(arr, left, right);
             quickSort(arr, left, mid - 1);
             quickSort(arr, mid + 1, right);
         }
-    }
-
-    public static void main(String[] args) {
-
-        int[] arr = {11, 91, 41, 10, 36, 14, 82, 8, 4, 5};
-        quickSort(arr, 0, arr.length - 1);
-        System.out.println(Arrays.toString(arr));
+        return arr;
     }
 }

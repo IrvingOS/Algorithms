@@ -10,33 +10,27 @@ import java.util.Arrays;
  * @author TimeChaser
  * @date 2021/10/14 11:43
  */
-public class SelectionSort {
-
-    public static void swap(int[] arr, int a, int b) {
-        arr[a] ^= arr[b];
-        arr[b] ^= arr[a];
-        arr[a] ^= arr[b];
-    }
-
-    public static void selectionSort(int[] arr) {
-
-        for (int i = 0; i < arr.length - 1; i++) {
-            int min = i;
-
-            for (int j = i + 1; j < arr.length; j++) {
-                min = arr[min] < arr[j] ? min : j;
-            }
-
-            if (i != min) {
-                swap(arr, i, min);
-            }
-        }
-    }
+public class SelectionSort implements IArraySort {
 
     public static void main(String[] args) {
 
         int[] arr = {22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 70};
-        selectionSort(arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(new SelectionSort().sort(arr)));
+    }
+
+    @Override
+    public int[] sort(int[] sourceArray) {
+
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                min = arr[min] < arr[j] ? min : j;
+            }
+            if (i != min) {
+                swap(arr, i, min);
+            }
+        }
+        return arr;
     }
 }

@@ -10,12 +10,12 @@ import java.util.Arrays;
  * @author TimeChaser
  * @date 2021/10/13 14:37
  */
-public class BubbleSort {
+public class BubbleSort implements IArraySort {
 
-    public static void swap(int[] arr, int a, int b) {
-        arr[a] ^= arr[b];
-        arr[b] ^= arr[a];
-        arr[a] ^= arr[b];
+    public static void main(String[] args) {
+
+        int[] arr = {22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 70};
+        System.out.println(Arrays.toString(new BubbleSort().sort(arr)));
     }
 
     /**
@@ -28,8 +28,10 @@ public class BubbleSort {
      * @author TimeChaser
      * @date 2021/10/13 14:48
      */
-    public static void bubbleSort(int[] arr) {
+    @Override
+    public int[] sort(int[] sourceArray) {
 
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
         for (int i = 1; i < arr.length; i++) {
             boolean flag = true;
             for (int j = 0; j < arr.length - 1; j++) {
@@ -39,15 +41,9 @@ public class BubbleSort {
                 }
             }
             if (flag) {
-                return;
+                return arr;
             }
         }
-    }
-
-    public static void main(String[] args) {
-
-        int[] arr = {22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 70};
-        bubbleSort(arr);
-        System.out.println(Arrays.toString(arr));
+        return arr;
     }
 }
