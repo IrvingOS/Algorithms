@@ -8,8 +8,18 @@ import java.util.*;
  */
 public class SlowMap<K, V> extends AbstractMap<K, V> {
 
-    private List<K> keys = new ArrayList<>();
-    private List<V> values = new ArrayList<>();
+    private final List<K> keys = new ArrayList<>();
+    private final List<V> values = new ArrayList<>();
+
+    public static void main(String[] args) {
+        SlowMap<String, String> stringStringSlowMap = new SlowMap<>();
+        stringStringSlowMap.put("CAMEROON", "Yaounde");
+        stringStringSlowMap.put("CONGO", "Brazzaville");
+        stringStringSlowMap.put("ANGOLA", "Luanda");
+        System.out.println(stringStringSlowMap);
+        System.out.println(stringStringSlowMap.get("CONGO"));
+        System.out.println(stringStringSlowMap.entrySet());
+    }
 
     @Override
     public V get(Object key) {
@@ -40,15 +50,5 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
             set.add(new MapEntry<>(kIterator.next(), vIterator.next()));
         }
         return set;
-    }
-
-    public static void main(String[] args) {
-        SlowMap<String, String> stringStringSlowMap = new SlowMap<>();
-        stringStringSlowMap.put("CAMEROON", "Yaounde");
-        stringStringSlowMap.put("CONGO", "Brazzaville");
-        stringStringSlowMap.put("ANGOLA", "Luanda");
-        System.out.println(stringStringSlowMap);
-        System.out.println(stringStringSlowMap.get("CONGO"));
-        System.out.println(stringStringSlowMap.entrySet());
     }
 }

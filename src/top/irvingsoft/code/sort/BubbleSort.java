@@ -8,6 +8,7 @@ import java.util.Arrays;
  * 时间复杂度：O(n^2)
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/10/13 14:37
  */
 public class BubbleSort implements IArraySort {
@@ -25,6 +26,7 @@ public class BubbleSort implements IArraySort {
      * <p>
      * 因为如果最小的数在最后的下标上，只需要 arr.length - 1 轮就能交换到 0 号下标
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/10/13 14:48
      */

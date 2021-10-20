@@ -3,7 +3,6 @@ package top.irvingsoft.leetcode.code1;
 import java.util.HashMap;
 
 /**
- * @author TimeChaser
  * 两数之和
  * <p>
  * 解题思路：
@@ -11,6 +10,9 @@ import java.util.HashMap;
  * <p>
  * 2. Map 特性解法：遍历数组，检查 Map 中是否有当前数值符合条件的另一个数值的键，没有则存入当前数值作为 key 及其下标值作为 value 的键值对；
  * 有则返回当前数值的下表索引值及 Map 中符合条件的另一个数值的 value 值的数组
+ *
+ * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/3/6 2:25
  */
 class Solution {

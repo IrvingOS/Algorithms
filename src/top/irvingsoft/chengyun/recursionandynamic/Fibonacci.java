@@ -4,6 +4,7 @@ package top.irvingsoft.chengyun.recursionandynamic;
  * Page 199
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/9/25 15:06
  */
 public class Fibonacci {
@@ -43,7 +44,7 @@ public class Fibonacci {
         }
         int[][] temp = m;
         for (; p != 0; p >>= 1) {
-            if ((p & 1)!=0) {
+            if ((p & 1) != 0) {
                 res = multiMatrix(res, temp);
             }
             temp = multiMatrix(temp, temp);

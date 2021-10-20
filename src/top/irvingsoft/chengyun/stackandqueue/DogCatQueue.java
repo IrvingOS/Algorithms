@@ -9,6 +9,7 @@ import java.util.Queue;
  * 用两个队列分别存储 Dog 和 Cat，在出队列前比较两个队列头部计数器的大小，小的出队列
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/8 15:12
  */
 public class DogCatQueue {
@@ -21,6 +22,29 @@ public class DogCatQueue {
         this.dogQueue = new LinkedList<>();
         this.catQueue = new LinkedList<>();
         this.count = 0;
+    }
+
+    public static void main(String[] args) {
+
+        DogCatQueue dogCatQueue = new DogCatQueue();
+        System.out.println(dogCatQueue.isEmpty());
+        System.out.println(dogCatQueue.isCatEmpty());
+        System.out.println(dogCatQueue.isDogEmpty());
+        dogCatQueue.add(new Dog());
+        System.out.println(dogCatQueue.isDogEmpty());
+        dogCatQueue.add(new Cat());
+        System.out.println(dogCatQueue.isCatEmpty());
+        dogCatQueue.add(new Dog());
+        dogCatQueue.add(new Dog());
+        dogCatQueue.add(new Cat());
+        System.out.println(dogCatQueue.poll().toString());
+        System.out.println(dogCatQueue.pollCat().toString());
+        System.out.println(dogCatQueue.pollCat().toString());
+        System.out.println(dogCatQueue.poll().toString());
+        System.out.println(dogCatQueue.poll().toString());
+        System.out.println(dogCatQueue.isEmpty());
+        System.out.println(dogCatQueue.isCatEmpty());
+        System.out.println(dogCatQueue.isDogEmpty());
     }
 
     public void add(Pet pet) {
@@ -76,28 +100,5 @@ public class DogCatQueue {
 
     public boolean isCatEmpty() {
         return this.catQueue.isEmpty();
-    }
-
-    public static void main(String[] args) {
-
-        DogCatQueue dogCatQueue = new DogCatQueue();
-        System.out.println(dogCatQueue.isEmpty());
-        System.out.println(dogCatQueue.isCatEmpty());
-        System.out.println(dogCatQueue.isDogEmpty());
-        dogCatQueue.add(new Dog());
-        System.out.println(dogCatQueue.isDogEmpty());
-        dogCatQueue.add(new Cat());
-        System.out.println(dogCatQueue.isCatEmpty());
-        dogCatQueue.add(new Dog());
-        dogCatQueue.add(new Dog());
-        dogCatQueue.add(new Cat());
-        System.out.println(dogCatQueue.poll().toString());
-        System.out.println(dogCatQueue.pollCat().toString());
-        System.out.println(dogCatQueue.pollCat().toString());
-        System.out.println(dogCatQueue.poll().toString());
-        System.out.println(dogCatQueue.poll().toString());
-        System.out.println(dogCatQueue.isEmpty());
-        System.out.println(dogCatQueue.isCatEmpty());
-        System.out.println(dogCatQueue.isDogEmpty());
     }
 }

@@ -46,12 +46,12 @@ public class Tree {
         return hasChildren;
     }
 
-    public void setLastChild(boolean isLastChild) {
-        this.isLastChild = isLastChild;
-    }
-
     public boolean isLastChild() {
         return isLastChild;
+    }
+
+    public void setLastChild(boolean isLastChild) {
+        this.isLastChild = isLastChild;
     }
 
     public List<Tree> getChildren() {

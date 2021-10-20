@@ -8,6 +8,7 @@ import java.util.Arrays;
  * 时间复杂度：O(n^2)
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/10/14 11:43
  */
 public class SelectionSort implements IArraySort {

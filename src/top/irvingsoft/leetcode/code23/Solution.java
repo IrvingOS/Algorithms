@@ -12,10 +12,13 @@ import java.util.PriorityQueue;
  * 优先队列：
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/4/19 19:54
  */
 
 public class Solution {
+
+    public static PriorityQueue<Status> queue = new PriorityQueue<>();
 
     public static ListNode mergeKListsOrder(ListNode[] lists) {
 
@@ -67,25 +70,8 @@ public class Solution {
         return head.next;
     }
 
-    public static class Status implements Comparable<Status> {
-        int val;
-        ListNode ptr;
-
-        Status(int val, ListNode ptr) {
-            this.val = val;
-            this.ptr = ptr;
-        }
-
-        @Override
-        public int compareTo(Status status2) {
-            return this.val - status2.val;
-        }
-    }
-
-    public static PriorityQueue<Status> queue = new PriorityQueue<>();
-
     public static ListNode mergeKListsPriority(ListNode[] lists) {
-        for (ListNode node: lists) {
+        for (ListNode node : lists) {
             if (node != null) {
                 queue.offer(new Status(node.val, node));
             }
@@ -106,5 +92,20 @@ public class Solution {
     public static void main(String[] args) {
 
 
+    }
+
+    public static class Status implements Comparable<Status> {
+        int val;
+        ListNode ptr;
+
+        Status(int val, ListNode ptr) {
+            this.val = val;
+            this.ptr = ptr;
+        }
+
+        @Override
+        public int compareTo(Status status2) {
+            return this.val - status2.val;
+        }
     }
 }

@@ -8,6 +8,7 @@ import java.util.Stack;
  * 两个栈组成的队列
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/8 10:59
  */
 public class TwoStacksQueue {
@@ -19,6 +20,24 @@ public class TwoStacksQueue {
 
         this.stackPush = new Stack<>();
         this.stackPop = new Stack<>();
+    }
+
+    public static void main(String[] args) {
+        TwoStacksQueue twoStacksQueue = new TwoStacksQueue();
+        twoStacksQueue.add(9);
+        twoStacksQueue.add(5);
+        twoStacksQueue.add(2);
+        System.out.println(twoStacksQueue.peek());
+        twoStacksQueue.add(7);
+
+        System.out.println(twoStacksQueue.poll());
+        System.out.println(twoStacksQueue.poll());
+        System.out.println(twoStacksQueue.poll());
+        System.out.println(twoStacksQueue.poll());
+        twoStacksQueue.add(2);
+        twoStacksQueue.add(7);
+        System.out.println(twoStacksQueue.poll());
+        System.out.println(twoStacksQueue.poll());
     }
 
     public void add(int data) {
@@ -47,24 +66,6 @@ public class TwoStacksQueue {
             }
         }
         return this.stackPop.peek();
-    }
-
-    public static void main(String[] args) {
-        TwoStacksQueue twoStacksQueue = new TwoStacksQueue();
-        twoStacksQueue.add(9);
-        twoStacksQueue.add(5);
-        twoStacksQueue.add(2);
-        System.out.println(twoStacksQueue.peek());
-        twoStacksQueue.add(7);
-
-        System.out.println(twoStacksQueue.poll());
-        System.out.println(twoStacksQueue.poll());
-        System.out.println(twoStacksQueue.poll());
-        System.out.println(twoStacksQueue.poll());
-        twoStacksQueue.add(2);
-        twoStacksQueue.add(7);
-        System.out.println(twoStacksQueue.poll());
-        System.out.println(twoStacksQueue.poll());
     }
 
 }

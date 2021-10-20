@@ -4,6 +4,7 @@ package top.irvingsoft.chengyun.linkedlist;
  * 单链表
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/9/7 23:24
  */
 public class Node {

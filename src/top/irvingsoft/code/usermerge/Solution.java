@@ -9,21 +9,10 @@ import java.util.HashMap;
  * 用并查集合并用户
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/8 10:25
  */
 public class Solution {
-
-    public static class User {
-        public String a;
-        public String b;
-        public String c;
-
-        public User(String a, String b, String c) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        }
-    }
 
     public static int mergeUsers(User[] users) {
 
@@ -52,5 +41,17 @@ public class Solution {
         }
 
         return userUnionSet.getSize();
+    }
+
+    public static class User {
+        public String a;
+        public String b;
+        public String c;
+
+        public User(String a, String b, String c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
     }
 }

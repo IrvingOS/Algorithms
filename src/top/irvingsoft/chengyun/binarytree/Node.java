@@ -4,6 +4,7 @@ package top.irvingsoft.chengyun.binarytree;
  * 二叉树节点
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/9/18 10:07
  */
 public class Node {

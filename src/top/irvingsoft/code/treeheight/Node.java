@@ -4,6 +4,7 @@ package top.irvingsoft.code.treeheight;
  * Tree 结点
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/6 22:28
  */
 public class Node {

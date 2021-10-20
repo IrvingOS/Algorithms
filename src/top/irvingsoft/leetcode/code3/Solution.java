@@ -3,8 +3,9 @@ package top.irvingsoft.leetcode.code3;
 import java.util.HashSet;
 
 /**
- * @author TimeChaser
  * 无重复字符的最长字串
+ *
+ * @author TimeChaser
  * @date 2021/3/11 12:29
  */
 public class Solution {
@@ -51,6 +52,7 @@ public class Solution {
  *      具有 HashSet 的查询速度
  *      使用链表维护元素插入的顺序
  *
+ * @author TimeChaser
  * @author TimeChaser
  * @date 2021/3/12 16:29
  */

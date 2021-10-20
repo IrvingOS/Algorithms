@@ -1,8 +1,9 @@
 package top.irvingsoft.leetcode.code4;
 
 /**
- * @author TimeChaser
  * 寻找两个正序数组的中位数
+ *
+ * @author TimeChaser
  * @date 2021/3/17 19:23
  */
 public class Solution {
@@ -12,6 +13,7 @@ public class Solution {
      * <p>
      * 合并数组，然后找中位数
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/5/3 0:57
      */

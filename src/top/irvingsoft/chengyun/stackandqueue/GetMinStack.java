@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * Page 19
- *
+ * <p>
  * 设计一个有 getMin 功能的栈
  * <p>
  * 实现一个特殊的栈，在实现栈的基本功能的基础上，再实现返回栈中最小元素的操作
@@ -23,6 +23,7 @@ import java.util.Stack;
  * 在出栈后，同步弹出 stackMin 的当前最小值。
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/8 10:39
  */
 public class GetMinStack {
@@ -33,6 +34,21 @@ public class GetMinStack {
     public GetMinStack() {
         this.stackData = new Stack<>();
         this.stackMin = new Stack<>();
+    }
+
+    public static void main(String[] args) {
+
+        GetMinStack getMinStack = new GetMinStack();
+        getMinStack.push(5);
+        System.out.println(getMinStack.getMin());
+        getMinStack.push(7);
+        System.out.println(getMinStack.getMin());
+        getMinStack.push(2);
+        System.out.println(getMinStack.getMin());
+        getMinStack.push(1);
+        System.out.println(getMinStack.getMin());
+        getMinStack.push(4);
+        System.out.println(getMinStack.getMin());
     }
 
     public int pop() {
@@ -60,20 +76,5 @@ public class GetMinStack {
             throw new RuntimeException("Stack is Empty!");
         }
         return this.stackMin.peek();
-    }
-
-    public static void main(String[] args) {
-
-        GetMinStack getMinStack = new GetMinStack();
-        getMinStack.push(5);
-        System.out.println(getMinStack.getMin());
-        getMinStack.push(7);
-        System.out.println(getMinStack.getMin());
-        getMinStack.push(2);
-        System.out.println(getMinStack.getMin());
-        getMinStack.push(1);
-        System.out.println(getMinStack.getMin());
-        getMinStack.push(4);
-        System.out.println(getMinStack.getMin());
     }
 }

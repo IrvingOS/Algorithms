@@ -1,8 +1,9 @@
 package top.irvingsoft.leetcode.code7;
 
 /**
- * @author TimeChaser
  * 整数反转
+ *
+ * @author TimeChaser
  * @date 2021/4/1 11:22
  * <p>
  * MAX_INT: 2^31 - 1 = 2147483647

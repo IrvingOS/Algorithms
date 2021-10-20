@@ -6,6 +6,7 @@ package top.irvingsoft.chengyun.stackandqueue;
  * 宠物进队
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/8 14:45
  */
 public class PetEnterQueue {

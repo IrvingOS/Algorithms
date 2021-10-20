@@ -3,8 +3,10 @@ package top.irvingsoft.leetcode.code234;
 import java.util.ArrayList;
 
 /**
- * @author TimeChaser
  * 回文链表
+ *
+ * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/4/12 10:13
  */
 public class Solution {
@@ -14,6 +16,7 @@ public class Solution {
     /**
      * 将链表转换成数组后用双指针（首尾指针）
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/4/12 10:41
      */
@@ -39,7 +42,9 @@ public class Solution {
     }
 
     /**
-     *  递归。用外部指针指向头部，直到递归到尾部时开始首尾比较
+     * 递归。用外部指针指向头部，直到递归到尾部时开始首尾比较
+     *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/4/12 10:42
      */
@@ -62,13 +67,15 @@ public class Solution {
     }
 
     /**
-     *  快慢指针
+     * 快慢指针
      * <p>
      * 1. 找到前半部分链表的尾结点
      * 2. 反转后半部分链表
      * 3. 判断是否回文
      * 4. 恢复链表
      * 5. 返回结果
+     *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/4/12 10:44
      */
@@ -95,7 +102,7 @@ public class Solution {
     }
 
     private static ListNode endOfFirstHalf(ListNode head) {
-        
+
         ListNode fast = head, slow = head;
         while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
@@ -103,9 +110,9 @@ public class Solution {
         }
         return slow;
     }
-    
+
     private static ListNode reverseList(ListNode head) {
-        
+
         ListNode prev = null, curr = head;
         while (curr != null) {
             ListNode nextTemp = curr.next;

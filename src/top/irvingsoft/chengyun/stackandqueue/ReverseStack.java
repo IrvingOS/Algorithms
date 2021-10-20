@@ -10,6 +10,7 @@ import java.util.Stack;
  * 先进先出
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/8 11:26
  */
 public class ReverseStack {
@@ -18,6 +19,19 @@ public class ReverseStack {
 
     public ReverseStack() {
         this.stack = new Stack<>();
+    }
+
+    public static void main(String[] args) {
+
+        ReverseStack reverseStack = new ReverseStack();
+        reverseStack.push(5);
+        reverseStack.push(1);
+        reverseStack.push(3);
+        reverseStack.push(8);
+        reverseStack.push(6);
+        reverseStack.reverse();
+        System.out.println(reverseStack.pop());
+        System.out.println(reverseStack.popReverse());
     }
 
     public void push(int data) {
@@ -67,18 +81,5 @@ public class ReverseStack {
         int data = getAndRemoveLastElement(stack);
         reverse(stack);
         stack.push(data);
-    }
-
-    public static void main(String[] args) {
-
-        ReverseStack reverseStack = new ReverseStack();
-        reverseStack.push(5);
-        reverseStack.push(1);
-        reverseStack.push(3);
-        reverseStack.push(8);
-        reverseStack.push(6);
-        reverseStack.reverse();
-        System.out.println(reverseStack.pop());
-        System.out.println(reverseStack.popReverse());
     }
 }

@@ -1,13 +1,14 @@
 package top.irvingsoft.leetcode.code13;
 
 /**
- * @author TimeChaser
  * 罗马数字转整数
  * <p>
  * 解题思：
  * 1. 从后向前解析字符串，如果当前字符代表的数值大于右值，则累加；否则，减去当前数值
  * <p>
  * 2. 从前向后解析字符串，如果当前字符代表的数值小于左值，则累加左值；否则，减去左值。因为最后的数值没有右值，所以最后的数值为正
+ *
+ * @author TimeChaser
  * @date 2021/4/1 12:05
  */
 public class Solution {

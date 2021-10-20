@@ -1,12 +1,13 @@
 package top.irvingsoft.leetcode.code27;
 
 /**
- * @author TimeChaser
  * 移除元素
  * <p>
  * 解题思路：
  * 1. 还是双指针
  * 2. 优化：当删除的元素很少时，避免做不必要的赋值操作，可以将不符合的元素与最后一个元素进行交换并释放最后一个元素。
+ *
+ * @author TimeChaser
  * @date 2021/4/9 10:14
  */
 public class Solution {
@@ -39,6 +40,6 @@ public class Solution {
     public static void main(String[] args) {
 
         System.out.println(removeElementMore(new int[]{3, 2, 2, 3}, 3));
-        System.out.println(removeElementMore(new int[]{0,1,2,2,3,0,4,2}, 2));
+        System.out.println(removeElementMore(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2));
     }
 }

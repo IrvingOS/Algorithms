@@ -6,6 +6,7 @@ import java.util.Stack;
  * Page 66
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/9/18 9:27
  */
 public class Palindrome {

@@ -1,8 +1,9 @@
 package top.irvingsoft.leetcode.code25;
 
 /**
- * @author TimeChaser
  * 自定义单链表
+ *
+ * @author TimeChaser
  * @date 2021/3/6 2:26
  */
 public class Node {

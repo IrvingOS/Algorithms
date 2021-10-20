@@ -1,6 +1,8 @@
 package top.irvingsoft.code.socket;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -25,7 +27,7 @@ public class TCPClient {
     public static void main(String[] args) {
 
         if (validatePort(args[1])) {
-            try (Socket client = new Socket(args[0], Integer.parseInt(args[1]))){
+            try (Socket client = new Socket(args[0], Integer.parseInt(args[1]))) {
                 System.out.println("连接到主机：" + args[0] + "，端口号：" + args[1]);
                 System.out.println("远程主机地址：" + client.getRemoteSocketAddress());
                 DataInputStream in = new DataInputStream(client.getInputStream());

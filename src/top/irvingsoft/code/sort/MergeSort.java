@@ -8,6 +8,7 @@ import java.util.Arrays;
  * 时间复杂度：O(n log n)
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/10/19 14:45
  */
 public class MergeSort implements IArraySort {

@@ -7,14 +7,15 @@ import java.util.LinkedList;
 import java.util.Set;
 
 /**
- * @author TimeChaser
  * 课程表问题
+ *
+ * @author TimeChaser
  * @date 2021/3/6 2:25
  */
 public class Solution {
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
-        Set<Integer> sets[] = new HashSet[numCourses];
-        int dCount[] = new int[numCourses];
+        Set<Integer>[] sets = new HashSet[numCourses];
+        int[] dCount = new int[numCourses];
         LinkedList<Integer> inProcess = new LinkedList<>();
 
         for (int i = 0; i < numCourses; i++) {
@@ -32,7 +33,7 @@ public class Solution {
                     }
                 }
          */
- 		int flag = 1;
+        int flag = 1;
         for (int i = 0; i < dCount.length; i++) {
             if (dCount[i] == 0) {
                 flag = 0;
@@ -83,7 +84,6 @@ public class Solution {
         ints[4][1] = 0;
         ints[5][0] = 0;
         ints[5][1] = 5;
-
 
 
         System.out.println(canFinish(numCourses, ints));

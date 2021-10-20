@@ -1,8 +1,9 @@
 package top.irvingsoft.leetcode.code5;
 
 /**
- * @author TimeChaser
  * 最长回文子串
+ *
+ * @author TimeChaser
  * @date 2021/3/12 16:36
  */
 public class Solution {
@@ -13,6 +14,7 @@ public class Solution {
      * j - i + 1 > maxLength && isPalindromeViolent(i, j, sArray)
      * 这一个短路判断是在暴力枚举法中节省时间的重要手段
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/3/12 18:19
      */
@@ -49,7 +51,9 @@ public class Solution {
     }
 
     /**
-     *  中心扩展法
+     * 中心扩展法
+     *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/3/12 18:19
      */
@@ -84,7 +88,9 @@ public class Solution {
     }
 
     /**
-     *  动态规划法
+     * 动态规划法
+     *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/3/12 18:20
      */

@@ -28,6 +28,7 @@ public class BaseDataTypeTest {
          *          8 * (16^3) + 1 * (16^1) = 32784;
          *
          * @author TimeChaser
+         * @author TimeChaser
          * @date 2021/4/27 14:48
          */
 

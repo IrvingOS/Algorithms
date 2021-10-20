@@ -10,6 +10,7 @@ import java.util.Map;
  * 空间复杂度：O(1)
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/7/5 12:35
  */
 public class Solution {
@@ -19,6 +20,7 @@ public class Solution {
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/7/6 22:54
      */
@@ -47,12 +49,14 @@ public class Solution {
     }
 
     /**
-     *  依次删掉两个不同的数
+     * 依次删掉两个不同的数
      * 时间复杂度：O(n)
      * 空间复杂度：O(1)
      * 摩尔投票算法
      * 候选/血量
      * 存在候选时血量不为 0，血量为 0 时不存在候选
+     *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/7/6 23:00
      */

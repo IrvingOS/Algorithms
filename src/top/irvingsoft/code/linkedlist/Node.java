@@ -4,6 +4,7 @@ package top.irvingsoft.code.linkedlist;
  * 链表结点
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/7 14:18
  */
 public class Node {

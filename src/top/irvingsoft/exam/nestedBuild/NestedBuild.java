@@ -71,7 +71,7 @@ public class NestedBuild {
         }
         buffer.append("}\n");
 
-         System.out.println(buffer.toString());
+        System.out.println(buffer);
     }
 
     private static boolean treeIsContains(ArrayList<Tree> treeList, String key, Integer value, String parentKey, int index, int length) {
@@ -81,6 +81,7 @@ public class NestedBuild {
     /**
      * String.repeat(int); 方法从 Jdk 11 开始引入
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/3/6 2:08
      */

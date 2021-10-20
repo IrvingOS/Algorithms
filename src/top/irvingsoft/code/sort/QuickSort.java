@@ -13,6 +13,7 @@ import java.util.Arrays;
  * 然后在这个基准两边重复这个流程。
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/10/13 12:03
  */
 public class QuickSort implements IArraySort {
@@ -21,13 +22,6 @@ public class QuickSort implements IArraySort {
 
         int[] arr = {11, 91, 41, 10, 36, 14, 82, 8, 4, 5};
         System.out.println(Arrays.toString(new InsertSort().sort(arr)));
-    }
-
-    @Override
-    public int[] sort(int[] sourceArray) {
-
-        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
-        return quickSort(arr, 0, arr.length - 1);
     }
 
     public static int getMid(int[] arr, int left, int right) {
@@ -55,5 +49,12 @@ public class QuickSort implements IArraySort {
             quickSort(arr, mid + 1, right);
         }
         return arr;
+    }
+
+    @Override
+    public int[] sort(int[] sourceArray) {
+
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        return quickSort(arr, 0, arr.length - 1);
     }
 }

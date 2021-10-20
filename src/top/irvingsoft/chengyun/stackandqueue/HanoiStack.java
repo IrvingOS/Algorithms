@@ -2,6 +2,10 @@ package top.irvingsoft.chengyun.stackandqueue;
 
 import java.util.Stack;
 
+enum Action {
+    No, LToM, MToL, MToR, RToM
+}
+
 /**
  * Page 32
  * <p>
@@ -21,6 +25,7 @@ import java.util.Stack;
  * <p>
  * 在遵循上述两个原则的条件下循环上述四个动作（每次循环只会执行符合条件的两个动作），直到目标栈的大小为层数 + 1（包含最大整数）
  *
+ * @author TimeChaser
  * @author TimeChaser
  * @date 2021/8/8 15:53
  */
@@ -112,8 +117,4 @@ public class HanoiStack {
 
         hanoiProblem2(3, "left", "mid", "right");
     }
-}
-
-enum Action {
-    No, LToM, MToL, MToR, RToM
 }

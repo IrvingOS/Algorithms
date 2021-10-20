@@ -3,7 +3,6 @@ package top.irvingsoft.leetcode.code20;
 import java.util.Stack;
 
 /**
- * @author TimeChaser
  * 有效的括号
  * <p>
  * 解题思路：
@@ -12,6 +11,8 @@ import java.util.Stack;
  * 可能出现的问题：
  * 1. 第一字符为右括号，此时栈为空，出栈报错。所以每次出栈前都要判断栈是否为空，为空则匹配出错
  * 2. 字符全为左括号，在匹配过程中只进行了入栈操作，没有进行匹配从而没有判断为 false。所以在最后得判断栈是否为空，不为空则匹配出错。
+ *
+ * @author TimeChaser
  * @date 2021/4/7 13:09
  */
 public class Solution {

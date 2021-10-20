@@ -4,11 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author TimeChaser
  * 环形链表
  * <p>
  * 1、哈希表
  * 2、快慢指针
+ *
+ * @author TimeChaser
  * @date 2021/4/20 12:31
  */
 public class Solution {

@@ -1,8 +1,9 @@
 package top.irvingsoft.leetcode.code21;
 
 /**
- * @author TimeChaser
  * 合并两个有序链表
+ *
+ * @author TimeChaser
  * @date 2021/4/7 13:32
  */
 public class Solution {
@@ -10,6 +11,7 @@ public class Solution {
     /**
      * 迭代，然后拼接迭代后不为空的链表
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/4/8 10:57
      */
@@ -33,7 +35,9 @@ public class Solution {
     }
 
     /**
-     *  递归
+     * 递归
+     *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/4/8 10:59
      */

@@ -4,6 +4,7 @@ package top.irvingsoft.code.treeheight;
  * 与二叉树高度相关的解法
  *
  * @author TimeChaser
+ * @author TimeChaser
  * @date 2021/8/7 16:53
  */
 public class Solution {
@@ -14,6 +15,7 @@ public class Solution {
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/7 17:33
      */
@@ -30,6 +32,7 @@ public class Solution {
      * <br>
      * 左树不为空或者右树不为空，继续递归计算左右树的高度，返回左右数中更小的高度 + 根结点高度 1
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/7 17:34
      */
@@ -53,6 +56,7 @@ public class Solution {
      * 思路：
      * 实时计算可能为叶子结点的高度，在确定为叶子结点后收集最小高度，然后进行相应的回溯。
      *
+     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/7 21:32
      */
