@@ -1,5 +1,6 @@
 package top.irvingsoft.leetcode.code23;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -16,8 +17,6 @@ import java.util.PriorityQueue;
  */
 
 public class Solution {
-
-    public static PriorityQueue<Status> queue = new PriorityQueue<>();
 
     /**
      * 顺序合并
@@ -88,41 +87,30 @@ public class Solution {
      * @date 2021/10/22 15:50
      */
     public static ListNode mergeKListsPriority(ListNode[] lists) {
-        for (ListNode node : lists) {
-            if (node != null) {
-                queue.offer(new Status(node.val, node));
+        if (lists.length == 0) {
+            return null;
+        }
+        ListNode dummy = new ListNode(-1);
+        ListNode p = dummy;
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, Comparator.comparingInt(a -> a.val));
+        for (ListNode head : lists) {
+            if (head != null) {
+                pq.add(head);
             }
         }
-        ListNode head = new ListNode(0);
-        ListNode tail = head;
-        while (!queue.isEmpty()) {
-            Status f = queue.poll();
-            tail.next = f.ptr;
-            tail = tail.next;
-            if (f.ptr.next != null) {
-                queue.offer(new Status(f.ptr.next.val, f.ptr.next));
+        while (!pq.isEmpty()) {
+            ListNode node = pq.poll();
+            p.next = node;
+            if (node.next != null) {
+                pq.add(node.next);
             }
+            p = p.next;
         }
-        return head.next;
+        return dummy.next;
     }
 
     public static void main(String[] args) {
 
 
-    }
-
-    public static class Status implements Comparable<Status> {
-        int val;
-        ListNode ptr;
-
-        Status(int val, ListNode ptr) {
-            this.val = val;
-            this.ptr = ptr;
-        }
-
-        @Override
-        public int compareTo(Status status2) {
-            return this.val - status2.val;
-        }
     }
 }

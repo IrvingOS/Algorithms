@@ -16,21 +16,20 @@ public class Solution {
      * @date 2021/4/8 10:57
      */
     public static ListNode mergeTwoListsIteration(ListNode l1, ListNode l2) {
-
-        ListNode head = new ListNode();
-        ListNode cur = head;
-        while (l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                cur.next = l1;
+        ListNode dummy = new ListNode(-1);
+        ListNode p = dummy;
+        while(l1 != null && l2 != null) {
+            if(l1.val <= l2.val) {
+                p.next = l1;
                 l1 = l1.next;
             } else {
-                cur.next = l2;
+                p.next = l2;
                 l2 = l2.next;
             }
-            cur = cur.next;
+            p = p.next;
         }
-        cur.next = l1 != null ? l1 : l2;
-        return head.next;
+        p.next = l1 != null ? l1 : l2;
+        return dummy.next;
     }
 
     /**

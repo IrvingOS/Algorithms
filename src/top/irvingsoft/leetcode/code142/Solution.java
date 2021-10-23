@@ -20,19 +20,10 @@ public class Solution {
      * @date 2021/9/24 18:36
      */
     public static ListNode detectCycle(ListNode head) {
-
-        if (head == null) {
-            return null;
-        }
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast != null) {
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
-            if (fast.next != null) {
-                fast = fast.next.next;
-            } else {
-                return null;
-            }
+            fast = fast.next.next;
             if (slow == fast) {
                 ListNode temp = head;
                 while (temp != slow) {
@@ -46,10 +37,6 @@ public class Solution {
     }
 
     public static ListNode detectCycleHashSet(ListNode head) {
-
-        if (head == null) {
-            return null;
-        }
         ListNode cur = head;
         HashSet<ListNode> visited = new HashSet<>();
         while (cur != null) {

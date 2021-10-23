@@ -8,8 +8,13 @@ package top.irvingsoft.chengyun.linkedlist;
  */
 public class RemoveLastKthNode {
 
-    public static Node removeLastKthNode(Node head, int lastKth) {
-
+    /**
+     * 两次遍历找到倒数第 K 个节点的上一个节点
+     *
+     * @author TimeChaser
+     * @date 2021/10/23 15:24
+     */
+    public static Node removeLastKthNodeTwoTraverse(Node head, int lastKth) {
         if (head == null || lastKth < 1) {
             return head;
         }
@@ -31,6 +36,33 @@ public class RemoveLastKthNode {
         return head;
     }
 
+    /**
+     * 两个指针找到倒数第 K 个节点的上一个节点
+     *
+     * @author TimeChaser
+     * @date 2021/10/23 15:42
+     */
+    public static Node removeLastKthNodeTwoPointer(Node head, int lastKth) {
+        Node dummy = new Node(-1);
+        dummy.next = head;
+        Node pre = findFromEnd(dummy, lastKth + 1);
+        pre.next = pre.next.next;
+        return dummy.next;
+    }
+
+    public static Node findFromEnd(Node head, int k) {
+        Node fast = head;
+        for (int i = 0; i < k; i++) {
+            fast = fast.next;
+        }
+        Node slow = head;
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
     public static void main(String[] args) {
 
         Node head = new Node(0);
@@ -39,10 +71,10 @@ public class RemoveLastKthNode {
         head.next.next.next = new Node(3);
         head.next.next.next.next = new Node(4);
         head.next.next.next.next.next = new Node(5);
-        System.out.println(removeLastKthNode(head, 6).toString());
+        System.out.println(removeLastKthNodeTwoTraverse(head, 6).toString());
     }
 
-    public static DoubleNode removeLastKthNode(DoubleNode head, int lastKth) {
+    public static DoubleNode removeLastKthNodeTwoTraverse(DoubleNode head, int lastKth) {
 
         if (head == null || lastKth < 1) {
             return head;

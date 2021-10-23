@@ -7,6 +7,7 @@ import java.util.Set;
  * 环形链表
  * <p>
  * 1、哈希表
+ * <p>
  * 2、快慢指针
  *
  * @author TimeChaser
@@ -27,18 +28,14 @@ public class Solution {
     }
 
     public static boolean hasCycleFastAndSlow(ListNode head) {
-
-        if (head == null || head.next == null) {
-            return false;
-        }
-        ListNode slow = head, fast = head.next;
-        while (slow != fast) {
-            if (fast == null || fast.next == null) {
-                return false;
-            }
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 }
