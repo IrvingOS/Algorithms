@@ -20,7 +20,6 @@ public class Solution {
      * 空间复杂度：O(n)
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/7/6 22:54
      */
     public static int verify(int[] arr) {
@@ -55,7 +54,6 @@ public class Solution {
      * 候选/血量
      * 存在候选时血量不为 0，血量为 0 时不存在候选
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/7/6 23:00
      */

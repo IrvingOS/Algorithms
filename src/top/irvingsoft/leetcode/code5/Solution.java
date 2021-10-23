@@ -15,7 +15,6 @@ public class Solution {
      * 这一个短路判断是在暴力枚举法中节省时间的重要手段
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/3/12 18:19
      */
     public static String longestPalindromeViolent(String s) {
@@ -54,7 +53,6 @@ public class Solution {
      * 中心扩展法
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/3/12 18:19
      */
     public static String longestPalindromeViolentCenterExtension(String s) {
@@ -90,7 +88,6 @@ public class Solution {
     /**
      * 动态规划法
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/3/12 18:20
      */

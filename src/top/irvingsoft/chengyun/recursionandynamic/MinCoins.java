@@ -14,7 +14,6 @@ public class MinCoins {
      * 数组内的元素均只有其各自一个
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/9/25 21:54
      */
     public static int minCoins1(int[] arr, int aim) {
@@ -76,7 +75,6 @@ public class MinCoins {
      * <p>
      * 数组内的元素均有无数个
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/9/25 21:52
      */

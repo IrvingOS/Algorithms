@@ -14,7 +14,6 @@ public class Solution {
      * 依次遍历每一个结点组成一个翻转链
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/8/7 15:25
      */
     public static Node reverseListNormal(Node head) {
@@ -45,7 +44,6 @@ public class Solution {
      * 翻转链表
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/8/7 15:16
      */
     public static Node reverseListRecursion(Node head) {
@@ -64,7 +62,6 @@ public class Solution {
     /**
      * 翻转链表的前 length 个结点
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/7 15:15
      */
@@ -89,7 +86,6 @@ public class Solution {
      * @param index  起始下标
      * @param length 长度
      * @return top.irvingsoft.code.linkedlist.Node
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/7 15:47
      */

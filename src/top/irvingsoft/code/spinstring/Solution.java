@@ -22,7 +22,6 @@ public class Solution {
      * 然后进行后续的字符对比，若后续对比失败，则找下一个与目标第一个字符匹配的字符。
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/7/7 13:56
      */
     public static boolean verifyByIndexOf(String source, String target) {
@@ -38,7 +37,6 @@ public class Solution {
      * <br/>
      * 时间复杂度 O(m+n)
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/7/7 14:01
      */
@@ -56,7 +54,6 @@ public class Solution {
     /**
      * 时间复杂度 O(m+n)
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/4 10:49
      */
@@ -96,7 +93,6 @@ public class Solution {
      * <br/>
      * 时间复杂度 O(m)
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/7/7 17:02
      */

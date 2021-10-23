@@ -16,7 +16,6 @@ public class Solution {
      * 将链表转换成数组后用双指针（首尾指针）
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/4/12 10:41
      */
     public static boolean isPalindromeToList(ListNode head) {
@@ -43,7 +42,6 @@ public class Solution {
     /**
      * 递归。用外部指针指向头部，直到递归到尾部时开始首尾比较
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/4/12 10:42
      */
@@ -74,7 +72,6 @@ public class Solution {
      * 4. 恢复链表
      * 5. 返回结果
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/4/12 10:44
      */

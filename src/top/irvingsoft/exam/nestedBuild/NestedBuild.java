@@ -82,7 +82,6 @@ public class NestedBuild {
      * String.repeat(int); 方法从 Jdk 11 开始引入
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/3/6 2:08
      */
 

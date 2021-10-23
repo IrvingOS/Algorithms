@@ -12,14 +12,13 @@ public class Solution {
      * 迭代，然后拼接迭代后不为空的链表
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/4/8 10:57
      */
     public static ListNode mergeTwoListsIteration(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(-1);
         ListNode p = dummy;
-        while(l1 != null && l2 != null) {
-            if(l1.val <= l2.val) {
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
                 p.next = l1;
                 l1 = l1.next;
             } else {
@@ -35,7 +34,6 @@ public class Solution {
     /**
      * 递归
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/4/8 10:59
      */

@@ -29,7 +29,6 @@ public class Solution {
      * 空间复杂度：O(n)
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/8/7 0:08
      */
     public static void recursionPre(Node head) {
@@ -178,7 +177,6 @@ public class Solution {
      * 打印右边界
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/8/7 12:48
      */
     private static void printEdge(Node head) {
@@ -195,7 +193,6 @@ public class Solution {
     /**
      * 递归翻转右边界
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/7 16:03
      */
@@ -214,7 +211,6 @@ public class Solution {
     /**
      * 普通翻转右边界
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/7 16:03
      */
@@ -241,7 +237,6 @@ public class Solution {
      * <p>
      * BST 的规则判断流程正好与中序遍历的流程相同
      *
-     * @author TimeChaser
      * @author TimeChaser
      * @date 2021/8/7 16:02
      */
