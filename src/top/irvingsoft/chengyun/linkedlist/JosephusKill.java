@@ -4,7 +4,6 @@ package top.irvingsoft.chengyun.linkedlist;
  * Page 61
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/9/17 15:16
  */
 public class JosephusKill {

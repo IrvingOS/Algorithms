@@ -18,7 +18,6 @@ package top.irvingsoft.code.morris;
  * 后序：访问到一个结点后，将其暂存，遍历完左子树后，再输出该结点的值，然后遍历右子树。(左根右)
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/8/6 21:59
  */
 

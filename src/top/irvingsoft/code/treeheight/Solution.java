@@ -4,7 +4,6 @@ package top.irvingsoft.code.treeheight;
  * 与二叉树高度相关的解法
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/8/7 16:53
  */
 public class Solution {

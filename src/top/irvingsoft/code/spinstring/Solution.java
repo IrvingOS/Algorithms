@@ -6,7 +6,6 @@ package top.irvingsoft.code.spinstring;
  * double 原串后看目标串是否是原串的子串
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/7/7 14:00
  */
 public class Solution {

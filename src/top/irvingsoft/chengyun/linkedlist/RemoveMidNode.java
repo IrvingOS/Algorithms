@@ -4,7 +4,6 @@ package top.irvingsoft.chengyun.linkedlist;
  * Page 56
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/9/17 9:33
  */
 public class RemoveMidNode {

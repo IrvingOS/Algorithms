@@ -6,7 +6,6 @@ import java.util.HashSet;
  * 面试题 02.08. 环路检测
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/9/24 18:30
  */
 public class Solution {

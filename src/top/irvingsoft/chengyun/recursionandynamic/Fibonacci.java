@@ -4,7 +4,6 @@ package top.irvingsoft.chengyun.recursionandynamic;
  * Page 199
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/9/25 15:06
  */
 public class Fibonacci {

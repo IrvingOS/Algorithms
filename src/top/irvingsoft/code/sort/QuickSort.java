@@ -5,14 +5,10 @@ import java.util.Arrays;
 /**
  * 快速排序
  * <p>
+ * 不稳定
+ * <p>
  * 时间复杂度：O(n log n)
- * <p>
- * 思想：
- * <p>
- * 分治法，每次以随机一个数为基准，对这个基准进行相对排序。
- * 然后在这个基准两边重复这个流程。
  *
- * @author TimeChaser
  * @author TimeChaser
  * @date 2021/10/13 12:03
  */
@@ -24,8 +20,16 @@ public class QuickSort implements IArraySort {
         System.out.println(Arrays.toString(new InsertSort().sort(arr)));
     }
 
-    public static int getMid(int[] arr, int left, int right) {
+    public int[] sort(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = getMid(arr, left, right);
+            sort(arr, left, mid - 1);
+            sort(arr, mid + 1, right);
+        }
+        return arr;
+    }
 
+    public int getMid(int[] arr, int left, int right) {
         int pivot = arr[left];
         while (left < right) {
             while (arr[right] >= pivot && left < right) {
@@ -41,20 +45,17 @@ public class QuickSort implements IArraySort {
         return left;
     }
 
-    public static int[] quickSort(int[] arr, int left, int right) {
-
-        if (left < right) {
-            int mid = getMid(arr, left, right);
-            quickSort(arr, left, mid - 1);
-            quickSort(arr, mid + 1, right);
-        }
-        return arr;
-    }
-
+    /**
+     * 分治法，每次以随机一个数为基准，对这个基准进行相对排序。
+     * <p>
+     * 然后在这个基准两边重复这个流程。
+     *
+     * @author TimeChaser
+     * @date 2021/10/22 22:42
+     */
     @Override
     public int[] sort(int[] sourceArray) {
-
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
-        return quickSort(arr, 0, arr.length - 1);
+        return sort(arr, 0, arr.length - 1);
     }
 }

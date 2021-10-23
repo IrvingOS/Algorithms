@@ -23,7 +23,6 @@ import java.util.Stack;
  * 在出栈后，同步弹出 stackMin 的当前最小值。
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/8/8 10:39
  */
 public class GetMinStack {

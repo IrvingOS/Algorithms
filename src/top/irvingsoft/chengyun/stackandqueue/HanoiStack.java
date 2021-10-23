@@ -26,7 +26,6 @@ enum Action {
  * 在遵循上述两个原则的条件下循环上述四个动作（每次循环只会执行符合条件的两个动作），直到目标栈的大小为层数 + 1（包含最大整数）
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/8/8 15:53
  */
 public class HanoiStack {

@@ -12,7 +12,6 @@ import java.util.PriorityQueue;
  * 优先队列：
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/4/19 19:54
  */
 
@@ -20,6 +19,12 @@ public class Solution {
 
     public static PriorityQueue<Status> queue = new PriorityQueue<>();
 
+    /**
+     * 顺序合并
+     *
+     * @author TimeChaser
+     * @date 2021/10/22 15:49
+     */
     public static ListNode mergeKListsOrder(ListNode[] lists) {
 
         if (lists.length == 0) {
@@ -32,6 +37,12 @@ public class Solution {
         return merge;
     }
 
+    /**
+     * 二分归并
+     *
+     * @author TimeChaser
+     * @date 2021/10/22 15:47
+     */
     public static ListNode mergeKListsDivide(ListNode[] lists) {
 
         if (lists.length == 0) {
@@ -70,6 +81,12 @@ public class Solution {
         return head.next;
     }
 
+    /**
+     * 优先级队列
+     *
+     * @author TimeChaser
+     * @date 2021/10/22 15:50
+     */
     public static ListNode mergeKListsPriority(ListNode[] lists) {
         for (ListNode node : lists) {
             if (node != null) {

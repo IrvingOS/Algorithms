@@ -12,7 +12,6 @@ package top.irvingsoft.code.bfprt;
  * 从而避免快速排序中最坏情况的发生
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/8/4 9:31
  */
 public class Solution {

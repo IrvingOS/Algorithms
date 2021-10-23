@@ -4,7 +4,6 @@ package top.irvingsoft.code.linkedlist;
  * 链表操作
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/8/7 14:18
  */
 public class Solution {

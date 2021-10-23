@@ -8,7 +8,6 @@ import java.util.*;
  * 直接将 key、value 作为一个 Entry 存储
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/5/6 11:40
  */
 public class SimpleHashMap<K, V> extends AbstractMap<K, V> {

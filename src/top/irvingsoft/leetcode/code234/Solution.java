@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * 回文链表
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/4/12 10:13
  */
 public class Solution {

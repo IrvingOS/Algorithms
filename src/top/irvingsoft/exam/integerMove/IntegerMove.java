@@ -10,7 +10,6 @@ import java.util.Arrays;
  * 本解法使用双指针：一个从前往后搜索负数，一个从后往前搜索正数。然后判断是否走完全程，否，则交换
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/9/26 19:36
  */
 public class IntegerMove {

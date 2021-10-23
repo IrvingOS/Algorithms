@@ -6,7 +6,6 @@ import java.util.Arrays;
  * 给定一个数组，尽可能的从前往后，奇数处于奇数下标，偶数处于偶数下标
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/8/6 21:43
  */
 public class Solution {

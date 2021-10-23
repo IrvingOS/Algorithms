@@ -5,9 +5,10 @@ import java.util.Arrays;
 /**
  * 插入排序
  * <p>
+ * 稳定
+ * <p>
  * 时间复杂度：O(n^2)
  *
- * @author TimeChaser
  * @author TimeChaser
  * @date 2021/10/14 15:05
  */
@@ -19,9 +20,14 @@ public class InsertSort implements IArraySort {
         System.out.println(Arrays.toString(new InsertSort().sort(arr)));
     }
 
+    /**
+     * 向有序部分中插入元素
+     *
+     * @author TimeChaser
+     * @date 2021/10/22 22:39
+     */
     @Override
     public int[] sort(int[] sourceArray) {
-
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
         for (int i = 1; i < arr.length; i++) {
             int temp = arr[i];

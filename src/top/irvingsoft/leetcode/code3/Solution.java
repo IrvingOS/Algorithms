@@ -53,6 +53,5 @@ public class Solution {
  *      使用链表维护元素插入的顺序
  *
  * @author TimeChaser
- * @author TimeChaser
  * @date 2021/3/12 16:29
  */

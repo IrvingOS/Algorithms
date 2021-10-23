@@ -5,9 +5,10 @@ import java.util.Arrays;
 /**
  * 冒泡排序
  * <p>
+ * 稳定
+ * <p>
  * 时间复杂度：O(n^2)
  *
- * @author TimeChaser
  * @author TimeChaser
  * @date 2021/10/13 14:37
  */
@@ -27,12 +28,10 @@ public class BubbleSort implements IArraySort {
      * 因为如果最小的数在最后的下标上，只需要 arr.length - 1 轮就能交换到 0 号下标
      *
      * @author TimeChaser
-     * @author TimeChaser
      * @date 2021/10/13 14:48
      */
     @Override
     public int[] sort(int[] sourceArray) {
-
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
         for (int i = 1; i < arr.length; i++) {
             boolean flag = true;
