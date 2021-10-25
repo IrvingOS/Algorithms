@@ -44,27 +44,23 @@ public class MergeSort implements IArraySort {
         return merge(sort(left), sort(right));
     }
 
-    public int[] merge(int[] left, int[] right) {
-        int[] result = new int[left.length + right.length];
+    public int[] merge(int[] nums1, int[] nums2) {
+        int[] result = new int[nums1.length + nums2.length];
         int i = 0;
-        while (left.length > 0 && right.length > 0) {
-            if (left[0] <= right[0]) {
-                result[i++] = left[0];
-                left = Arrays.copyOfRange(left, 1, left.length);
+        int index1 = 0, index2 = 0;
+        while (index1 < nums1.length && index2 < nums2.length) {
+            if (nums1[index1] <= nums2[index2]) {
+                result[i++] = nums1[index1++];
             } else {
-                result[i++] = right[0];
-                right = Arrays.copyOfRange(right, 1, right.length);
+                result[i++] = nums2[index2++];
             }
         }
-        while (left.length > 0) {
-            result[i++] = left[0];
-            left = Arrays.copyOfRange(left, 1, left.length);
+        while (index1 < nums1.length) {
+            result[i++] = nums1[index1++];
         }
-        while (right.length > 0) {
-            result[i++] = right[0];
-            right = Arrays.copyOfRange(right, 1, right.length);
+        while (index2 < nums2.length) {
+            result[i++] = nums2[index2++];
         }
-
         return result;
     }
 }
