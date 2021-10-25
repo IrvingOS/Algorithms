@@ -42,7 +42,7 @@ public class Solution {
      * @author TimeChaser
      * @date 2021/10/22 15:47
      */
-    public static ListNode mergeKListsDivide(ListNode[] lists) {
+    public static ListNode mergeKListsBinary(ListNode[] lists) {
 
         if (lists.length == 0) {
             return null;

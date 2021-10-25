@@ -111,7 +111,7 @@ public class Solution {
      * @author TimeChaser
      * @date 2021/10/23 22:52
      */
-    public static double findMedianSortedArraysDivide(int[] nums1, int[] nums2) {
+    public static double findMedianSortedArraysBinary(int[] nums1, int[] nums2) {
         int length1 = nums1.length, length2 = nums2.length;
         int totalLength = length1 + length2;
         if (totalLength % 2 == 1) {
