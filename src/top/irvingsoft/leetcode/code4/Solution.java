@@ -45,6 +45,12 @@ public class Solution {
         }
     }
 
+    /**
+     * 直接遍历式暴力解法
+     *
+     * @author TimeChaser
+     * @date 2021/10/27 16:34
+     */
     public static double findMedianSortedArraysViolenceAnother(int[] nums1, int[] nums2) {
         int length = nums1.length + nums2.length;
         int i = 0;
@@ -160,9 +166,50 @@ public class Solution {
         }
     }
 
+    /**
+     * 划分数组
+     *
+     * @author TimeChaser
+     * @date 2021/10/27 21:58
+     */
+    public static double findMedianSortedArraysDivide(int[] nums1, int[] nums2) {
+        if (nums1.length > nums2.length) {
+            return findMedianSortedArraysDivide(nums2, nums1);
+        }
+
+        int m = nums1.length;
+        int n = nums2.length;
+        int left = 0;
+        int right = m;
+        // 前一部分的最大值
+        int median1 = 0;
+        // 后一部分的最小值
+        int median2 = 0;
+
+        while (left < right) {
+            int i = (left + right) / 2;
+            int j = (m + n + 1) / 2 - i;
+
+            int nums_im1 = (i == 0 ? Integer.MIN_VALUE : nums1[i - 1]);
+            int nums_i = (i == m ? Integer.MAX_VALUE : nums1[i]);
+            int nums_jm1 = (j == 0 ? Integer.MIN_VALUE : nums2[j - 1]);
+            int nums_j = (j == n ? Integer.MAX_VALUE : nums2[j]);
+
+            if (nums_im1 < nums_j) {
+                median1 = Math.max(nums_im1, nums_jm1);
+                median2 = Math.min(nums_i, nums_j);
+                left = i + 1;
+            } else {
+                right = i - 1;
+            }
+        }
+
+        return (m + n) % 2 == 0 ? (median1 + median2) / 2.0 : median1;
+    }
+
     public static void main(String[] args) {
         int[] nums1 = {1, 2};
         int[] nums2 = {3, 4};
-        System.out.println(findMedianSortedArraysBinary(nums1, nums2));
+        System.out.println(findMedianSortedArraysDivide(nums1, nums2));
     }
 }
