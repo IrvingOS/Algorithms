@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 时间复杂度：O(n^2)
  *
  * @author TimeChaser
- * @date 2021/10/14 11:43
+ * @since 2021/10/14 11:43
  */
 public class SelectionSort implements IArraySort {
 
@@ -24,7 +24,7 @@ public class SelectionSort implements IArraySort {
      * 依次从无序部分选出最小的数交换到有序部分的末尾
      *
      * @author TimeChaser
-     * @date 2021/10/22 22:40
+     * @since 2021/10/22 22:40
      */
     @Override
     public int[] sort(int[] sourceArray) {

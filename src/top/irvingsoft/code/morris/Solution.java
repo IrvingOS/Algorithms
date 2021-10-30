@@ -18,7 +18,7 @@ package top.irvingsoft.code.morris;
  * 后序：访问到一个结点后，将其暂存，遍历完左子树后，再输出该结点的值，然后遍历右子树。(左根右)
  *
  * @author TimeChaser
- * @date 2021/8/6 21:59
+ * @since 2021/8/6 21:59
  */
 
 public class Solution {
@@ -29,7 +29,7 @@ public class Solution {
      * 空间复杂度：O(n)
      *
      * @author TimeChaser
-     * @date 2021/8/7 0:08
+     * @since 2021/8/7 0:08
      */
     public static void recursionPre(Node head) {
 
@@ -177,7 +177,7 @@ public class Solution {
      * 打印右边界
      *
      * @author TimeChaser
-     * @date 2021/8/7 12:48
+     * @since 2021/8/7 12:48
      */
     private static void printEdge(Node head) {
         Node tail = reverseEdgeNormal(head);
@@ -194,7 +194,7 @@ public class Solution {
      * 递归翻转右边界
      *
      * @author TimeChaser
-     * @date 2021/8/7 16:03
+     * @since 2021/8/7 16:03
      */
     private static Node reverseEdgeRecursion(Node head) {
 
@@ -212,7 +212,7 @@ public class Solution {
      * 普通翻转右边界
      *
      * @author TimeChaser
-     * @date 2021/8/7 16:03
+     * @since 2021/8/7 16:03
      */
     private static Node reverseEdgeNormal(Node head) {
 
@@ -238,7 +238,7 @@ public class Solution {
      * BST 的规则判断流程正好与中序遍历的流程相同
      *
      * @author TimeChaser
-     * @date 2021/8/7 16:02
+     * @since 2021/8/7 16:02
      */
     public static boolean isBinarySearchTree(Node head) {
 

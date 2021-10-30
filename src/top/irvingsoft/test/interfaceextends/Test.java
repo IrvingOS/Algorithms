@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author TimeChaser
- * @date 2021/9/23 22:42
+ * @since 2021/9/23 22:42
  */
 public class Test<T> implements Collection<T> {
 

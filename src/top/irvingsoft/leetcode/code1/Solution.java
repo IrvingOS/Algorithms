@@ -12,7 +12,7 @@ import java.util.HashMap;
  * 有则返回当前数值的下表索引值及 Map 中符合条件的另一个数值的 value 值的数组
  *
  * @author TimeChaser
- * @date 2021/3/6 2:25
+ * @since 2021/3/6 2:25
  */
 class Solution {
     public int[] twoSum(int[] nums, int target) {

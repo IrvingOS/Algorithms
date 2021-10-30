@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code9;
  * 回文数
  *
  * @author TimeChaser
- * @date 2021/4/1 11:49
+ * @since 2021/4/1 11:49
  */
 public class Solution {
 

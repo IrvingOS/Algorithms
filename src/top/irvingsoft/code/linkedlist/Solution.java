@@ -4,7 +4,7 @@ package top.irvingsoft.code.linkedlist;
  * 链表操作
  *
  * @author TimeChaser
- * @date 2021/8/7 14:18
+ * @since 2021/8/7 14:18
  */
 public class Solution {
 
@@ -14,7 +14,7 @@ public class Solution {
      * 依次遍历每一个结点组成一个翻转链
      *
      * @author TimeChaser
-     * @date 2021/8/7 15:25
+     * @since 2021/8/7 15:25
      */
     public static Node reverseListNormal(Node head) {
 
@@ -44,7 +44,7 @@ public class Solution {
      * 翻转链表
      *
      * @author TimeChaser
-     * @date 2021/8/7 15:16
+     * @since 2021/8/7 15:16
      */
     public static Node reverseListRecursion(Node head) {
 
@@ -63,7 +63,7 @@ public class Solution {
      * 翻转链表的前 length 个结点
      *
      * @author TimeChaser
-     * @date 2021/8/7 15:15
+     * @since 2021/8/7 15:15
      */
     public static Node reverseListRecursion(Node head, int length) {
 
@@ -87,7 +87,7 @@ public class Solution {
      * @param length 长度
      * @return top.irvingsoft.code.linkedlist.Node
      * @author TimeChaser
-     * @date 2021/8/7 15:47
+     * @since 2021/8/7 15:47
      */
     public static Node reverseListRecursion(Node head, int index, int length) {
 

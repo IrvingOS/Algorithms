@@ -4,7 +4,7 @@ package top.irvingsoft.chengyun.linkedlist;
  * Page 61
  *
  * @author TimeChaser
- * @date 2021/9/17 15:16
+ * @since 2021/9/17 15:16
  */
 public class JosephusKill {
 
@@ -52,7 +52,7 @@ public class JosephusKill {
      * 可以由 i - 1 个节点组成的环在 m 位淘汰制中被淘汰的节点计算而来
      *
      * @author TimeChaser
-     * @date 2021/9/18 9:24
+     * @since 2021/9/18 9:24
      */
     public static int getLive(int i, int m) {
         if (i == 1) {

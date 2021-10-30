@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author TimeChaser
- * @date 2021/10/22 14:31
+ * @since 2021/10/22 14:31
  */
 public class Solution {
 
@@ -14,7 +14,7 @@ public class Solution {
      * Hash
      *
      * @author TimeChaser
-     * @date 2021/10/22 14:45
+     * @since 2021/10/22 14:45
      */
     public static List<Integer> majorityElementHash(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -41,7 +41,7 @@ public class Solution {
      * 候选人从原问题的 1 个变为 2 个
      *
      * @author TimeChaser
-     * @date 2021/10/22 14:45
+     * @since 2021/10/22 14:45
      */
     public static List<Integer> majorityElementVote(int[] nums) {
         int candidate1 = 0;

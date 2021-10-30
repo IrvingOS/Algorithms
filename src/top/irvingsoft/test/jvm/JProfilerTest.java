@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * 虚拟机参数：-Xms1m -Xmx1m -XX:+HeapDumpOnOutOfMemoryError
  *
  * @author TimeChaser
- * @date 2021/5/5 10:32
+ * @since 2021/5/5 10:32
  */
 public class JProfilerTest {
 

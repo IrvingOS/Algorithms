@@ -6,7 +6,7 @@ package top.irvingsoft.leetcode.code4;
  * 要求时间复杂度：O(log(m + n))
  *
  * @author TimeChaser
- * @date 2021/3/17 19:23
+ * @since 2021/3/17 19:23
  */
 public class Solution {
 
@@ -16,7 +16,7 @@ public class Solution {
      * 合并数组，然后找中位数
      *
      * @author TimeChaser
-     * @date 2021/5/3 0:57
+     * @since 2021/5/3 0:57
      */
     public static double findMedianSortedArraysViolence(int[] nums1, int[] nums2) {
         int length = nums1.length + nums2.length;
@@ -49,7 +49,7 @@ public class Solution {
      * 直接遍历式暴力解法
      *
      * @author TimeChaser
-     * @date 2021/10/27 16:34
+     * @since 2021/10/27 16:34
      */
     public static double findMedianSortedArraysViolenceAnother(int[] nums1, int[] nums2) {
         int length = nums1.length + nums2.length;
@@ -115,7 +115,7 @@ public class Solution {
      * 时间复杂度：O(log(m + n))
      *
      * @author TimeChaser
-     * @date 2021/10/23 22:52
+     * @since 2021/10/23 22:52
      */
     public static double findMedianSortedArraysBinary(int[] nums1, int[] nums2) {
         int length1 = nums1.length, length2 = nums2.length;
@@ -133,7 +133,7 @@ public class Solution {
      * 寻找两个升序数组中第 k 个元素（第 k 小的元素）
      *
      * @author TimeChaser
-     * @date 2021/10/25 14:46
+     * @since 2021/10/25 14:46
      */
     public static int getKthElement(int[] nums1, int[] nums2, int k) {
         int length1 = nums1.length, length2 = nums2.length;
@@ -170,7 +170,7 @@ public class Solution {
      * 划分数组
      *
      * @author TimeChaser
-     * @date 2021/10/27 21:58
+     * @since 2021/10/27 21:58
      */
     public static double findMedianSortedArraysDivide(int[] nums1, int[] nums2) {
         if (nums1.length > nums2.length) {

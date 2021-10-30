@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code50;
  * Pow(x, n)
  *
  * @author TimeChaser
- * @date 2021/10/29 17:48
+ * @since 2021/10/29 17:48
  */
 public class Solution {
 

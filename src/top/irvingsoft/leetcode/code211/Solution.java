@@ -7,7 +7,7 @@ import java.util.List;
  * 添加与搜索单词 - 数据结构设计
  *
  * @author TimeChaser
- * @date 2021/10/26 11:34
+ * @since 2021/10/26 11:34
  */
 public class Solution {
 

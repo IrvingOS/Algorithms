@@ -12,7 +12,7 @@ package top.irvingsoft.code.bfprt;
  * 从而避免快速排序中最坏情况的发生
  *
  * @author TimeChaser
- * @date 2021/8/4 9:31
+ * @since 2021/8/4 9:31
  */
 public class Solution {
 
@@ -24,7 +24,7 @@ public class Solution {
      * 时间复杂度期望值 O(n)
      *
      * @author TimeChaser
-     * @date 2021/8/4 10:51
+     * @since 2021/8/4 10:51
      */
     public static int likeQuickSort(int[] arr, int k) {
 
@@ -41,7 +41,7 @@ public class Solution {
      * 随机选举一个划分值
      *
      * @author TimeChaser
-     * @date 2021/8/4 10:52
+     * @since 2021/8/4 10:52
      */
     private static int processQuickSort(int[] arr, int left, int right, int index) {
 
@@ -70,7 +70,7 @@ public class Solution {
      * 区间扩大一格是为了让 pivot 与数组中的每一个数字都进行一次比较（包括自身）
      *
      * @author TimeChaser
-     * @date 2021/8/4 16:44
+     * @since 2021/8/4 16:44
      */
     private static int[] partition(int[] arr, int left, int right, int pivot) {
 
@@ -110,7 +110,7 @@ public class Solution {
      * 重点关注了如何选举一个划分值，以排除更多无用数据
      *
      * @author TimeChaser
-     * @date 2021/8/4 16:41
+     * @since 2021/8/4 16:41
      */
     private static int bfprt(int[] arr, int left, int right, int index) {
 
@@ -139,7 +139,7 @@ public class Solution {
      * 3. 将中位数组成的数组利用 bfprt 算法，找出其中位数，不用管其中的过程，所得即为精心挑选的划分值
      *
      * @author TimeChaser
-     * @date 2021/8/4 16:46
+     * @since 2021/8/4 16:46
      */
     private static int medianOfMedians(int[] arr, int left, int right) {
 
@@ -163,7 +163,7 @@ public class Solution {
      * 插入排序
      *
      * @author TimeChaser
-     * @date 2021/8/4 16:51
+     * @since 2021/8/4 16:51
      */
     private static void insertSort(int[] arr, int left, int right) {
 

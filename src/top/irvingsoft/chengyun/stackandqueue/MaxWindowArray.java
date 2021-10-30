@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * Page 37
  *
  * @author TimeChaser
- * @date 2021/9/7 22:43
+ * @since 2021/9/7 22:43
  */
 public class MaxWindowArray {
 

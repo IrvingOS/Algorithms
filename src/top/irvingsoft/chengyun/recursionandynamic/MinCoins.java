@@ -4,7 +4,7 @@ package top.irvingsoft.chengyun.recursionandynamic;
  * Page 209
  *
  * @author TimeChaser
- * @date 2021/9/25 15:34
+ * @since 2021/9/25 15:34
  */
 public class MinCoins {
 
@@ -14,7 +14,7 @@ public class MinCoins {
      * 数组内的元素均只有其各自一个
      *
      * @author TimeChaser
-     * @date 2021/9/25 21:54
+     * @since 2021/9/25 21:54
      */
     public static int minCoins1(int[] arr, int aim) {
 
@@ -76,7 +76,7 @@ public class MinCoins {
      * 数组内的元素均有无数个
      *
      * @author TimeChaser
-     * @date 2021/9/25 21:52
+     * @since 2021/9/25 21:52
      */
     public static int minCoins3(int[] arr, int aim) {
 

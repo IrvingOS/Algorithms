@@ -6,7 +6,7 @@ import java.util.HashSet;
  * 面试题 02.08. 环路检测
  *
  * @author TimeChaser
- * @date 2021/9/24 18:30
+ * @since 2021/9/24 18:30
  */
 public class Solution {
 
@@ -16,7 +16,7 @@ public class Solution {
      * 当快慢指针相遇时，头节点到入环点的距离 == 慢指针到入环点的距离
      *
      * @author TimeChaser
-     * @date 2021/9/24 18:36
+     * @since 2021/9/24 18:36
      */
     public static ListNode detectCycle(ListNode head) {
         ListNode slow = head, fast = head;

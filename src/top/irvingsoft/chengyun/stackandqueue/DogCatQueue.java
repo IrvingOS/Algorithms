@@ -9,7 +9,7 @@ import java.util.Queue;
  * 用两个队列分别存储 Dog 和 Cat，在出队列前比较两个队列头部计数器的大小，小的出队列
  *
  * @author TimeChaser
- * @date 2021/8/8 15:12
+ * @since 2021/8/8 15:12
  */
 public class DogCatQueue {
 

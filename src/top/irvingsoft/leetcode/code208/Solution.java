@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code208;
  * 实线 Trie（前缀树）
  *
  * @author TimeChaser
- * @date 2021/10/26 12:07
+ * @since 2021/10/26 12:07
  */
 public class Solution {
 }

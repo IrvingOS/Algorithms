@@ -4,7 +4,7 @@ package top.irvingsoft.exam.alibaba;
  * 阿里巴巴笔试第二题
  *
  * @author TimeChaser
- * @date 2021/3/12 18:59
+ * @since 2021/3/12 18:59
  */
 public class SolutionTwo {
 

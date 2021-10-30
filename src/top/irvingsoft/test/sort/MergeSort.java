@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 /**
  * @author TimeChaser
- * @date 2021/10/19 15:14
+ * @since 2021/10/19 15:14
  */
 public class MergeSort implements IArraySort {
 

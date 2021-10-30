@@ -9,7 +9,7 @@ import java.util.HashMap;
  * 用并查集合并用户
  *
  * @author TimeChaser
- * @date 2021/8/8 10:25
+ * @since 2021/8/8 10:25
  */
 public class Solution {
 

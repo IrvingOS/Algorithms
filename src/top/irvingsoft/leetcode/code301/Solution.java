@@ -8,7 +8,7 @@ import java.util.List;
  * 删除无效的括号
  *
  * @author TimeChaser
- * @date 2021/10/27 15:44
+ * @since 2021/10/27 15:44
  */
 public class Solution {
 
@@ -16,7 +16,7 @@ public class Solution {
      * 回溯 + 剪枝
      *
      * @author TimeChaser
-     * @date 2021/10/27 18:42
+     * @since 2021/10/27 18:42
      */
     public static List<String> removeInvalidParenthesesRecursion(String s) {
         int leftRemove = 0;

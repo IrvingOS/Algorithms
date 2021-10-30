@@ -8,7 +8,7 @@ import java.util.Stack;
  * 并查集
  *
  * @author TimeChaser
- * @date 2021/8/8 9:30
+ * @since 2021/8/8 9:30
  */
 public class UnionSet<T> {
 

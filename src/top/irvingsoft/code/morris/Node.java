@@ -4,7 +4,7 @@ package top.irvingsoft.code.morris;
  * Tree 结点
  *
  * @author TimeChaser
- * @date 2021/8/6 22:28
+ * @since 2021/8/6 22:28
  */
 public class Node {
 

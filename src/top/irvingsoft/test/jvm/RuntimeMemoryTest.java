@@ -7,7 +7,7 @@ package top.irvingsoft.test.jvm;
  * 运行时，老年代和新生代堆空间的总和等于最大空间，元空间逻辑上存在，物理上不存在。
  *
  * @author TimeChaser
- * @date 2021/5/5 9:46
+ * @since 2021/5/5 9:46
  */
 
 public class RuntimeMemoryTest {

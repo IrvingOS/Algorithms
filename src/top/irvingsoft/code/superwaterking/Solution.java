@@ -10,7 +10,7 @@ import java.util.Map;
  * 空间复杂度：O(1)
  *
  * @author TimeChaser
- * @date 2021/7/5 12:35
+ * @since 2021/7/5 12:35
  */
 public class Solution {
 
@@ -20,7 +20,7 @@ public class Solution {
      * 空间复杂度：O(n)
      *
      * @author TimeChaser
-     * @date 2021/7/6 22:54
+     * @since 2021/7/6 22:54
      */
     public static int verify(int[] arr) {
 
@@ -55,7 +55,7 @@ public class Solution {
      * 存在候选时血量不为 0，血量为 0 时不存在候选
      *
      * @author TimeChaser
-     * @date 2021/7/6 23:00
+     * @since 2021/7/6 23:00
      */
     public static int waterKing(int[] arr) {
 

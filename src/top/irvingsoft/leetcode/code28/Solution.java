@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code28;
  * 实现 strStr() | indexOf()
  *
  * @author TimeChaser
- * @date 2021/4/9 10:35
+ * @since 2021/4/9 10:35
  */
 public class Solution {
 

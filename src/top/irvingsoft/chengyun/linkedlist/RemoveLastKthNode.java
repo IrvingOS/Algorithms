@@ -4,7 +4,7 @@ package top.irvingsoft.chengyun.linkedlist;
  * Page 53
  *
  * @author TimeChaser
- * @date 2021/9/8 10:53
+ * @since 2021/9/8 10:53
  */
 public class RemoveLastKthNode {
 
@@ -12,7 +12,7 @@ public class RemoveLastKthNode {
      * 两次遍历找到倒数第 K 个节点的上一个节点
      *
      * @author TimeChaser
-     * @date 2021/10/23 15:24
+     * @since 2021/10/23 15:24
      */
     public static Node removeLastKthNodeTwoTraverse(Node head, int lastKth) {
         if (head == null || lastKth < 1) {
@@ -40,7 +40,7 @@ public class RemoveLastKthNode {
      * 两个指针找到倒数第 K 个节点的上一个节点
      *
      * @author TimeChaser
-     * @date 2021/10/23 15:42
+     * @since 2021/10/23 15:42
      */
     public static Node removeLastKthNodeTwoPointer(Node head, int lastKth) {
         Node dummy = new Node(-1);

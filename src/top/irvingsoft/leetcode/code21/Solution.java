@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code21;
  * 合并两个有序链表
  *
  * @author TimeChaser
- * @date 2021/4/7 13:32
+ * @since 2021/4/7 13:32
  */
 public class Solution {
 
@@ -12,7 +12,7 @@ public class Solution {
      * 迭代，然后拼接迭代后不为空的链表
      *
      * @author TimeChaser
-     * @date 2021/4/8 10:57
+     * @since 2021/4/8 10:57
      */
     public static ListNode mergeTwoListsIteration(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(-1);
@@ -35,7 +35,7 @@ public class Solution {
      * 递归
      *
      * @author TimeChaser
-     * @date 2021/4/8 10:59
+     * @since 2021/4/8 10:59
      */
     public static ListNode mergeTwoListsRecursion(ListNode l1, ListNode l2) {
 

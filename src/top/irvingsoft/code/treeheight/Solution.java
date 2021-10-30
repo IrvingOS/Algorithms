@@ -4,7 +4,7 @@ package top.irvingsoft.code.treeheight;
  * 与二叉树高度相关的解法
  *
  * @author TimeChaser
- * @date 2021/8/7 16:53
+ * @since 2021/8/7 16:53
  */
 public class Solution {
 
@@ -15,7 +15,7 @@ public class Solution {
      * 空间复杂度：O(n)
      *
      * @author TimeChaser
-     * @date 2021/8/7 17:33
+     * @since 2021/8/7 17:33
      */
     public static int minHeightRecursion(Node head) {
 
@@ -31,7 +31,7 @@ public class Solution {
      * 左树不为空或者右树不为空，继续递归计算左右树的高度，返回左右数中更小的高度 + 根结点高度 1
      *
      * @author TimeChaser
-     * @date 2021/8/7 17:34
+     * @since 2021/8/7 17:34
      */
     private static int computeMinHeightRecursion(Node head) {
 
@@ -54,7 +54,7 @@ public class Solution {
      * 实时计算可能为叶子结点的高度，在确定为叶子结点后收集最小高度，然后进行相应的回溯。
      *
      * @author TimeChaser
-     * @date 2021/8/7 21:32
+     * @since 2021/8/7 21:32
      */
     public static int minHeightMorris(Node head) {
 

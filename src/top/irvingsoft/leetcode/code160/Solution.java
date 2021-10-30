@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code160;
  * 相交链表
  *
  * @author TimeChaser
- * @date 2021/4/20 13:25
+ * @since 2021/4/20 13:25
  */
 public class Solution {
 
@@ -14,7 +14,7 @@ public class Solution {
      * 如果有相交，必然会在转到另一条链表之后同时进入公共部分
      *
      * @author TimeChaser
-     * @date 2021/10/23 15:20
+     * @since 2021/10/23 15:20
      */
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode p1 = headA, p2 = headB;

@@ -4,7 +4,7 @@ package top.irvingsoft.chengyun.linkedlist;
  * Page 58
  *
  * @author TimeChaser
- * @date 2021/9/17 9:54
+ * @since 2021/9/17 9:54
  */
 public class ReverseList {
 

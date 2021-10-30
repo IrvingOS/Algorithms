@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 /**
  * @author TimeChaser
- * @date 2021/9/22 16:52
+ * @since 2021/9/22 16:52
  */
 public interface Iterator<E> {
 

@@ -7,7 +7,7 @@ import java.util.List;
  * 括号生成
  *
  * @author TimeChaser
- * @date 2021/10/27 15:10
+ * @since 2021/10/27 15:10
  */
 public class Solution {
 

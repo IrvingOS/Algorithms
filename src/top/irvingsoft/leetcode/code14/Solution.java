@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code14;
  * 最长公共前缀
  *
  * @author TimeChaser
- * @date 2021/4/6 11:08
+ * @since 2021/4/6 11:08
  */
 public class Solution {
 
@@ -12,7 +12,7 @@ public class Solution {
      * 横向比较：设第一个字符串为初始最长公共前缀，然后与第二个开始比较，每次得到的最长公共前缀依次与后面的字符串比较。当最长公共前缀为空字符串时退出比较。
      *
      * @author TimeChaser
-     * @date 2021/4/8 11:13
+     * @since 2021/4/8 11:13
      */
     public static String longestCommonPrefixTransverse(String[] strs) {
         if (strs == null || strs.length == 0) {
@@ -43,7 +43,7 @@ public class Solution {
      * 纵向比较：取第一个字符串，将其的每个下表的字符同后面的字符串进行比较，不同则返回
      *
      * @author TimeChaser
-     * @date 2021/4/7 13:31
+     * @since 2021/4/7 13:31
      */
     public static String longestCommonPrefixLongitudinal(String[] strs) {
         if (strs == null || strs.length == 0) {
@@ -68,7 +68,7 @@ public class Solution {
      * 分治法；递归二分查找出最小一段（两个）字符串的最长公共前缀，然后依次返回
      *
      * @author TimeChaser
-     * @date 2021/4/8 11:23
+     * @since 2021/4/8 11:23
      */
     public static String longestCommonPrefixDivide(String[] strs) {
         if (strs == null || strs.length == 0) {
@@ -106,7 +106,7 @@ public class Solution {
      * + 1：保证最高位能被验证到是否属于最长公共前缀
      *
      * @author TimeChaser
-     * @date 2021/4/8 12:56
+     * @since 2021/4/8 12:56
      */
     public static String longestCommonPrefixBinary(String[] strs) {
 

@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 /**
  * @author TimeChaser
- * @date 2021/10/13 14:31
+ * @since 2021/10/13 14:31
  */
 public class QuickSort implements IArraySort {
 

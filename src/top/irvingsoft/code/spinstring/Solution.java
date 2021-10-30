@@ -6,7 +6,7 @@ package top.irvingsoft.code.spinstring;
  * double 原串后看目标串是否是原串的子串
  *
  * @author TimeChaser
- * @date 2021/7/7 14:00
+ * @since 2021/7/7 14:00
  */
 public class Solution {
 
@@ -22,7 +22,7 @@ public class Solution {
      * 然后进行后续的字符对比，若后续对比失败，则找下一个与目标第一个字符匹配的字符。
      *
      * @author TimeChaser
-     * @date 2021/7/7 13:56
+     * @since 2021/7/7 13:56
      */
     public static boolean verifyByIndexOf(String source, String target) {
 
@@ -38,7 +38,7 @@ public class Solution {
      * 时间复杂度 O(m+n)
      *
      * @author TimeChaser
-     * @date 2021/7/7 14:01
+     * @since 2021/7/7 14:01
      */
     public static boolean verifyByK(String source, String target) {
 
@@ -55,7 +55,7 @@ public class Solution {
      * 时间复杂度 O(m+n)
      *
      * @author TimeChaser
-     * @date 2021/8/4 10:49
+     * @since 2021/8/4 10:49
      */
     public static boolean kmp(String source, String target) {
 
@@ -94,7 +94,7 @@ public class Solution {
      * 时间复杂度 O(m)
      *
      * @author TimeChaser
-     * @date 2021/7/7 17:02
+     * @since 2021/7/7 17:02
      */
     public static void buildNext(String target, int[] next) {
 

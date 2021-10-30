@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code74;
  * 搜索二维矩阵
  *
  * @author TimeChaser
- * @date 2021/10/25 10:31 上午
+ * @since 2021/10/25 10:31 上午
  */
 public class Solution {
 
@@ -12,7 +12,7 @@ public class Solution {
      * 暴力解法
      *
      * @author TimeChaser
-     * @date 2021/10/25 10:28 上午
+     * @since 2021/10/25 10:28 上午
      */
     public static boolean searchMatrixViolence(int[][] matrix, int target) {
         for (int[] y : matrix) {
@@ -52,7 +52,7 @@ public class Solution {
      * left = -1, mid = (right - left + 1) / 2 + left 是为了防止出现死循环
      *
      * @author TimeChaser
-     * @date 2021/10/25 14:12
+     * @since 2021/10/25 14:12
      */
     public static int searchRow(int[][] matrix, int target) {
         int left = -1;

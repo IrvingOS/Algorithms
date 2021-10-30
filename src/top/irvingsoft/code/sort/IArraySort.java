@@ -2,7 +2,7 @@ package top.irvingsoft.code.sort;
 
 /**
  * @author TimeChaser
- * @date 2021/10/19 14:46
+ * @since 2021/10/19 14:46
  */
 public interface IArraySort {
 

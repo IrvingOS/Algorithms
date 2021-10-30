@@ -10,7 +10,7 @@ import java.util.Stack;
  * 先进先出
  *
  * @author TimeChaser
- * @date 2021/8/8 11:26
+ * @since 2021/8/8 11:26
  */
 public class ReverseStack {
 

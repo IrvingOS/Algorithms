@@ -4,7 +4,7 @@ package top.irvingsoft.leetcode.code5;
  * 最长回文子串
  *
  * @author TimeChaser
- * @date 2021/3/12 16:36
+ * @since 2021/3/12 16:36
  */
 public class Solution {
 
@@ -15,7 +15,7 @@ public class Solution {
      * 这一个短路判断是在暴力枚举法中节省时间的重要手段
      *
      * @author TimeChaser
-     * @date 2021/3/12 18:19
+     * @since 2021/3/12 18:19
      */
     public static String longestPalindromeViolent(String s) {
 
@@ -53,7 +53,7 @@ public class Solution {
      * 中心扩展法
      *
      * @author TimeChaser
-     * @date 2021/3/12 18:19
+     * @since 2021/3/12 18:19
      */
     public static String longestPalindromeViolentCenterExtension(String s) {
 
@@ -89,7 +89,7 @@ public class Solution {
      * 动态规划法
      *
      * @author TimeChaser
-     * @date 2021/3/12 18:20
+     * @since 2021/3/12 18:20
      */
     public static String longestPalindromeViolentDynamicProgramming(String s) {
 

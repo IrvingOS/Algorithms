@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
  * 优先队列：
  *
  * @author TimeChaser
- * @date 2021/4/19 19:54
+ * @since 2021/4/19 19:54
  */
 
 public class Solution {
@@ -22,7 +22,7 @@ public class Solution {
      * 顺序合并
      *
      * @author TimeChaser
-     * @date 2021/10/22 15:49
+     * @since 2021/10/22 15:49
      */
     public static ListNode mergeKListsOrder(ListNode[] lists) {
 
@@ -40,7 +40,7 @@ public class Solution {
      * 二分归并
      *
      * @author TimeChaser
-     * @date 2021/10/22 15:47
+     * @since 2021/10/22 15:47
      */
     public static ListNode mergeKListsBinary(ListNode[] lists) {
 
@@ -84,7 +84,7 @@ public class Solution {
      * 优先级队列
      *
      * @author TimeChaser
-     * @date 2021/10/22 15:50
+     * @since 2021/10/22 15:50
      */
     public static ListNode mergeKListsPriority(ListNode[] lists) {
         if (lists.length == 0) {

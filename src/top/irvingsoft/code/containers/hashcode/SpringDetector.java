@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Groundhog 没有重写 hashCode() 和 equals()
  *
  * @author TimeChaser
- * @date 2021/5/6 10:38
+ * @since 2021/5/6 10:38
  */
 public class SpringDetector {
 

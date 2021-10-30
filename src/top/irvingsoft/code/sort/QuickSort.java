@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 时间复杂度：O(n log n)
  *
  * @author TimeChaser
- * @date 2021/10/13 12:03
+ * @since 2021/10/13 12:03
  */
 public class QuickSort implements IArraySort {
 
@@ -51,7 +51,7 @@ public class QuickSort implements IArraySort {
      * 然后在这个基准两边重复这个流程。
      *
      * @author TimeChaser
-     * @date 2021/10/22 22:42
+     * @since 2021/10/22 22:42
      */
     @Override
     public int[] sort(int[] sourceArray) {

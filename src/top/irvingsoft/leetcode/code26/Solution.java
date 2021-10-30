@@ -12,7 +12,7 @@ package top.irvingsoft.leetcode.code26;
  * 用快指针进行遍历，如果与慢指针的值不同，则慢指针后移并赋上快指针的值
  *
  * @author TimeChaser
- * @date 2021/4/9 9:24
+ * @since 2021/4/9 9:24
  */
 public class Solution {
 

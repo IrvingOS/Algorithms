@@ -10,7 +10,7 @@ import java.util.HashMap;
  * 时间复杂度：O(m + n)
  *
  * @author TimeChaser
- * @date 2021/10/26 10:21
+ * @since 2021/10/26 10:21
  */
 public class Solution {
 
@@ -19,7 +19,7 @@ public class Solution {
      * 时间复杂度：O(mn)
      *
      * @author TimeChaser
-     * @date 2021/10/26 10:43
+     * @since 2021/10/26 10:43
      */
     public static int[] nextGreaterElementViolence(int[] nums1, int[] nums2) {
         int m = nums1.length;
@@ -45,7 +45,7 @@ public class Solution {
      * 时间复杂度：O(m + n)
      *
      * @author TimeChaser
-     * @date 2021/10/26 10:44
+     * @since 2021/10/26 10:44
      */
     public static int[] nextGreaterElementDeque(int[] nums1, int[] nums2) {
         HashMap<Integer, Integer> map = new HashMap<>();

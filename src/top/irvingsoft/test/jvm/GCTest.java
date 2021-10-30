@@ -8,7 +8,7 @@ import java.util.UUID;
  * 虚拟机参数：-Xms8m -Xmx8m -XX:+PrintGCDetails
  *
  * @author TimeChaser
- * @date 2021/5/5 9:48
+ * @since 2021/5/5 9:48
  */
 public class GCTest {
 

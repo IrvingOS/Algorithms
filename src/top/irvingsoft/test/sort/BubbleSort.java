@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 /**
  * @author TimeChaser
- * @date 2021/10/13 15:16
+ * @since 2021/10/13 15:16
  */
 public class BubbleSort implements IArraySort {
 

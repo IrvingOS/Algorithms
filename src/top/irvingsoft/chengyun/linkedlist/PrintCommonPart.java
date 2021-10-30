@@ -4,7 +4,7 @@ package top.irvingsoft.chengyun.linkedlist;
  * Page 52
  *
  * @author TimeChaser
- * @date 2021/9/8 10:46
+ * @since 2021/9/8 10:46
  */
 public class PrintCommonPart {
 

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * @author TimeChaser
- * @date 2021/10/21 11:25
+ * @since 2021/10/21 11:25
  */
 public class Solution {
 
@@ -14,7 +14,7 @@ public class Solution {
      * 标记法
      *
      * @author TimeChaser
-     * @date 2021/10/21 15:17
+     * @since 2021/10/21 15:17
      */
     public static int longestValidParenthesesStackMark(String s) {
         int length = s.length();
@@ -56,7 +56,7 @@ public class Solution {
      * 列举法
      *
      * @author TimeChaser
-     * @date 2021/10/21 15:20
+     * @since 2021/10/21 15:20
      */
     public static int longestValidParenthesesStackLength(String s) {
 
@@ -92,7 +92,7 @@ public class Solution {
      * 动态规划
      *
      * @author TimeChaser
-     * @date 2021/10/21 15:17
+     * @since 2021/10/21 15:17
      */
     public static int longestValidParenthesesDynamic(String s) {
         int max = 0;

@@ -6,7 +6,7 @@ package top.irvingsoft.chengyun.stackandqueue;
  * 猫狗队列实体
  *
  * @author TimeChaser
- * @date 2021/8/8 15:32
+ * @since 2021/8/8 15:32
  */
 public class Pet {
 

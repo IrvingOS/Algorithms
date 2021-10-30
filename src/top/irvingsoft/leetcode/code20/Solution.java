@@ -13,7 +13,7 @@ import java.util.Stack;
  * 2. 字符全为左括号，在匹配过程中只进行了入栈操作，没有进行匹配从而没有判断为 false。所以在最后得判断栈是否为空，不为空则匹配出错。
  *
  * @author TimeChaser
- * @date 2021/4/7 13:09
+ * @since 2021/4/7 13:09
  */
 public class Solution {
 

@@ -8,7 +8,7 @@ import java.util.Stack;
  * 两个栈组成的队列
  *
  * @author TimeChaser
- * @date 2021/8/8 10:59
+ * @since 2021/8/8 10:59
  */
 public class TwoStacksQueue {
 

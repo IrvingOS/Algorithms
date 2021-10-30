@@ -2,7 +2,7 @@ package top.irvingsoft.leetcode.code319;
 
 /**
  * @author TimeChaser
- * @date 2021/10/20 9:37
+ * @since 2021/10/20 9:37
  */
 public class Solution {
 

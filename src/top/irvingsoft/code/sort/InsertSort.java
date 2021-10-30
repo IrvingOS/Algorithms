@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 时间复杂度：O(n^2)
  *
  * @author TimeChaser
- * @date 2021/10/14 15:05
+ * @since 2021/10/14 15:05
  */
 public class InsertSort implements IArraySort {
 
@@ -24,7 +24,7 @@ public class InsertSort implements IArraySort {
      * 向有序部分中插入元素
      *
      * @author TimeChaser
-     * @date 2021/10/22 22:39
+     * @since 2021/10/22 22:39
      */
     @Override
     public int[] sort(int[] sourceArray) {

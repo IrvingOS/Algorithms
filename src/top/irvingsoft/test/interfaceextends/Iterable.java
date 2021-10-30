@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 /**
  * @author TimeChaser
- * @date 2021/9/22 16:55
+ * @since 2021/9/22 16:55
  */
 public interface Iterable<T> {
 

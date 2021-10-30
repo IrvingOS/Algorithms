@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * @author TimeChaser
- * @date 2021/5/6 10:20
+ * @since 2021/5/6 10:20
  */
 public class MapEntry<K, V> implements Map.Entry<K, V> {
     private final K key;
