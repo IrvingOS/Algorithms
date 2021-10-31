@@ -3,31 +3,33 @@ package top.irvingsoft.leetcode.code3;
 import java.util.HashSet;
 
 /**
- * 无重复字符的最长字串
+ * 无重复字符的最长子串
  *
  * @author TimeChaser
  * @since 2021/3/11 12:29
  */
 public class Solution {
 
+    /**
+     * 滑动窗口 + 双指针
+     * <p>
+     * 慢指针负责删除前面可能重复的字符，快指针负责尽可能多的将后面的字符加到集合中
+     */
     public static int lengthOfLongestSubstring(String s) {
-
-        HashSet<Character> characterHashSet = new HashSet<>();
-
-        int n = s.length();
-        int rk = -1, longestLength = 0;
-        for (int i = 0; i < n; i++) {
-
+        HashSet<Character> substringSet = new HashSet<>();
+        int length = s.length();
+        int rk = 0, result = 0;
+        for (int i = 0; i < length; i++) {
             if (i != 0) {
-                characterHashSet.remove(s.charAt(i - 1));
+                substringSet.remove(s.charAt(i - 1));
             }
-            while (rk + 1 < n && !characterHashSet.contains(s.charAt(rk + 1))) {
-                characterHashSet.add(s.charAt(rk + 1));
+            while (rk < length && !substringSet.contains(s.charAt(rk))) {
+                substringSet.add(s.charAt(rk));
                 rk++;
             }
-            longestLength = Math.max(longestLength, characterHashSet.size());
+            result = Math.max(result, substringSet.size());
         }
-        return longestLength;
+        return result;
     }
 
     public static void main(String[] args) {
@@ -36,7 +38,6 @@ public class Solution {
 }
 
 /*
-
  *
  * Set:
  *      定义 equals();
