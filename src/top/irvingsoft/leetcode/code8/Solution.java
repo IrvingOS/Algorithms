@@ -47,6 +47,12 @@ public class Solution {
         return positive ? value : -value;
     }
 
+    /**
+     * 存在异常
+     *
+     * @author TimeChaser
+     * @since 2021/10/31 14:03
+     */
     public static int myAtoiAutomaton(String str) {
         Automaton automaton = new Automaton();
         int length = str.length();
@@ -69,15 +75,15 @@ public class Solution {
     }
 
     static class Automaton {
-        public int sign = 1;
-        public long ans = 0;
-        private String state = "start";
         private static Map<String, String[]> table = new HashMap<String, String[]>() {{
             put("start", new String[]{"start, signed", "in_number", "end" });
             put("signed", new String[]{"end, end", "in_number", "end" });
             put("in_number", new String[]{"end, end", "in_number", "end" });
             put("end", new String[]{"end, end", "end", "end" });
         }};
+        public int sign = 1;
+        public long ans = 0;
+        private String state = "start";
 
         public void get(char c) {
             state = table.get(state)[get_col(c)];
