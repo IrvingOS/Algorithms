@@ -38,8 +38,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[] nums1 = {4,0,0,0,0,0};
-        int[] nums2 = {1,2,3,5,6};
+        int[] nums1 = {4, 0, 0, 0, 0, 0};
+        int[] nums2 = {1, 2, 3, 5, 6};
         merge(nums1, 1, nums2, 5);
         System.out.println(Arrays.toString(nums1));
     }

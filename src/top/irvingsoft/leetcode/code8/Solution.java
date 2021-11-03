@@ -75,11 +75,11 @@ public class Solution {
     }
 
     static class Automaton {
-        private static Map<String, String[]> table = new HashMap<String, String[]>() {{
-            put("start", new String[]{"start, signed", "in_number", "end" });
-            put("signed", new String[]{"end, end", "in_number", "end" });
-            put("in_number", new String[]{"end, end", "in_number", "end" });
-            put("end", new String[]{"end, end", "end", "end" });
+        private static final Map<String, String[]> table = new HashMap<String, String[]>() {{
+            put("start", new String[]{"start, signed", "in_number", "end"});
+            put("signed", new String[]{"end, end", "in_number", "end"});
+            put("in_number", new String[]{"end, end", "in_number", "end"});
+            put("end", new String[]{"end, end", "end", "end"});
         }};
         public int sign = 1;
         public long ans = 0;
