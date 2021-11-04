@@ -34,6 +34,7 @@ public class Solution {
 
     public static boolean isMatchAnother(String s, String p) {
         int sRight = s.length(), pRight = p.length();
+        // 将 pRight 定位到最后一个 * 的下一个字符
         while (sRight > 0 && pRight > 0 && p.charAt(pRight - 1) != '*') {
             if (charMatch(s.charAt(sRight - 1), p.charAt(pRight - 1))) {
                 --sRight;
@@ -49,6 +50,7 @@ public class Solution {
         int sRecord = -1, pRecord = -1;
         while (sIndex < sRight && pIndex < pRight) {
             if (p.charAt(pIndex) == '*') {
+                // p 中出现 *，记录 * 号后开始匹配的下标，以便匹配失败后回溯
                 ++pIndex;
                 sRecord = sIndex;
                 pRecord = pIndex;
@@ -56,6 +58,8 @@ public class Solution {
                 ++sIndex;
                 ++pIndex;
             } else if (sRecord != -1 && sRecord + 1 < sRight) {
+                // sRecord + 1 < sRight 防止因回溯导致 sIndex 越界退出循环，sIndex 唯一导致越界的可能是上一个 else if
+                // p 中 * 后的第一个字符与 s 中当前字符匹配失败，p 中下标回溯到 * 后第一个字符，s 中下标向后移一位
                 ++sRecord;
                 sIndex = sRecord;
                 pIndex = pRecord;
@@ -63,6 +67,8 @@ public class Solution {
                 return false;
             }
         }
+        // 如果 sIndex < sRight，由于 pRight 指向的是通配符，所以退出循环则一定匹配
+        // 如果 pIndex < pRight，只要其间全部是 * 则一定匹配
         return allStars(p, pIndex, pRight);
     }
 
