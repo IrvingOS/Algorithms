@@ -14,7 +14,7 @@ import java.util.Set;
 public class Solution {
 
     private static final int SEG_COUNT = 4;
-    private static List<String> ans = new ArrayList<>();
+    private static final List<String> ans = new ArrayList<>();
     private static int[] segments = new int[SEG_COUNT];
 
     public static List<String> restoreIpAddresses(String s) {
@@ -58,7 +58,9 @@ public class Solution {
     }
 
     public static List<String> restoreIpAddressesAnother(String s) {
-        segments = new int[SEG_COUNT];
+        if (s.length() > 12) {
+            return ans;
+        }
         dfs(s, 0, 0);
         return ans;
     }
@@ -67,7 +69,7 @@ public class Solution {
         // 如果找到了 4 段 IP 地址并且遍历完了字符串，那么就是一种答案
         if (segId == SEG_COUNT) {
             if (segStart == s.length()) {
-                StringBuffer ipAddr = new StringBuffer();
+                StringBuilder ipAddr = new StringBuilder();
                 for (int i = 0; i < SEG_COUNT; ++i) {
                     ipAddr.append(segments[i]);
                     if (i != SEG_COUNT - 1) {
