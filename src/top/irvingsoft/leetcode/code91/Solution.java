@@ -1,5 +1,8 @@
 package top.irvingsoft.leetcode.code91;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 解码方法
  *
@@ -8,35 +11,33 @@ package top.irvingsoft.leetcode.code91;
  */
 public class Solution {
 
+    private static Map<Integer, Integer> cache = new HashMap<>();
+
     /**
-     * 深度优先
-     * <p>
-     * 超时
+     * 深度优先 + 记忆化搜索
      */
-    public static int numDecodingsDFS(String s) {
+    public static int numDecodingsDFSCache(String s) {
         if (s.charAt(0) == '0') {
             return 0;
         }
-        char[] arr = s.toCharArray();
-        return dfs(arr, 0, 0);
+        return dfs(s.toCharArray(), 0);
     }
 
-    private static int dfs(char[] arr, int index, int count) {
-        if (index == arr.length) {
-            return ++count;
+    private static int dfs(char[] arr, int index) {
+        if (cache.containsKey(index)) {
+            return cache.get(index);
         }
-        if (arr[index] == '0') {
-            return count;
+        if (arr.length - index > 0 && arr[index] == '0') {
+            return 0;
         }
-        int num = 0;
-        for (int i = index; i < arr.length; i++) {
-            num = num * 10 + arr[i] - '0';
-            if (num <= 26) {
-                count = dfs(arr, i + 1, count);
-            } else {
-                break;
-            }
+        if (arr.length - index <= 1) {
+            return 1;
         }
+        int count = dfs(arr, index + 1);
+        if ((arr[index] - '0') * 10 + (arr[index + 1] - '0') <= 26) {
+            count += dfs(arr, index + 2);
+        }
+        cache.put(index, count);
         return count;
     }
 
@@ -55,9 +56,26 @@ public class Solution {
         return f[n];
     }
 
+    public static int numDecodingsDynamicAnother(String s) {
+        int n = s.length();
+        int a = 0, b = 1, c = 0;
+        for (int i = 1; i <= n; i++) {
+            c = 0;
+            if (s.charAt(i - 1) != '0') {
+                c += b;
+            }
+            if (i > 1 && s.charAt(i - 2) != '0' && ((s.charAt(i - 2) - '0') * 10 + (s.charAt(i - 1) - '0') <= 26)) {
+                c += a;
+            }
+            a = b;
+            b = c;
+        }
+        return c;
+    }
+
     public static void main(String[] args) {
-        System.out.println(numDecodingsDFS("6211055971756562"));
-        System.out.println(numDecodingsDynamic("111111111111111111111111111111111111111111111"));
-        System.out.println(numDecodingsDynamic("0"));
+        System.out.println(numDecodingsDynamic("6211055971756562"));
+        System.out.println(numDecodingsDFSCache("111111111111111111111111111111111111111111111"));
+        System.out.println(numDecodingsDynamic("1"));
     }
 }
