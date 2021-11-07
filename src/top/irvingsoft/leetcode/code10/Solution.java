@@ -46,8 +46,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println("aaa");
-        System.out.println("ab*a*c*a");
         System.out.println(isMatch("aaa", "ab*a*c*a"));
         System.out.println(isMatch("aaa", "a*."));
     }
