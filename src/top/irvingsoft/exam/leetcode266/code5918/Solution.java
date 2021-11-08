@@ -1,4 +1,4 @@
-package top.irvingsoft.contest.leetcode266.code5918;
+package top.irvingsoft.exam.leetcode266.code5918;
 
 import java.util.ArrayList;
 import java.util.HashMap;

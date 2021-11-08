@@ -1,4 +1,4 @@
-package top.irvingsoft.contest.leetcode266.code5921;
+package top.irvingsoft.exam.leetcode266.code5921;
 
 /**
  * 最大化一张图中的路径价值
