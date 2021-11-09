@@ -25,35 +25,46 @@ public class Solution {
     private static int dfs(String board, String hand) {
         if (MAP.containsKey(board)) {
             if (MAP.get(board).containsKey(hand)) {
+                // 缓存查询
                 return MAP.get(board).get(hand);
             }
         }
         if (board.length() == 0) {
             int result = originalLength - hand.length();
+            // 加入缓存
             Map<String, Integer> handMap = MAP.getOrDefault(board, new HashMap<>());
             handMap.put(hand, result);
             MAP.put(board, handMap);
             return result;
         }
         if (hand.length() == 0 || (hand.length() == 1 && !board.contains(hand))) {
+            // hand 长度为 0，或者长度为 1 但不存在于 board 中
             return -1;
         }
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < hand.length(); i++) {
             String[] strings = checkIn(board, hand.charAt(i));
             for (String string : strings) {
+                // 遍历插入并处理后的结果集，递归进行下一步处理
                 int result = dfs(string, hand.substring(0, i) + hand.substring(i + 1));
-                if (result != -1) {
-                    min = Math.min(min, result);
-                }
+                // 收集最小值，-1 在主方法里处理
+                min = result != -1 ? Math.min(min, result) : min;
             }
         }
+        // 结果加入缓存
         Map<String, Integer> handMap = MAP.getOrDefault(board, new HashMap<>());
         handMap.put(hand, min);
         MAP.put(board, handMap);
         return min;
     }
 
+    /**
+     * 向 board 中每个字符后依次插入字符并处理
+     *
+     * @param board board
+     * @param ch    插入的字符
+     * @return java.lang.String[]
+     */
     private static String[] checkIn(String board, Character ch) {
         Set<String> result = new HashSet<>();
         StringBuilder sb = new StringBuilder(board);
@@ -61,13 +72,20 @@ public class Solution {
             StringBuilder temp = new StringBuilder(board);
             temp.insert(i + 1, ch);
             process(temp);
+            // 将插入并处理后的字符串加入结果集
             result.add(temp.toString());
         }
         return result.toArray(new String[0]);
     }
 
+    /**
+     * 递归消去 3 个及以上的连续字符
+     *
+     * @param sb StringBuilder
+     */
     private static void process(StringBuilder sb) {
         if (sb.length() < 3) {
+            // 字符串长度不足
             return;
         }
         char ch = sb.charAt(0);
@@ -87,6 +105,7 @@ public class Solution {
             }
         }
         if (count <= 2) {
+            // 不存在连续的三个字符
             return;
         }
         StringBuilder target = new StringBuilder();
