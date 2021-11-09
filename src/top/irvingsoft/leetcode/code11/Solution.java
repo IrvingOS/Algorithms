@@ -15,9 +15,19 @@ public class Solution {
         while (left < right) {
             result = Math.max(result, compute(height, left, right));
             if (height[left] < height[right]) {
-                left++;
+                int pre = height[left];
+                while (pre >= height[++left]) {
+                    if (left == right) {
+                        break;
+                    }
+                }
             } else {
-                right--;
+                int pre = height[right];
+                while (pre >= height[--right]) {
+                    if (left == right) {
+                        break;
+                    }
+                }
             }
         }
         return result;

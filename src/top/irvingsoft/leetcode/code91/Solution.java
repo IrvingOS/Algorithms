@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class Solution {
 
-    private static Map<Integer, Integer> cache = new HashMap<>();
+    private static final Map<Integer, Integer> cache = new HashMap<>();
 
     /**
      * 深度优先 + 记忆化搜索

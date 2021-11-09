@@ -12,8 +12,8 @@ import java.util.Map;
  */
 public class Solution {
 
-    private static Map<Character, Integer> ori = new HashMap<>();
-    private static Map<Character, Integer> cnt = new HashMap<>();
+    private static final Map<Character, Integer> ori = new HashMap<>();
+    private static final Map<Character, Integer> cnt = new HashMap<>();
 
     /**
      * 暴力解法

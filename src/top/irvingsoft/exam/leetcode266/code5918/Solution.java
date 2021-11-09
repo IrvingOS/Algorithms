@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class Solution {
 
-    private static List<Character> list = new ArrayList<>();
+    private static final List<Character> list = new ArrayList<>();
 
     static {
         list.add('a');
