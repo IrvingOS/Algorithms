@@ -1,16 +1,16 @@
-package top.irvingsoft.leetcode.code54;
+package top.irvingsoft.leetcode.code59;
 
 import java.util.Arrays;
 
 /**
- * 输出螺旋矩阵
+ * 螺旋矩阵 ⅱ
  *
  * @author TimeChaser
- * @since 2021/11/12 17:05
+ * @since 2021/11/12 18:44
  */
-public class SpiralMatrix {
+public class Solution {
 
-    public static int[][] spiralMatrix(int n) {
+    public static int[][] generateMatrix(int n) {
         int[][] result = new int[n][n];
         int k = 1;
         for (int i = 0; i < n / 2; i++) {
@@ -34,9 +34,6 @@ public class SpiralMatrix {
     }
 
     public static void main(String[] args) {
-        int[][] ints = spiralMatrix(6);
-        for (int[] anInt : ints) {
-            System.out.println(Arrays.toString(anInt));
-        }
+        System.out.println(Arrays.deepToString(generateMatrix(3)));
     }
 }
