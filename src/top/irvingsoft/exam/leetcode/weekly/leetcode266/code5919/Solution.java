@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.leetcode266.code5919;
+package top.irvingsoft.exam.leetcode.weekly.leetcode266.code5919;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.leetcode266.code5920;
+package top.irvingsoft.exam.leetcode.weekly.leetcode266.code5920;
 
 /**
  * 分配给商店的最多商品的最小值
