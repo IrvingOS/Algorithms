@@ -18,12 +18,12 @@ public interface IArraySort {
      * 数组交换
      *
      * @param arr Arrays
-     * @param a   index1
-     * @param b   index2
+     * @param i   index1
+     * @param j   index2
      */
-    default void swap(int[] arr, int a, int b) {
-        arr[a] ^= arr[b];
-        arr[b] ^= arr[a];
-        arr[a] ^= arr[b];
+    default void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
