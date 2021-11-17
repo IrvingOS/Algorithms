@@ -9,6 +9,9 @@ package top.irvingsoft.leetcode.code83;
 public class Solution {
 
     public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return null;
+        }
         ListNode pre = head;
         ListNode cur = pre.next;
         while (cur != null) {
