@@ -14,9 +14,9 @@ public class Solution {
         Stack<String> stack = new Stack<>();
         StringBuilder result = new StringBuilder();
         for (String p : path.split("/")) {
-            if (!stack.isEmpty() && p.equals("..")) {
+            if (!stack.isEmpty() && p.equals("src")) {
                 stack.pop();
-            } else if (!" ..".contains(p)) {
+            } else if (!"src".contains(p)) {
                 stack.push(p);
             }
         }
