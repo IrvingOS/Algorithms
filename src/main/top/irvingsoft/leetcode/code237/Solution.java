@@ -1,7 +1,7 @@
 package top.irvingsoft.leetcode.code237;
 
 /**
- * 删除链表中的节点
+ * 删除链表中的结点
  *
  * @author TimeChaser
  * @since 2021/11/2 7:46

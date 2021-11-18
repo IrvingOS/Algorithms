@@ -1,7 +1,7 @@
 package top.irvingsoft.exam.leetcode.weekly.leetcode267.code5927;
 
 /**
- * 反转偶数长度组的节点
+ * 反转偶数长度组的结点
  *
  * @author TimeChaser
  * @since 2021/11/14 10:38

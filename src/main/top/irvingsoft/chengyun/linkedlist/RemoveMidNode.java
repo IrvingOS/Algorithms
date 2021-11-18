@@ -10,11 +10,11 @@ public class RemoveMidNode {
 
     public static Node removeMidNode(Node head) {
 
-        // 链表为空或者仅有一个节点，不删除直接返回
+        // 链表为空或者仅有一个结点，不删除直接返回
         if (head == null || head.next == null) {
             return head;
         }
-        // 链表仅有两个节点，删除第一个节点
+        // 链表仅有两个结点，删除第一个结点
         if (head.next.next == null) {
             return head.next;
         }

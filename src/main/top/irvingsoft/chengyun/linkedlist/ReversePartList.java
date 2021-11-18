@@ -14,7 +14,7 @@ public class ReversePartList {
         Node cur = head;
         Node fPre = null;
         Node tPos = null;
-        // 遍历长度的同时，定位好反转部分前置节点和后置节点
+        // 遍历长度的同时，定位好反转部分前置结点和后置结点
         while (cur != null) {
             len++;
             fPre = len == from - 1 ? cur : fPre;
@@ -24,10 +24,10 @@ public class ReversePartList {
         if (from > to || from < 1 || to > len) {
             return head;
         }
-        // 复制过后，cur 为需要反转的部分链反转前的头节点
+        // 复制过后，cur 为需要反转的部分链反转前的头结点
         cur = fPre == null ? head : fPre.next;
         Node node = cur.next;
-        // 反转前的头节点为反转后的尾节点，不如直接将后缀拼接到反转前的头节点之后，并从下一个节点开始翻转
+        // 反转前的头结点为反转后的尾结点，不如直接将后缀拼接到反转前的头结点之后，并从下一个结点开始翻转
         cur.next = tPos;
         Node next = null;
         while (node != tPos) {
@@ -41,7 +41,7 @@ public class ReversePartList {
             fPre.next = cur;
             return head;
         }
-        // 前缀为空，则直接返回反转后的头节点
+        // 前缀为空，则直接返回反转后的头结点
         return cur;
     }
 

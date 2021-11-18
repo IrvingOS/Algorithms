@@ -1,7 +1,7 @@
 package top.irvingsoft.leetcode.code230;
 
 /**
- * 树节点
+ * 树结点
  *
  * @author TimeChaser
  * @since 2021/11/13 9:40

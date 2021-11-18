@@ -1,7 +1,7 @@
 package top.irvingsoft.chengyun.binarytree;
 
 /**
- * 二叉树节点
+ * 二叉树结点
  *
  * @author TimeChaser
  * @since 2021/9/18 10:07

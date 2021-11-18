@@ -34,7 +34,7 @@ public class Palindrome {
         }
         Node right = head.next;
         Node cur = head;
-        // 定位 right 指针到右半区头节点
+        // 定位 right 指针到右半区头结点
         while (cur.next != null && cur.next.next != null) {
             right = right.next;
             cur = cur.next.next;
@@ -60,7 +60,7 @@ public class Palindrome {
         }
         Node node1 = head;
         Node node2 = head;
-        // 定位 node1 指针到中间节点
+        // 定位 node1 指针到中间结点
         while (node2.next != null && node2.next.next != null) {
             node1 = node1.next;
             node2 = node2.next.next;
@@ -77,7 +77,7 @@ public class Palindrome {
         node2 = head;
         node3 = node1;
         boolean result = true;
-        // node2 从前往中间节点遍历，node1 从后往中间节点遍历
+        // node2 从前往中间结点遍历，node1 从后往中间结点遍历
         while (node2 != null && node1 != null) {
             if (node2.value != node1.value) {
                 result = false;

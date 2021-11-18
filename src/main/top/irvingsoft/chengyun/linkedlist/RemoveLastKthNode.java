@@ -9,7 +9,7 @@ package top.irvingsoft.chengyun.linkedlist;
 public class RemoveLastKthNode {
 
     /**
-     * 两次遍历找到倒数第 K 个节点的上一个节点
+     * 两次遍历找到倒数第 K 个结点的上一个结点
      *
      * @author TimeChaser
      * @since 2021/10/23 15:24
@@ -37,7 +37,7 @@ public class RemoveLastKthNode {
     }
 
     /**
-     * 两个指针找到倒数第 K 个节点的上一个节点
+     * 两个指针找到倒数第 K 个结点的上一个结点
      *
      * @author TimeChaser
      * @since 2021/10/23 15:42

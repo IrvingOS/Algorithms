@@ -37,7 +37,7 @@ public class Solution {
             }
         }
         int result = 0;
-        // 方向指示，从当前优先级队列的队头节点向四周扩散
+        // 方向指示，从当前优先级队列的队头结点向四周扩散
         int[] dirs = {-1, 0, 1, 0, -1};
         while (!pq.isEmpty()) {
             int[] curr = pq.poll();
@@ -45,11 +45,11 @@ public class Solution {
                 int nx = curr[0] / n + dirs[k];
                 int ny = curr[0] % n + dirs[k + 1];
                 if (nx >= 0 && nx < m && ny >= 0 && ny < n && !visit[nx][ny]) {
-                    // 队头节点比当前节点高，获得雨水容量
+                    // 队头结点比当前结点高，获得雨水容量
                     if (curr[1] > heightMap[nx][ny]) {
                         result += curr[1] - heightMap[nx][ny];
                     }
-                    // 当前节点入队列，高度取原节点和当前节点的最高值
+                    // 当前结点入队列，高度取原结点和当前结点的最高值
                     pq.offer(new int[]{nx * n + ny, Math.max(heightMap[nx][ny], curr[1])});
                     visit[nx][ny] = true;
                 }
