@@ -11,8 +11,8 @@ public class Solution {
     public int majorityElement(int[] nums) {
         int hero = 0;
         int blood = 0;
-        for(int num : nums) {
-            if(blood == 0) {
+        for (int num : nums) {
+            if (blood == 0) {
                 hero = num;
             }
             blood += hero == num ? 1 : -1;

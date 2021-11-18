@@ -1,6 +1,6 @@
-package top.irvingsoft.code.usermerge;
+package top.irvingsoft.chengyun.usermerge;
 
-import top.irvingsoft.code.unionfind.UnionSet;
+import top.irvingsoft.chengyun.unionfind.UnionSet;
 
 import java.util.Arrays;
 import java.util.HashMap;

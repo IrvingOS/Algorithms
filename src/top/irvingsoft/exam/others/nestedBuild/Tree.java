@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.nestedBuild;
+package top.irvingsoft.exam.others.nestedBuild;
 
 import java.util.ArrayList;
 import java.util.List;

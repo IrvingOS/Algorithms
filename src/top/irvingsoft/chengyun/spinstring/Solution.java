@@ -1,4 +1,4 @@
-package top.irvingsoft.code.spinstring;
+package top.irvingsoft.chengyun.spinstring;
 
 /**
  * 旋转字符串

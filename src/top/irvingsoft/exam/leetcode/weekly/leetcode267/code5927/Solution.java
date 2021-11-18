@@ -11,12 +11,12 @@ public class Solution {
     public ListNode reverseEvenLengthGroups(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
-        int nodes =  1;
+        int nodes = 1;
         int count = 0;
-        while(fast != null) {
+        while (fast != null) {
             count++;
-            if(count == nodes) {
-                if(nodes % 2 == 0) {
+            if (count == nodes) {
+                if (nodes % 2 == 0) {
                     slow = reverse(slow, nodes);
                     fast = slow;
                 } else {
@@ -27,7 +27,7 @@ public class Solution {
             }
             fast = fast.next;
         }
-        if(count > 0 && count % 2 == 0) {
+        if (count > 0 && count % 2 == 0) {
             reverse(slow, count);
         }
         return head;
@@ -37,12 +37,12 @@ public class Solution {
         ListNode next = pre.next;
         ListNode cur = pre.next;
         ListNode sufix = cur;
-        while(count-- != 0) {
+        while (count-- != 0) {
             sufix = sufix.next;
         }
         ListNode node = cur.next;
         cur.next = sufix;
-        while(node != sufix) {
+        while (node != sufix) {
             ListNode temp = node.next;
             node.next = cur;
             cur = node;

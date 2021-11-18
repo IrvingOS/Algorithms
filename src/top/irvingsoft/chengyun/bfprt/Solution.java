@@ -1,4 +1,4 @@
-package top.irvingsoft.code.bfprt;
+package top.irvingsoft.chengyun.bfprt;
 
 /**
  * BFPRT 算法

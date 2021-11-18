@@ -12,16 +12,16 @@ public class Solution {
         int n = encodedText.length();
         int columns = n / rows;
         char[][] chars = new char[rows][columns];
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             chars[i / columns][i % columns] = encodedText.charAt(i);
         }
         StringBuilder sb = new StringBuilder();
         int i = 0;
         int j = 0;
-        while(j != columns) {
+        while (j != columns) {
             int x = i;
             int y = j;
-            while(x < rows && y < columns) {
+            while (x < rows && y < columns) {
                 sb.append(chars[x++][y++]);
             }
             j++;

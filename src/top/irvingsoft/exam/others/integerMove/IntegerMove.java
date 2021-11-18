@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.integerMove;
+package top.irvingsoft.exam.others.integerMove;
 
 import java.util.Arrays;
 

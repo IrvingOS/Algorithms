@@ -13,12 +13,12 @@ public class Solution {
     }
 
     private ListNode mergeSort(ListNode head) {
-        if(head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
         ListNode mid = getMid(head);
         ListNode cur = head;
-        while(cur.next != mid) {
+        while (cur.next != mid) {
             cur = cur.next;
         }
         cur.next = null;
@@ -28,7 +28,7 @@ public class Solution {
     private ListNode getMid(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
-        while(fast != null && fast.next != null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -38,8 +38,8 @@ public class Solution {
     private ListNode merge(ListNode left, ListNode right) {
         ListNode dummy = new ListNode();
         ListNode cur = dummy;
-        while(left != null && right != null) {
-            if(left.val < right.val) {
+        while (left != null && right != null) {
+            if (left.val < right.val) {
                 cur.next = left;
                 left = left.next;
             } else {

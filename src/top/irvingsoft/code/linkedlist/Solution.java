@@ -85,19 +85,17 @@ public class Solution {
      * @param head   头结点
      * @param index  起始下标
      * @param length 长度
-     * @return top.irvingsoft.code.linkedlist.Node
      * @author TimeChaser
      * @since 2021/8/7 15:47
      */
-    public static Node reverseListRecursion(Node head, int index, int length) {
+    public static void reverseListRecursion(Node head, int index, int length) {
 
         if (index == 1) {
             head.next = reverseListRecursion(head.next, length);
-            return head;
+            return;
         }
 
         reverseListRecursion(head.next, index - 1, length);
-        return head;
     }
 
     public static void traverseList(Node head) {

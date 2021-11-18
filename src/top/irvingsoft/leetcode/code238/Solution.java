@@ -12,12 +12,12 @@ public class Solution {
         int n = nums.length;
         int[] result = new int[n];
         int k = 1;
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             result[i] = k;
             k *= nums[i];
         }
         k = 1;
-        for(int i = n - 1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) {
             result[i] *= k;
             k *= nums[i];
         }

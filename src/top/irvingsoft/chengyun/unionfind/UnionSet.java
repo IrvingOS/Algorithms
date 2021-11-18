@@ -1,4 +1,4 @@
-package top.irvingsoft.code.unionfind;
+package top.irvingsoft.chengyun.unionfind;
 
 import java.util.HashMap;
 import java.util.List;

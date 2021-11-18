@@ -1,4 +1,4 @@
-package top.irvingsoft.code.treeheight;
+package top.irvingsoft.chengyun.treeheight;
 
 /**
  * 与二叉树高度相关的解法

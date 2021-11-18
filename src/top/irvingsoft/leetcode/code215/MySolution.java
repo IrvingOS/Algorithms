@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class MySolution {
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public static void main(String[] args) {
         Random random = new Random();
