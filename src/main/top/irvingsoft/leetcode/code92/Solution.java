@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 不同的二叉查找树 ⅱ
+ * 不同的二叉搜索树 ⅱ
  *
  * @author TimeChaser
  * @since 2021/11/19 10:57

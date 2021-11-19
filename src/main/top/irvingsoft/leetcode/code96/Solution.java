@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 不同的二叉查找树
+ * 不同的二叉搜索树
  *
  * @author TimeChaser
  * @since 2021/11/19 14:46
