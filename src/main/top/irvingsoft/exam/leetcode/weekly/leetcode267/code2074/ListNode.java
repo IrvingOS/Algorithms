@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.leetcode.weekly.leetcode267.code5927;
+package top.irvingsoft.exam.leetcode.weekly.leetcode267.code2074;
 
 /**
  * @author TimeChaser

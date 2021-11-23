@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.leetcode.weekly.leetcode267.code5926;
+package top.irvingsoft.exam.leetcode.weekly.leetcode267.code2073;
 
 /**
  * 买票需要的时间

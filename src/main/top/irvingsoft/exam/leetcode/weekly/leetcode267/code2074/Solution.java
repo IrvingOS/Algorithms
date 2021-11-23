@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.leetcode.weekly.leetcode267.code5927;
+package top.irvingsoft.exam.leetcode.weekly.leetcode267.code2074;
 
 /**
  * 反转偶数长度组的结点

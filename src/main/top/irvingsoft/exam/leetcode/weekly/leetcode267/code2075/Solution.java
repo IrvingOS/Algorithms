@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.leetcode.weekly.leetcode267.code5928;
+package top.irvingsoft.exam.leetcode.weekly.leetcode267.code2075;
 
 /**
  * 解码斜向换位密码

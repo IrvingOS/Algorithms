@@ -1,4 +1,4 @@
-package top.irvingsoft.exam.leetcode.weekly.leetcode268.code5930;
+package top.irvingsoft.exam.leetcode.weekly.leetcode268.code2078;
 
 /**
  * 两栋颜色不同且距离最远的房子
