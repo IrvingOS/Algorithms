@@ -1,7 +1,7 @@
 package top.irvingsoft.foroffer2.code6;
 
 /**
- * 从头到尾打印链表
+ * 从尾到头打印链表
  *
  * @author TimeChaser
  * @since 2021/11/24 21:28
