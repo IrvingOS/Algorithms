@@ -5,11 +5,13 @@ import java.util.Queue;
 
 /**
  * Binary Search Tree
+ * <p>
+ * All operation are implemented using recursion.
  *
  * @author TimeChaser
  * @since 2021/11/18 15:19
  */
-public class BST<Key extends Comparable<Key>, Value> {
+public class BSTRecursion<Key extends Comparable<Key>, Value> {
 
     private Node root;
 
@@ -329,10 +331,13 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     private class Node {
-        private final Key key;
+        private Key   key;
         private Value val;
-        private Node left, right;
+        private Node  left, right;
         private int n;
+
+        public Node() {
+        }
 
         public Node(Key key, Value val, int n) {
             this.key = key;
