@@ -1,6 +1,7 @@
-package top.irvingsoft.code.tree;
+package top.irvingsoft.code.tree.bst;
 
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -16,6 +17,10 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
 
     private Node root;
 
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
     public int size() {
         return size(root);
     }
@@ -27,7 +32,17 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
         return x.n;
     }
 
+    public boolean contains(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to contains() is null");
+        }
+        return get(key) != null;
+    }
+
     public Value get(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to get() is null");
+        }
         return get(root, key);
     }
 
@@ -50,7 +65,11 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     public void put(Key key, Value val) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to put() is null");
+        }
         root = put(root, key, val);
+        assert check();
     }
 
     private Node put(Node x, Key key, Value val) {
@@ -117,10 +136,14 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     public Key floor(Key key) {
-        return floor(root, key);
+        if (key == null) {
+            throw new IllegalArgumentException("key to floor() is null");
+        }
+        Node x = floor(root, key);
+        return x != null ? x.key : null;
     }
 
-    private Key floor(Node x, Key key) {
+    private Node floor(Node x, Key key) {
         if (x == null) {
             return null;
         }
@@ -129,7 +152,7 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
         while (cur != null) {
             int compareTo = key.compareTo(cur.key);
             if (compareTo == 0) {
-                return cur.key;
+                return cur;
             } else if (compareTo < 0) {
                 cur = cur.left;
             } else {
@@ -137,14 +160,18 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
                 cur = cur.right;
             }
         }
-        return temp != null ? temp.key : null;
+        return temp;
     }
 
     public Key ceiling(Key key) {
-        return ceiling(root, key);
+        if (key == null) {
+            throw new IllegalArgumentException("key to ceiling() is null");
+        }
+        Node x = ceiling(root, key);
+        return x != null ? x.key : null;
     }
 
-    private Key ceiling(Node x, Key key) {
+    private Node ceiling(Node x, Key key) {
         if (x == null) {
             return null;
         }
@@ -153,7 +180,7 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
         while (cur != null) {
             int compareTo = key.compareTo(cur.key);
             if (compareTo == 0) {
-                return cur.key;
+                return cur;
             } else if (compareTo < 0) {
                 pre = cur;
                 cur = cur.left;
@@ -161,14 +188,15 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
                 cur = cur.right;
             }
         }
-        return pre != null ? pre.key : null;
+        return pre;
     }
 
     public Key select(int k) {
-        return select(root, k);
+        Node x = select(root, k);
+        return x != null ? x.key : null;
     }
 
-    private Key select(Node x, int k) {
+    private Node select(Node x, int k) {
         if (x == null) {
             return null;
         }
@@ -176,7 +204,7 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
         while (cur != null) {
             int t = size(cur.left);
             if (k == t) {
-                return cur.key;
+                return cur;
             } else if (k < t) {
                 cur = cur.left;
             } else {
@@ -188,6 +216,9 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     public int rank(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to rank() is null");
+        }
         return rank(root, key);
     }
 
@@ -212,7 +243,11 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     public void deleteMin() {
+        if (root == null) {
+            return;
+        }
         root = deleteMin(root);
+        assert check();
     }
 
     private Node deleteMin(Node x) {
@@ -231,7 +266,11 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     public void deleteMax() {
+        if (root == null) {
+            return;
+        }
         root = deleteMax(root);
+        assert check();
     }
 
     private Node deleteMax(Node x) {
@@ -250,7 +289,11 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     public void delete(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to delete() is null");
+        }
         root = delete(root, key);
+        assert check();
     }
 
     private Node delete(Node x, Key key) {
@@ -297,10 +340,16 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     public Iterable<Key> keys() {
-        return keys(min(), max());
+        return rangeSearch(min(), max());
     }
 
-    public Iterable<Key> keys(Key lo, Key hi) {
+    public Iterable<Key> rangeSearch(Key lo, Key hi) {
+        if (lo == null) {
+            throw new IllegalArgumentException("lo to rangeSearch() is null");
+        }
+        if (hi == null) {
+            throw new IllegalArgumentException("hi to rangeSearch() is null");
+        }
         Queue<Key> queue = new ArrayDeque<>();
         keys(root, queue, lo, hi);
         return queue;
@@ -334,6 +383,79 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
                 cur = cur.right;
             }
         }
+    }
+
+    private boolean check() {
+        boolean BST = isBST();
+        boolean sizeConsistent = isSizeConsistent();
+        boolean rankConsistent = isRankConsistent();
+        if (!BST) {
+            System.out.println("Not in symmetric order");
+        }
+        if (!sizeConsistent) {
+            System.out.println("Subtree counts not consistent");
+        }
+        if (!rankConsistent) {
+            System.out.println("Ranks not consistent");
+        }
+        return BST && sizeConsistent && rankConsistent;
+    }
+
+    private boolean isRankConsistent() {
+        for (int i = 0; i < size(); i++) {
+            if (i != rank(select(i))) {
+                return false;
+            }
+        }
+        for (Key key : keys()) {
+            if (key.compareTo(select(rank(key))) != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isSizeConsistent() {
+        return isSizeConsistent(root);
+    }
+
+    private boolean isSizeConsistent(Node x) {
+        if (x == null) {
+            return true;
+        }
+        Node cur = x;
+        Stack<Node> stack = new Stack<>();
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            if (cur.n != size(cur.left) + size(cur.right) + 1) {
+                return false;
+            }
+            cur = cur.right;
+        }
+        return true;
+    }
+
+    private boolean isBST() {
+        return isBST(root);
+    }
+
+    // TODO better isBST 的非递归实现
+    private boolean isBST(Node x) {
+        Queue<Key> keys = new LinkedList<>();
+        keys(x, keys, min(x).key, max(x).key);
+        Key lo = keys.poll();
+        while (lo != null && !keys.isEmpty()) {
+            Key cur = keys.poll();
+            if (lo.compareTo(cur) >= 0) {
+                return false;
+            }
+            lo = cur;
+        }
+        return true;
     }
 
     private class Node {

@@ -1,7 +1,7 @@
 package top.irvingsoft.test.tree;
 
-import top.irvingsoft.code.tree.BSTIteration;
-import top.irvingsoft.code.tree.BSTRecursion;
+import top.irvingsoft.code.tree.bst.BSTIteration;
+import top.irvingsoft.code.tree.bst.BSTRecursion;
 
 /**
  * @author TimeChaser
@@ -11,9 +11,9 @@ public class BSTTest {
 
     public static void main(String[] args) {
         BSTRecursion<Integer, String> bstRecursion = new BSTRecursion<>();
+        bstRecursion.put(3, "three");
         bstRecursion.put(1, "test");
         bstRecursion.put(2, "two");
-        bstRecursion.put(3, "three");
         bstRecursion.put(0, "zero");
         bstRecursion.put(4, "four");
         bstRecursion.put(5, "five");
@@ -24,7 +24,8 @@ public class BSTTest {
         bstIteration.put(0, "zero");
         bstIteration.put(4, "four");
         bstIteration.put(5, "five");
-
-        System.out.println(bstIteration.keys(4, 5));
+        bstIteration.deleteMin();
+        bstIteration.deleteMin();
+        bstIteration.delete(4);
     }
 }
