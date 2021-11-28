@@ -1,7 +1,6 @@
 package top.irvingsoft.leetcode.code438;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,9 +28,7 @@ public class Solution {
                 left++;
             }
             if (right - left + 1 == p.length()) {
-                if (Arrays.equals(pCount, sCount)) {
-                    result.add(left);
-                }
+                result.add(left);
                 sCount[s.charAt(left) - 'a']--;
                 left++;
             }
