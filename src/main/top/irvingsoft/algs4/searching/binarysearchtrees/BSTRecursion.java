@@ -8,6 +8,8 @@ import java.util.Queue;
  * Binary Search Tree
  * <p>
  * All operation are implemented using recursion.
+ * <p>
+ * Key != null && Value != null
  *
  * @author TimeChaser
  * @since 2021/11/18 15:19
@@ -71,35 +73,39 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
         } else if (cmp > 0) {
             return get(x.right, key);
         } else {
-            return x.val;
+            return x.value;
         }
     }
 
     /**
      * 新增或更新结点 key 的值
      *
-     * @param key 结点 key
-     * @param val 结点 value
+     * @param key   结点 key
+     * @param value 结点 value
      */
-    public void put(Key key, Value val) {
+    public void put(Key key, Value value) {
         if (key == null) {
             throw new IllegalArgumentException("key to put() is null");
         }
-        root = put(root, key, val);
+        if (value == null) {
+            delete(key);
+        } else {
+            root = put(root, key, value);
+        }
         assert check();
     }
 
-    private Node put(Node x, Key key, Value val) {
+    private Node put(Node x, Key key, Value value) {
         if (x == null) {
-            return new Node(key, val, 1);
+            return new Node(key, value, 1);
         }
         int cmp = key.compareTo(x.key);
         if (cmp < 0) {
-            x.left = put(x.left, key, val);
+            x.left = put(x.left, key, value);
         } else if (cmp > 0) {
-            x.right = put(x.right, key, val);
+            x.right = put(x.right, key, value);
         } else {
-            x.val = val;
+            x.value = value;
         }
         x.n = size(x.left) + size(x.right) + 1;
         return x;
@@ -204,6 +210,9 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
      * @return Key
      */
     public Key select(int k) {
+        if (k < 0 || k >= size()) {
+            throw new IllegalArgumentException("k to select() is illegal");
+        }
         Node x = select(root, k);
         return x != null ? x.key : null;
     }
@@ -353,6 +362,9 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
         if (hi == null) {
             throw new IllegalArgumentException("hi to rangeSearch() is null");
         }
+        if (lo.compareTo(hi) > 0) {
+            return null;
+        }
         Queue<Key> queue = new ArrayDeque<>();
         keys(root, queue, lo, hi);
         return queue;
@@ -482,16 +494,16 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
 
     private class Node {
         private Key   key;
-        private Value val;
+        private Value value;
         private Node  left, right;
         private int n;
 
         public Node() {
         }
 
-        public Node(Key key, Value val, int n) {
+        public Node(Key key, Value value, int n) {
             this.key = key;
-            this.val = val;
+            this.value = value;
             this.n = n;
         }
     }

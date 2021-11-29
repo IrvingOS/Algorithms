@@ -9,6 +9,8 @@ import java.util.Stack;
  * Binary Search Tree
  * <p>
  * All operation are implemented by iteration.
+ * <p>
+ * Key != null && Value != null
  *
  * @author TimeChaser
  * @since 2021/11/27 17:44
@@ -54,7 +56,7 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
         while (cur != null) {
             int compareTo = key.compareTo(cur.key);
             if (compareTo == 0) {
-                return cur.val;
+                return cur.value;
             } else if (compareTo < 0) {
                 cur = cur.left;
             } else {
@@ -64,17 +66,21 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
         return null;
     }
 
-    public void put(Key key, Value val) {
+    public void put(Key key, Value value) {
         if (key == null) {
             throw new IllegalArgumentException("key to put() is null");
         }
-        root = put(root, key, val);
+        if (value == null) {
+            delete(key);
+        } else {
+            root = put(root, key, value);
+        }
         assert check();
     }
 
-    private Node put(Node x, Key key, Value val) {
+    private Node put(Node x, Key key, Value value) {
         if (x == null) {
-            return new Node(key, val, 1);
+            return new Node(key, value, 1);
         }
         boolean contains = get(key) != null;
         Node cur = x;
@@ -84,17 +90,17 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
             }
             int compareTo = key.compareTo(cur.key);
             if (compareTo == 0) {
-                cur.val = val;
+                cur.value = value;
                 break;
             } else if (compareTo < 0) {
                 if (cur.left == null) {
-                    cur.left = new Node(key, val, 1);
+                    cur.left = new Node(key, value, 1);
                     break;
                 }
                 cur = cur.left;
             } else {
                 if (cur.right == null) {
-                    cur.right = new Node(key, val, 1);
+                    cur.right = new Node(key, value, 1);
                     break;
                 }
                 cur = cur.right;
@@ -192,6 +198,9 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     public Key select(int k) {
+        if (k < 0 || k >= size()) {
+            throw new IllegalArgumentException("k to select() is illegal");
+        }
         Node x = select(root, k);
         return x != null ? x.key : null;
     }
@@ -350,6 +359,9 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
         if (hi == null) {
             throw new IllegalArgumentException("hi to rangeSearch() is null");
         }
+        if (lo.compareTo(hi) > 0) {
+            return null;
+        }
         Queue<Key> queue = new ArrayDeque<>();
         keys(root, queue, lo, hi);
         return queue;
@@ -460,16 +472,16 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
 
     private class Node {
         private Key   key;
-        private Value val;
+        private Value value;
         private Node  left, right;
         private int n;
 
         public Node() {
         }
 
-        public Node(Key key, Value val, int n) {
+        public Node(Key key, Value value, int n) {
             this.key = key;
-            this.val = val;
+            this.value = value;
             this.n = n;
         }
     }

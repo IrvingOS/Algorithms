@@ -1,19 +1,17 @@
-package top.irvingsoft.test.sort;
-
-import top.irvingsoft.code.sort.IArraySort;
+package top.irvingsoft.code.sort;
 
 import java.util.Arrays;
 
 /**
  * @author TimeChaser
- * @since 2021/10/19 15:14
+ * @since 2021/10/13 14:31
  */
-public class MergeSort implements IArraySort {
+public class QuickSort implements IArraySort {
 
     public static void main(String[] args) {
 
         int[] arr = {22, 34, 3, 32, 82, 55, 89, 50, 37, 5, 64, 35, 9, 70};
-        System.out.println(Arrays.toString(new MergeSort().sort(arr)));
+        System.out.println(Arrays.toString(new QuickSort().sort(arr)));
     }
 
     @Override

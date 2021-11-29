@@ -1,6 +1,4 @@
-package top.irvingsoft.test.sort;
-
-import top.irvingsoft.code.sort.IArraySort;
+package top.irvingsoft.code.sort;
 
 import java.util.Arrays;
 

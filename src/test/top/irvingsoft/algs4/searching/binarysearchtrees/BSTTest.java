@@ -1,7 +1,4 @@
-package top.irvingsoft.test.tree;
-
-import top.irvingsoft.algs4.searching.binarysearchtrees.BSTIteration;
-import top.irvingsoft.algs4.searching.binarysearchtrees.BSTRecursion;
+package top.irvingsoft.algs4.searching.binarysearchtrees;
 
 /**
  * @author TimeChaser
@@ -17,6 +14,12 @@ public class BSTTest {
         bstRecursion.put(0, "zero");
         bstRecursion.put(4, "four");
         bstRecursion.put(5, "five");
+        Iterable<Integer> keysRecursion = bstRecursion.keys();
+        int i = 0;
+        for (Integer key : keysRecursion) {
+            assert bstRecursion.rank(bstRecursion.select(i)) == i && key.equals(bstRecursion.select(bstRecursion.rank(key)));
+            i++;
+        }
         BSTIteration<Integer, String> bstIteration = new BSTIteration<>();
         bstIteration.put(1, "test");
         bstIteration.put(2, "two");
@@ -24,8 +27,11 @@ public class BSTTest {
         bstIteration.put(0, "zero");
         bstIteration.put(4, "four");
         bstIteration.put(5, "five");
-        bstIteration.deleteMin();
-        bstIteration.deleteMin();
-        bstIteration.delete(4);
+        Iterable<Integer> keysIteration = bstRecursion.keys();
+        i = 0;
+        for (Integer key : keysIteration) {
+            assert bstIteration.rank(bstIteration.select(i)) == i && key.equals(bstIteration.select(bstIteration.rank(key)));
+            i++;
+        }
     }
 }
