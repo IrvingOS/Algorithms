@@ -1,7 +1,7 @@
 package top.irvingsoft.test.tree;
 
-import top.irvingsoft.code.tree.bst.BSTIteration;
-import top.irvingsoft.code.tree.bst.BSTRecursion;
+import top.irvingsoft.algs4.searching.binarysearchtrees.BSTIteration;
+import top.irvingsoft.algs4.searching.binarysearchtrees.BSTRecursion;
 
 /**
  * @author TimeChaser

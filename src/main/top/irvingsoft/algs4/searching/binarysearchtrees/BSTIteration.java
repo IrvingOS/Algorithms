@@ -1,4 +1,4 @@
-package top.irvingsoft.code.tree.bst;
+package top.irvingsoft.algs4.searching.binarysearchtrees;
 
 import java.util.ArrayDeque;
 import java.util.LinkedList;
