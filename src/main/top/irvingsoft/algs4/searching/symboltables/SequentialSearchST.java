@@ -16,6 +16,7 @@ import java.util.Queue;
 public class SequentialSearchST<Key extends Comparable<Key>, Value> {
 
     private Node first;
+    private Node cache;
 
     public Value get(Key key) {
         if (key == null) {
@@ -66,7 +67,16 @@ public class SequentialSearchST<Key extends Comparable<Key>, Value> {
     }
 
     public boolean contains(Key key) {
-        return get(key) != null;
+        if (cache != null && key.compareTo(cache.key) == 0) {
+            return true;
+        }
+        for (Node x = first; x != null; x = x.next) {
+            if (key.compareTo(x.key) == 0) {
+                cache = x;
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isEmpty() {
