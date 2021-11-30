@@ -15,7 +15,7 @@ public class DogCatQueue {
 
     private final Queue<PetEnterQueue> dogQueue;
     private final Queue<PetEnterQueue> catQueue;
-    private long count;
+    private       long                 count;
 
     public DogCatQueue() {
         this.dogQueue = new LinkedList<>();

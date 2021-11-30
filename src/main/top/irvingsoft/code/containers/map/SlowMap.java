@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class SlowMap<K, V> extends AbstractMap<K, V> {
 
-    private final List<K> keys = new ArrayList<>();
+    private final List<K> keys   = new ArrayList<>();
     private final List<V> values = new ArrayList<>();
 
     public static void main(String[] args) {

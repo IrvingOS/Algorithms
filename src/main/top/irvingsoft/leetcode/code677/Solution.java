@@ -62,7 +62,7 @@ class MapSumHash {
 
 class MapSumTrie {
 
-    private final TrieNode root;
+    private final TrieNode             root;
     private final Map<String, Integer> map;
 
     public MapSumTrie() {
@@ -95,7 +95,7 @@ class MapSumTrie {
     }
 
     public class TrieNode {
-        int val = 0;
+        int        val  = 0;
         TrieNode[] next = new TrieNode[26];
     }
 }

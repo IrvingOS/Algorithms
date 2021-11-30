@@ -8,7 +8,7 @@ package top.irvingsoft.chengyun.morris;
  */
 public class Node {
 
-    int value;
+    int  value;
     Node left;
     Node right;
 

@@ -6,7 +6,7 @@ package top.irvingsoft.leetcode.code876;
  */
 public class ListNode {
 
-    int val;
+    int      val;
     ListNode next;
 
     ListNode(int x) {

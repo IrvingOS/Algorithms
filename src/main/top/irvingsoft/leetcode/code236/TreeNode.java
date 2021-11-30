@@ -8,7 +8,7 @@ package top.irvingsoft.leetcode.code236;
  */
 public class TreeNode {
 
-    int val;
+    int      val;
     TreeNode left;
     TreeNode right;
 

@@ -10,7 +10,7 @@ package top.irvingsoft.chengyun.stackandqueue;
  */
 public class PetEnterQueue {
 
-    private final Pet pet;
+    private final Pet  pet;
     private final long count;
 
     public PetEnterQueue(Pet pet, long count) {

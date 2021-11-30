@@ -5,7 +5,7 @@ package top.irvingsoft.leetcode.code21;
  * @since 2021/4/7 13:34
  */
 public class ListNode {
-    int val;
+    int      val;
     ListNode next;
 
     ListNode() {

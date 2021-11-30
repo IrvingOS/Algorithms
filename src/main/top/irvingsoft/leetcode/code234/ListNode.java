@@ -7,7 +7,7 @@ package top.irvingsoft.leetcode.code234;
  * @since 2021/3/6 2:26
  */
 public class ListNode {
-    int val;
+    int      val;
     ListNode next;
 
     ListNode() {

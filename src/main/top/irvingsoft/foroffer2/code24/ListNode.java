@@ -7,7 +7,7 @@ package top.irvingsoft.foroffer2.code24;
  * @since 2021/3/6 2:26
  */
 public class ListNode {
-    int val;
+    int      val;
     ListNode next;
 
     ListNode() {

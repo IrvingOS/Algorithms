@@ -17,7 +17,7 @@ public class SecondSolution {
 
 @SuppressWarnings("all")
 class BinarySearchTree {
-    private final TreeNode root;
+    private final TreeNode               root;
     private final Map<TreeNode, Integer> nodeNum;
 
     public BinarySearchTree(TreeNode root) {

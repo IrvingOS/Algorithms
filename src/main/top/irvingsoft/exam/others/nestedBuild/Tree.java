@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Tree {
 
-    private final String key;
+    private final String  key;
     private final Integer value;
 
     private final String parentKey;

@@ -13,11 +13,11 @@ import java.util.Stack;
 public class UnionSet<T> {
 
     // 存储泛型实体的结点
-    private final HashMap<T, Node<T>> nodeMap = new HashMap<>();
+    private final HashMap<T, Node<T>>       nodeMap   = new HashMap<>();
     // 存储结点的父结点
     private final HashMap<Node<T>, Node<T>> parentMap = new HashMap<>();
     // 存储父结点集的大小（包含多少个子结点，包括自身）
-    private final HashMap<Node<T>, Integer> sizeMap = new HashMap<>();
+    private final HashMap<Node<T>, Integer> sizeMap   = new HashMap<>();
 
     public UnionSet(List<T> values) {
 

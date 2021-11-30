@@ -13,7 +13,7 @@ import java.util.TreeMap;
 public class RangeFreqQuery {
 
     private final Map<Integer, TreeMap<Integer, Integer>> map;
-    private final Map<Integer, Integer> initialMap;
+    private final Map<Integer, Integer>                   initialMap;
 
     public RangeFreqQuery(int[] arr) {
         this.map = new HashMap<>();

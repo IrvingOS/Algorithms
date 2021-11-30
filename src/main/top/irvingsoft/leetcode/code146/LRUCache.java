@@ -13,11 +13,11 @@ import java.util.Map;
  */
 public class LRUCache {
 
-    private final int capacity;
+    private final int                       capacity;
     private final Map<Integer, DLinkedNode> cache;
-    private final DLinkedNode head;
-    private final DLinkedNode tail;
-    private int size;
+    private final DLinkedNode               head;
+    private final DLinkedNode               tail;
+    private       int                       size;
 
     public LRUCache(int capacity) {
         this.size = 0;
@@ -80,8 +80,8 @@ public class LRUCache {
     }
 
     public class DLinkedNode {
-        int key;
-        int value;
+        int         key;
+        int         value;
         DLinkedNode prev;
         DLinkedNode next;
 

@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Prediction {
 
-    private static final Random rand = new Random(47);
-    private final boolean shadow = rand.nextDouble() > 0.5;
+    private static final Random  rand   = new Random(47);
+    private final        boolean shadow = rand.nextDouble() > 0.5;
 
     @Override
     public String toString() {

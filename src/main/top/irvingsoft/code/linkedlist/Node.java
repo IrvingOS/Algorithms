@@ -8,7 +8,7 @@ package top.irvingsoft.code.linkedlist;
  */
 public class Node {
 
-    int value;
+    int  value;
     Node next;
 
     public Node(int value) {

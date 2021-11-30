@@ -8,7 +8,7 @@ package top.irvingsoft.chengyun.linkedlist;
  */
 public class DoubleNode {
 
-    public int value;
+    public int        value;
     public DoubleNode last;
     public DoubleNode next;
 

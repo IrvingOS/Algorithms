@@ -13,11 +13,11 @@ public class Solution {
 
 class Robot {
 
-    private final int maxX;
-    private final int maxY;
-    private int x;
-    private int y;
-    private DIREnum dirEnum;
+    private final int     maxX;
+    private final int     maxY;
+    private       int     x;
+    private       int     y;
+    private       DIREnum dirEnum;
 
     public Robot(int width, int height) {
         this.x = 0;
@@ -91,8 +91,8 @@ class Robot {
         South("South", 0, -1);
 
         private final String dir;
-        private final int x;
-        private final int y;
+        private final int    x;
+        private final int    y;
 
         DIREnum(String dir, int x, int y) {
             this.dir = dir;

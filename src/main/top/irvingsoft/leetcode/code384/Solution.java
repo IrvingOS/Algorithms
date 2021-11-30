@@ -23,7 +23,7 @@ public class Solution {
 
 class RandomShuffle {
 
-    private final int[] nums;
+    private final int[]  nums;
     private final Random random;
 
     public RandomShuffle(int[] nums) {

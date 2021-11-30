@@ -14,7 +14,7 @@ import java.util.Set;
 public class Solution {
 
     private static final Map<String, Map<String, Integer>> MAP = new HashMap<>();
-    private static int originalLength;
+    private static       int                               originalLength;
 
     public static int findMinStep(String board, String hand) {
         originalLength = hand.length();

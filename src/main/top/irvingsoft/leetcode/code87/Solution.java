@@ -11,8 +11,8 @@ import java.util.Map;
  */
 public class Solution {
 
-    private static String str1;
-    private static String str2;
+    private static String    str1;
+    private static String    str2;
     private static int[][][] dp;
 
     public static boolean isScramble(String s1, String s2) {

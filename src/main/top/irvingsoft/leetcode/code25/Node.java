@@ -7,7 +7,7 @@ package top.irvingsoft.leetcode.code25;
  * @since 2021/3/6 2:26
  */
 public class Node {
-    int val;
+    int  val;
     Node next;
 
     Node() {

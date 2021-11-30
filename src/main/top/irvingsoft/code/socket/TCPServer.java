@@ -13,8 +13,8 @@ import java.util.Scanner;
  */
 public class TCPServer extends Thread {
 
-    public static final String EXIT = "exit";
-    private static ServerSocket serverSocket;
+    public static final String       EXIT = "exit";
+    private static      ServerSocket serverSocket;
 
     public TCPServer(int port) throws IOException {
         serverSocket = new ServerSocket(port);

@@ -13,9 +13,9 @@ import java.util.Set;
  */
 public class Solution {
 
-    private static final int SEG_COUNT = 4;
-    private static final List<String> ans = new ArrayList<>();
-    private static final int[] segments = new int[SEG_COUNT];
+    private static final int          SEG_COUNT = 4;
+    private static final List<String> ans       = new ArrayList<>();
+    private static final int[]        segments  = new int[SEG_COUNT];
 
     public static List<String> restoreIpAddresses(String s) {
         if (s.length() > 12) {

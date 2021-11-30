@@ -8,7 +8,7 @@ package top.irvingsoft.chengyun.linkedlist;
  */
 public class Node {
 
-    public int value;
+    public int  value;
     public Node next;
 
     public Node(int data) {

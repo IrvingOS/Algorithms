@@ -81,9 +81,9 @@ public class Solution {
             put("in_number", new String[]{"end, end", "in_number", "end"});
             put("end", new String[]{"end, end", "end", "end"});
         }};
-        public int sign = 1;
-        public long ans = 0;
-        private String state = "start";
+        public               int                   sign  = 1;
+        public               long                  ans   = 0;
+        private              String                state = "start";
 
         public void get(char c) {
             state = table.get(state)[get_col(c)];

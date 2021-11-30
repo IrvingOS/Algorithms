@@ -50,12 +50,12 @@ class AVL {
     }
 
     class Node {
-        int val;
+        int  val;
         Node parent;
         Node left;
         Node right;
-        int size;
-        int height;
+        int  size;
+        int  height;
 
         public Node(int val) {
             this(val, null);

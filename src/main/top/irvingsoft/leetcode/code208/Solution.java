@@ -11,8 +11,8 @@ public class Solution {
 
 class Trie {
 
-    private final Trie[] children;
-    private boolean isEnd;
+    private final Trie[]  children;
+    private       boolean isEnd;
 
     public Trie() {
         this.children = new Trie[26];

@@ -8,7 +8,7 @@ package top.irvingsoft.chengyun.binarytree;
  */
 public class Node {
 
-    public int value;
+    public int  value;
     public Node left;
     public Node right;
 

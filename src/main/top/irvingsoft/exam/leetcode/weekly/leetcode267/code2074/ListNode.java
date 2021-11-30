@@ -6,7 +6,7 @@ package top.irvingsoft.exam.leetcode.weekly.leetcode267.code2074;
  */
 public class ListNode {
 
-    int val;
+    int      val;
     ListNode next;
 
     ListNode() {
