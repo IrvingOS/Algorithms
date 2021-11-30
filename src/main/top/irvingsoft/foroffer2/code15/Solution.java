@@ -1,4 +1,4 @@
-package top.irvingsoft.foroffer2.offer15;
+package top.irvingsoft.foroffer2.code15;
 
 /**
  * 二进制中 1 的个数

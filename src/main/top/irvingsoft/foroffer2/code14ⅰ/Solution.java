@@ -1,4 +1,4 @@
-package top.irvingsoft.foroffer2.offer14ⅰ;
+package top.irvingsoft.foroffer2.code14ⅰ;
 
 /**
  * 剪绳子 ⅰ
