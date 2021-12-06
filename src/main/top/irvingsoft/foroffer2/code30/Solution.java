@@ -21,11 +21,8 @@ class MinStack {
         this.minStack = new Stack<>();
     }
 
-    public void push(int x) {
-        numStack.push(x);
-        if (minStack.isEmpty() || minStack.peek() >= x) {
-            minStack.push(x);
-        }
+    public int min() {
+        return minStack.peek();
     }
 
     public void pop() {
@@ -34,11 +31,14 @@ class MinStack {
         }
     }
 
-    public int top() {
-        return numStack.peek();
+    public void push(int x) {
+        numStack.push(x);
+        if (minStack.isEmpty() || minStack.peek() >= x) {
+            minStack.push(x);
+        }
     }
 
-    public int min() {
-        return minStack.peek();
+    public int top() {
+        return numStack.peek();
     }
 }

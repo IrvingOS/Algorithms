@@ -19,28 +19,16 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
     private Node root;
 
     /**
-     * 二叉查找树是否为空
+     * 获取 key 的向上取整 key
      *
-     * @return boolean
+     * @return Key
      */
-    public boolean isEmpty() {
-        return size() == 0;
-    }
-
-    /**
-     * 获取二叉查找树的大小
-     *
-     * @return int
-     */
-    public int size() {
-        return size(root);
-    }
-
-    private int size(Node x) {
-        if (x == null) {
-            return 0;
+    public Key ceiling(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to ceiling() is null");
         }
-        return x.n;
+        Node t = ceiling(root, key);
+        return t != null ? t.key : null;
     }
 
     public boolean contains(Key key) {
@@ -48,6 +36,54 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
             throw new IllegalArgumentException("key to contains() is null");
         }
         return get(key) != null;
+    }
+
+    /**
+     * 删除结点 key
+     *
+     * @param key 结点 key
+     */
+    public void delete(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to delete() is null");
+        }
+        root = delete(root, key);
+        assert check();
+    }
+
+    /**
+     * 删除最大 key 的结点
+     */
+    public void deleteMax() {
+        if (root == null) {
+            return;
+        }
+        root = deleteMax(root);
+        assert check();
+    }
+
+    /**
+     * 删除最小 key 的结点
+     */
+    public void deleteMin() {
+        if (root == null) {
+            return;
+        }
+        root = deleteMin(root);
+        assert check();
+    }
+
+    /**
+     * 获取 key 的向下取整 key
+     *
+     * @return Key
+     */
+    public Key floor(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to floor() is null");
+        }
+        Node x = floor(root, key);
+        return x != null ? x.key : null;
     }
 
     /**
@@ -63,18 +99,66 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
         return get(root, key);
     }
 
-    private Value get(Node x, Key key) {
-        if (x == null) {
+    public int height() {
+        return height(root);
+    }
+
+    /**
+     * 二叉查找树是否为空
+     *
+     * @return boolean
+     */
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    /**
+     * 获取二叉查找树的 key 值迭代器
+     *
+     * @return java.lang.Iterable<Key>
+     */
+    public Iterable<Key> keys() {
+        return rangeSearch(min(), max());
+    }
+
+    public Iterable<Key> levelOrder() {
+        Queue<Key> keys = new LinkedList<>();
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            Node x = queue.poll();
+            if (x == null) {
+                continue;
+            }
+            keys.offer(x.key);
+            queue.offer(x.left);
+            queue.offer(x.right);
+        }
+        return keys;
+    }
+
+    /**
+     * 获取最大的 key
+     *
+     * @return Key
+     */
+    public Key max() {
+        if (root == null) {
             return null;
         }
-        int cmp = key.compareTo(x.key);
-        if (cmp < 0) {
-            return get(x.left, key);
-        } else if (cmp > 0) {
-            return get(x.right, key);
-        } else {
-            return x.value;
+        return max(root).key;
+    }
+
+    /**
+     * 获取最小的 key
+     *
+     * @return Key
+     */
+    public Key min() {
+        if (root == null) {
+            return null;
         }
+        return min(root).key;
     }
 
     /**
@@ -95,112 +179,56 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
         assert check();
     }
 
-    private Node put(Node x, Key key, Value value) {
-        if (x == null) {
-            return new Node(key, value, 1);
+    public int rangeCount(Key lo, Key hi) {
+        if (lo == null) {
+            throw new IllegalArgumentException("lo to rangeSearch() is null");
         }
-        int cmp = key.compareTo(x.key);
-        if (cmp < 0) {
-            x.left = put(x.left, key, value);
-        } else if (cmp > 0) {
-            x.right = put(x.right, key, value);
+        if (hi == null) {
+            throw new IllegalArgumentException("hi to rangeSearch() is null");
+        }
+        if (lo.compareTo(hi) > 0) {
+            return 0;
+        }
+        if (contains(hi)) {
+            return rank(hi) - rank(lo) + 1;
         } else {
-            x.value = value;
+            return rank(hi) - rank(lo);
         }
-        x.n = size(x.left) + size(x.right) + 1;
-        return x;
     }
 
     /**
-     * 获取最小的 key
+     * 获取二叉查找树一定范围内的 key 值迭代器
      *
-     * @return Key
+     * @param lo 迭代器起点
+     * @param hi 迭代器终点
+     * @return java.lang.Iterable<Key>
      */
-    public Key min() {
-        if (root == null) {
+    public Iterable<Key> rangeSearch(Key lo, Key hi) {
+        if (lo == null) {
+            throw new IllegalArgumentException("lo to rangeSearch() is null");
+        }
+        if (hi == null) {
+            throw new IllegalArgumentException("hi to rangeSearch() is null");
+        }
+        if (lo.compareTo(hi) > 0) {
             return null;
         }
-        return min(root).key;
-    }
-
-    private Node min(Node x) {
-        if (x.left == null) {
-            return x;
-        }
-        return min(x.left);
+        Queue<Key> queue = new ArrayDeque<>();
+        keys(root, queue, lo, hi);
+        return queue;
     }
 
     /**
-     * 获取最大的 key
+     * 获取结点 key 的排名 [0, n)
      *
-     * @return Key
+     * @param key 结点 key
+     * @return int
      */
-    public Key max() {
-        if (root == null) {
-            return null;
-        }
-        return max(root).key;
-    }
-
-    private Node max(Node x) {
-        if (x.right == null) {
-            return x;
-        }
-        return max(x.right);
-    }
-
-    /**
-     * 获取 key 的向下取整 key
-     *
-     * @return Key
-     */
-    public Key floor(Key key) {
+    public int rank(Key key) {
         if (key == null) {
-            throw new IllegalArgumentException("key to floor() is null");
+            throw new IllegalArgumentException("key to rank() is null");
         }
-        Node x = floor(root, key);
-        return x != null ? x.key : null;
-    }
-
-    private Node floor(Node x, Key key) {
-        if (x == null) {
-            return null;
-        }
-        int cmp = key.compareTo(x.key);
-        if (cmp == 0) {
-            return x;
-        } else if (cmp < 0) {
-            return floor(x.left, key);
-        }
-        Node t = floor(x.right, key);
-        return t != null ? t : x;
-    }
-
-    /**
-     * 获取 key 的向上取整 key
-     *
-     * @return Key
-     */
-    public Key ceiling(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to ceiling() is null");
-        }
-        Node t = ceiling(root, key);
-        return t != null ? t.key : null;
-    }
-
-    private Node ceiling(Node x, Key key) {
-        if (x == null) {
-            return null;
-        }
-        int cmp = key.compareTo(x.key);
-        if (cmp == 0) {
-            return x;
-        } else if (cmp > 0) {
-            return ceiling(x.right, key);
-        }
-        Node t = ceiling(x.left, key);
-        return t != null ? t : x;
+        return rank(root, key);
     }
 
     /**
@@ -217,98 +245,43 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
         return x != null ? x.key : null;
     }
 
-    private Node select(Node x, int k) {
+    /**
+     * 获取二叉查找树的大小
+     *
+     * @return int
+     */
+    public int size() {
+        return size(root);
+    }
+
+    private Node ceiling(Node x, Key key) {
         if (x == null) {
             return null;
         }
-        int t = size(x.left);
-        if (k == t) {
-            return x;
-        } else if (k < t) {
-            return select(x.left, k);
-        } else {
-            return select(x.right, k - t - 1);
-        }
-    }
-
-    /**
-     * 获取结点 key 的排名 [0, n)
-     *
-     * @param key 结点 key
-     * @return int
-     */
-    public int rank(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to rank() is null");
-        }
-        return rank(root, key);
-    }
-
-    private int rank(Node x, Key key) {
-        if (x == null) {
-            return 0;
-        }
         int cmp = key.compareTo(x.key);
         if (cmp == 0) {
-            return size(x.left);
-        } else if (cmp < 0) {
-            return rank(x.left, key);
-        } else {
-            return 1 + size(x.left) + rank(x.right, key);
+            return x;
+        } else if (cmp > 0) {
+            return ceiling(x.right, key);
         }
+        Node t = ceiling(x.left, key);
+        return t != null ? t : x;
     }
 
-    /**
-     * 删除最小 key 的结点
-     */
-    public void deleteMin() {
-        if (root == null) {
-            return;
+    private boolean check() {
+        boolean BST = isBST();
+        boolean sizeConsistent = isSizeConsistent();
+        boolean rankConsistent = isRankConsistent();
+        if (!BST) {
+            System.out.println("Not in symmetric order");
         }
-        root = deleteMin(root);
-        assert check();
-    }
-
-    private Node deleteMin(Node x) {
-        if (x.left == null) {
-            return x.right;
+        if (!sizeConsistent) {
+            System.out.println("Subtree counts not consistent");
         }
-        x.left = deleteMin(x.left);
-        x.n = size(x.left) + size(x.right) + 1;
-        return x;
-    }
-
-    /**
-     * 删除最大 key 的结点
-     */
-    public void deleteMax() {
-        if (root == null) {
-            return;
+        if (!rankConsistent) {
+            System.out.println("Ranks not consistent");
         }
-        root = deleteMax(root);
-        assert check();
-    }
-
-    private Node deleteMax(Node x) {
-        if (x.right == null) {
-            return x.left;
-        }
-        x.right = deleteMax(x.right);
-        x.n = size(x.left) + size(x.right) + 1;
-        return x;
-    }
-
-    /**
-     * 删除结点 key
-     *
-     * @param key 结点 key
-     */
-    public void delete(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to delete() is null");
-        }
-        root = delete(root, key);
-        assert check();
+        return BST && sizeConsistent && rankConsistent;
     }
 
     /**
@@ -339,73 +312,50 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
         return x;
     }
 
-    /**
-     * 获取二叉查找树的 key 值迭代器
-     *
-     * @return java.lang.Iterable<Key>
-     */
-    public Iterable<Key> keys() {
-        return rangeSearch(min(), max());
+    private Node deleteMax(Node x) {
+        if (x.right == null) {
+            return x.left;
+        }
+        x.right = deleteMax(x.right);
+        x.n = size(x.left) + size(x.right) + 1;
+        return x;
     }
 
-    /**
-     * 获取二叉查找树一定范围内的 key 值迭代器
-     *
-     * @param lo 迭代器起点
-     * @param hi 迭代器终点
-     * @return java.lang.Iterable<Key>
-     */
-    public Iterable<Key> rangeSearch(Key lo, Key hi) {
-        if (lo == null) {
-            throw new IllegalArgumentException("lo to rangeSearch() is null");
+    private Node deleteMin(Node x) {
+        if (x.left == null) {
+            return x.right;
         }
-        if (hi == null) {
-            throw new IllegalArgumentException("hi to rangeSearch() is null");
-        }
-        if (lo.compareTo(hi) > 0) {
+        x.left = deleteMin(x.left);
+        x.n = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    private Node floor(Node x, Key key) {
+        if (x == null) {
             return null;
         }
-        Queue<Key> queue = new ArrayDeque<>();
-        keys(root, queue, lo, hi);
-        return queue;
+        int cmp = key.compareTo(x.key);
+        if (cmp == 0) {
+            return x;
+        } else if (cmp < 0) {
+            return floor(x.left, key);
+        }
+        Node t = floor(x.right, key);
+        return t != null ? t : x;
     }
 
-    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+    private Value get(Node x, Key key) {
         if (x == null) {
-            return;
+            return null;
         }
-        int cmpLo = lo.compareTo(x.key);
-        int cmpHi = hi.compareTo(x.key);
-        if (cmpLo < 0) {
-            keys(x.left, queue, lo, hi);
-        }
-        if (cmpLo <= 0 && cmpHi >= 0) {
-            queue.add(x.key);
-        }
-        if (cmpHi > 0) {
-            keys(x.right, queue, lo, hi);
-        }
-    }
-
-    public int rangeCount(Key lo, Key hi) {
-        if (lo == null) {
-            throw new IllegalArgumentException("lo to rangeSearch() is null");
-        }
-        if (hi == null) {
-            throw new IllegalArgumentException("hi to rangeSearch() is null");
-        }
-        if (lo.compareTo(hi) > 0) {
-            return 0;
-        }
-        if (contains(hi)) {
-            return rank(hi) - rank(lo) + 1;
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) {
+            return get(x.left, key);
+        } else if (cmp > 0) {
+            return get(x.right, key);
         } else {
-            return rank(hi) - rank(lo);
+            return x.value;
         }
-    }
-
-    public int height() {
-        return height(root);
     }
 
     private int height(Node x) {
@@ -415,36 +365,21 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
         return 1 + Math.max(size(x.left), size(x.right));
     }
 
-    public Iterable<Key> levelOrder() {
-        Queue<Key> keys = new LinkedList<>();
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            Node x = queue.poll();
-            if (x == null) {
-                continue;
-            }
-            keys.offer(x.key);
-            queue.offer(x.left);
-            queue.offer(x.right);
-        }
-        return keys;
+    private boolean isBST() {
+        return isBST(root, null, null);
     }
 
-    private boolean check() {
-        boolean BST = isBST();
-        boolean sizeConsistent = isSizeConsistent();
-        boolean rankConsistent = isRankConsistent();
-        if (!BST) {
-            System.out.println("Not in symmetric order");
+    private boolean isBST(Node x, Key lo, Key hi) {
+        if (x == null) {
+            return true;
         }
-        if (!sizeConsistent) {
-            System.out.println("Subtree counts not consistent");
+        if (lo != null && x.key.compareTo(lo) <= 0) {
+            return false;
         }
-        if (!rankConsistent) {
-            System.out.println("Ranks not consistent");
+        if (hi != null && x.key.compareTo(hi) >= 0) {
+            return false;
         }
-        return BST && sizeConsistent && rankConsistent;
+        return isBST(x.left, lo, x.key) && isBST(x.right, x.key, hi);
     }
 
     private boolean isRankConsistent() {
@@ -475,21 +410,86 @@ public class BSTRecursion<Key extends Comparable<Key>, Value> {
         return isSizeConsistent(x.left) && isSizeConsistent(x.right);
     }
 
-    private boolean isBST() {
-        return isBST(root, null, null);
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null) {
+            return;
+        }
+        int cmpLo = lo.compareTo(x.key);
+        int cmpHi = hi.compareTo(x.key);
+        if (cmpLo < 0) {
+            keys(x.left, queue, lo, hi);
+        }
+        if (cmpLo <= 0 && cmpHi >= 0) {
+            queue.add(x.key);
+        }
+        if (cmpHi > 0) {
+            keys(x.right, queue, lo, hi);
+        }
     }
 
-    private boolean isBST(Node x, Key lo, Key hi) {
+    private Node max(Node x) {
+        if (x.right == null) {
+            return x;
+        }
+        return max(x.right);
+    }
+
+    private Node min(Node x) {
+        if (x.left == null) {
+            return x;
+        }
+        return min(x.left);
+    }
+
+    private Node put(Node x, Key key, Value value) {
         if (x == null) {
-            return true;
+            return new Node(key, value, 1);
         }
-        if (lo != null && x.key.compareTo(lo) <= 0) {
-            return false;
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) {
+            x.left = put(x.left, key, value);
+        } else if (cmp > 0) {
+            x.right = put(x.right, key, value);
+        } else {
+            x.value = value;
         }
-        if (hi != null && x.key.compareTo(hi) >= 0) {
-            return false;
+        x.n = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    private int rank(Node x, Key key) {
+        if (x == null) {
+            return 0;
         }
-        return isBST(x.left, lo, x.key) && isBST(x.right, x.key, hi);
+        int cmp = key.compareTo(x.key);
+        if (cmp == 0) {
+            return size(x.left);
+        } else if (cmp < 0) {
+            return rank(x.left, key);
+        } else {
+            return 1 + size(x.left) + rank(x.right, key);
+        }
+    }
+
+    private Node select(Node x, int k) {
+        if (x == null) {
+            return null;
+        }
+        int t = size(x.left);
+        if (k == t) {
+            return x;
+        } else if (k < t) {
+            return select(x.left, k);
+        } else {
+            return select(x.right, k - t - 1);
+        }
+    }
+
+    private int size(Node x) {
+        if (x == null) {
+            return 0;
+        }
+        return x.n;
     }
 
     private class Node {

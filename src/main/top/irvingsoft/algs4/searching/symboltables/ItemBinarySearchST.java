@@ -31,47 +31,54 @@ public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
         this.capacity = capacity;
     }
 
-    private Item<Key, Value>[] mergeSort(Item<Key, Value>[] items) {
-        if (items.length < 2) {
-            return items;
+    public boolean contains(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to contains() is null");
         }
-        int mid = items.length / 2;
-        Item<Key, Value>[] leftSub = mergeSort(sub(items, 0, mid));
-        Item<Key, Value>[] rightSub = mergeSort(sub(items, mid, items.length));
-        return merge(leftSub, rightSub);
+        return get(key) != null;
     }
 
-    private Item<Key, Value>[] merge(Item<Key, Value>[] leftSub, Item<Key, Value>[] rightSub) {
-        Item<Key, Value>[] items = new Item[leftSub.length + rightSub.length];
-        int left = 0;
-        int right = 0;
-        int i = 0;
-        while (left < leftSub.length && right < rightSub.length) {
-            if (leftSub[left].key.compareTo(rightSub[right].key) < 0) {
-                items[i++] = leftSub[left];
-                left++;
-            } else {
-                items[i++] = rightSub[right];
-                right++;
+    public void delete(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to delete() is null");
+        }
+        int i = rank(key);
+        if (i < n && key.compareTo(items[i].key) == 0) {
+            if (n - 1 - i >= 0) {
+                System.arraycopy(items, i + 1, items, i, n - 1 - i);
             }
+            n--;
         }
-        return items;
     }
 
-    private Item<Key, Value>[] sub(Item<Key, Value>[] items, int from, int to) {
-        Item<Key, Value>[] sub = (Item<Key, Value>[]) new Comparable[to - from];
-        for (int i = from; i < to; i++) {
-            sub[i - from] = items[i];
+    public Value get(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to get() is null");
         }
-        return sub;
-    }
-
-    public int size() {
-        return n;
+        int i = rank(key);
+        if (i < n && key.compareTo(items[i].key) == 0) {
+            return items[i].value;
+        }
+        return null;
     }
 
     public boolean isEmpty() {
         return size() == 0;
+    }
+
+    public Iterable<Key> keys() {
+        if (n == 0) {
+            return null;
+        }
+        return rangeSearch(min(), max());
+    }
+
+    public Key max() {
+        return n != 0 ? items[n - 1].key : null;
+    }
+
+    public Key min() {
+        return n != 0 ? items[0].key : null;
     }
 
     public void put(Key key, Value value) {
@@ -97,45 +104,6 @@ public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
         n++;
     }
 
-    public Value get(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to get() is null");
-        }
-        int i = rank(key);
-        if (i < n && key.compareTo(items[i].key) == 0) {
-            return items[i].value;
-        }
-        return null;
-    }
-
-    public boolean contains(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to contains() is null");
-        }
-        return get(key) != null;
-    }
-
-    private void resize() {
-        Item<Key, Value>[] tempItems = (Item<Key, Value>[]) new Comparable[n + capacity];
-        for (int i = 0; i < n; i++) {
-            tempItems[i] = items[i];
-        }
-        items = tempItems;
-    }
-
-    public void delete(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to delete() is null");
-        }
-        int i = rank(key);
-        if (i < n && key.compareTo(items[i].key) == 0) {
-            if (n - 1 - i >= 0) {
-                System.arraycopy(items, i + 1, items, i, n - 1 - i);
-            }
-            n--;
-        }
-    }
-
     public int rank(Key key) {
         if (key == null) {
             throw new IllegalArgumentException("key to rank() is null");
@@ -156,19 +124,35 @@ public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
         return lo;
     }
 
-    public Key min() {
-        return n != 0 ? items[0].key : null;
+    public int size() {
+        return n;
     }
 
-    public Key max() {
-        return n != 0 ? items[n - 1].key : null;
-    }
-
-    public Iterable<Key> keys() {
-        if (n == 0) {
-            return null;
+    private Item<Key, Value>[] merge(Item<Key, Value>[] leftSub, Item<Key, Value>[] rightSub) {
+        Item<Key, Value>[] items = new Item[leftSub.length + rightSub.length];
+        int left = 0;
+        int right = 0;
+        int i = 0;
+        while (left < leftSub.length && right < rightSub.length) {
+            if (leftSub[left].key.compareTo(rightSub[right].key) < 0) {
+                items[i++] = leftSub[left];
+                left++;
+            } else {
+                items[i++] = rightSub[right];
+                right++;
+            }
         }
-        return rangeSearch(min(), max());
+        return items;
+    }
+
+    private Item<Key, Value>[] mergeSort(Item<Key, Value>[] items) {
+        if (items.length < 2) {
+            return items;
+        }
+        int mid = items.length / 2;
+        Item<Key, Value>[] leftSub = mergeSort(sub(items, 0, mid));
+        Item<Key, Value>[] rightSub = mergeSort(sub(items, mid, items.length));
+        return merge(leftSub, rightSub);
     }
 
     private Iterable<Key> rangeSearch(Key lo, Key hi) {
@@ -189,6 +173,22 @@ public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
             queue.offer(items[rank(hi)].key);
         }
         return queue;
+    }
+
+    private void resize() {
+        Item<Key, Value>[] tempItems = (Item<Key, Value>[]) new Comparable[n + capacity];
+        for (int i = 0; i < n; i++) {
+            tempItems[i] = items[i];
+        }
+        items = tempItems;
+    }
+
+    private Item<Key, Value>[] sub(Item<Key, Value>[] items, int from, int to) {
+        Item<Key, Value>[] sub = (Item<Key, Value>[]) new Comparable[to - from];
+        for (int i = from; i < to; i++) {
+            sub[i - from] = items[i];
+        }
+        return sub;
     }
 
     /**

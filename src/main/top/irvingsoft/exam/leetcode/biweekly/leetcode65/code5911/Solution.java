@@ -8,7 +8,6 @@ package top.irvingsoft.exam.leetcode.biweekly.leetcode65.code5911;
  */
 public class Solution {
 
-
 }
 
 class Robot {
@@ -25,6 +24,14 @@ class Robot {
         this.maxX = width - 1;
         this.maxY = height - 1;
         this.dirEnum = DIREnum.East;
+    }
+
+    public String getDir() {
+        return this.dirEnum.dir;
+    }
+
+    public int[] getPos() {
+        return new int[]{x, y};
     }
 
     public void move(int num) {
@@ -70,14 +77,6 @@ class Robot {
             this.x += this.dirEnum.x;
             this.y += this.dirEnum.y;
         }
-    }
-
-    public int[] getPos() {
-        return new int[]{x, y};
-    }
-
-    public String getDir() {
-        return this.dirEnum.dir;
     }
 
     public enum DIREnum {

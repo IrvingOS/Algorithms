@@ -8,6 +8,25 @@ package top.irvingsoft.exam.leetcode.weekly.leetcode267.code2074;
  */
 public class Solution {
 
+    public ListNode reverse(ListNode pre, int count) {
+        ListNode next = pre.next;
+        ListNode cur = pre.next;
+        ListNode sufix = cur;
+        while (count-- != 0) {
+            sufix = sufix.next;
+        }
+        ListNode node = cur.next;
+        cur.next = sufix;
+        while (node != sufix) {
+            ListNode temp = node.next;
+            node.next = cur;
+            cur = node;
+            node = temp;
+        }
+        pre.next = cur;
+        return next;
+    }
+
     public ListNode reverseEvenLengthGroups(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
@@ -31,24 +50,5 @@ public class Solution {
             reverse(slow, count);
         }
         return head;
-    }
-
-    public ListNode reverse(ListNode pre, int count) {
-        ListNode next = pre.next;
-        ListNode cur = pre.next;
-        ListNode sufix = cur;
-        while (count-- != 0) {
-            sufix = sufix.next;
-        }
-        ListNode node = cur.next;
-        cur.next = sufix;
-        while (node != sufix) {
-            ListNode temp = node.next;
-            node.next = cur;
-            cur = node;
-            node = temp;
-        }
-        pre.next = cur;
-        return next;
     }
 }

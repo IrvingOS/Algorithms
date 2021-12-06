@@ -8,11 +8,6 @@ package top.irvingsoft.foroffer2.code27;
  */
 public class Solution {
 
-    public TreeNode mirrorTree(TreeNode root) {
-        dfs(root);
-        return root;
-    }
-
     public void dfs(TreeNode node) {
         if (node == null) {
             return;
@@ -22,5 +17,10 @@ public class Solution {
         node.left = temp;
         dfs(node.left);
         dfs(node.right);
+    }
+
+    public TreeNode mirrorTree(TreeNode root) {
+        dfs(root);
+        return root;
     }
 }

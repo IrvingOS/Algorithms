@@ -10,6 +10,20 @@ public class Solution {
 
     private int count = 0;
 
+    public int translateNumMath(int num) {
+        int a = 1, b = 1, x, y = num % 10;
+        while (num != 0) {
+            num /= 10;
+            x = num % 10;
+            int temp = x * 10 + y;
+            int c = (temp >= 10 && temp <= 25) ? a + b : a;
+            b = a;
+            a = c;
+            y = x;
+        }
+        return a;
+    }
+
     public int translateNumMine(int num) {
         dfs(Integer.toString(num), 0);
         return count;
@@ -31,19 +45,5 @@ public class Solution {
                 break;
             }
         }
-    }
-
-    public int translateNumMath(int num) {
-        int a = 1, b = 1, x, y = num % 10;
-        while (num != 0) {
-            num /= 10;
-            x = num % 10;
-            int temp = x * 10 + y;
-            int c = (temp >= 10 && temp <= 25) ? a + b : a;
-            b = a;
-            a = c;
-            y = x;
-        }
-        return a;
     }
 }

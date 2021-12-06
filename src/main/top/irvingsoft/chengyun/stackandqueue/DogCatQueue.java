@@ -56,6 +56,18 @@ public class DogCatQueue {
         }
     }
 
+    public boolean isCatEmpty() {
+        return this.catQueue.isEmpty();
+    }
+
+    public boolean isDogEmpty() {
+        return this.dogQueue.isEmpty();
+    }
+
+    public boolean isEmpty() {
+        return this.isDogEmpty() && this.isCatEmpty();
+    }
+
     public Pet poll() {
 
         if (this.isEmpty()) {
@@ -73,14 +85,6 @@ public class DogCatQueue {
                 this.catQueue.poll().getPet();
     }
 
-    public Dog pollDog() {
-
-        if (this.isDogEmpty()) {
-            throw new RuntimeException("Pet is Empty");
-        }
-        return (Dog) this.dogQueue.poll().getPet();
-    }
-
     public Cat pollCat() {
 
         if (this.isCatEmpty()) {
@@ -89,15 +93,11 @@ public class DogCatQueue {
         return (Cat) this.catQueue.poll().getPet();
     }
 
-    public boolean isEmpty() {
-        return this.isDogEmpty() && this.isCatEmpty();
-    }
+    public Dog pollDog() {
 
-    public boolean isDogEmpty() {
-        return this.dogQueue.isEmpty();
-    }
-
-    public boolean isCatEmpty() {
-        return this.catQueue.isEmpty();
+        if (this.isDogEmpty()) {
+            throw new RuntimeException("Pet is Empty");
+        }
+        return (Dog) this.dogQueue.poll().getPet();
     }
 }

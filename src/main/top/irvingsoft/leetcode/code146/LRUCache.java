@@ -56,11 +56,6 @@ public class LRUCache {
         }
     }
 
-    private void moveToHead(DLinkedNode node) {
-        removeNode(node);
-        addToHead(node);
-    }
-
     private void addToHead(DLinkedNode node) {
         node.next = this.head.next;
         node.prev = this.head;
@@ -68,15 +63,20 @@ public class LRUCache {
         this.head.next = node;
     }
 
-    private DLinkedNode removeTail() {
-        DLinkedNode node = this.tail.prev;
+    private void moveToHead(DLinkedNode node) {
         removeNode(node);
-        return node;
+        addToHead(node);
     }
 
     private void removeNode(DLinkedNode node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
+    }
+
+    private DLinkedNode removeTail() {
+        DLinkedNode node = this.tail.prev;
+        removeNode(node);
+        return node;
     }
 
     public class DLinkedNode {

@@ -6,10 +6,6 @@ package top.irvingsoft.leetcode.code53;
  */
 public class BestSolution {
 
-    public int maxSubArray(int[] nums) {
-        return getInfo(nums, 0, nums.length - 1).mSum;
-    }
-
     public Status getInfo(int[] a, int l, int r) {
         if (l == r) {
             return new Status(a[l], a[l], a[l], a[l]);
@@ -18,6 +14,10 @@ public class BestSolution {
         Status lSub = getInfo(a, l, m);
         Status rSub = getInfo(a, m + 1, r);
         return pushUp(lSub, rSub);
+    }
+
+    public int maxSubArray(int[] nums) {
+        return getInfo(nums, 0, nums.length - 1).mSum;
     }
 
     private Status pushUp(Status l, Status r) {

@@ -20,15 +20,6 @@ public class QuickSort implements IArraySort {
         System.out.println(Arrays.toString(new InsertSort().sort(arr)));
     }
 
-    public int[] sort(int[] arr, int left, int right) {
-        if (left < right) {
-            int mid = getMid(arr, left, right);
-            sort(arr, left, mid - 1);
-            sort(arr, mid + 1, right);
-        }
-        return arr;
-    }
-
     public int getMid(int[] arr, int left, int right) {
         int pivot = arr[left];
         while (left < right) {
@@ -43,6 +34,15 @@ public class QuickSort implements IArraySort {
         }
         arr[left] = pivot;
         return left;
+    }
+
+    public int[] sort(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = getMid(arr, left, right);
+            sort(arr, left, mid - 1);
+            sort(arr, mid + 1, right);
+        }
+        return arr;
     }
 
     /**

@@ -21,11 +21,8 @@ class MinStack {
         this.minStack = new Stack<>();
     }
 
-    public void push(int val) {
-        this.stack.push(val);
-        if (this.minStack.isEmpty() || this.getMin() >= val) {
-            this.minStack.push(val);
-        }
+    public int getMin() {
+        return this.minStack.peek();
     }
 
     public void pop() {
@@ -35,11 +32,14 @@ class MinStack {
         this.stack.pop();
     }
 
-    public int top() {
-        return this.stack.peek();
+    public void push(int val) {
+        this.stack.push(val);
+        if (this.minStack.isEmpty() || this.getMin() >= val) {
+            this.minStack.push(val);
+        }
     }
 
-    public int getMin() {
-        return this.minStack.peek();
+    public int top() {
+        return this.stack.peek();
     }
 }

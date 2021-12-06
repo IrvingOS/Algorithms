@@ -36,17 +36,17 @@ class AVL {
         return node;
     }
 
-    private void recompute(Node node) {
-        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-        node.size = 1 + getSize(node.left) + getSize(node.right);
+    private int getHeight(Node node) {
+        return node != null ? node.size : 0;
     }
 
     private int getSize(Node node) {
         return node != null ? node.height : 0;
     }
 
-    private int getHeight(Node node) {
-        return node != null ? node.size : 0;
+    private void recompute(Node node) {
+        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
+        node.size = 1 + getSize(node.left) + getSize(node.right);
     }
 
     class Node {

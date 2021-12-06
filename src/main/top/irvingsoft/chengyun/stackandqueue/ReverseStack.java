@@ -33,8 +33,12 @@ public class ReverseStack {
         System.out.println(reverseStack.popReverse());
     }
 
-    public void push(int data) {
-        this.stack.push(data);
+    public int pop() {
+
+        if (this.stack.isEmpty()) {
+            throw new RuntimeException("Stack is Empty!");
+        }
+        return this.stack.pop();
     }
 
     public int popReverse() {
@@ -43,6 +47,18 @@ public class ReverseStack {
             throw new RuntimeException("Stack is Empty!");
         }
         return getAndRemoveLastElement(this.stack);
+    }
+
+    public void push(int data) {
+        this.stack.push(data);
+    }
+
+    public void reverse() {
+
+        if (this.stack.isEmpty()) {
+            throw new RuntimeException("Stack is Empty!");
+        }
+        reverse(this.stack);
     }
 
     private int getAndRemoveLastElement(Stack<Integer> stack) {
@@ -54,22 +70,6 @@ public class ReverseStack {
         int result = getAndRemoveLastElement(this.stack);
         stack.push(data);
         return result;
-    }
-
-    public int pop() {
-
-        if (this.stack.isEmpty()) {
-            throw new RuntimeException("Stack is Empty!");
-        }
-        return this.stack.pop();
-    }
-
-    public void reverse() {
-
-        if (this.stack.isEmpty()) {
-            throw new RuntimeException("Stack is Empty!");
-        }
-        reverse(this.stack);
     }
 
     private void reverse(Stack<Integer> stack) {

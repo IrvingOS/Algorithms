@@ -3,7 +3,6 @@ package top.irvingsoft.leetcode.code496;
 import java.util.ArrayDeque;
 import java.util.HashMap;
 
-
 /**
  * 下一个更大元素 1
  * <p>

@@ -16,11 +16,6 @@ public class Solution {
         System.out.println(new Solution().poorPigsDynamic(100, 15, 30));
     }
 
-    public int poorPigsMath(int buckets, int minutesToDie, int minutesToTest) {
-        int times = minutesToTest / minutesToDie + 1;
-        return (int) Math.ceil(Math.log(buckets) / Math.log(times));
-    }
-
     public int poorPigsDynamic(int buckets, int minutesToDie, int minutesToTest) {
         if (buckets == 1) {
             return 0;
@@ -51,5 +46,10 @@ public class Solution {
             }
         }
         return 0;
+    }
+
+    public int poorPigsMath(int buckets, int minutesToDie, int minutesToTest) {
+        int times = minutesToTest / minutesToDie + 1;
+        return (int) Math.ceil(Math.log(buckets) / Math.log(times));
     }
 }

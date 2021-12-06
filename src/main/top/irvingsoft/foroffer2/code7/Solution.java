@@ -14,37 +14,6 @@ import java.util.Map;
 public class Solution {
 
     /**
-     * 递归
-     * <p>
-     * 1. preorder 序列的起始值一定为该子树的根结点的值
-     * <p>
-     * 2. 通过 preorder 序列的起始值在 inorder 中的索引，确定该子树左子树和右子树结点的个数
-     * <p>
-     * 3. 通过左子树和右子树结点的个数，确定左子树 preorder 序列的起始索引和终止索引，以此进行下一层构建
-     */
-    public TreeNode buildTreeRecursion(int[] preorder, int[] inorder) {
-        int n = preorder.length;
-        Map<Integer, Integer> inorderMap = new HashMap<>(n);
-        for (int i = 0; i < n; i++) {
-            inorderMap.put(inorder[i], i);
-        }
-        return buildTreeRecursion(0, n - 1, 0, preorder, inorderMap);
-    }
-
-    private TreeNode buildTreeRecursion(int preLeft, int preRight, int inLeft, int[] preorder, Map<Integer, Integer> inorderMap) {
-        if (preLeft > preRight) {
-            return null;
-        }
-        int nodeVal = preorder[preLeft];
-        int nodeIndexIn = inorderMap.get(nodeVal);
-        int sizeLeft = nodeIndexIn - inLeft;
-        TreeNode node = new TreeNode(nodeVal);
-        node.left = buildTreeRecursion(preLeft + 1, preLeft + sizeLeft, inLeft, preorder, inorderMap);
-        node.right = buildTreeRecursion(preLeft + sizeLeft + 1, preRight, nodeIndexIn + 1, preorder, inorderMap);
-        return node;
-    }
-
-    /**
      * 迭代
      * <p>
      * 1. 在构建左子树时，左子树上的每一个结点都入栈
@@ -79,5 +48,36 @@ public class Solution {
             }
         }
         return root;
+    }
+
+    /**
+     * 递归
+     * <p>
+     * 1. preorder 序列的起始值一定为该子树的根结点的值
+     * <p>
+     * 2. 通过 preorder 序列的起始值在 inorder 中的索引，确定该子树左子树和右子树结点的个数
+     * <p>
+     * 3. 通过左子树和右子树结点的个数，确定左子树 preorder 序列的起始索引和终止索引，以此进行下一层构建
+     */
+    public TreeNode buildTreeRecursion(int[] preorder, int[] inorder) {
+        int n = preorder.length;
+        Map<Integer, Integer> inorderMap = new HashMap<>(n);
+        for (int i = 0; i < n; i++) {
+            inorderMap.put(inorder[i], i);
+        }
+        return buildTreeRecursion(0, n - 1, 0, preorder, inorderMap);
+    }
+
+    private TreeNode buildTreeRecursion(int preLeft, int preRight, int inLeft, int[] preorder, Map<Integer, Integer> inorderMap) {
+        if (preLeft > preRight) {
+            return null;
+        }
+        int nodeVal = preorder[preLeft];
+        int nodeIndexIn = inorderMap.get(nodeVal);
+        int sizeLeft = nodeIndexIn - inLeft;
+        TreeNode node = new TreeNode(nodeVal);
+        node.left = buildTreeRecursion(preLeft + 1, preLeft + sizeLeft, inLeft, preorder, inorderMap);
+        node.right = buildTreeRecursion(preLeft + sizeLeft + 1, preRight, nodeIndexIn + 1, preorder, inorderMap);
+        return node;
     }
 }

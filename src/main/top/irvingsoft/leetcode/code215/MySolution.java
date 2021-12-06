@@ -47,12 +47,6 @@ public class MySolution {
         }
     }
 
-    private int randomQuickSort(int[] nums, int left, int right) {
-        int randomPivotIndex = random.nextInt(right - left + 1) + left;
-        swap(nums, left, randomPivotIndex);
-        return quickSort(nums, left, right);
-    }
-
     private int quickSort(int[] nums, int left, int right) {
         int pivot = nums[left];
         while (left < right) {
@@ -67,6 +61,12 @@ public class MySolution {
         }
         nums[left] = pivot;
         return left;
+    }
+
+    private int randomQuickSort(int[] nums, int left, int right) {
+        int randomPivotIndex = random.nextInt(right - left + 1) + left;
+        swap(nums, left, randomPivotIndex);
+        return quickSort(nums, left, right);
     }
 
     private void swap(int[] nums, int i, int j) {

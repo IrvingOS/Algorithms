@@ -95,10 +95,6 @@ public class Solution {
             }
         }
 
-        public void split(int x) {
-            father[x] = x;
-        }
-
         public int find(int x) {
             if (x < 0 || x > father.length - 1) {
                 return -1;
@@ -110,6 +106,10 @@ public class Solution {
             int xRoot = find(x);
             int yRoot = find(y);
             father[yRoot] = xRoot;
+        }
+
+        public void split(int x) {
+            father[x] = x;
         }
     }
 }

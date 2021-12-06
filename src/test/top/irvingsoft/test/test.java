@@ -41,6 +41,18 @@ public class test {
         Collections.reverse(list);
     }
 
+    @Test
+    public void testCompareTo() {
+        Integer i1 = 1;
+        Integer i2 = 5;
+        System.out.println(i1.compareTo(i2));
+        System.out.println(i1 - i2);
+        String s1 = "sss";
+        String s2 = "ttt";
+        System.out.println(s1.compareTo(s2));
+//        System.out.println(s1 - s2);
+    }
+
     public int[][] validArrangement(int[][] pairs) {
         Arrays.sort(pairs, (x, y) -> x[0] - y[1]);
 
@@ -69,17 +81,5 @@ public class test {
             result[i] = list.get(i);
         }
         return result;
-    }
-
-    @Test
-    public void testCompareTo() {
-        Integer i1 = 1;
-        Integer i2 = 5;
-        System.out.println(i1.compareTo(i2));
-        System.out.println(i1 - i2);
-        String s1 = "sss";
-        String s2 = "ttt";
-        System.out.println(s1.compareTo(s2));
-//        System.out.println(s1 - s2);
     }
 }

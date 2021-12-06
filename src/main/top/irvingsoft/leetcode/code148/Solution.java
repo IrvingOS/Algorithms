@@ -12,19 +12,6 @@ public class Solution {
         return mergeSort(head);
     }
 
-    private ListNode mergeSort(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode mid = getMid(head);
-        ListNode cur = head;
-        while (cur.next != mid) {
-            cur = cur.next;
-        }
-        cur.next = null;
-        return merge(mergeSort(head), mergeSort(mid));
-    }
-
     private ListNode getMid(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
@@ -50,5 +37,18 @@ public class Solution {
         }
         cur.next = left != null ? left : right;
         return dummy.next;
+    }
+
+    private ListNode mergeSort(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode mid = getMid(head);
+        ListNode cur = head;
+        while (cur.next != mid) {
+            cur = cur.next;
+        }
+        cur.next = null;
+        return merge(mergeSort(head), mergeSort(mid));
     }
 }

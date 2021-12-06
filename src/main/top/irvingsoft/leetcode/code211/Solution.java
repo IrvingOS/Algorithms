@@ -101,6 +101,10 @@ class Trie {
         this.isEnd = false;
     }
 
+    public Trie[] getChildren() {
+        return this.children;
+    }
+
     public void insert(String word) {
         Trie node = this;
         for (int i = 0; i < word.length(); i++) {
@@ -112,10 +116,6 @@ class Trie {
             node = node.children[index];
         }
         node.isEnd = true;
-    }
-
-    public Trie[] getChildren() {
-        return this.children;
     }
 
     public boolean isEnd() {

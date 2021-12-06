@@ -6,5 +6,4 @@ package top.irvingsoft.test.interfaceextends;
  */
 public interface Collection<E> extends Iterator<E> {
 
-
 }

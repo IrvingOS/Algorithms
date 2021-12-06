@@ -10,6 +10,18 @@ public class Solution {
 
     private final int[][] towards = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 
+    public boolean existBest(char[][] board, String word) {
+        char[] words = word.toCharArray();
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (dfs(board, words, i, j, 0)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean existMine(char[][] board, String word) {
         if (word.length() == 0) {
             return true;
@@ -27,6 +39,20 @@ public class Solution {
             }
         }
         return false;
+    }
+
+    boolean dfs(char[][] board, char[] word, int i, int j, int k) {
+        if (i >= board.length || i < 0 || j >= board[0].length || j < 0 || board[i][j] != word[k]) {
+            return false;
+        }
+        if (k == word.length - 1) {
+            return true;
+        }
+        board[i][j] = '\0';
+        boolean res = dfs(board, word, i + 1, j, k + 1) || dfs(board, word, i - 1, j, k + 1) ||
+                dfs(board, word, i, j + 1, k + 1) || dfs(board, word, i, j - 1, k + 1);
+        board[i][j] = word[k];
+        return res;
     }
 
     private boolean backtrack(int m, int n, int index, char[] word, char[][] board, boolean[][] status) {
@@ -48,31 +74,5 @@ public class Solution {
             i++;
         }
         return false;
-    }
-
-    public boolean existBest(char[][] board, String word) {
-        char[] words = word.toCharArray();
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                if (dfs(board, words, i, j, 0)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    boolean dfs(char[][] board, char[] word, int i, int j, int k) {
-        if (i >= board.length || i < 0 || j >= board[0].length || j < 0 || board[i][j] != word[k]) {
-            return false;
-        }
-        if (k == word.length - 1) {
-            return true;
-        }
-        board[i][j] = '\0';
-        boolean res = dfs(board, word, i + 1, j, k + 1) || dfs(board, word, i - 1, j, k + 1) ||
-                dfs(board, word, i, j + 1, k + 1) || dfs(board, word, i, j - 1, k + 1);
-        board[i][j] = word[k];
-        return res;
     }
 }

@@ -26,53 +26,6 @@ public class Tree {
         this.hasChildren = hasChildren;
     }
 
-    public String getParentKey() {
-        return parentKey;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public Integer getValue() {
-        return value;
-    }
-
-    public boolean isHasParent() {
-        return hasParent;
-    }
-
-    public boolean isHasChildren() {
-        return hasChildren;
-    }
-
-    public boolean isLastChild() {
-        return isLastChild;
-    }
-
-    public void setLastChild(boolean isLastChild) {
-        this.isLastChild = isLastChild;
-    }
-
-    public List<Tree> getChildren() {
-        return children;
-    }
-
-    public boolean isContains(String key) {
-        if (isHasChildren()) {
-            for (Tree child : children) {
-                if (child.getKey().equals(key)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public void initChildren() {
-        this.children = new ArrayList<>();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -90,9 +43,56 @@ public class Tree {
                 Objects.equals(value, tree.value);
     }
 
+    public List<Tree> getChildren() {
+        return children;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getParentKey() {
+        return parentKey;
+    }
+
+    public Integer getValue() {
+        return value;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(key, hasParent, hasChildren);
+    }
+
+    public void initChildren() {
+        this.children = new ArrayList<>();
+    }
+
+    public boolean isContains(String key) {
+        if (isHasChildren()) {
+            for (Tree child : children) {
+                if (child.getKey().equals(key)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean isHasChildren() {
+        return hasChildren;
+    }
+
+    public boolean isHasParent() {
+        return hasParent;
+    }
+
+    public boolean isLastChild() {
+        return isLastChild;
+    }
+
+    public void setLastChild(boolean isLastChild) {
+        this.isLastChild = isLastChild;
     }
 
     @Override

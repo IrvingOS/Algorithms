@@ -44,6 +44,10 @@ public class UnionSet<T> {
         return value;
     }
 
+    public int getSize() {
+        return sizeMap.size();
+    }
+
     public boolean isSameSet(T a, T b) {
         if (!nodeMap.containsKey(a) || !nodeMap.containsKey(b)) {
             return false;
@@ -68,10 +72,6 @@ public class UnionSet<T> {
             sizeMap.put(big, aSetSize + bSetSize);
             sizeMap.remove(small);
         }
-    }
-
-    public int getSize() {
-        return sizeMap.size();
     }
 }
 

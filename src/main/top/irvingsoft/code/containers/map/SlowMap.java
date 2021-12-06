@@ -22,6 +22,17 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
     }
 
     @Override
+    public Set<Entry<K, V>> entrySet() {
+        Set<Entry<K, V>> set = new HashSet<>();
+        Iterator<K> kIterator = keys.iterator();
+        Iterator<V> vIterator = values.iterator();
+        while (kIterator.hasNext()) {
+            set.add(new MapEntry<>(kIterator.next(), vIterator.next()));
+        }
+        return set;
+    }
+
+    @Override
     public V get(Object key) {
         if (!keys.contains(key)) {
             return null;
@@ -39,16 +50,5 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
             values.set(keys.indexOf(key), value);
         }
         return oldValue;
-    }
-
-    @Override
-    public Set<Entry<K, V>> entrySet() {
-        Set<Entry<K, V>> set = new HashSet<>();
-        Iterator<K> kIterator = keys.iterator();
-        Iterator<V> vIterator = values.iterator();
-        while (kIterator.hasNext()) {
-            set.add(new MapEntry<>(kIterator.next(), vIterator.next()));
-        }
-        return set;
     }
 }

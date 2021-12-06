@@ -22,6 +22,18 @@ public class Solution {
         return quickSelect(nums, 0, nums.length - 1, nums.length - k);
     }
 
+    public int partition(int[] nums, int left, int right) {
+        int x = nums[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (nums[j] <= x) {
+                swap(nums, ++i, j);
+            }
+        }
+        swap(nums, i + 1, right);
+        return i + 1;
+    }
+
     private int quickSelect(int[] nums, int left, int right, int index) {
         int q = randomPartition(nums, left, right);
         if (q == index) {
@@ -35,18 +47,6 @@ public class Solution {
         int i = random.nextInt(right - left + 1) + left;
         swap(nums, i, right);
         return partition(nums, left, right);
-    }
-
-    public int partition(int[] nums, int left, int right) {
-        int x = nums[right];
-        int i = left - 1;
-        for (int j = left; j < right; j++) {
-            if (nums[j] <= x) {
-                swap(nums, ++i, j);
-            }
-        }
-        swap(nums, i + 1, right);
-        return i + 1;
     }
 
     private void swap(int[] nums, int i, int j) {

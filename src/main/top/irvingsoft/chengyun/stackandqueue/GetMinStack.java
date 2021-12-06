@@ -50,6 +50,13 @@ public class GetMinStack {
         System.out.println(getMinStack.getMin());
     }
 
+    public int getMin() {
+        if (this.stackMin.isEmpty()) {
+            throw new RuntimeException("Stack is Empty!");
+        }
+        return this.stackMin.peek();
+    }
+
     public int pop() {
 
         if (this.stackData.isEmpty()) {
@@ -68,12 +75,5 @@ public class GetMinStack {
             this.stackMin.push(data);
         }
         this.stackData.push(data);
-    }
-
-    public int getMin() {
-        if (this.stackMin.isEmpty()) {
-            throw new RuntimeException("Stack is Empty!");
-        }
-        return this.stackMin.peek();
     }
 }

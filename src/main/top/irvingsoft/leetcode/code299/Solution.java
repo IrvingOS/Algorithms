@@ -52,7 +52,6 @@ public class Solution {
         return bulls + "A" + cows + "B";
     }
 
-
     public static void main(String[] args) {
         System.out.println(getHintHash("1807", "7810"));
         System.out.println(getHintHash("1123", "0111"));

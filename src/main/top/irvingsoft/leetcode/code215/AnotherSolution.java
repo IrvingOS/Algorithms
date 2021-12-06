@@ -12,6 +12,12 @@ public class AnotherSolution {
         System.out.println(new AnotherSolution().findKthLargest(new int[]{4, 2, 1, 6, 3, 9, 7, 5, 8}, 4));
     }
 
+    public void buildMaxHeap(int[] nums, int heapSize) {
+        for (int i = heapSize / 2; i >= 0; i--) {
+            maxHeapify(nums, i, heapSize);
+        }
+    }
+
     public int findKthLargest(int[] nums, int k) {
         int heapSize = nums.length;
         buildMaxHeap(nums, heapSize);
@@ -21,12 +27,6 @@ public class AnotherSolution {
             maxHeapify(nums, 0, heapSize);
         }
         return nums[0];
-    }
-
-    public void buildMaxHeap(int[] nums, int heapSize) {
-        for (int i = heapSize / 2; i >= 0; i--) {
-            maxHeapify(nums, i, heapSize);
-        }
     }
 
     public void maxHeapify(int[] nums, int i, int heapSize) {

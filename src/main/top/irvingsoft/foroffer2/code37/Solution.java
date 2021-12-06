@@ -13,6 +13,19 @@ import java.util.Queue;
  */
 public class Solution {
 
+    public TreeNode deserialize(String data) {
+        if (data == null) {
+            return null;
+        }
+        String[] values = data.substring(1, data.length() - 1).split(",");
+        if (values.length == 0 || "null".equals(values[0])) {
+            return null;
+        }
+        TreeNode head = new TreeNode(Integer.parseInt(values[0]));
+        build(head, values, 0);
+        return head;
+    }
+
     public String serialize(TreeNode root) {
         if (root == null) {
             return null;
@@ -43,19 +56,6 @@ public class Solution {
         sb.append('[');
         sb.append(']');
         return sb.toString();
-    }
-
-    public TreeNode deserialize(String data) {
-        if (data == null) {
-            return null;
-        }
-        String[] values = data.substring(1, data.length() - 1).split(",");
-        if (values.length == 0 || "null".equals(values[0])) {
-            return null;
-        }
-        TreeNode head = new TreeNode(Integer.parseInt(values[0]));
-        build(head, values, 0);
-        return head;
     }
 
     private void build(TreeNode node, String[] values, int index) {

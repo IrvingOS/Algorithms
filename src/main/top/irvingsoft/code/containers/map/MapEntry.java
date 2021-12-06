@@ -16,21 +16,6 @@ public class MapEntry<K, V> implements Map.Entry<K, V> {
     }
 
     @Override
-    public K getKey() {
-        return key;
-    }
-
-    @Override
-    public V getValue() {
-        return value;
-    }
-
-    @Override
-    public V setValue(V value) {
-        return this.value = value;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (!(o instanceof MapEntry)) {
             return false;
@@ -44,9 +29,24 @@ public class MapEntry<K, V> implements Map.Entry<K, V> {
     }
 
     @Override
+    public K getKey() {
+        return key;
+    }
+
+    @Override
+    public V getValue() {
+        return value;
+    }
+
+    @Override
     public int hashCode() {
         return (key == null ? 0 : key.hashCode()) ^
                 (value == null ? 0 : value.hashCode());
+    }
+
+    @Override
+    public V setValue(V value) {
+        return this.value = value;
     }
 
     @Override

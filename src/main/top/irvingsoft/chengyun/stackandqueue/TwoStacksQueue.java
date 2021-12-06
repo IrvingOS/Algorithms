@@ -43,18 +43,6 @@ public class TwoStacksQueue {
         this.stackPush.push(data);
     }
 
-    public int poll() {
-
-        if (this.stackPop.isEmpty() && this.stackPush.isEmpty()) {
-            throw new RuntimeException("Queue is Empty!");
-        } else if (this.stackPop.isEmpty()) {
-            while (!this.stackPush.isEmpty()) {
-                this.stackPop.push(this.stackPush.pop());
-            }
-        }
-        return this.stackPop.pop();
-    }
-
     public int peek() {
 
         if (this.stackPop.isEmpty() && this.stackPush.isEmpty()) {
@@ -65,6 +53,18 @@ public class TwoStacksQueue {
             }
         }
         return this.stackPop.peek();
+    }
+
+    public int poll() {
+
+        if (this.stackPop.isEmpty() && this.stackPush.isEmpty()) {
+            throw new RuntimeException("Queue is Empty!");
+        } else if (this.stackPop.isEmpty()) {
+            while (!this.stackPush.isEmpty()) {
+                this.stackPop.push(this.stackPush.pop());
+            }
+        }
+        return this.stackPop.pop();
     }
 
 }

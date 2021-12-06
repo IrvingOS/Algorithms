@@ -18,15 +18,15 @@ public class PetEnterQueue {
         this.count = count;
     }
 
-    public Pet getPet() {
-        return this.pet;
-    }
-
     public long getCount() {
         return this.count;
     }
 
     public String getEnterPetType() {
         return this.pet.getPetType();
+    }
+
+    public Pet getPet() {
+        return this.pet;
     }
 }

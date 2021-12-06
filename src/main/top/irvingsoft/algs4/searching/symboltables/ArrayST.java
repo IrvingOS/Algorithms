@@ -31,12 +31,16 @@ public class ArrayST<Key extends Comparable<Key>, Value> {
         this.capacity = capacity;
     }
 
-    public int size() {
-        return n;
-    }
-
     public boolean isEmpty() {
         return size() == 0;
+    }
+
+    public Iterable<Key> keys() {
+        Queue<Key> queue = new ArrayDeque<>();
+        for (int i = 0; i < n; i++) {
+            queue.offer(keys[i]);
+        }
+        return queue;
     }
 
     public void put(Key key, Value value) {
@@ -60,15 +64,27 @@ public class ArrayST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    private void resize() {
-        Key[] tempKeys = (Key[]) new Comparable[n + capacity];
-        Value[] tempValues = (Value[]) new Object[n + capacity];
-        for (int i = 0; i < n; i++) {
-            tempKeys[i] = keys[i];
-            tempValues[i] = values[i];
+    public int rank(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to rank() is null");
         }
-        this.keys = tempKeys;
-        this.values = tempValues;
+        for (int i = 0; i < n; i++) {
+            if (key.compareTo(keys[i]) == 0) {
+                return i;
+            }
+        }
+        return n;
+    }
+
+    public int size() {
+        return n;
+    }
+
+    private boolean contains(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to contains() is null");
+        }
+        return get(key) != null;
     }
 
     private void delete(Key key) {
@@ -85,13 +101,6 @@ public class ArrayST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    private boolean contains(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to contains() is null");
-        }
-        return get(key) != null;
-    }
-
     private Value get(Key key) {
         if (key == null) {
             throw new IllegalArgumentException("key to get() is null");
@@ -100,23 +109,14 @@ public class ArrayST<Key extends Comparable<Key>, Value> {
         return i < n ? values[i] : null;
     }
 
-    public int rank(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to rank() is null");
-        }
+    private void resize() {
+        Key[] tempKeys = (Key[]) new Comparable[n + capacity];
+        Value[] tempValues = (Value[]) new Object[n + capacity];
         for (int i = 0; i < n; i++) {
-            if (key.compareTo(keys[i]) == 0) {
-                return i;
-            }
+            tempKeys[i] = keys[i];
+            tempValues[i] = values[i];
         }
-        return n;
-    }
-
-    public Iterable<Key> keys() {
-        Queue<Key> queue = new ArrayDeque<>();
-        for (int i = 0; i < n; i++) {
-            queue.offer(keys[i]);
-        }
-        return queue;
+        this.keys = tempKeys;
+        this.values = tempValues;
     }
 }

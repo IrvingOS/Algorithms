@@ -85,7 +85,6 @@ public class Solution {
         ints[5][0] = 0;
         ints[5][1] = 5;
 
-
         System.out.println(canFinish(numCourses, ints));
     }
 }

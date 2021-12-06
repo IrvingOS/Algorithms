@@ -18,33 +18,32 @@ public class SequentialSearchST<Key extends Comparable<Key>, Value> {
     private Node first;
     private Node cache;
 
-    public Value get(Key key) {
+    public Key ceiling(Key key) {
         if (key == null) {
-            throw new IllegalArgumentException("key to get() is null");
+            throw new IllegalArgumentException("key to ceiling() is null");
         }
+        Key ceiling = null;
         for (Node x = first; x != null; x = x.next) {
-            if (key.equals(x.key)) {
-                return x.value;
+            if (key.compareTo(x.key) <= 0) {
+                if (ceiling == null || ceiling.compareTo(x.key) > 0) {
+                    ceiling = x.key;
+                }
             }
         }
-        return null;
+        return ceiling;
     }
 
-    public void put(Key key, Value value) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to put() is null");
-        }
-        if (value == null) {
-            delete(key);
-            return;
+    public boolean contains(Key key) {
+        if (cache != null && key.compareTo(cache.key) == 0) {
+            return true;
         }
         for (Node x = first; x != null; x = x.next) {
-            if (key.equals(x.key)) {
-                x.value = value;
-                return;
+            if (key.compareTo(x.key) == 0) {
+                cache = x;
+                return true;
             }
         }
-        first = new Node(key, value, first);
+        return false;
     }
 
     public void delete(Key key) {
@@ -66,55 +65,18 @@ public class SequentialSearchST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    public boolean contains(Key key) {
-        if (cache != null && key.compareTo(cache.key) == 0) {
-            return true;
+    public void deleteMax() {
+        Key max = max();
+        if (max != null) {
+            delete(max);
         }
-        for (Node x = first; x != null; x = x.next) {
-            if (key.compareTo(x.key) == 0) {
-                cache = x;
-                return true;
-            }
-        }
-        return false;
     }
 
-    public boolean isEmpty() {
-        return size() == 0;
-    }
-
-    public int size() {
-        int size = 0;
-        for (Node x = first; x != null; x = x.next) {
-            size++;
+    public void deleteMin() {
+        Key min = min();
+        if (min != null) {
+            delete(min);
         }
-        return size;
-    }
-
-    public Key min() {
-        if (first == null) {
-            return null;
-        }
-        Key min = first.key;
-        for (Node x = first; x != null; x = x.next) {
-            if (min.compareTo(x.key) > 0) {
-                min = x.key;
-            }
-        }
-        return min;
-    }
-
-    public Key max() {
-        if (first == null) {
-            return null;
-        }
-        Key max = first.key;
-        for (Node x = first; x != null; x = x.next) {
-            if (max.compareTo(x.key) < 0) {
-                max = x.key;
-            }
-        }
-        return max;
     }
 
     public Key floor(Key key) {
@@ -132,19 +94,86 @@ public class SequentialSearchST<Key extends Comparable<Key>, Value> {
         return floor;
     }
 
-    public Key ceiling(Key key) {
+    public Value get(Key key) {
         if (key == null) {
-            throw new IllegalArgumentException("key to ceiling() is null");
+            throw new IllegalArgumentException("key to get() is null");
         }
-        Key ceiling = null;
         for (Node x = first; x != null; x = x.next) {
-            if (key.compareTo(x.key) <= 0) {
-                if (ceiling == null || ceiling.compareTo(x.key) > 0) {
-                    ceiling = x.key;
-                }
+            if (key.equals(x.key)) {
+                return x.value;
             }
         }
-        return ceiling;
+        return null;
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    public Iterable<Key> keys(Key lo, Key hi) {
+        if (lo == null) {
+            throw new IllegalArgumentException("lo to rangeSearch() is null");
+        }
+        if (hi == null) {
+            throw new IllegalArgumentException("hi to rangeSearch() is null");
+        }
+        if (lo.compareTo(hi) > 0) {
+            return null;
+        }
+        Deque<Key> keys = new ArrayDeque<>();
+        for (Node x = first; x != null; x = x.next) {
+            if (lo.compareTo(x.key) <= 0 && hi.compareTo(x.key) >= 0) {
+                keys.offer(x.key);
+            }
+        }
+        return keys;
+    }
+
+    public Iterable<Key> keys() {
+        return keys(min(), max());
+    }
+
+    public Key max() {
+        if (first == null) {
+            return null;
+        }
+        Key max = first.key;
+        for (Node x = first; x != null; x = x.next) {
+            if (max.compareTo(x.key) < 0) {
+                max = x.key;
+            }
+        }
+        return max;
+    }
+
+    public Key min() {
+        if (first == null) {
+            return null;
+        }
+        Key min = first.key;
+        for (Node x = first; x != null; x = x.next) {
+            if (min.compareTo(x.key) > 0) {
+                min = x.key;
+            }
+        }
+        return min;
+    }
+
+    public void put(Key key, Value value) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to put() is null");
+        }
+        if (value == null) {
+            delete(key);
+            return;
+        }
+        for (Node x = first; x != null; x = x.next) {
+            if (key.equals(x.key)) {
+                x.value = value;
+                return;
+            }
+        }
+        first = new Node(key, value, first);
     }
 
     public int rank(Key key) {
@@ -174,18 +203,12 @@ public class SequentialSearchST<Key extends Comparable<Key>, Value> {
         return queue.poll();
     }
 
-    public void deleteMin() {
-        Key min = min();
-        if (min != null) {
-            delete(min);
+    public int size() {
+        int size = 0;
+        for (Node x = first; x != null; x = x.next) {
+            size++;
         }
-    }
-
-    public void deleteMax() {
-        Key max = max();
-        if (max != null) {
-            delete(max);
-        }
+        return size;
     }
 
     public int size(Key lo, Key hi) {
@@ -205,29 +228,6 @@ public class SequentialSearchST<Key extends Comparable<Key>, Value> {
             }
         }
         return size;
-    }
-
-    public Iterable<Key> keys(Key lo, Key hi) {
-        if (lo == null) {
-            throw new IllegalArgumentException("lo to rangeSearch() is null");
-        }
-        if (hi == null) {
-            throw new IllegalArgumentException("hi to rangeSearch() is null");
-        }
-        if (lo.compareTo(hi) > 0) {
-            return null;
-        }
-        Deque<Key> keys = new ArrayDeque<>();
-        for (Node x = first; x != null; x = x.next) {
-            if (lo.compareTo(x.key) <= 0 && hi.compareTo(x.key) >= 0) {
-                keys.offer(x.key);
-            }
-        }
-        return keys;
-    }
-
-    public Iterable<Key> keys() {
-        return keys(min(), max());
     }
 
     private class Node {

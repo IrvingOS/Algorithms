@@ -16,6 +16,49 @@ public class OrderedSequentialSearchST<Key extends Comparable<Key>, Value> {
     private Node first;
     private int  n;
 
+    public boolean contains(Key key) {
+        return get(key) != null;
+    }
+
+    public void delete(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to delete() is null");
+        }
+        Node dummy = new Node();
+        dummy.next = first;
+        for (Node x = dummy; x.next != null; x = x.next) {
+            if (key.compareTo(x.next.key) == 0) {
+                x.next = x.next.next;
+                n--;
+                return;
+            }
+        }
+    }
+
+    public Value get(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key to get() is null");
+        }
+        for (Node x = first; x != null; x = x.next) {
+            if (key.compareTo(x.key) == 0) {
+                return x.value;
+            }
+        }
+        return null;
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    public Iterable<Key> keys() {
+        Queue<Key> queue = new ArrayDeque<>();
+        for (Node x = first; x != null; x = x.next) {
+            queue.offer(x.key);
+        }
+        return queue;
+    }
+
     public void put(Key key, Value value) {
         if (key == null) {
             throw new IllegalArgumentException("key to put() is null");
@@ -56,30 +99,6 @@ public class OrderedSequentialSearchST<Key extends Comparable<Key>, Value> {
         first = dummy.next;
     }
 
-    public Value get(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to get() is null");
-        }
-        for (Node x = first; x != null; x = x.next) {
-            if (key.compareTo(x.key) == 0) {
-                return x.value;
-            }
-        }
-        return null;
-    }
-
-    public boolean contains(Key key) {
-        return get(key) != null;
-    }
-
-    public boolean isEmpty() {
-        return size() == 0;
-    }
-
-    private int size() {
-        return n;
-    }
-
     public int rank(Key key) {
         if (key == null) {
             throw new IllegalArgumentException("key to rank() is null");
@@ -94,27 +113,8 @@ public class OrderedSequentialSearchST<Key extends Comparable<Key>, Value> {
         return i;
     }
 
-    public void delete(Key key) {
-        if (key == null) {
-            throw new IllegalArgumentException("key to delete() is null");
-        }
-        Node dummy = new Node();
-        dummy.next = first;
-        for (Node x = dummy; x.next != null; x = x.next) {
-            if (key.compareTo(x.next.key) == 0) {
-                x.next = x.next.next;
-                n--;
-                return;
-            }
-        }
-    }
-
-    public Iterable<Key> keys() {
-        Queue<Key> queue = new ArrayDeque<>();
-        for (Node x = first; x != null; x = x.next) {
-            queue.offer(x.key);
-        }
-        return queue;
+    private int size() {
+        return n;
     }
 
     private class Node {

@@ -9,22 +9,6 @@ package top.irvingsoft.foroffer2.code13;
 public class Solution {
 
     /**
-     * 深度优先
-     */
-    public int movingCountDFS(int m, int n, int k) {
-        boolean[][] visited = new boolean[m][n];
-        return dfs(0, 0, m, n, k, visited);
-    }
-
-    private int dfs(int i, int j, int m, int n, int k, boolean[][] visited) {
-        if (i >= m || j >= n || get(i) + get(j) > k || visited[i][j]) {
-            return 0;
-        }
-        visited[i][j] = true;
-        return 1 + dfs(i + 1, j, m, n, k, visited) + dfs(i, j + 1, m, n, k, visited);
-    }
-
-    /**
      * 递推
      * <p>
      * 如果目标下标符合要求，则它的状态可以由其左边或者上边的状态转移过来
@@ -51,6 +35,22 @@ public class Solution {
             }
         }
         return result;
+    }
+
+    /**
+     * 深度优先
+     */
+    public int movingCountDFS(int m, int n, int k) {
+        boolean[][] visited = new boolean[m][n];
+        return dfs(0, 0, m, n, k, visited);
+    }
+
+    private int dfs(int i, int j, int m, int n, int k, boolean[][] visited) {
+        if (i >= m || j >= n || get(i) + get(j) > k || visited[i][j]) {
+            return 0;
+        }
+        visited[i][j] = true;
+        return 1 + dfs(i + 1, j, m, n, k, visited) + dfs(i, j + 1, m, n, k, visited);
     }
 
     private int get(int x) {

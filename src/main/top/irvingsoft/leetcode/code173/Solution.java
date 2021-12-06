@@ -22,6 +22,10 @@ class BSTIterator {
         this.stack = new LinkedList<>();
     }
 
+    public boolean hasNext() {
+        return cur != null || !stack.isEmpty();
+    }
+
     public int next() {
         while (cur != null) {
             stack.push(cur);
@@ -31,9 +35,5 @@ class BSTIterator {
         int next = cur.val;
         cur = cur.right;
         return next;
-    }
-
-    public boolean hasNext() {
-        return cur != null || !stack.isEmpty();
     }
 }

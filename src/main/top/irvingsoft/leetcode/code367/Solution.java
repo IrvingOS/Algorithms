@@ -43,7 +43,6 @@ public class Solution {
         return false;
     }
 
-
     public static void main(String[] args) {
         System.out.println(isPerfectSquareBinary(1));
         System.out.println(isPerfectSquareBinary(2));

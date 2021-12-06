@@ -26,24 +26,6 @@ public class MergeSort implements IArraySort {
         System.out.println(Arrays.toString(Arrays.copyOfRange(arr, 5, arr.length)));
     }
 
-    /**
-     * 从最小的分段（left 和 right 长度都为 1）开始合并
-     * <p>
-     * 从最小分段的有序到最大分段的有序
-     */
-    @Override
-    public int[] sort(int[] sourceArray) {
-        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
-        if (arr.length < 2) {
-            return arr;
-        }
-        int middle = (int) Math.floor(arr.length / 2);
-        int[] left = Arrays.copyOfRange(arr, 0, middle);
-        int[] right = Arrays.copyOfRange(arr, middle, arr.length);
-
-        return merge(sort(left), sort(right));
-    }
-
     public int[] merge(int[] nums1, int[] nums2) {
         int[] result = new int[nums1.length + nums2.length];
         int i = 0;
@@ -62,5 +44,23 @@ public class MergeSort implements IArraySort {
             result[i++] = nums2[index2++];
         }
         return result;
+    }
+
+    /**
+     * 从最小的分段（left 和 right 长度都为 1）开始合并
+     * <p>
+     * 从最小分段的有序到最大分段的有序
+     */
+    @Override
+    public int[] sort(int[] sourceArray) {
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        if (arr.length < 2) {
+            return arr;
+        }
+        int middle = (int) Math.floor(arr.length / 2);
+        int[] left = Arrays.copyOfRange(arr, 0, middle);
+        int[] right = Arrays.copyOfRange(arr, middle, arr.length);
+
+        return merge(sort(left), sort(right));
     }
 }

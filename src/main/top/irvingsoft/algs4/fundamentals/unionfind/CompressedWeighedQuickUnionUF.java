@@ -22,12 +22,12 @@ public class CompressedWeighedQuickUnionUF {
         }
     }
 
-    public int count() {
-        return count;
-    }
-
     public boolean connected(int p, int q) {
         return find(p) == find(q);
+    }
+
+    public int count() {
+        return count;
     }
 
     /**

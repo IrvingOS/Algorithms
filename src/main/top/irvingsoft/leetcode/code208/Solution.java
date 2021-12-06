@@ -23,10 +23,6 @@ class Trie {
         return this.children;
     }
 
-    public boolean isEnd() {
-        return this.isEnd;
-    }
-
     public void insert(String word) {
         Trie node = this;
         for (int i = 0; i < word.length(); i++) {
@@ -38,6 +34,10 @@ class Trie {
             node = node.getChildren()[index];
         }
         node.isEnd = true;
+    }
+
+    public boolean isEnd() {
+        return this.isEnd;
     }
 
     public boolean search(String word) {

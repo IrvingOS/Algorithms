@@ -11,7 +11,7 @@ import java.util.*;
 public class Solution {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return new ArrayList<>();
         }
         List<List<Integer>> result = new ArrayList<>();
@@ -20,24 +20,24 @@ public class Solution {
         level.offer(root);
         queue.offer(level);
         boolean reverse = false;
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             level = queue.poll();
             List<Integer> resultLevel = new ArrayList<>();
             Queue<TreeNode> nextLevel = new ArrayDeque<>();
-            while(!level.isEmpty()) {
+            while (!level.isEmpty()) {
                 TreeNode node = level.poll();
                 resultLevel.add(node.val);
-                if(node.left != null) {
+                if (node.left != null) {
                     nextLevel.offer(node.left);
                 }
-                if(node.right != null) {
+                if (node.right != null) {
                     nextLevel.offer(node.right);
                 }
             }
-            if(!nextLevel.isEmpty()) {
+            if (!nextLevel.isEmpty()) {
                 queue.offer(nextLevel);
             }
-            if(reverse) {
+            if (reverse) {
                 Collections.reverse(resultLevel);
             }
             result.add(resultLevel);
