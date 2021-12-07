@@ -53,33 +53,11 @@ public class test {
 //        System.out.println(s1 - s2);
     }
 
-    public int[][] validArrangement(int[][] pairs) {
-        Arrays.sort(pairs, (x, y) -> x[0] - y[1]);
-
-        Queue<int[]> pairQueue = new ArrayDeque<>();
-        for (int i = 1; i < pairs.length; i++) {
-            pairQueue.add(pairs[i]);
-        }
-        List<int[]> list = new LinkedList<>();
-        list.add(pairs[0]);
-        int left = pairs[0][0];
-        int right = pairs[0][1];
-        while (!pairQueue.isEmpty()) {
-            int[] pair = pairQueue.poll();
-            if (pair[0] == right) {
-                list.add(pair);
-                right = pair[1];
-            } else if (pair[1] == left) {
-                list.add(0, pair);
-                left = pair[0];
-            } else {
-                pairQueue.offer(pair);
-            }
-        }
-        int[][] result = new int[list.size()][2];
-        for (int i = 0; i < list.size(); i++) {
-            result[i] = list.get(i);
-        }
-        return result;
+    @Test
+    public void testComputeAndPrint() {
+        System.out.println('b');
+        System.out.println('b' + 'c');
+        System.out.println((char) ('a' + 4));
     }
+
 }
