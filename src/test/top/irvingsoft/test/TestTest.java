@@ -9,7 +9,8 @@ import java.util.stream.Collectors;
  * @author TimeChaser
  * @since 2021/11/28 11:16
  */
-public class test {
+@SuppressWarnings("all")
+public class TestTest {
 
     public static void main(String[] args) {
         System.out.println(testAssignmentAndReturn());
@@ -58,6 +59,12 @@ public class test {
         System.out.println('b');
         System.out.println('b' + 'c');
         System.out.println((char) ('a' + 4));
+        System.out.println(1.0 / 0.0);
+        System.out.println(1.0 / 0);
+        System.out.println(1 / 0.0);
+        System.out.println(1.0 / 0.0 == 1.0 / 0 && 1.0 / 0 == 1 / 0.0);
+        System.out.println(3 / 1 == 3 / 1.0);
+        System.out.println(1 == 1.0);
+//        System.out.println(1 / 0);
     }
-
 }
