@@ -79,11 +79,6 @@ public class MaxPQ<Key> implements Iterable<Key> {
         return size() == 0;
     }
 
-    @Override
-    public Iterator<Key> iterator() {
-        return new HeapIterator();
-    }
-
     public Key max() {
         if (isEmpty()) {
             throw new NoSuchElementException("Priority queue underflow");
@@ -170,6 +165,11 @@ public class MaxPQ<Key> implements Iterable<Key> {
             exchange(k / 2, k);
             k /= 2;
         }
+    }
+
+    @Override
+    public Iterator<Key> iterator() {
+        return new HeapIterator();
     }
 
     /**

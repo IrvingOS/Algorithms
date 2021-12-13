@@ -31,6 +31,12 @@ public class HeapSort implements IArraySort {
         }
     }
 
+    private void buildMaxHeap(int[] arr, int len) {
+        for (int i = len / 2; i >= 0; i--) {
+            heapify(arr, i, len);
+        }
+    }
+
     @Override
     public int[] sort(int[] sourceArray) {
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
@@ -43,11 +49,5 @@ public class HeapSort implements IArraySort {
             heapify(arr, 0, len);
         }
         return arr;
-    }
-
-    private void buildMaxHeap(int[] arr, int len) {
-        for (int i = len / 2; i >= 0; i--) {
-            heapify(arr, i, len);
-        }
     }
 }

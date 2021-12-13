@@ -76,11 +76,6 @@ public class MinPQ<Key> implements Iterable<Key> {
         return size() == 0;
     }
 
-    @Override
-    public Iterator<Key> iterator() {
-        return new HeapIterator();
-    }
-
     public Key min() {
         if (isEmpty()) {
             throw new NoSuchElementException();
@@ -162,6 +157,11 @@ public class MinPQ<Key> implements Iterable<Key> {
             exchange(k, k / 2);
             k /= 2;
         }
+    }
+
+    @Override
+    public Iterator<Key> iterator() {
+        return new HeapIterator();
     }
 
     private class HeapIterator implements Iterator<Key> {

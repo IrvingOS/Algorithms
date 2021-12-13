@@ -120,11 +120,6 @@ public class IndexMaxPQ<Key extends Comparable<Key>> implements Iterable<Integer
         return size() == 0;
     }
 
-    @Override
-    public Iterator<Integer> iterator() {
-        return new HeapIterator();
-    }
-
     public Key keyOf(int k) {
         validateIndex(k);
         if (!contains(k)) {
@@ -191,6 +186,11 @@ public class IndexMaxPQ<Key extends Comparable<Key>> implements Iterable<Integer
         if (i >= maxN) {
             throw new IllegalArgumentException("index >= capacity: " + i);
         }
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new HeapIterator();
     }
 
     private class HeapIterator implements Iterator<Integer> {

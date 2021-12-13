@@ -15,17 +15,17 @@ public class Counter implements Comparable<Counter> {
         name = id;
     }
 
-    @Override
-    public int compareTo(Counter o) {
-        return Integer.compare(this.count, o.count);
-    }
-
     public void increment() {
         count++;
     }
 
     public int tally() {
         return count;
+    }
+
+    @Override
+    public int compareTo(Counter o) {
+        return Integer.compare(this.count, o.count);
     }
 
     @Override

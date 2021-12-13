@@ -26,23 +26,6 @@ public class Tree {
         this.hasChildren = hasChildren;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Tree tree = (Tree) o;
-
-        return hasParent == tree.hasParent &&
-                hasChildren == tree.hasChildren &&
-                Objects.equals(key, tree.key) &&
-                Objects.equals(parentKey, tree.parentKey) &&
-                Objects.equals(value, tree.value);
-    }
-
     public List<Tree> getChildren() {
         return children;
     }
@@ -57,11 +40,6 @@ public class Tree {
 
     public Integer getValue() {
         return value;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(key, hasParent, hasChildren);
     }
 
     public void initChildren() {
@@ -93,6 +71,28 @@ public class Tree {
 
     public void setLastChild(boolean isLastChild) {
         this.isLastChild = isLastChild;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Tree tree = (Tree) o;
+
+        return hasParent == tree.hasParent &&
+                hasChildren == tree.hasChildren &&
+                Objects.equals(key, tree.key) &&
+                Objects.equals(parentKey, tree.parentKey) &&
+                Objects.equals(value, tree.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(key, hasParent, hasChildren);
     }
 
     @Override

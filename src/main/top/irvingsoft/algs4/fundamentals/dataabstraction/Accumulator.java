@@ -34,15 +34,15 @@ public class Accumulator {
         return Math.sqrt(this.var());
     }
 
-    @Override
-    public String toString() {
-        return "n = " + n + ", mean = " + mean() + ", stddev = " + stddev();
-    }
-
     public double var() {
         if (n <= 1) {
             return Double.NaN;
         }
         return sum / (n - 1);
+    }
+
+    @Override
+    public String toString() {
+        return "n = " + n + ", mean = " + mean() + ", stddev = " + stddev();
     }
 }

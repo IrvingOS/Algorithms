@@ -10,6 +10,10 @@ import java.util.Arrays;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(new Solution().dicesProbability(3)));
+    }
+
     public double[] dicesProbability(int n) {
         double[] probability = new double[6];
         Arrays.fill(probability, 1.0 / 6);
@@ -23,9 +27,5 @@ public class Solution {
             probability = temp;
         }
         return probability;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Solution().dicesProbability(3)));
     }
 }
