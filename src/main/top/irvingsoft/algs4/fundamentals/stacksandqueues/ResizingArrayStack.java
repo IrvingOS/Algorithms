@@ -67,6 +67,22 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
         return new ArrayIterator();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append('[');
+        for (Item item : this) {
+            s.append(item);
+            s.append(',').append(' ');
+        }
+        if (s.length() > 3) {
+            s.deleteCharAt(s.length() - 1);
+            s.deleteCharAt(s.length() - 1);
+        }
+        s.append(']');
+        return s.toString();
+    }
+
     private class ArrayIterator implements Iterator<Item> {
 
         private int i;
