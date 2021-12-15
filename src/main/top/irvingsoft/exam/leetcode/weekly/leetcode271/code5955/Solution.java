@@ -19,7 +19,7 @@ public class Solution {
     }
 
     /**
-     * TODO
+     * TODO 加权图欧拉路径模板
      */
     public int maxTotalFruits(int[][] fruits, int startPos, int k) {
         int n = fruits.length;
