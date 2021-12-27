@@ -9,6 +9,9 @@ import java.util.Map;
  */
 public class Solution {
 
+    /**
+     * 前缀和
+     */
     public long[] getDistances(int[] arr) {
         int n = arr.length;
         long[] prefixValue = new long[n];
