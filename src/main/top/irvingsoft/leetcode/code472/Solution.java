@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Solution {
 
-    private Trie root = new Trie();
+    private final Trie root = new Trie();
 
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
         List<String> result = new ArrayList<>();
@@ -69,7 +69,7 @@ public class Solution {
 
     private class Trie {
 
-        private Trie[] children;
+        private final Trie[] children;
         private boolean isEnd;
 
         public Trie() {
