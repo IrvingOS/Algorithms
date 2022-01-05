@@ -1,4 +1,4 @@
-package main.top.irvingsoft.leetcode.code472;
+package top.irvingsoft.leetcode.code472;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -8,6 +8,10 @@ package top.irvingsoft.leetcode.code1576;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(new Solution().modifyString("j?qg??b"));
+    }
+
     public String modifyString(String s) {
         int n = s.length();
         StringBuilder sb = new StringBuilder();

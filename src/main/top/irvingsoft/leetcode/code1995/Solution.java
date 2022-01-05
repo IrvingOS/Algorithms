@@ -1,4 +1,4 @@
-package main.top.irvingsoft.leetcode.code1995;
+package top.irvingsoft.leetcode.code1995;
 
 import java.util.HashMap;
 import java.util.Map;
