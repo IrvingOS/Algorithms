@@ -67,4 +67,10 @@ public class TestTest {
         System.out.println(1 == 1.0);
 //        System.out.println(1 / 0);
     }
+
+    @Test
+    public void testAbs() {
+        System.out.println(Math.abs(Integer.MIN_VALUE));
+        System.out.println(Math.abs((long) Integer.MIN_VALUE));
+    }
 }
