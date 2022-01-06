@@ -1,6 +1,7 @@
 package top.irvingsoft.leetcode.code71;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * 简化路径
@@ -10,26 +11,25 @@ import java.util.Stack;
  */
 public class Solution {
 
-    public static String simplifyPath(String path) {
-        Stack<String> stack = new Stack<>();
-        StringBuilder result = new StringBuilder();
-        for (String p : path.split("/")) {
-            if (!stack.isEmpty() && p.equals("src")) {
-                stack.pop();
-            } else if (!"src".contains(p)) {
-                stack.push(p);
+    public String simplifyPath(String path) {
+        Deque<String> deque = new ArrayDeque<>();
+        for (String split : path.split("/")) {
+            if ("..".equals(split)) {
+                if (!deque.isEmpty()) {
+                    deque.pollLast();
+                }
+            } else if (split.length() != 0 && !".".equals(split)) {
+                deque.offer(split);
             }
         }
-        for (String s : stack) {
-            result.append("/").append(s);
+        StringBuilder sb = new StringBuilder();
+        if (deque.isEmpty()) {
+            sb.append('/');
+        } else {
+            while (!deque.isEmpty()) {
+                sb.append('/').append(deque.poll());
+            }
         }
-        return result.length() == 0 ? "/" : result.toString();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(simplifyPath("/home/"));
-        System.out.println(simplifyPath("/../"));
-        System.out.println(simplifyPath("/home//foo/"));
-        System.out.println(simplifyPath("/a/./b/../../c/"));
+        return sb.toString();
     }
 }
