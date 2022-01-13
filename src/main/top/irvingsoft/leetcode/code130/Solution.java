@@ -11,7 +11,7 @@ import java.util.Deque;
  */
 public class Solution {
 
-    public void solveBfs(char[][] board) {
+    public void solveBFS(char[][] board) {
         int n = board.length;
         if (n == 1) {
             return;
@@ -58,7 +58,7 @@ public class Solution {
         }
     }
 
-    public void solveDfs(char[][] board) {
+    public void solveDFS(char[][] board) {
         int n = board.length;
         if (n == 1) {
             return;
