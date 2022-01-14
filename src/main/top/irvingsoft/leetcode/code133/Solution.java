@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class Solution {
 
-    private Map<Node, Node> visited = new HashMap<>();
+    private final Map<Node, Node> visited = new HashMap<>();
 
     public Node cloneGraphBFS(Node node) {
         if (node == null) {
