@@ -26,6 +26,7 @@ public class Solution {
             int temp = nums[i];
             int j = i;
             while (j > 0 && nums[j - 1] > temp) {
+                nums[j] = nums[j - 1];
                 j--;
             }
             if (j > 0 && nums[j - 1] == temp) {
