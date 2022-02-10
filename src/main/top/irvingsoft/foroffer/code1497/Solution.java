@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 检查数组对是否可以被 k 整数
+ * 检查数组对是否可以被 k 整除
  *
  * @author TimeChaser
  * @since 2022/2/10 13:01
