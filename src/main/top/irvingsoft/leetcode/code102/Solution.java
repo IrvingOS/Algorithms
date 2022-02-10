@@ -1,4 +1,4 @@
-package top.irvingsoft.foroffer.code102;
+package top.irvingsoft.leetcode.code102;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
