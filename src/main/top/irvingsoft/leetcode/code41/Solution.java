@@ -2,6 +2,8 @@ package top.irvingsoft.leetcode.code41;
 
 /**
  * 缺失的第一个正数
+ * <p>
+ * 原地置换大法 & 多次遍历法
  *
  * @author TimeChaser
  * @since 2022/2/21 12:42
