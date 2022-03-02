@@ -83,6 +83,10 @@ public class Solution {
         return state == State.STATE_INTEGER || state == State.STATE_POINT || state == State.STATE_FRACTION || state == State.STATE_EXP_NUMBER || state == State.STATE_END;
     }
 
+    public boolean isNumberReg(String s) {
+        return s.matches("\\s*[+-]?(?:\\d+[.]\\d*|[.]\\d+|\\d+)(?:[Ee][+-]?\\d+)?\\s*");
+    }
+
     public CharType toCharType(char ch) {
         if (ch >= '0' && ch <= '9') {
             return CharType.CHAR_NUMBER;
