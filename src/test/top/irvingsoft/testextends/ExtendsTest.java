@@ -1,8 +1,8 @@
-package top.irvingsoft.testextents;
+package top.irvingsoft.testextends;
 
 import org.junit.jupiter.api.Test;
 
-public class ExtentsTest {
+public class ExtendsTest {
 
     @Test
     public void testMethodExtends() {

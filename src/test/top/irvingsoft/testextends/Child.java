@@ -1,4 +1,4 @@
-package top.irvingsoft.testextents;
+package top.irvingsoft.testextends;
 
 import edu.princeton.cs.algs4.Counter;
 
