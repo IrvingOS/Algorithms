@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code160;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 相交链表
  *
