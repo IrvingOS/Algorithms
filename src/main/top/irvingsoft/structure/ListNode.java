@@ -1,4 +1,4 @@
-package top.irvingsoft.leetcode.code206;
+package top.irvingsoft.structure;
 
 /**
  * 自定义单链表
@@ -7,18 +7,20 @@ package top.irvingsoft.leetcode.code206;
  * @since 2021/3/6 2:26
  */
 public class ListNode {
-    int      val;
-    ListNode next;
 
-    ListNode() {
+    public ListNode next;
+    public int val;
+
+    public ListNode() {
     }
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }
+
 }

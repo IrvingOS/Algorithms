@@ -1,5 +1,7 @@
 package top.irvingsoft.exam.leetcode.weekly.leetcode270.code5943;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 删除链表的中间结点
  *

@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code206;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 反转链表
  * <p>

@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code26;
 
+import top.irvingsoft.structure.TreeNode;
+
 /**
  * 树的子结构
  *

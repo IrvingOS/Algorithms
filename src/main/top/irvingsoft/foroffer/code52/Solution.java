@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code52;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 两个链表的第一个公共结点
  *

@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code133;
 
+import top.irvingsoft.structure.Node;
+
 import java.util.*;
 
 /**

@@ -1,5 +1,7 @@
 package top.irvingsoft.exam.leetcode.weekly.leetcode267.code2074;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 反转偶数长度组的结点
  *

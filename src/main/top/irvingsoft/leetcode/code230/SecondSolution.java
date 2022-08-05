@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code230;
 
+import top.irvingsoft.structure.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +19,7 @@ public class SecondSolution {
 
 @SuppressWarnings("all")
 class BinarySearchTree {
-    private final TreeNode               root;
+    private final TreeNode root;
     private final Map<TreeNode, Integer> nodeNum;
 
     public BinarySearchTree(TreeNode root) {

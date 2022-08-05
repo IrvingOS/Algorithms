@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code382;
 
+import top.irvingsoft.structure.ListNode;
+
 import java.util.Random;
 
 /**

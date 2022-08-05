@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code32ⅰ;
 
+import top.irvingsoft.structure.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;

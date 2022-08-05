@@ -1,5 +1,26 @@
 package top.irvingsoft.leetcode.code559;
 
+import java.util.List;
+
+class Node {
+
+    public List<Node> children;
+    public int val;
+
+    public Node() {
+    }
+
+    public Node(int val) {
+        this.val = val;
+    }
+
+    public Node(int val, List<Node> children) {
+        this.val = val;
+        this.children = children;
+    }
+
+}
+
 /**
  * N 叉树的最大深度
  *
@@ -27,4 +48,5 @@ public class Solution {
             dfs(child, depth + 1);
         }
     }
-}
+
+};

@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code25;
 
+import top.irvingsoft.structure.Node;
+
 import java.util.ArrayList;
 import java.util.List;
 

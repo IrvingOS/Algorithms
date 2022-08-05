@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code116;
 
+import top.irvingsoft.structure.Node;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 

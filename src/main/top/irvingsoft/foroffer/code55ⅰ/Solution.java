@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code55ⅰ;
 
+import top.irvingsoft.structure.TreeNode;
+
 /**
  * 二叉树的深度
  *

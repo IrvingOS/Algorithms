@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code102;
 
+import top.irvingsoft.structure.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;

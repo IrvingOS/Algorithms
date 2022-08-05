@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code98;
 
+import top.irvingsoft.structure.TreeNode;
+
 /**
  * 验证二叉搜索树
  *

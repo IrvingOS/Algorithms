@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code6;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 从尾到头打印链表
  *

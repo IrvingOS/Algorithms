@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code61;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 旋转链表
  *

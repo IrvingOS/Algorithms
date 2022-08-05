@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code235;
 
+import top.irvingsoft.structure.TreeNode;
+
 /**
  * 二叉搜索树的最近公共祖先
  *

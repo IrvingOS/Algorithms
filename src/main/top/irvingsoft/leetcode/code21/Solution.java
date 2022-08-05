@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code21;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 合并两个有序链表
  *

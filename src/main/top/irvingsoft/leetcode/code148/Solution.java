@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code148;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 排序链表
  *

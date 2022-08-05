@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code7;
 
+import top.irvingsoft.structure.TreeNode;
+
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;

@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code2;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 两数相加
  *

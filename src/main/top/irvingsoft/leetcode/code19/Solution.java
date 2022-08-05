@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code19;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * @author TimeChaser
  * @since 2021/10/23 15:51

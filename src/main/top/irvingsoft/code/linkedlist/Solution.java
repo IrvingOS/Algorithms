@@ -1,5 +1,7 @@
 package top.irvingsoft.code.linkedlist;
 
+import top.irvingsoft.structure.Node;
+
 /**
  * 链表操作
  *
@@ -100,7 +102,7 @@ public class Solution {
 
     public static void traverseList(Node head) {
         while (head != null) {
-            System.out.print(head.value + " ");
+            System.out.print(head.val + " ");
             head = head.next;
         }
         System.out.println();

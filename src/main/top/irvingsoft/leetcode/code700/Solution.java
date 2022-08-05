@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code700;
 
+import top.irvingsoft.structure.TreeNode;
+
 /**
  * 二叉搜索树中的搜索
  *

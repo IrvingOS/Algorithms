@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code141;
 
+import top.irvingsoft.structure.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 

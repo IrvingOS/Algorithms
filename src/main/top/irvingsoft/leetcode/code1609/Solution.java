@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code1609;
 
+import top.irvingsoft.structure.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.Queue;
 

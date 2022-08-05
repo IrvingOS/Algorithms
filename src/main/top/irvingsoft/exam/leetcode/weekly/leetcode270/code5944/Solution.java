@@ -1,5 +1,7 @@
 package top.irvingsoft.exam.leetcode.weekly.leetcode270.code5944;
 
+import top.irvingsoft.structure.TreeNode;
+
 /**
  * 从二叉树一个结点到另一个结点每一步的方向
  *

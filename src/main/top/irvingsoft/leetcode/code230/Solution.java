@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code230;
 
+import top.irvingsoft.structure.TreeNode;
+
 import java.util.Stack;
 
 /**

@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code35;
 
+import top.irvingsoft.structure.Node;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 

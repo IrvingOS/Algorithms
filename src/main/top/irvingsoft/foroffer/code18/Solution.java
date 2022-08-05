@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code18;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 删除链表的结点
  *

@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code24;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 两两交换链表中的节点
  *

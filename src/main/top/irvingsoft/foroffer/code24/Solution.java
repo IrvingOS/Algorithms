@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code24;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 反转链表
  *

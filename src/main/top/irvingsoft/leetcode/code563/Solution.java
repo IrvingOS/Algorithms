@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code563;
 
+import top.irvingsoft.structure.TreeNode;
+
 /**
  * 二叉树的坡度
  *

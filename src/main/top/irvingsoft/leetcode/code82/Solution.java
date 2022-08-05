@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code82;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 删除排序链表中的重复元素 ⅱ
  *

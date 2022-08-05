@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code237;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 删除链表中的结点
  *

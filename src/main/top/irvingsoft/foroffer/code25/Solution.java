@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code25;
 
+import top.irvingsoft.structure.ListNode;
+
 /**
  * 合并两个排序的队列
  *

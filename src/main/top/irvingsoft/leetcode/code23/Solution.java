@@ -1,5 +1,7 @@
 package top.irvingsoft.leetcode.code23;
 
+import top.irvingsoft.structure.ListNode;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 

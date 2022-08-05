@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code55ⅱ;
 
+import top.irvingsoft.structure.TreeNode;
+
 /**
  * 平衡二叉树
  *

@@ -1,5 +1,7 @@
 package top.irvingsoft.foroffer.code54;
 
+import top.irvingsoft.structure.TreeNode;
+
 import java.util.Stack;
 
 /**
