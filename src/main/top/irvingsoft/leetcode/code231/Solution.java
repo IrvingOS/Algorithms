@@ -22,4 +22,5 @@ public class Solution {
         // n > 0 && (n & -n) == n;
         return n > 0 && (n & (n - 1)) == 0;
     }
+
 }

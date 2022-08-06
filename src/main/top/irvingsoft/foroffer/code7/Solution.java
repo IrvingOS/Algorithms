@@ -70,7 +70,8 @@ public class Solution {
         return buildTreeRecursion(0, n - 1, 0, preorder, inorderMap);
     }
 
-    private TreeNode buildTreeRecursion(int preLeft, int preRight, int inLeft, int[] preorder, Map<Integer, Integer> inorderMap) {
+    private TreeNode buildTreeRecursion(int preLeft, int preRight, int inLeft, int[] preorder,
+                                        Map<Integer, Integer> inorderMap) {
         if (preLeft > preRight) {
             return null;
         }
@@ -82,4 +83,5 @@ public class Solution {
         node.right = buildTreeRecursion(preLeft + sizeLeft + 1, preRight, nodeIndexIn + 1, preorder, inorderMap);
         return node;
     }
+
 }

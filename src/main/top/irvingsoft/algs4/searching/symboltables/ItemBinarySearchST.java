@@ -9,9 +9,9 @@ import java.util.Queue;
  */
 public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
 
-    private final int                capacity;
-    private       Item<Key, Value>[] items;
-    private       int                n;
+    private final int capacity;
+    private Item<Key, Value>[] items;
+    private int n;
 
     public ItemBinarySearchST() {
         this(8);
@@ -197,12 +197,15 @@ public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
      * 不这样写的原因是，最终的操作比较的是 key 之间的 compareTo，而不是 item
      */
     private static class Item<Key, Value> {
-        private final Key   key;
-        private       Value value;
+
+        private final Key key;
+        private Value value;
 
         public Item(Key key, Value value) {
             this.key = key;
             this.value = value;
         }
+
     }
+
 }

@@ -12,6 +12,8 @@ import java.util.Stack;
  */
 public class Solution {
 
+    private Map<Integer, Integer> inorderMap = new HashMap<>();
+
     public TreeNode buildTreeIteration(int[] inorder, int[] postorder) {
         int n = inorder.length;
         int inorderIndex = n - 1;
@@ -35,8 +37,6 @@ public class Solution {
         return root;
     }
 
-    private Map<Integer, Integer> inorderMap = new HashMap<>();
-
     public TreeNode buildTreeRecursion(int[] inorder, int[] postorder) {
         int n = inorder.length;
         for (int i = 0; i < n; i++) {
@@ -57,4 +57,5 @@ public class Solution {
         node.right = dfs(postorder, posLeft + leftSize, posRight - 1, inorderIndex + 1);
         return node;
     }
+
 }

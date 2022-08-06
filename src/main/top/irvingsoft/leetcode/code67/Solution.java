@@ -28,4 +28,5 @@ public class Solution {
     public static void main(String[] args) {
         System.out.println(addBinary("101011", "1011"));
     }
+
 }

@@ -12,6 +12,12 @@ package top.irvingsoft.leetcode.code27;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+
+        System.out.println(removeElementMore(new int[]{3, 2, 2, 3}, 3));
+        System.out.println(removeElementMore(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2));
+    }
+
     public static int removeElement(int[] nums, int val) {
 
         int i = 0;
@@ -37,9 +43,4 @@ public class Solution {
         return i;
     }
 
-    public static void main(String[] args) {
-
-        System.out.println(removeElementMore(new int[]{3, 2, 2, 3}, 3));
-        System.out.println(removeElementMore(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2));
-    }
 }

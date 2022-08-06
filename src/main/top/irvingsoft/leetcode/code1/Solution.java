@@ -15,6 +15,7 @@ import java.util.HashMap;
  * @since 2021/3/6 2:25
  */
 class Solution {
+
     public int[] twoSum(int[] nums, int target) {
 
         /*for (int i = 0; i < nums.length - 1; i++) {
@@ -38,4 +39,5 @@ class Solution {
 
         return new int[0];
     }
+
 }

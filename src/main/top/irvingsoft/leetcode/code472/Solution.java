@@ -76,5 +76,7 @@ public class Solution {
             children = new Trie[26];
             isEnd = false;
         }
+
     }
+
 }

@@ -34,4 +34,5 @@ public class Solution {
         }
         return total - max;
     }
+
 }

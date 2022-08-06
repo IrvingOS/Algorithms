@@ -2,16 +2,6 @@ package top.irvingsoft.leetcode.code230;
 
 import java.util.List;
 
-/**
- * 未待完续
- *
- * @author TimeChaser
- * @since 2021/11/18 10:44
- */
-public class ThirdSolution {
-
-}
-
 @SuppressWarnings("all")
 class AVL {
 
@@ -50,12 +40,13 @@ class AVL {
     }
 
     class Node {
-        int  val;
-        Node parent;
+
+        int height;
         Node left;
+        Node parent;
         Node right;
-        int  size;
-        int  height;
+        int size;
+        int val;
 
         public Node(int val) {
             this(val, null);
@@ -73,5 +64,17 @@ class AVL {
             this.height = 0;
             this.size = 1;
         }
+
     }
+
+}
+
+/**
+ * 未待完续
+ *
+ * @author TimeChaser
+ * @since 2021/11/18 10:44
+ */
+public class ThirdSolution {
+
 }

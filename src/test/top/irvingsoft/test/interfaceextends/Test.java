@@ -35,4 +35,5 @@ public class Test<T> implements Collection<T> {
     public T next() {
         return null;
     }
+
 }

@@ -12,6 +12,11 @@ import java.util.NoSuchElementException;
 public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer> {
 
     /**
+     * 保存所有的 Key，非最小堆结构，其下标与索引对应
+     */
+    private final Key[] keys;
+    private final int maxN;
+    /**
      * 实现最小堆的数据结构，其中 pq[1] 指示了最小 Key 在 keys 中的下标
      */
     private final int[] pq;
@@ -19,12 +24,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
      * 指示索引在最小堆中的下标，其下标与索引对应
      */
     private final int[] qp;
-    /**
-     * 保存所有的 Key，非最小堆结构，其下标与索引对应
-     */
-    private final Key[] keys;
-    private final int   maxN;
-    private       int   n;
+    private int n;
 
     public IndexMinPQ(int maxN) {
         if (maxN < 0) {
@@ -61,10 +61,12 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
             throw new NoSuchElementException("index is not in the priority queue");
         }
         if (key.compareTo(keys[k]) == 0) {
-            throw new IllegalArgumentException("Calling decreaseKey() with a key equal to the key in the priority queue");
+            throw new IllegalArgumentException(
+                    "Calling decreaseKey() with a key equal to the key in the priority queue");
         }
         if (key.compareTo(keys[k]) > 0) {
-            throw new IllegalArgumentException("Calling decreaseKey() with a key strictly greater than the key in the priority queue");
+            throw new IllegalArgumentException(
+                    "Calling decreaseKey() with a key strictly greater than the key in the priority queue");
         }
         keys[k] = key;
         swim(qp[k]);
@@ -104,10 +106,12 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
             throw new NoSuchElementException("index is not in the priority queue");
         }
         if (key.compareTo(keys[k]) == 0) {
-            throw new IllegalArgumentException("Calling increaseKey() with a key equal to the key in the priority queue");
+            throw new IllegalArgumentException(
+                    "Calling increaseKey() with a key equal to the key in the priority queue");
         }
         if (key.compareTo(keys[k]) < 0) {
-            throw new IllegalArgumentException("Calling increaseKey() with a key strictly less than the key in the priority queue");
+            throw new IllegalArgumentException(
+                    "Calling increaseKey() with a key strictly less than the key in the priority queue");
         }
         keys[k] = key;
         sink(qp[k]);
@@ -231,5 +235,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
 }

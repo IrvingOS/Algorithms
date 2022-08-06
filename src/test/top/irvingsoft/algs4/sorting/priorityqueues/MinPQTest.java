@@ -25,7 +25,8 @@ public class MinPQTest {
     }
 
     static class User {
-        int    id;
+
+        int id;
         String name;
 
         public User(int id, String name) {
@@ -35,10 +36,9 @@ public class MinPQTest {
 
         @Override
         public String toString() {
-            return "User{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    '}';
+            return "User{" + "id=" + id + ", name='" + name + '\'' + '}';
         }
+
     }
+
 }

@@ -39,4 +39,5 @@ public class MaxWindowArray {
 
         System.out.println(Arrays.toString(getMaxWindow(new int[]{5, 3, 2, 1, 9, 10, 4, 8, 6, 7}, 4)));
     }
+
 }

@@ -23,7 +23,6 @@ public class Solution {
      * <br>
      * 时间复杂度期望值 O(n)
      *
-     * @author TimeChaser
      * @since 2021/8/4 10:51
      */
     public static int likeQuickSort(int[] arr, int k) {
@@ -35,12 +34,128 @@ public class Solution {
         return processQuickSort(arr, 0, arr.length - 1, k - 1);
     }
 
+    public static void main(String[] args) {
+        int[] ints = {3, 5, 2, 4, 6, 1};
+        System.out.println(likeQuickSort(ints, 4));
+        System.out.println(useBfprt(ints, 4));
+        //        insertSort(ints, 0, 5);
+        //        System.out.println(Arrays.toString(ints));
+    }
+
+    public static int useBfprt(int[] arr, int k) {
+
+        if (k > arr.length) {
+            return -1;
+        }
+
+        return bfprt(arr, 0, arr.length - 1, k - 1);
+    }
+
+    /**
+     * Bfprt 算法
+     * <br>
+     * 重点关注了如何选举一个划分值，以排除更多无用数据
+     *
+     * @since 2021/8/4 16:41
+     */
+    private static int bfprt(int[] arr, int left, int right, int index) {
+
+        if (left == right) {
+            return arr[left];
+        }
+        int pivot = medianOfMedians(arr, left, right);
+        int[] partition = partition(arr, left, right, pivot);
+
+        if (index >= partition[0] && index <= partition[1]) {
+            return arr[index];
+        } else if (index < partition[0]) {
+            return bfprt(arr, left, partition[0] - 1, index);
+        } else {
+            return bfprt(arr, partition[1] + 1, right, index);
+        }
+    }
+
+    private static int getMedian(int[] arr, int left, int right) {
+        insertSort(arr, left, right);
+        return arr[(left + right) / 2];
+    }
+
+    /**
+     * 插入排序
+     *
+     * @since 2021/8/4 16:51
+     */
+    private static void insertSort(int[] arr, int left, int right) {
+
+        for (int i = left + 1; i < arr.length && i <= right; i++) {
+
+            int temp = arr[i];
+            int j = i;
+            while (j > left && temp < arr[j - 1]) {
+                arr[j] = arr[j - 1];
+                j--;
+            }
+            if (j != i) {
+                arr[j] = temp;
+            }
+        }
+    }
+
+    /**
+     * 在中位数数组中选出中位数
+     * <br>
+     * 1. 划分成长度为 5 的子数组
+     * <br>
+     * 2. 对每个子数组排序后获取每个子数组的中位数并组成数组
+     * <br>
+     * 3. 将中位数组成的数组利用 bfprt 算法，找出其中位数，不用管其中的过程，所得即为精心挑选的划分值
+     *
+     * @since 2021/8/4 16:46
+     */
+    private static int medianOfMedians(int[] arr, int left, int right) {
+
+        int size = right - left + 1;
+        int offset = size % 5 == 0 ? 0 : 1;
+        int[] mArr = new int[size / 5 + offset];
+
+        for (int team = 0; team < mArr.length; team++) {
+            int teamFirst = left + team * 5;
+            mArr[team] = getMedian(arr, teamFirst, Math.min(right, teamFirst + 4));
+        }
+        return bfprt(mArr, 0, mArr.length - 1, mArr.length / 2);
+    }
+
+    /**
+     * 根据划分值，小于划分值的向左移，大于划分值的向右移
+     * <br>
+     * 移完后，中间区域是划分值
+     * <p/>
+     * 区间扩大一格是为了让 pivot 与数组中的每一个数字都进行一次比较（包括自身）
+     *
+     * @since 2021/8/4 16:44
+     */
+    private static int[] partition(int[] arr, int left, int right, int pivot) {
+
+        int less = left - 1;
+        int more = right + 1;
+        int current = left;
+        while (current < more) {
+            if (arr[current] < pivot) {
+                swap(arr, ++less, current++);
+            } else if (arr[current] > pivot) {
+                swap(arr, current, --more);
+            } else {
+                current++;
+            }
+        }
+        return new int[]{less + 1, more - 1};
+    }
+
     /**
      * 类快排处理
      * <br>
      * 随机选举一个划分值
      *
-     * @author TimeChaser
      * @since 2021/8/4 10:52
      */
     private static int processQuickSort(int[] arr, int left, int right, int index) {
@@ -62,130 +177,10 @@ public class Solution {
         }
     }
 
-    /**
-     * 根据划分值，小于划分值的向左移，大于划分值的向右移
-     * <br>
-     * 移完后，中间区域是划分值
-     * <p/>
-     * 区间扩大一格是为了让 pivot 与数组中的每一个数字都进行一次比较（包括自身）
-     *
-     * @author TimeChaser
-     * @since 2021/8/4 16:44
-     */
-    private static int[] partition(int[] arr, int left, int right, int pivot) {
-
-        int less = left - 1;
-        int more = right + 1;
-        int current = left;
-        while (current < more) {
-            if (arr[current] < pivot) {
-                swap(arr, ++less, current++);
-            } else if (arr[current] > pivot) {
-                swap(arr, current, --more);
-            } else {
-                current++;
-            }
-        }
-        return new int[]{less + 1, more - 1};
-    }
-
     private static void swap(int[] arr, int index1, int index2) {
         int temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
     }
 
-    public static int useBfprt(int[] arr, int k) {
-
-        if (k > arr.length) {
-            return -1;
-        }
-
-        return bfprt(arr, 0, arr.length - 1, k - 1);
-    }
-
-    /**
-     * Bfprt 算法
-     * <br>
-     * 重点关注了如何选举一个划分值，以排除更多无用数据
-     *
-     * @author TimeChaser
-     * @since 2021/8/4 16:41
-     */
-    private static int bfprt(int[] arr, int left, int right, int index) {
-
-        if (left == right) {
-            return arr[left];
-        }
-        int pivot = medianOfMedians(arr, left, right);
-        int[] partition = partition(arr, left, right, pivot);
-
-        if (index >= partition[0] && index <= partition[1]) {
-            return arr[index];
-        } else if (index < partition[0]) {
-            return bfprt(arr, left, partition[0] - 1, index);
-        } else {
-            return bfprt(arr, partition[1] + 1, right, index);
-        }
-    }
-
-    /**
-     * 在中位数数组中选出中位数
-     * <br>
-     * 1. 划分成长度为 5 的子数组
-     * <br>
-     * 2. 对每个子数组排序后获取每个子数组的中位数并组成数组
-     * <br>
-     * 3. 将中位数组成的数组利用 bfprt 算法，找出其中位数，不用管其中的过程，所得即为精心挑选的划分值
-     *
-     * @author TimeChaser
-     * @since 2021/8/4 16:46
-     */
-    private static int medianOfMedians(int[] arr, int left, int right) {
-
-        int size = right - left + 1;
-        int offset = size % 5 == 0 ? 0 : 1;
-        int[] mArr = new int[size / 5 + offset];
-
-        for (int team = 0; team < mArr.length; team++) {
-            int teamFirst = left + team * 5;
-            mArr[team] = getMedian(arr, teamFirst, Math.min(right, teamFirst + 4));
-        }
-        return bfprt(mArr, 0, mArr.length - 1, mArr.length / 2);
-    }
-
-    private static int getMedian(int[] arr, int left, int right) {
-        insertSort(arr, left, right);
-        return arr[(left + right) / 2];
-    }
-
-    /**
-     * 插入排序
-     *
-     * @author TimeChaser
-     * @since 2021/8/4 16:51
-     */
-    private static void insertSort(int[] arr, int left, int right) {
-
-        for (int i = left + 1; i < arr.length && i <= right; i++) {
-
-            int temp = arr[i];
-            int j = i;
-            while (j > left && temp < arr[j - 1]) {
-                arr[j] = arr[j - 1];
-                j--;
-            }
-            if (j != i) {
-                arr[j] = temp;
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        int[] ints = {3, 5, 2, 4, 6, 1};
-        System.out.println(likeQuickSort(ints, 4));
-        System.out.println(useBfprt(ints, 4));
-//        insertSort(ints, 0, 5);
-//        System.out.println(Arrays.toString(ints));
-    }
 }

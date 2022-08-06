@@ -20,46 +20,8 @@ import java.util.PriorityQueue;
 
 public class Solution {
 
-    /**
-     * 顺序合并
-     *
-     * @author TimeChaser
-     * @since 2021/10/22 15:49
-     */
-    public static ListNode mergeKListsOrder(ListNode[] lists) {
+    public static void main(String[] args) {
 
-        if (lists.length == 0) {
-            return null;
-        }
-        ListNode merge = null;
-        for (ListNode list : lists) {
-            merge = merge(merge, list);
-        }
-        return merge;
-    }
-
-    /**
-     * 二分归并
-     *
-     * @author TimeChaser
-     * @since 2021/10/22 15:47
-     */
-    public static ListNode mergeKListsBinary(ListNode[] lists) {
-
-        if (lists.length == 0) {
-            return null;
-        }
-        return mergeList(lists, 0, lists.length - 1);
-    }
-
-    public static ListNode mergeList(ListNode[] lists, int start, int end) {
-        if (start == end) {
-            return lists[start];
-        }
-        int middle = (end - start) / 2 + start;
-        ListNode left = mergeList(lists, start, middle);
-        ListNode right = mergeList(lists, middle + 1, end);
-        return merge(left, right);
     }
 
     public static ListNode merge(ListNode left, ListNode right) {
@@ -83,9 +45,38 @@ public class Solution {
     }
 
     /**
+     * 二分归并
+     *
+     * @since 2021/10/22 15:47
+     */
+    public static ListNode mergeKListsBinary(ListNode[] lists) {
+
+        if (lists.length == 0) {
+            return null;
+        }
+        return mergeList(lists, 0, lists.length - 1);
+    }
+
+    /**
+     * 顺序合并
+     *
+     * @since 2021/10/22 15:49
+     */
+    public static ListNode mergeKListsOrder(ListNode[] lists) {
+
+        if (lists.length == 0) {
+            return null;
+        }
+        ListNode merge = null;
+        for (ListNode list : lists) {
+            merge = merge(merge, list);
+        }
+        return merge;
+    }
+
+    /**
      * 优先级队列
      *
-     * @author TimeChaser
      * @since 2021/10/22 15:50
      */
     public static ListNode mergeKListsPriority(ListNode[] lists) {
@@ -111,7 +102,14 @@ public class Solution {
         return dummy.next;
     }
 
-    public static void main(String[] args) {
-
+    public static ListNode mergeList(ListNode[] lists, int start, int end) {
+        if (start == end) {
+            return lists[start];
+        }
+        int middle = (end - start) / 2 + start;
+        ListNode left = mergeList(lists, start, middle);
+        ListNode right = mergeList(lists, middle + 1, end);
+        return merge(left, right);
     }
+
 }

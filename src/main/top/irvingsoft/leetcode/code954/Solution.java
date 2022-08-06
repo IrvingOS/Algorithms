@@ -13,21 +13,21 @@ public class Solution {
 
     public boolean canReorderDoubled(int[] arr) {
         int n = arr.length;
-        if(n % 2 != 0) {
+        if (n % 2 != 0) {
             return false;
         }
         TreeMap<Integer, Integer> map = new TreeMap<>((a, b) -> (b - a));
-        for(int a : arr) {
+        for (int a : arr) {
             map.put(a, map.getOrDefault(a, 0) + 1);
         }
-        while(!map.isEmpty()) {
+        while (!map.isEmpty()) {
             Map.Entry<Integer, Integer> first = map.firstEntry();
-            if(first.getValue() == 1) {
+            if (first.getValue() == 1) {
                 map.remove(first.getKey());
             } else {
                 first.setValue(first.getValue() - 1);
             }
-            if(first.getKey() % 2 != 0 || !map.containsKey(first.getKey() / 2)) {
+            if (first.getKey() % 2 != 0 || !map.containsKey(first.getKey() / 2)) {
                 return false;
             }
             if (map.get(first.getKey() / 2) == 1) {
@@ -39,4 +39,5 @@ public class Solution {
         }
         return true;
     }
+
 }

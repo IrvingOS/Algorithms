@@ -6,10 +6,6 @@ package top.irvingsoft.algs4.fundamentals.analysisofalgorithms;
  */
 public class ThreeSum {
 
-    public static void main(String[] args) {
-        System.out.println(count(new int[]{-9, -9, -8, -8, -7, -6, -5, -5, -3, -3, -1, 0, 0, 1, 3, 3, 3, 4, 7, 7}));
-    }
-
     public static int count(int[] a) {
         int n = a.length;
         int count = 0;
@@ -24,4 +20,9 @@ public class ThreeSum {
         }
         return count;
     }
+
+    public static void main(String[] args) {
+        System.out.println(count(new int[]{-9, -9, -8, -8, -7, -6, -5, -5, -3, -3, -1, 0, 0, 1, 3, 3, 3, 4, 7, 7}));
+    }
+
 }

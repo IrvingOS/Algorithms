@@ -12,9 +12,9 @@ import java.util.NoSuchElementException;
  */
 public class MinPQ<Key> implements Iterable<Key> {
 
-    private Key[]           pq;
-    private int             n;
     private Comparator<Key> comparator;
+    private int n;
+    private Key[] pq;
 
     public MinPQ() {
         this(1);
@@ -196,5 +196,7 @@ public class MinPQ<Key> implements Iterable<Key> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
 }

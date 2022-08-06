@@ -20,4 +20,5 @@ public class WeightedQuickUnionUFTest {
         uf.find(4);
         uf.find(8);
     }
+
 }

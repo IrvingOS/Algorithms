@@ -18,10 +18,10 @@ import java.util.Collection;
  */
 public interface InterfaceParent<T> extends Collection<T> {
 
-    void count();
-
     static void count1() {
 
     }
+
+    void count();
 
 }

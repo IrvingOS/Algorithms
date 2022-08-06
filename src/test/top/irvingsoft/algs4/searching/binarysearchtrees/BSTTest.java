@@ -17,7 +17,8 @@ public class BSTTest {
         Iterable<Integer> keysRecursion = bstRecursion.keys();
         int i = 0;
         for (Integer key : keysRecursion) {
-            assert bstRecursion.rank(bstRecursion.select(i)) == i && key.equals(bstRecursion.select(bstRecursion.rank(key)));
+            assert bstRecursion.rank(bstRecursion.select(i)) == i &&
+                   key.equals(bstRecursion.select(bstRecursion.rank(key)));
             i++;
         }
         BSTIteration<Integer, String> bstIteration = new BSTIteration<>();
@@ -30,8 +31,10 @@ public class BSTTest {
         Iterable<Integer> keysIteration = bstRecursion.keys();
         i = 0;
         for (Integer key : keysIteration) {
-            assert bstIteration.rank(bstIteration.select(i)) == i && key.equals(bstIteration.select(bstIteration.rank(key)));
+            assert bstIteration.rank(bstIteration.select(i)) == i &&
+                   key.equals(bstIteration.select(bstIteration.rank(key)));
             i++;
         }
     }
+
 }

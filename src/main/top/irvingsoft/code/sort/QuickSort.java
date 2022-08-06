@@ -50,7 +50,6 @@ public class QuickSort implements IArraySort {
      * <p>
      * 然后在这个基准两边重复这个流程。
      *
-     * @author TimeChaser
      * @since 2021/10/22 22:42
      */
     @Override
@@ -58,4 +57,5 @@ public class QuickSort implements IArraySort {
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
         return sort(arr, 0, arr.length - 1);
     }
+
 }

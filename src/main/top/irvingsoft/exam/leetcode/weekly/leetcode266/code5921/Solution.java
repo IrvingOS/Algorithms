@@ -11,4 +11,5 @@ public class Solution {
     public static int maximalPathQuality(int[] values, int[][] edges, int maxTime) {
         return 0;
     }
+
 }

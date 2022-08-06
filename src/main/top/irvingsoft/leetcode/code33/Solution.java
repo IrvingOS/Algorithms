@@ -8,6 +8,19 @@ package top.irvingsoft.leetcode.code33;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 3));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 4));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 5));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 6));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 7));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 8));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 1));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 2));
+        System.out.println(search(new int[]{1}, 0));
+    }
+
     public static int search(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
@@ -33,16 +46,4 @@ public class Solution {
         return -1;
     }
 
-    public static void main(String[] args) {
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 3));
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 4));
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 5));
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 6));
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 7));
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 8));
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0));
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 1));
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 2));
-        System.out.println(search(new int[]{1}, 0));
-    }
 }

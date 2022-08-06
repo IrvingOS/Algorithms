@@ -14,4 +14,5 @@ public class SelectionSort implements IArraySort {
     public int[] sort(int[] sourceArray) {
         return sourceArray;
     }
+
 }

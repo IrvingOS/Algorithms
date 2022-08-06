@@ -28,4 +28,5 @@ public class Solution {
         System.out.println(isPalindrome(10));
         System.out.println(isPalindrome(-101));
     }
+
 }

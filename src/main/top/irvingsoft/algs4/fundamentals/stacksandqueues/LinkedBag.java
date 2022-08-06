@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 public class LinkedBag<Item> implements Iterable<Item> {
 
     private Node first;
-    private int  n;
+    private int n;
 
     public LinkedBag() {
         n = 0;
@@ -56,11 +56,6 @@ public class LinkedBag<Item> implements Iterable<Item> {
         return s.toString();
     }
 
-    private class Node {
-        private Item item;
-        private Node next;
-    }
-
     private class LinkedIterator implements Iterator<Item> {
 
         private Node cur;
@@ -88,5 +83,14 @@ public class LinkedBag<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
+    private class Node {
+
+        private Item item;
+        private Node next;
+
+    }
+
 }

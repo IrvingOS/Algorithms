@@ -14,10 +14,34 @@ import java.util.HashMap;
 public class Solution {
 
     /**
+     * 单调栈
+     * <p>
+     * 时间复杂度：O(m + n)
+     *
+     * @since 2021/10/26 10:44
+     */
+    public static int[] nextGreaterElementDeque(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        for (int i = nums2.length - 1; i >= 0; i--) {
+            int nums = nums2[i];
+            while (!stack.isEmpty() && nums >= stack.peek()) {
+                stack.pop();
+            }
+            map.put(nums, stack.isEmpty() ? -1 : stack.peek());
+            stack.push(nums);
+        }
+        int[] result = new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            result[i] = map.get(nums1[i]);
+        }
+        return result;
+    }
+
+    /**
      * 暴力递归
      * 时间复杂度：O(mn)
      *
-     * @author TimeChaser
      * @since 2021/10/26 10:43
      */
     public static int[] nextGreaterElementViolence(int[] nums1, int[] nums2) {
@@ -38,29 +62,4 @@ public class Solution {
         return result;
     }
 
-    /**
-     * 单调栈
-     * <p>
-     * 时间复杂度：O(m + n)
-     *
-     * @author TimeChaser
-     * @since 2021/10/26 10:44
-     */
-    public static int[] nextGreaterElementDeque(int[] nums1, int[] nums2) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        ArrayDeque<Integer> stack = new ArrayDeque<>();
-        for (int i = nums2.length - 1; i >= 0; i--) {
-            int nums = nums2[i];
-            while (!stack.isEmpty() && nums >= stack.peek()) {
-                stack.pop();
-            }
-            map.put(nums, stack.isEmpty() ? -1 : stack.peek());
-            stack.push(nums);
-        }
-        int[] result = new int[nums1.length];
-        for (int i = 0; i < nums1.length; i++) {
-            result[i] = map.get(nums1[i]);
-        }
-        return result;
-    }
 }

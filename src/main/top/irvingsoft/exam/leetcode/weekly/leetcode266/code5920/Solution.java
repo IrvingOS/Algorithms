@@ -11,4 +11,5 @@ public class Solution {
     public static int minimizedMaximum(int n, int[] quantities) {
         return 0;
     }
+
 }

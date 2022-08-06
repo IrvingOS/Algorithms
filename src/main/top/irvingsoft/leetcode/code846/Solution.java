@@ -3,7 +3,6 @@ package top.irvingsoft.leetcode.code846;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * 一手顺子
@@ -19,7 +18,7 @@ public class Solution {
 
     public boolean isNStraightHand(int[] hand, int groupSize) {
         int n = hand.length;
-        if (n  % groupSize != 0) {
+        if (n % groupSize != 0) {
             return false;
         }
         Arrays.sort(hand);
@@ -44,4 +43,5 @@ public class Solution {
         }
         return true;
     }
+
 }

@@ -12,6 +12,10 @@ import top.irvingsoft.structure.ListNode;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+
+    }
+
     public static ListNode reverseList(ListNode head) {
 
         if (head == null) {
@@ -29,7 +33,4 @@ public class Solution {
         return prev;
     }
 
-    public static void main(String[] args) {
-
-    }
 }

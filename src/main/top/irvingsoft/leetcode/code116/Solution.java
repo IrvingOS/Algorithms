@@ -52,4 +52,5 @@ public class Solution {
         connectRecursion(root.right);
         return root;
     }
+
 }

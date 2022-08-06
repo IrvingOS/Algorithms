@@ -8,6 +8,11 @@ package top.irvingsoft.leetcode.code72;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(minDistance("horse", "ros"));
+        System.out.println(minDistance("intention", "execution"));
+    }
+
     public static int minDistance(String word1, String word2) {
         int m = word1.length();
         int n = word2.length();
@@ -31,8 +36,4 @@ public class Solution {
         return dp[m][n];
     }
 
-    public static void main(String[] args) {
-        System.out.println(minDistance("horse", "ros"));
-        System.out.println(minDistance("intention", "execution"));
-    }
 }

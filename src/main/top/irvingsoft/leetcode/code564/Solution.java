@@ -17,9 +17,8 @@ public class Solution {
         List<Long> candidates = getCandidates(n);
         for (Long candidate : candidates) {
             if (candidate != source) {
-                if (result == -1
-                        || Math.abs(candidate - source) < Math.abs(result - source)
-                        || Math.abs(candidate - source) == Math.abs(result - source) && candidate < result) {
+                if (result == -1 || Math.abs(candidate - source) < Math.abs(result - source) ||
+                    Math.abs(candidate - source) == Math.abs(result - source) && candidate < result) {
                     result = candidate;
                 }
             }
@@ -42,4 +41,5 @@ public class Solution {
         }
         return candidates;
     }
+
 }

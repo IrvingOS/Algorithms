@@ -76,4 +76,5 @@ public class GetMinStack {
         }
         this.stackData.push(data);
     }
+
 }

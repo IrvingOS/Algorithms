@@ -14,9 +14,9 @@ public interface Iterable<T> {
 
     default void forEach(Consumer<? super T> action) {
         Objects.requireNonNull(action);
-//        for (T t : this) {
-//            action.accept(t);
-//        }
+        //        for (T t : this) {
+        //            action.accept(t);
+        //        }
     }
 
     Iterator<T> iterator();
@@ -24,4 +24,5 @@ public interface Iterable<T> {
     default Spliterator<T> spliterator() {
         return Spliterators.spliteratorUnknownSize(iterator(), 0);
     }
+
 }

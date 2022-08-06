@@ -10,7 +10,7 @@ public class CompressedWeighedQuickUnionUF {
 
     private final int[] id;
     private final int[] weight;
-    private       int   count;
+    private int count;
 
     public CompressedWeighedQuickUnionUF(int n) {
         count = n;
@@ -55,4 +55,5 @@ public class CompressedWeighedQuickUnionUF {
         }
         count--;
     }
+
 }

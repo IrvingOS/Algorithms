@@ -10,17 +10,6 @@ import java.util.*;
  */
 public class Solution {
 
-    public static List<List<Integer>> permuteUniqueSet(int[] nums) {
-        HashSet<List<Integer>> result = new HashSet<>();
-
-        ArrayList<Integer> output = new ArrayList<>();
-        for (int num : nums) {
-            output.add(num);
-        }
-        backtrackSet(0, nums.length, output, result);
-        return new ArrayList<>(result);
-    }
-
     public static void backtrackSet(int first, int n, List<Integer> output, Set<List<Integer>> result) {
         if (first == n) {
             result.add(new ArrayList<>(output));
@@ -30,6 +19,39 @@ public class Solution {
             backtrackSet(first + 1, n, output, result);
             Collections.swap(output, i, first);
         }
+    }
+
+    public static void backtrackStatus(int index, int[] nums, boolean[] status, List<Integer> output,
+                                       List<List<Integer>> result) {
+        if (index == nums.length) {
+            result.add(new ArrayList<>(output));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (status[i] || (i > 0 && nums[i] == nums[i - 1] && !status[i - 1])) {
+                continue;
+            }
+            output.add(nums[i]);
+            status[i] = true;
+            backtrackStatus(index + 1, nums, status, output, result);
+            output.remove(index);
+            status[i] = false;
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(permuteUniqueStatus(new int[]{1, 1, 1}));
+    }
+
+    public static List<List<Integer>> permuteUniqueSet(int[] nums) {
+        HashSet<List<Integer>> result = new HashSet<>();
+
+        ArrayList<Integer> output = new ArrayList<>();
+        for (int num : nums) {
+            output.add(num);
+        }
+        backtrackSet(0, nums.length, output, result);
+        return new ArrayList<>(result);
     }
 
     /**
@@ -50,24 +72,4 @@ public class Solution {
         return result;
     }
 
-    public static void backtrackStatus(int index, int[] nums, boolean[] status, List<Integer> output, List<List<Integer>> result) {
-        if (index == nums.length) {
-            result.add(new ArrayList<>(output));
-            return;
-        }
-        for (int i = 0; i < nums.length; i++) {
-            if (status[i] || (i > 0 && nums[i] == nums[i - 1] && !status[i - 1])) {
-                continue;
-            }
-            output.add(nums[i]);
-            status[i] = true;
-            backtrackStatus(index + 1, nums, status, output, result);
-            output.remove(index);
-            status[i] = false;
-        }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(permuteUniqueStatus(new int[]{1, 1, 1}));
-    }
 }

@@ -10,8 +10,23 @@ import java.util.*;
  */
 public class Shopee {
 
+    private int result;
+
     public static void main(String[] args) {
         System.out.println(new Shopee().findMaximizedCapitalPQ(2, 0, new int[]{1, 2, 3}, new int[]{0, 1, 1}));
+    }
+
+    public int findMaximizedCapitalDFS(int k, int w, int[] profits, int[] capital) {
+        result = w;
+        int[][] project = new int[profits.length][2];
+        for (int i = 0; i < profits.length; i++) {
+            project[i][0] = capital[i];
+            project[i][1] = profits[i];
+        }
+        Arrays.sort(project, Comparator.comparingInt(a -> a[0]));
+        new PriorityQueue<Integer>(Comparator.comparingInt(x -> -x));
+        dfs(k, w, w, project, new boolean[capital.length]);
+        return result;
     }
 
     public int findMaximizedCapitalPQ(int k, int w, int[] profits, int[] capital) {
@@ -36,7 +51,8 @@ public class Shopee {
                 break;
             }
             int[] project = pq.poll();
-            while (!pq.isEmpty() && pq.peek()[1] - pq.peek()[0] == project[1] - project[0] && pq.peek()[0] < project[0]) {
+            while (!pq.isEmpty() && pq.peek()[1] - pq.peek()[0] == project[1] - project[0] &&
+                   pq.peek()[0] < project[0]) {
                 overs.add(project);
                 project = pq.poll();
             }
@@ -49,37 +65,6 @@ public class Shopee {
             overs.clear();
         }
         return result;
-    }
-
-    private int result;
-
-    public int findMaximizedCapitalDFS(int k, int w, int[] profits, int[] capital) {
-        result = w;
-        int[][] project = new int[profits.length][2];
-        for (int i = 0; i < profits.length; i++) {
-            project[i][0] = capital[i];
-            project[i][1] = profits[i];
-        }
-        Arrays.sort(project, Comparator.comparingInt(a -> a[0]));
-        new PriorityQueue<Integer>(Comparator.comparingInt(x -> -x));
-        dfs(k, w, w, project, new boolean[capital.length]);
-        return result;
-    }
-
-    private void dfs(int k, int w, int count, int[][] project, boolean[] visited) {
-        if (k == 0) {
-            result = Math.max(count, result);
-            return;
-        }
-        for (int i = 0; i < project.length; i++) {
-            if (visited[i] || project[i][0] > w) {
-                continue;
-            }
-            visited[i] = true;
-            dfs(k - 1, w + project[i][1] - project[i][0], count + project[i][1], project, visited);
-            visited[i] = false;
-        }
-        result = Math.max(count, result);
     }
 
     private void buildZeros(int[] zeros, int[] nums) {
@@ -101,4 +86,21 @@ public class Shopee {
             }
         }
     }
+
+    private void dfs(int k, int w, int count, int[][] project, boolean[] visited) {
+        if (k == 0) {
+            result = Math.max(count, result);
+            return;
+        }
+        for (int i = 0; i < project.length; i++) {
+            if (visited[i] || project[i][0] > w) {
+                continue;
+            }
+            visited[i] = true;
+            dfs(k - 1, w + project[i][1] - project[i][0], count + project[i][1], project, visited);
+            visited[i] = false;
+        }
+        result = Math.max(count, result);
+    }
+
 }

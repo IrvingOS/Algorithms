@@ -8,6 +8,20 @@ package top.irvingsoft.chengyun.linkedlist;
  */
 public class JosephusKill {
 
+    /**
+     * 求 i 个结点组成的环在 m 位淘汰制中被淘汰的结点，
+     * <p>
+     * 可以由 i - 1 个结点组成的环在 m 位淘汰制中被淘汰的结点计算而来
+     *
+     * @since 2021/9/18 9:24
+     */
+    public static int getLive(int i, int m) {
+        if (i == 1) {
+            return 1;
+        }
+        return (getLive(i - 1, m) + m - 1) % i + 1;
+    }
+
     public static Node josephusKill1(Node head, int m) {
 
         if (head == null || head.next == head || m < 1) {
@@ -46,21 +60,6 @@ public class JosephusKill {
         return head;
     }
 
-    /**
-     * 求 i 个结点组成的环在 m 位淘汰制中被淘汰的结点，
-     * <p>
-     * 可以由 i - 1 个结点组成的环在 m 位淘汰制中被淘汰的结点计算而来
-     *
-     * @author TimeChaser
-     * @since 2021/9/18 9:24
-     */
-    public static int getLive(int i, int m) {
-        if (i == 1) {
-            return 1;
-        }
-        return (getLive(i - 1, m) + m - 1) % i + 1;
-    }
-
     public static void main(String[] args) {
 
         Node head = new Node(1);
@@ -76,4 +75,5 @@ public class JosephusKill {
 
         System.out.println(josephusKill2(head, 10).toString());
     }
+
 }

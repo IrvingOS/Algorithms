@@ -21,4 +21,5 @@ public class Solution {
         }
         return result + target - 1;
     }
+
 }

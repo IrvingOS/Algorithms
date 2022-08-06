@@ -42,4 +42,5 @@ public class Solution {
             listNode = listNode.next;
         }
     }
+
 }

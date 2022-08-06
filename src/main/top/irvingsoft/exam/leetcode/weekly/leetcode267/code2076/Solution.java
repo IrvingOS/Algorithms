@@ -30,17 +30,9 @@ public class Solution {
     }
 
     static class Union {
+
         int[] parent;
         int[] size;
-
-        Union(int n) {
-            this.parent = new int[n];
-            this.size = new int[n];
-            for (int i = 0; i < n; i++) {
-                this.parent[i] = i;
-                this.size[i] = 1;
-            }
-        }
 
         public int[] connect(int a, int b) {
             int rootA = root(a);
@@ -77,5 +69,16 @@ public class Solution {
             }
             return a;
         }
+
+        Union(int n) {
+            this.parent = new int[n];
+            this.size = new int[n];
+            for (int i = 0; i < n; i++) {
+                this.parent[i] = i;
+                this.size[i] = 1;
+            }
+        }
+
     }
+
 }

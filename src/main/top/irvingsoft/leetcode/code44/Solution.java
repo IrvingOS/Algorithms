@@ -8,28 +8,17 @@ package top.irvingsoft.leetcode.code44;
  */
 public class Solution {
 
-    public static boolean isMatchDynamic(String s, String p) {
-        int m = s.length();
-        int n = p.length();
-        boolean[][] dp = new boolean[m + 1][n + 1];
-        dp[0][0] = true;
-        for (int i = 1; i <= n; i++) {
-            if (p.charAt(i - 1) == '*') {
-                dp[0][i] = true;
-            } else {
-                break;
+    public static boolean allStars(String str, int left, int right) {
+        for (int i = left; i < right; i++) {
+            if (str.charAt(i) != '*') {
+                return false;
             }
         }
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                if (p.charAt(j - 1) == '*') {
-                    dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
-                } else if (p.charAt(j - 1) == '?' || p.charAt(j - 1) == s.charAt(i - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
-                }
-            }
-        }
-        return dp[m][n];
+        return true;
+    }
+
+    public static boolean charMatch(char u, char v) {
+        return u == v || v == '?';
     }
 
     public static boolean isMatchAnother(String s, String p) {
@@ -72,17 +61,28 @@ public class Solution {
         return allStars(p, pIndex, pRight);
     }
 
-    public static boolean allStars(String str, int left, int right) {
-        for (int i = left; i < right; i++) {
-            if (str.charAt(i) != '*') {
-                return false;
+    public static boolean isMatchDynamic(String s, String p) {
+        int m = s.length();
+        int n = p.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
+        for (int i = 1; i <= n; i++) {
+            if (p.charAt(i - 1) == '*') {
+                dp[0][i] = true;
+            } else {
+                break;
             }
         }
-        return true;
-    }
-
-    public static boolean charMatch(char u, char v) {
-        return u == v || v == '?';
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (p.charAt(j - 1) == '*') {
+                    dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
+                } else if (p.charAt(j - 1) == '?' || p.charAt(j - 1) == s.charAt(i - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                }
+            }
+        }
+        return dp[m][n];
     }
 
     public static void main(String[] args) {
@@ -93,4 +93,5 @@ public class Solution {
         System.out.println(isMatchAnother("acdcb", "a*c?b"));
         System.out.println(isMatchAnother("", "*********"));
     }
+
 }

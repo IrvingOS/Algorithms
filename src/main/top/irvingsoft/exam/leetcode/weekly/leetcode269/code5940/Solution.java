@@ -22,4 +22,5 @@ public class Solution {
         minDeletions = Math.min(minDeletions, max + 1 + nums.length - min);
         return minDeletions;
     }
+
 }

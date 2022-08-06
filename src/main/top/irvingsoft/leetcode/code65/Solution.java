@@ -11,33 +11,6 @@ import java.util.Map;
  */
 public class Solution {
 
-    public static boolean isNumberViolence(String s) {
-        boolean hasE = false;
-        boolean hasNum = false;
-        boolean isFloat = false;
-        int n = s.length();
-        for (int i = 0; i < n; i++) {
-            char ch = s.charAt(i);
-            // +- 只能出现在第一位或者 e 之后
-            if ((ch == '-' || ch == '+') && (i == 0 || s.charAt(i - 1) == 'e' || s.charAt(i - 1) == 'E')) {
-                continue;
-            } else if ((ch == 'e' || ch == 'E') && !hasE && hasNum) {
-                // 只存在一个 e，前面必须有数字，后面也必须有数字
-                hasE = true;
-                // 此时指示后面有无数字
-                hasNum = false;
-            } else if (ch == '.' && !isFloat && !hasE) {
-                // 只存在一个小数点，而且在 e 之前
-                isFloat = true;
-            } else if (Character.isDigit(ch)) {
-                hasNum = true;
-            } else {
-                return false;
-            }
-        }
-        return hasNum;
-    }
-
     public static boolean isNumber(String s) {
         Map<State, Map<CharType, State>> transfer = new HashMap<>();
         Map<CharType, State> initialMap = new HashMap<CharType, State>() {{
@@ -96,21 +69,35 @@ public class Solution {
                 state = transfer.get(state).get(type);
             }
         }
-        return state == State.STATE_INTEGER || state == State.STATE_POINT || state == State.STATE_FRACTION || state == State.STATE_EXP_NUMBER || state == State.STATE_END;
+        return state == State.STATE_INTEGER || state == State.STATE_POINT || state == State.STATE_FRACTION ||
+               state == State.STATE_EXP_NUMBER || state == State.STATE_END;
     }
 
-    public static CharType toCharType(char ch) {
-        if (ch >= '0' && ch <= '9') {
-            return CharType.CHAR_NUMBER;
-        } else if (ch == 'e' || ch == 'E') {
-            return CharType.CHAR_EXP;
-        } else if (ch == '.') {
-            return CharType.CHAR_POINT;
-        } else if (ch == '+' || ch == '-') {
-            return CharType.CHAR_SIGN;
-        } else {
-            return CharType.CHAR_ILLEGAL;
+    public static boolean isNumberViolence(String s) {
+        boolean hasE = false;
+        boolean hasNum = false;
+        boolean isFloat = false;
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            char ch = s.charAt(i);
+            // +- 只能出现在第一位或者 e 之后
+            if ((ch == '-' || ch == '+') && (i == 0 || s.charAt(i - 1) == 'e' || s.charAt(i - 1) == 'E')) {
+                continue;
+            } else if ((ch == 'e' || ch == 'E') && !hasE && hasNum) {
+                // 只存在一个 e，前面必须有数字，后面也必须有数字
+                hasE = true;
+                // 此时指示后面有无数字
+                hasNum = false;
+            } else if (ch == '.' && !isFloat && !hasE) {
+                // 只存在一个小数点，而且在 e 之前
+                isFloat = true;
+            } else if (Character.isDigit(ch)) {
+                hasNum = true;
+            } else {
+                return false;
+            }
         }
+        return hasNum;
     }
 
     public static void main(String[] args) {
@@ -136,24 +123,26 @@ public class Solution {
         System.out.println(isNumber("95a54e53"));
     }
 
-    enum State {
-        STATE_INITIAL,
-        STATE_INT_SIGN,
-        STATE_INTEGER,
-        STATE_POINT,
-        STATE_POINT_WITHOUT_INT,
-        STATE_FRACTION,
-        STATE_EXP,
-        STATE_EXP_SIGN,
-        STATE_EXP_NUMBER,
-        STATE_END
+    public static CharType toCharType(char ch) {
+        if (ch >= '0' && ch <= '9') {
+            return CharType.CHAR_NUMBER;
+        } else if (ch == 'e' || ch == 'E') {
+            return CharType.CHAR_EXP;
+        } else if (ch == '.') {
+            return CharType.CHAR_POINT;
+        } else if (ch == '+' || ch == '-') {
+            return CharType.CHAR_SIGN;
+        } else {
+            return CharType.CHAR_ILLEGAL;
+        }
     }
 
     enum CharType {
-        CHAR_NUMBER,
-        CHAR_EXP,
-        CHAR_POINT,
-        CHAR_SIGN,
-        CHAR_ILLEGAL
+        CHAR_NUMBER, CHAR_EXP, CHAR_POINT, CHAR_SIGN, CHAR_ILLEGAL
     }
+
+    enum State {
+        STATE_INITIAL, STATE_INT_SIGN, STATE_INTEGER, STATE_POINT, STATE_POINT_WITHOUT_INT, STATE_FRACTION, STATE_EXP, STATE_EXP_SIGN, STATE_EXP_NUMBER, STATE_END
+    }
+
 }

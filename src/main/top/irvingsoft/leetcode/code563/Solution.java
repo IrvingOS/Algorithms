@@ -29,4 +29,5 @@ public class Solution {
         sum += Math.abs(left - right);
         return root.val + left + right;
     }
+
 }

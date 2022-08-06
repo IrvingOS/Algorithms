@@ -20,7 +20,8 @@ public class Solution {
         return result;
     }
 
-    private void dfs(int[] candidates, int begin, int cur, int target, ArrayDeque<Integer> combination, List<List<Integer>> result) {
+    private void dfs(int[] candidates, int begin, int cur, int target, ArrayDeque<Integer> combination,
+                     List<List<Integer>> result) {
         if (cur == target) {
             result.add(new ArrayList<>(combination));
             return;
@@ -37,4 +38,5 @@ public class Solution {
             combination.pollLast();
         }
     }
+
 }

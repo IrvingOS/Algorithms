@@ -43,6 +43,7 @@ public class Solution {
     }
 
     public static class User {
+
         public String a;
         public String b;
         public String c;
@@ -52,5 +53,7 @@ public class Solution {
             this.b = b;
             this.c = c;
         }
+
     }
+
 }

@@ -11,8 +11,8 @@ import java.util.Map;
  */
 public class Solution {
 
-    private int max;
     private int k;
+    private int max;
 
     public static void main(String[] args) {
         System.out.println(new Solution().maxTotalFruitsBacktrack(new int[][]{{200000, 10000}}, 200000, 200000));
@@ -37,7 +37,8 @@ public class Solution {
         }
         // 这里不掉头
         if (startPos <= totalPos) {
-            ret = Math.max(ret, (startPos + k > totalPos ? sum[totalPos] : sum[startPos + k]) - (startPos > 0 ? sum[startPos - 1] : 0));
+            ret = Math.max(ret, (startPos + k > totalPos ? sum[totalPos] : sum[startPos + k]) -
+                                (startPos > 0 ? sum[startPos - 1] : 0));
             ret = Math.max(ret, sum[startPos] - (startPos - k > 0 ? sum[startPos - k - 1] : 0));
         } else {
             if (startPos - k <= totalPos) {
@@ -101,4 +102,5 @@ public class Solution {
             backtrack(fruits, status, curPos + 1, left, right + 1, count);
         }
     }
+
 }

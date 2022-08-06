@@ -30,6 +30,18 @@ enum Action {
  */
 public class HanoiStack {
 
+    public static int fStackTotStack(Action[] record, Action preNoAct, Action nowAct, Stack<Integer> fStack,
+                                     Stack<Integer> tStack, String from, String to) {
+        // 相邻不可逆 && 小压大
+        if (record[0] != preNoAct && fStack.peek() < tStack.peek()) {
+            tStack.push(fStack.pop());
+            System.out.println("Move " + tStack.peek() + " from " + from + " to " + to);
+            record[0] = nowAct;
+            return 1;
+        }
+        return 0;
+    }
+
     public static void hanoiProblem1(int num, String left, String mid, String right) {
 
         if (num < 1) {
@@ -39,8 +51,35 @@ public class HanoiStack {
         System.out.println("It will move " + steps + " steps");
     }
 
-    public static int processRecursion(int num, String left, String mid, String right,
-                                       String from, String to) {
+    public static void hanoiProblem2(int num, String left, String mid, String right) {
+
+        Stack<Integer> leftStack = new Stack<>();
+        Stack<Integer> midStack = new Stack<>();
+        Stack<Integer> rightStack = new Stack<>();
+        leftStack.push(Integer.MAX_VALUE);
+        midStack.push(Integer.MAX_VALUE);
+        rightStack.push(Integer.MAX_VALUE);
+        for (int i = num; i > 0; i--) {
+            leftStack.push(i);
+        }
+        Action[] record = {Action.No};
+        int steps = 0;
+        while (rightStack.size() != num + 1) {
+            // 此处的移动顺序没有影响，通过 fStackTotStack 函数的内条件判断，符合条件的都是有效移动
+            steps += fStackTotStack(record, Action.MToL, Action.LToM, leftStack, midStack, left, mid);
+            steps += fStackTotStack(record, Action.LToM, Action.MToL, midStack, leftStack, mid, left);
+            steps += fStackTotStack(record, Action.RToM, Action.MToR, midStack, rightStack, mid, right);
+            steps += fStackTotStack(record, Action.MToR, Action.RToM, rightStack, midStack, right, mid);
+        }
+        System.out.println("It will move " + steps + " steps");
+    }
+
+    public static void main(String[] args) {
+
+        hanoiProblem2(3, "left", "mid", "right");
+    }
+
+    public static int processRecursion(int num, String left, String mid, String right, String from, String to) {
 
         if (num == 1) {
             if (from.equals(mid) || to.equals(mid)) {
@@ -77,43 +116,4 @@ public class HanoiStack {
         }
     }
 
-    public static void hanoiProblem2(int num, String left, String mid, String right) {
-
-        Stack<Integer> leftStack = new Stack<>();
-        Stack<Integer> midStack = new Stack<>();
-        Stack<Integer> rightStack = new Stack<>();
-        leftStack.push(Integer.MAX_VALUE);
-        midStack.push(Integer.MAX_VALUE);
-        rightStack.push(Integer.MAX_VALUE);
-        for (int i = num; i > 0; i--) {
-            leftStack.push(i);
-        }
-        Action[] record = {Action.No};
-        int steps = 0;
-        while (rightStack.size() != num + 1) {
-            // 此处的移动顺序没有影响，通过 fStackTotStack 函数的内条件判断，符合条件的都是有效移动
-            steps += fStackTotStack(record, Action.MToL, Action.LToM, leftStack, midStack, left, mid);
-            steps += fStackTotStack(record, Action.LToM, Action.MToL, midStack, leftStack, mid, left);
-            steps += fStackTotStack(record, Action.RToM, Action.MToR, midStack, rightStack, mid, right);
-            steps += fStackTotStack(record, Action.MToR, Action.RToM, rightStack, midStack, right, mid);
-        }
-        System.out.println("It will move " + steps + " steps");
-    }
-
-    public static int fStackTotStack(Action[] record, Action preNoAct, Action nowAct,
-                                     Stack<Integer> fStack, Stack<Integer> tStack, String from, String to) {
-        // 相邻不可逆 && 小压大
-        if (record[0] != preNoAct && fStack.peek() < tStack.peek()) {
-            tStack.push(fStack.pop());
-            System.out.println("Move " + tStack.peek() + " from " + from + " to " + to);
-            record[0] = nowAct;
-            return 1;
-        }
-        return 0;
-    }
-
-    public static void main(String[] args) {
-
-        hanoiProblem2(3, "left", "mid", "right");
-    }
 }

@@ -1,5 +1,21 @@
 package top.irvingsoft.chengyun.stackandqueue;
 
+class Cat extends Pet {
+
+    Cat() {
+        super("cat");
+    }
+
+}
+
+class Dog extends Pet {
+
+    Dog() {
+        super("dog");
+    }
+
+}
+
 /**
  * Page 28
  * <p>
@@ -22,20 +38,7 @@ public class Pet {
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "type='" + type + '\'' +
-                '}';
+        return "Pet{" + "type='" + type + '\'' + '}';
     }
-}
 
-class Dog extends Pet {
-    Dog() {
-        super("dog");
-    }
-}
-
-class Cat extends Pet {
-    Cat() {
-        super("cat");
-    }
 }

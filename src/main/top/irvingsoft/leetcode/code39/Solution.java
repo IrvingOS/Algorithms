@@ -19,7 +19,8 @@ public class Solution {
         return result;
     }
 
-    private void dfs(int[] candidates, int start, int value, int target, List<Integer> combination, List<List<Integer>> result) {
+    private void dfs(int[] candidates, int start, int value, int target, List<Integer> combination,
+                     List<List<Integer>> result) {
         if (value == target) {
             result.add(new ArrayList<>(combination));
         }
@@ -32,4 +33,5 @@ public class Solution {
             combination.remove(combination.size() - 1);
         }
     }
+
 }

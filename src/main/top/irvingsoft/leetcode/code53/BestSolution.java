@@ -29,6 +29,7 @@ public class BestSolution {
     }
 
     public class Status {
+
         public int lSum, rSum, mSum, iSum;
 
         public Status(int lSum, int rSum, int mSum, int iSum) {
@@ -37,5 +38,7 @@ public class BestSolution {
             this.mSum = mSum;
             this.iSum = iSum;
         }
+
     }
+
 }

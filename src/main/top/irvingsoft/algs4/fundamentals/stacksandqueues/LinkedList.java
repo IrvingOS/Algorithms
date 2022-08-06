@@ -14,8 +14,8 @@ public class LinkedList<Item> implements Iterable<Item> {
 
     private Node<Item> first;
     private Node<Item> last;
-    private int        n;
-    private int        modCount;
+    private int modCount;
+    private int n;
 
     public LinkedList() {
         first = null;
@@ -225,7 +225,8 @@ public class LinkedList<Item> implements Iterable<Item> {
     }
 
     private static class Node<Item> {
-        private Item       item;
+
+        private Item item;
         private Node<Item> next;
         private Node<Item> prev;
 
@@ -237,12 +238,13 @@ public class LinkedList<Item> implements Iterable<Item> {
             this.prev = prev;
             this.next = next;
         }
+
     }
 
     private class LinkedIterator implements Iterator<Item> {
 
-        private final int        expectedModCount;
-        private       Node<Item> cur;
+        private final int expectedModCount;
+        private Node<Item> cur;
 
         public LinkedIterator() {
             this.cur = first;
@@ -273,5 +275,7 @@ public class LinkedList<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
 }

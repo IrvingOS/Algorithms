@@ -9,34 +9,7 @@ import java.util.TreeMap;
  * @since 2021/12/11 12:36
  */
 public class Solution {
-}
 
-/**
- * 利用 TreeMap 的 floorEntry 方法
- * <p>
- * 注意：
- * vote.floorEntry(t).getValue(); 比 vote.get(vote.floorKey(t)); 更快
- */
-class TopVotedCandidateTreeMap {
-
-    private final TreeMap<Integer, Integer> vote;
-
-    public TopVotedCandidateTreeMap(int[] persons, int[] times) {
-        int n = persons.length;
-        int[] personCount = new int[n];
-        vote = new TreeMap<>();
-        int candidate = 0;
-        for (int i = 0; i < n; i++) {
-            personCount[persons[i]]++;
-            candidate = personCount[persons[i]] >= personCount[candidate] ? persons[i] : candidate;
-            vote.put(times[i], candidate);
-        }
-    }
-
-    public int q(int t) {
-        vote.get(vote.floorKey(t));
-        return vote.floorEntry(t).getValue();
-    }
 }
 
 /**
@@ -44,8 +17,8 @@ class TopVotedCandidateTreeMap {
  */
 class TopVotedCandidateBinarySearch {
 
-    private final int[] times;
     private final int[] candidates;
+    private final int[] times;
 
     public TopVotedCandidateBinarySearch(int[] persons, int[] times) {
         int n = persons.length;
@@ -75,4 +48,34 @@ class TopVotedCandidateBinarySearch {
         }
         return candidates[lo - 1];
     }
+
+}
+
+/**
+ * 利用 TreeMap 的 floorEntry 方法
+ * <p>
+ * 注意：
+ * vote.floorEntry(t).getValue(); 比 vote.get(vote.floorKey(t)); 更快
+ */
+class TopVotedCandidateTreeMap {
+
+    private final TreeMap<Integer, Integer> vote;
+
+    public TopVotedCandidateTreeMap(int[] persons, int[] times) {
+        int n = persons.length;
+        int[] personCount = new int[n];
+        vote = new TreeMap<>();
+        int candidate = 0;
+        for (int i = 0; i < n; i++) {
+            personCount[persons[i]]++;
+            candidate = personCount[persons[i]] >= personCount[candidate] ? persons[i] : candidate;
+            vote.put(times[i], candidate);
+        }
+    }
+
+    public int q(int t) {
+        vote.get(vote.floorKey(t));
+        return vote.floorEntry(t).getValue();
+    }
+
 }

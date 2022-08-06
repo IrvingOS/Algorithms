@@ -471,10 +471,11 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
     }
 
     private class Node {
-        private Key   key;
-        private Value value;
-        private Node  left, right;
+
+        private Key key;
+        private Node left, right;
         private int n;
+        private Value value;
 
         public Node() {
         }
@@ -484,5 +485,7 @@ public class BSTIteration<Key extends Comparable<Key>, Value> {
             this.value = value;
             this.n = n;
         }
+
     }
+
 }

@@ -8,8 +8,8 @@ package top.irvingsoft.chengyun.linkedlist;
  */
 public class Node {
 
-    public int  value;
     public Node next;
+    public int value;
 
     public Node(int data) {
         this.value = data;
@@ -17,8 +17,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return "Node{" +
-                "value=" + value +
-                '}';
+        return "Node{" + "value=" + value + '}';
     }
+
 }

@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 public class Stack<Item> implements Iterable<Item> {
 
     private Node<Item> first;
-    private int        n;
+    private int n;
 
     public Stack() {
         n = 0;
@@ -78,8 +78,10 @@ public class Stack<Item> implements Iterable<Item> {
     }
 
     private static class Node<Item> {
-        private Item       item;
+
+        private Item item;
         private Node<Item> next;
+
     }
 
     private class LinkedIterator implements Iterator<Item> {
@@ -109,5 +111,7 @@ public class Stack<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
 }

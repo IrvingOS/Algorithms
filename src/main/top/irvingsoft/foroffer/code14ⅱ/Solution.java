@@ -60,4 +60,5 @@ public class Solution {
             return (int) (result * 6 % p);
         }
     }
+
 }

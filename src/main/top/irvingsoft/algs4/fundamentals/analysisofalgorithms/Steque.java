@@ -11,7 +11,7 @@ public class Steque<T> {
 
     private final Stack<T> stackIn;
     private final Stack<T> stackOut;
-    private       int      n;
+    private int n;
 
     public Steque() {
         stackIn = new Stack<>();
@@ -62,4 +62,5 @@ public class Steque<T> {
         n++;
         stackIn.push(e);
     }
+
 }

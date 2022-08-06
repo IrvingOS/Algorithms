@@ -18,4 +18,5 @@ public class MergeSort implements IArraySort {
     public int[] sort(int[] sourceArray) {
         return sourceArray;
     }
+
 }

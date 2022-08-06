@@ -10,8 +10,7 @@ public class Groundhog {
 
     @Override
     public String toString() {
-        return "Groundhog{" +
-                "number=" + number +
-                '}';
+        return "Groundhog{" + "number=" + number + '}';
     }
+
 }

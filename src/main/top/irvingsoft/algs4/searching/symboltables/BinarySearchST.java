@@ -15,9 +15,9 @@ import java.util.Queue;
  */
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
-    private Key[]   keys;
+    private Key[] keys;
+    private int n;
     private Value[] values;
-    private int     n;
 
     public BinarySearchST() {
         this(8);
@@ -213,4 +213,5 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         this.keys = tempKeys;
         this.values = tempValues;
     }
+
 }

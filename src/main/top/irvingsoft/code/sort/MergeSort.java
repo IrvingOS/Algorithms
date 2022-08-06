@@ -63,4 +63,5 @@ public class MergeSort implements IArraySort {
 
         return merge(sort(left), sort(right));
     }
+
 }

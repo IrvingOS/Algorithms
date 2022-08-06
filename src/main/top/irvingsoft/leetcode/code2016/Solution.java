@@ -19,4 +19,5 @@ public class Solution {
         }
         return result == 0 ? -1 : result;
     }
+
 }

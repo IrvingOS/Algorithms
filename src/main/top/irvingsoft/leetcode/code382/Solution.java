@@ -13,7 +13,7 @@ import java.util.Random;
 public class Solution {
 
     private final ListNode head;
-    private final Random   random;
+    private final Random random;
 
     public Solution(ListNode head) {
         this.head = head;
@@ -31,4 +31,5 @@ public class Solution {
         }
         return result;
     }
+
 }

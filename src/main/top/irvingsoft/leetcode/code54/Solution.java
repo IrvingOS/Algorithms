@@ -11,6 +11,11 @@ import java.util.List;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(spiralOrder(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+        System.out.println(spiralOrderAnother(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+    }
+
     public static List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
@@ -28,7 +33,8 @@ public class Solution {
             visited[row][column] = true;
             int nextRow = row + directions[directionIndex][0];
             int nextColumn = column + directions[directionIndex][1];
-            if (nextRow < 0 || nextRow >= rows || nextColumn < 0 || nextColumn >= columns || visited[nextRow][nextColumn]) {
+            if (nextRow < 0 || nextRow >= rows || nextColumn < 0 || nextColumn >= columns ||
+                visited[nextRow][nextColumn]) {
                 directionIndex = (directionIndex + 1) % 4;
             }
             row += directions[directionIndex][0];
@@ -77,8 +83,4 @@ public class Solution {
         return result;
     }
 
-    public static void main(String[] args) {
-        System.out.println(spiralOrder(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
-        System.out.println(spiralOrderAnother(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
-    }
 }

@@ -13,9 +13,9 @@ import java.util.Stack;
  */
 public class StackStequeDeque<T> {
 
-    private final Stack<T>  stack;
+    private final Stack<T> stack;
     private final Steque<T> steque;
-    private       int       n;
+    private int n;
 
     public StackStequeDeque() {
         stack = new Stack<>();
@@ -100,4 +100,5 @@ public class StackStequeDeque<T> {
         n--;
         return stack.pop();
     }
+
 }

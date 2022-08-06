@@ -28,4 +28,5 @@ public class Solution {
         }
         return sb.substring(0, sb.indexOf(sb.toString().trim())) + sb.toString().trim();
     }
+
 }

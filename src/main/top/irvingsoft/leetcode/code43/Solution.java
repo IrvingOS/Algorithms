@@ -8,6 +8,11 @@ package top.irvingsoft.leetcode.code43;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(multiply("103", "98"));
+        System.out.println(multiply("98", "103"));
+    }
+
     public static String multiply(String num1, String num2) {
         if (num1.equals("0") || num2.equals("0")) {
             return "0";
@@ -30,6 +35,32 @@ public class Solution {
             result = addUp(result, sb.reverse());
         }
         return result.toString();
+    }
+
+    public static String multiplyFaster(String num1, String num2) {
+        if (num1.equals("0") || num2.equals("0")) {
+            return "0";
+        }
+        int m = num1.length();
+        int n = num2.length();
+        int[] ansArr = new int[m + n];
+        for (int i = m - 1; i >= 0; i--) {
+            int x = num1.charAt(i) - '0';
+            for (int j = n - 1; j >= 0; j--) {
+                int y = num2.charAt(j) - '0';
+                ansArr[i + j + 1] += x * y;
+            }
+        }
+        for (int i = m + n - 1; i > 0; i--) {
+            ansArr[i - 1] += ansArr[i] / 10;
+            ansArr[i] = ansArr[i % 10];
+        }
+        int index = ansArr[0] == 0 ? 1 : 0;
+        StringBuilder ans = new StringBuilder();
+        while (index < m + n) {
+            ans.append(ansArr[index++]);
+        }
+        return ans.toString();
     }
 
     private static StringBuilder addUp(StringBuilder a, StringBuilder b) {
@@ -66,34 +97,4 @@ public class Solution {
         return result.reverse();
     }
 
-    public static String multiplyFaster(String num1, String num2) {
-        if (num1.equals("0") || num2.equals("0")) {
-            return "0";
-        }
-        int m = num1.length();
-        int n = num2.length();
-        int[] ansArr = new int[m + n];
-        for (int i = m - 1; i >= 0; i--) {
-            int x = num1.charAt(i) - '0';
-            for (int j = n - 1; j >= 0; j--) {
-                int y = num2.charAt(j) - '0';
-                ansArr[i + j + 1] += x * y;
-            }
-        }
-        for (int i = m + n - 1; i > 0; i--) {
-            ansArr[i - 1] += ansArr[i] / 10;
-            ansArr[i] = ansArr[i % 10];
-        }
-        int index = ansArr[0] == 0 ? 1 : 0;
-        StringBuilder ans = new StringBuilder();
-        while (index < m + n) {
-            ans.append(ansArr[index++]);
-        }
-        return ans.toString();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(multiply("103", "98"));
-        System.out.println(multiply("98", "103"));
-    }
 }

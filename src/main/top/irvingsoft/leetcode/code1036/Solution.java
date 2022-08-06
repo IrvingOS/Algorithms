@@ -19,7 +19,7 @@ public class Solution {
             blockSet.add(ints[0] * base + ints[1]);
         }
         return dfs(source, target, source[0], source[1], blockSet, new HashSet<>()) &&
-                dfs(target, source, target[0], target[1], blockSet, new HashSet<>());
+               dfs(target, source, target[0], target[1], blockSet, new HashSet<>());
     }
 
     private boolean dfs(int[] source, int[] target, int i, int j, Set<Long> blocked, Set<Long> visited) {
@@ -34,9 +34,8 @@ public class Solution {
             return true;
         }
         visited.add(hash);
-        return dfs(source, target, i - 1, j, blocked, visited) ||
-                dfs(source, target, i + 1, j, blocked, visited) ||
-                dfs(source, target, i, j - 1, blocked, visited) ||
-                dfs(source, target, i, j + 1, blocked, visited);
+        return dfs(source, target, i - 1, j, blocked, visited) || dfs(source, target, i + 1, j, blocked, visited) ||
+               dfs(source, target, i, j - 1, blocked, visited) || dfs(source, target, i, j + 1, blocked, visited);
     }
+
 }

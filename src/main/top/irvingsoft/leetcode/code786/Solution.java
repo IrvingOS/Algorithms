@@ -11,7 +11,8 @@ import java.util.*;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Solution().kthSmallestPrimeFractionPriorityQueue(new int[]{1, 2, 3, 5}, 3)));
+        System.out.println(
+                Arrays.toString(new Solution().kthSmallestPrimeFractionPriorityQueue(new int[]{1, 2, 3, 5}, 3)));
     }
 
     /**
@@ -81,4 +82,5 @@ public class Solution {
         frac.sort((x, y) -> x[0] * y[1] - x[1] * y[0]);
         return frac.get(k - 1);
     }
+
 }

@@ -19,7 +19,6 @@ public class Solution {
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
      *
-     * @author TimeChaser
      * @since 2021/7/6 22:54
      */
     public static int verify(int[] arr) {
@@ -54,7 +53,6 @@ public class Solution {
      * 候选/血量
      * 存在候选时血量不为 0，血量为 0 时不存在候选
      *
-     * @author TimeChaser
      * @since 2021/7/6 23:00
      */
     public static int waterKing(int[] arr) {
@@ -92,4 +90,5 @@ public class Solution {
         }
         return count > (arr.length >> 1) ? candidate : -1;
     }
+
 }

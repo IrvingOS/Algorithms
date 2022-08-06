@@ -58,4 +58,5 @@ class LinkedQueueTest {
     void size() {
         System.out.println("size: " + queue.size());
     }
+
 }

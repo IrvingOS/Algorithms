@@ -52,4 +52,5 @@ public class Solution {
         int times = minutesToTest / minutesToDie + 1;
         return (int) Math.ceil(Math.log(buckets) / Math.log(times));
     }
+
 }

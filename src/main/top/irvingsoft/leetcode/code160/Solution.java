@@ -15,7 +15,6 @@ public class Solution {
      * <p>
      * 如果有相交，必然会在转到另一条链表之后同时进入公共部分
      *
-     * @author TimeChaser
      * @since 2021/10/23 15:20
      */
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
@@ -34,4 +33,5 @@ public class Solution {
         }
         return null;
     }
+
 }

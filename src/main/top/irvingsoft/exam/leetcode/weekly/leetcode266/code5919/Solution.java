@@ -61,4 +61,5 @@ public class Solution {
         StringBuilder sb = new StringBuilder("d");
         System.out.println(countVowelsMath(sb.toString()));
     }
+
 }

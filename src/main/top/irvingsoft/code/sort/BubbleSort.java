@@ -27,7 +27,6 @@ public class BubbleSort implements IArraySort {
      * <p>
      * 因为如果最小的数在最后的下标上，只需要 arr.length - 1 轮就能交换到 0 号下标
      *
-     * @author TimeChaser
      * @since 2021/10/13 14:48
      */
     @Override
@@ -47,4 +46,5 @@ public class BubbleSort implements IArraySort {
         }
         return arr;
     }
+
 }

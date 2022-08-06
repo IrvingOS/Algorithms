@@ -28,4 +28,5 @@ public class CompressedWeighedQuickUnionUFTest {
     public static int testAssignmentAndReturn() {
         return a = 2;
     }
+
 }

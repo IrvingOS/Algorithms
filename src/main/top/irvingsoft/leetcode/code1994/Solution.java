@@ -10,9 +10,9 @@ package top.irvingsoft.leetcode.code1994;
  */
 public class Solution {
 
-    static final int[] PRIMES  = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-    static final int   NUM_MAX = 30;
-    static final int   MOD     = 1000000007;
+    static final int MOD = 1000000007;
+    static final int NUM_MAX = 30;
+    static final int[] PRIMES = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
 
     public int numberOfGoodSubsets(int[] nums) {
         int[] freq = new int[NUM_MAX + 1];
@@ -55,4 +55,5 @@ public class Solution {
         }
         return result;
     }
+
 }

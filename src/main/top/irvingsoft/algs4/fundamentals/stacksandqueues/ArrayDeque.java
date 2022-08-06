@@ -15,10 +15,10 @@ public class ArrayDeque<Item> implements Iterable<Item> {
     private static final int INIT_CAPACITY = 8;
 
     private Item[] a;
-    private int    n;
-    private int    first;
-    private int    last;
-    private int    modCount;
+    private int first;
+    private int last;
+    private int modCount;
+    private int n;
 
     public ArrayDeque() {
         a = (Item[]) new Object[INIT_CAPACITY];
@@ -139,7 +139,7 @@ public class ArrayDeque<Item> implements Iterable<Item> {
     private class ArrayIterator implements Iterator<Item> {
 
         private final int exceptedModCount;
-        private       int i;
+        private int i;
 
         public ArrayIterator() {
             i = 0;
@@ -171,5 +171,7 @@ public class ArrayDeque<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
 }

@@ -50,4 +50,5 @@ public class OneQueueStack<T> {
     public void push(T e) {
         queue.offer(e);
     }
+
 }

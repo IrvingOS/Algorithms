@@ -9,7 +9,7 @@ package top.irvingsoft.algs4.fundamentals.dataabstraction;
 public class Counter implements Comparable<Counter> {
 
     private final String name;
-    private       int    count = 0;
+    private int count = 0;
 
     public Counter(String id) {
         name = id;
@@ -32,4 +32,5 @@ public class Counter implements Comparable<Counter> {
     public String toString() {
         return count + " " + name;
     }
+
 }

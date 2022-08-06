@@ -28,4 +28,5 @@ public class Solution {
         System.out.println(getMoneyAmount(1));
         System.out.println(getMoneyAmount(2));
     }
+
 }

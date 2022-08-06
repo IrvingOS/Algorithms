@@ -53,4 +53,5 @@ public class Solution {
         cur.next = null;
         return merge(mergeSort(head), mergeSort(mid));
     }
+
 }

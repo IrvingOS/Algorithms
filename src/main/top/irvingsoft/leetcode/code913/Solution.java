@@ -10,12 +10,12 @@ import java.util.Arrays;
  */
 public class Solution {
 
-    private final int       DRAW      = 0;
-    private final int       MOUSE_WIN = 1;
-    private final int       CAT_WIN   = 2;
-    private       int       n;
-    private       int[][]   graph;
-    private       int[][][] dp;
+    private final int CAT_WIN = 2;
+    private final int DRAW = 0;
+    private final int MOUSE_WIN = 1;
+    private int[][][] dp;
+    private int[][] graph;
+    private int n;
 
     public int catMouseGame(int[][] graph) {
         this.n = graph.length;
@@ -65,4 +65,5 @@ public class Solution {
         }
         return dp[mouse][cat][turns];
     }
+
 }

@@ -5,19 +5,10 @@ import top.irvingsoft.structure.TreeNode;
 import java.util.Deque;
 import java.util.LinkedList;
 
-/**
- * 二叉搜索树迭代器
- *
- * @author TimeChaser
- * @since 2021/11/28 16:30
- */
-public class Solution {
-}
-
 class BSTIterator {
 
     private final Deque<TreeNode> stack;
-    private       TreeNode        cur;
+    private TreeNode cur;
 
     public BSTIterator(TreeNode root) {
         this.cur = root;
@@ -38,4 +29,15 @@ class BSTIterator {
         cur = cur.right;
         return next;
     }
+
+}
+
+/**
+ * 二叉搜索树迭代器
+ *
+ * @author TimeChaser
+ * @since 2021/11/28 16:30
+ */
+public class Solution {
+
 }

@@ -27,4 +27,5 @@ public class Solution {
         maxSum = Math.max(maxSum, left + mid + right);
         return mid + Math.max(left, right);
     }
+
 }

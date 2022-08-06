@@ -8,6 +8,10 @@ package top.irvingsoft.leetcode.code53;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+    }
+
     public static int maxSubArray(int[] nums) {
         int pre = 0;
         int result = nums[0];
@@ -18,7 +22,4 @@ public class Solution {
         return result;
     }
 
-    public static void main(String[] args) {
-        System.out.println(maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
-    }
 }

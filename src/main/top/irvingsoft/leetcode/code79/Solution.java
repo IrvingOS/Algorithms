@@ -16,10 +16,8 @@ public class Solution {
             return true;
         }
         board[i][j] = '\0';
-        boolean result = dfs(i + 1, j, k + 1, word, board) ||
-                dfs(i - 1, j, k + 1, word, board) ||
-                dfs(i, j + 1, k + 1, word, board) ||
-                dfs(i, j - 1, k + 1, word, board);
+        boolean result = dfs(i + 1, j, k + 1, word, board) || dfs(i - 1, j, k + 1, word, board) ||
+                         dfs(i, j + 1, k + 1, word, board) || dfs(i, j - 1, k + 1, word, board);
         board[i][j] = word[k];
         return result;
     }
@@ -35,4 +33,5 @@ public class Solution {
         }
         return false;
     }
+
 }

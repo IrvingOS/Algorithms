@@ -8,6 +8,10 @@ package top.irvingsoft.leetcode.code28;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(strStr("hello", "ll"));
+    }
+
     public static int strStr(String haystack, String needle) {
 
         if (needle == null || needle.length() == 0) {
@@ -40,7 +44,4 @@ public class Solution {
         return -1;
     }
 
-    public static void main(String[] args) {
-        System.out.println(strStr("hello", "ll"));
-    }
 }

@@ -35,4 +35,5 @@ public class Solution {
         String[] time = timePoint.split(":");
         return Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
     }
+
 }

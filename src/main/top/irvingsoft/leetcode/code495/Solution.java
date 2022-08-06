@@ -21,4 +21,5 @@ public class Solution {
         System.out.println(findPoisonedDuration(new int[]{1, 4, 5, 6, 9}, 2));
         System.out.println(findPoisonedDuration(new int[]{1, 2, 5, 6, 9}, 2));
     }
+
 }

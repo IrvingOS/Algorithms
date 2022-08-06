@@ -11,6 +11,32 @@ import java.util.Map;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(myAtoiAutomaton("  0000000000012345678"));
+        System.out.println(myAtoiAutomaton("+1"));
+        System.out.println(myAtoiAutomaton("0"));
+        System.out.println(myAtoiAutomaton("42"));
+        System.out.println(myAtoiAutomaton("   -42"));
+        System.out.println(myAtoiAutomaton("4193 with words"));
+        System.out.println(myAtoiAutomaton("words and 987"));
+        System.out.println(myAtoiAutomaton("214748364821474836482147483648"));
+        System.out.println(myAtoiAutomaton("-214748364821474836482147483648"));
+    }
+
+    /**
+     * 存在异常
+     *
+     * @since 2021/10/31 14:03
+     */
+    public static int myAtoiAutomaton(String str) {
+        Automaton automaton = new Automaton();
+        int length = str.length();
+        for (int i = 0; i < length; i++) {
+            automaton.get(str.charAt(i));
+        }
+        return (int) (automaton.sign * automaton.ans);
+    }
+
     public static int myAtoiTraverse(String s) {
         char[] chars = s.toCharArray();
         int length = chars.length;
@@ -47,43 +73,17 @@ public class Solution {
         return positive ? value : -value;
     }
 
-    /**
-     * 存在异常
-     *
-     * @author TimeChaser
-     * @since 2021/10/31 14:03
-     */
-    public static int myAtoiAutomaton(String str) {
-        Automaton automaton = new Automaton();
-        int length = str.length();
-        for (int i = 0; i < length; i++) {
-            automaton.get(str.charAt(i));
-        }
-        return (int) (automaton.sign * automaton.ans);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(myAtoiAutomaton("  0000000000012345678"));
-        System.out.println(myAtoiAutomaton("+1"));
-        System.out.println(myAtoiAutomaton("0"));
-        System.out.println(myAtoiAutomaton("42"));
-        System.out.println(myAtoiAutomaton("   -42"));
-        System.out.println(myAtoiAutomaton("4193 with words"));
-        System.out.println(myAtoiAutomaton("words and 987"));
-        System.out.println(myAtoiAutomaton("214748364821474836482147483648"));
-        System.out.println(myAtoiAutomaton("-214748364821474836482147483648"));
-    }
-
     static class Automaton {
+
         private static final Map<String, String[]> table = new HashMap<String, String[]>() {{
             put("start", new String[]{"start, signed", "in_number", "end"});
             put("signed", new String[]{"end, end", "in_number", "end"});
             put("in_number", new String[]{"end, end", "in_number", "end"});
             put("end", new String[]{"end, end", "end", "end"});
         }};
-        public               int                   sign  = 1;
-        public               long                  ans   = 0;
-        private              String                state = "start";
+        public long ans = 0;
+        public int sign = 1;
+        private String state = "start";
 
         public void get(char c) {
             state = table.get(state)[get_col(c)];
@@ -107,5 +107,7 @@ public class Solution {
             }
             return 3;
         }
+
     }
+
 }

@@ -10,10 +10,14 @@ import java.util.List;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+
+        System.out.println(majorityElementVote(new int[]{1, 1, 1, 3, 3, 2, 2, 2}));
+    }
+
     /**
      * Hash
      *
-     * @author TimeChaser
      * @since 2021/10/22 14:45
      */
     public static List<Integer> majorityElementHash(int[] nums) {
@@ -40,7 +44,6 @@ public class Solution {
      * <p>
      * 候选人从原问题的 1 个变为 2 个
      *
-     * @author TimeChaser
      * @since 2021/10/22 14:45
      */
     public static List<Integer> majorityElementVote(int[] nums) {
@@ -87,8 +90,4 @@ public class Solution {
         return list;
     }
 
-    public static void main(String[] args) {
-
-        System.out.println(majorityElementVote(new int[]{1, 1, 1, 3, 3, 2, 2, 2}));
-    }
 }

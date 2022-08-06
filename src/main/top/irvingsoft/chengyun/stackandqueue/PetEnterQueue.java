@@ -10,8 +10,8 @@ package top.irvingsoft.chengyun.stackandqueue;
  */
 public class PetEnterQueue {
 
-    private final Pet  pet;
     private final long count;
+    private final Pet pet;
 
     public PetEnterQueue(Pet pet, long count) {
         this.pet = pet;
@@ -29,4 +29,5 @@ public class PetEnterQueue {
     public Pet getPet() {
         return this.pet;
     }
+
 }

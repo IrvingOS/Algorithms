@@ -4,22 +4,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-/**
- * LFU 缓存
- *
- * @author TimeChaser
- * @since 2022/3/16 12:07 PM
- */
-public class Solution {
-}
-
-
 class LFUCache {
 
     private int capacity;
-    private int minFreq;
-    private Map<Integer, Node> keyMap;
     private Map<Integer, LinkedList<Node>> freqMap;
+    private Map<Integer, Node> keyMap;
+    private int minFreq;
 
     public LFUCache(int capacity) {
         this.capacity = capacity;
@@ -64,7 +54,8 @@ class LFUCache {
             keyMap.put(key, node);
         } else {
             Node node = keyMap.get(key);
-            int freq  = node.freq;;
+            int freq = node.freq;
+            ;
             freqMap.get(freq).remove(node);
             if (freqMap.get(freq).size() == 0) {
                 freqMap.remove(freq);
@@ -81,14 +72,27 @@ class LFUCache {
     }
 
     class Node {
+
+        private int freq;
         private int key;
         private int value;
-        private int freq;
 
         public Node(int key, int value, int freq) {
             this.key = key;
             this.value = value;
             this.freq = freq;
         }
+
     }
+
+}
+
+/**
+ * LFU 缓存
+ *
+ * @author TimeChaser
+ * @since 2022/3/16 12:07 PM
+ */
+public class Solution {
+
 }

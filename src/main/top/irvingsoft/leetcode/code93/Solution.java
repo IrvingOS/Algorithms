@@ -13,18 +13,9 @@ import java.util.Set;
  */
 public class Solution {
 
-    private static final int          SEG_COUNT = 4;
-    private static final List<String> ans       = new ArrayList<>();
-    private static final int[]        segments  = new int[SEG_COUNT];
-
-    public static List<String> restoreIpAddresses(String s) {
-        if (s.length() > 12) {
-            return new ArrayList<>();
-        }
-        Set<String> result = new HashSet<>();
-        backtrack(s, 0, 4, new ArrayList<>(), result);
-        return new ArrayList<>(result);
-    }
+    private static final int SEG_COUNT = 4;
+    private static final List<String> ans = new ArrayList<>();
+    private static final int[] segments = new int[SEG_COUNT];
 
     public static void backtrack(String s, int index, int remain, List<String> combination, Set<String> result) {
         if (remain == 0) {
@@ -51,18 +42,6 @@ public class Solution {
             backtrack(s, i, remain - 1, combination, result);
             combination.remove(combination.size() - 1);
         }
-    }
-
-    private static boolean isValid(String s) {
-        return s.length() == 1 || (s.charAt(0) != '0' && Long.parseLong(s) <= 255);
-    }
-
-    public static List<String> restoreIpAddressesAnother(String s) {
-        if (s.length() > 12) {
-            return ans;
-        }
-        dfs(s, 0, 0);
-        return ans;
     }
 
     public static void dfs(String s, int segId, int segStart) {
@@ -113,4 +92,26 @@ public class Solution {
         System.out.println(restoreIpAddresses("101023"));
         System.out.println(restoreIpAddresses("0279245587303"));
     }
+
+    public static List<String> restoreIpAddresses(String s) {
+        if (s.length() > 12) {
+            return new ArrayList<>();
+        }
+        Set<String> result = new HashSet<>();
+        backtrack(s, 0, 4, new ArrayList<>(), result);
+        return new ArrayList<>(result);
+    }
+
+    public static List<String> restoreIpAddressesAnother(String s) {
+        if (s.length() > 12) {
+            return ans;
+        }
+        dfs(s, 0, 0);
+        return ans;
+    }
+
+    private static boolean isValid(String s) {
+        return s.length() == 1 || (s.charAt(0) != '0' && Long.parseLong(s) <= 255);
+    }
+
 }

@@ -61,4 +61,5 @@ public class Solution {
         System.out.println(countVowelSubstrings("cuaieuouac"));
         System.out.println(countVowelSubstrings("bbaeixoubb"));
     }
+
 }

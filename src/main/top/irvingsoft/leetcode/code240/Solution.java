@@ -8,38 +8,6 @@ package top.irvingsoft.leetcode.code240;
  */
 public class Solution {
 
-    /**
-     * 暴力解法
-     *
-     * @author TimeChaser
-     * @since 2021/10/25 10:28 上午
-     */
-    public static boolean searchMatrixViolence(int[][] matrix, int target) {
-        for (int[] y : matrix) {
-            for (int value : y) {
-                if (value == target) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     * 二分法
-     *
-     * @author TimeChaser
-     * @since 2021/10/25 10:28 上午
-     */
-    public static boolean searchMatrixBinary(int[][] matrix, int target) {
-        for (int[] y : matrix) {
-            if (search(y, target) != -1) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static int search(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {
@@ -56,9 +24,38 @@ public class Solution {
     }
 
     /**
+     * 二分法
+     *
+     * @since 2021/10/25 10:28 上午
+     */
+    public static boolean searchMatrixBinary(int[][] matrix, int target) {
+        for (int[] y : matrix) {
+            if (search(y, target) != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 暴力解法
+     *
+     * @since 2021/10/25 10:28 上午
+     */
+    public static boolean searchMatrixViolence(int[][] matrix, int target) {
+        for (int[] y : matrix) {
+            for (int value : y) {
+                if (value == target) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Z 字形搜索法
      *
-     * @author TimeChaser
      * @since 2021/10/25 10:28 上午
      */
     public static boolean searchMatrixZ(int[][] matrix, int target) {
@@ -75,4 +72,5 @@ public class Solution {
         }
         return false;
     }
+
 }

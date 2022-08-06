@@ -17,7 +17,6 @@ public class Solution {
      * <p>
      * 当快慢指针相遇时，头结点到入环点的距离 == 慢指针到入环点的距离
      *
-     * @author TimeChaser
      * @since 2021/9/24 18:36
      */
     public static ListNode detectCycle(ListNode head) {
@@ -50,4 +49,5 @@ public class Solution {
         }
         return null;
     }
+
 }

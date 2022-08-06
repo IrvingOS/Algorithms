@@ -8,52 +8,22 @@ package top.irvingsoft.chengyun.treeheight;
  */
 public class Solution {
 
-    /**
-     * 通过递归计算二叉树的最小高度
-     * <p>
-     * 时间复杂度：O(n)
-     * 空间复杂度：O(n)
-     *
-     * @author TimeChaser
-     * @since 2021/8/7 17:33
-     */
-    public static int minHeightRecursion(Node head) {
+    public static void main(String[] args) {
 
-        if (head == null) {
-            return 0;
-        }
-        return computeMinHeightRecursion(head);
-    }
-
-    /**
-     * 左树和右树都为空，直接返回根结点高度 1
-     * <br>
-     * 左树不为空或者右树不为空，继续递归计算左右树的高度，返回左右数中更小的高度 + 根结点高度 1
-     *
-     * @author TimeChaser
-     * @since 2021/8/7 17:34
-     */
-    private static int computeMinHeightRecursion(Node head) {
-
-        if (head.left == null && head.right == null) {
-            return 1;
-        }
-        int leftHeight = Integer.MAX_VALUE;
-        if (head.left != null) {
-            leftHeight = computeMinHeightRecursion(head.left);
-        }
-        int rightHeight = Integer.MAX_VALUE;
-        if (head.right != null) {
-            rightHeight = computeMinHeightRecursion(head.right);
-        }
-        return 1 + Math.min(leftHeight, rightHeight);
+        Node head = new Node(3);
+        head.left = new Node(5);
+        //        head.right = new Node(7);
+        head.left.right = new Node(2);
+        head.left.right.left = new Node(2);
+        //        head.right.left = new Node(6);
+        //        head.right.right = new Node(8);
+        System.out.println(minHeightMorris(head));
     }
 
     /**
      * 思路：
      * 实时计算可能为叶子结点的高度，在确定为叶子结点后收集最小高度，然后进行相应的回溯。
      *
-     * @author TimeChaser
      * @since 2021/8/7 21:32
      */
     public static int minHeightMorris(Node head) {
@@ -106,15 +76,43 @@ public class Solution {
         return minHeight;
     }
 
-    public static void main(String[] args) {
+    /**
+     * 通过递归计算二叉树的最小高度
+     * <p>
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     *
+     * @since 2021/8/7 17:33
+     */
+    public static int minHeightRecursion(Node head) {
 
-        Node head = new Node(3);
-        head.left = new Node(5);
-//        head.right = new Node(7);
-        head.left.right = new Node(2);
-        head.left.right.left = new Node(2);
-//        head.right.left = new Node(6);
-//        head.right.right = new Node(8);
-        System.out.println(minHeightMorris(head));
+        if (head == null) {
+            return 0;
+        }
+        return computeMinHeightRecursion(head);
     }
+
+    /**
+     * 左树和右树都为空，直接返回根结点高度 1
+     * <br>
+     * 左树不为空或者右树不为空，继续递归计算左右树的高度，返回左右数中更小的高度 + 根结点高度 1
+     *
+     * @since 2021/8/7 17:34
+     */
+    private static int computeMinHeightRecursion(Node head) {
+
+        if (head.left == null && head.right == null) {
+            return 1;
+        }
+        int leftHeight = Integer.MAX_VALUE;
+        if (head.left != null) {
+            leftHeight = computeMinHeightRecursion(head.left);
+        }
+        int rightHeight = Integer.MAX_VALUE;
+        if (head.right != null) {
+            rightHeight = computeMinHeightRecursion(head.right);
+        }
+        return 1 + Math.min(leftHeight, rightHeight);
+    }
+
 }

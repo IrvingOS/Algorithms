@@ -18,4 +18,5 @@ public class Solution {
         }
         return s[1] - s[2] > 2 || s[2] - s[1] > 2;
     }
+
 }

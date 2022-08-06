@@ -6,17 +6,13 @@ import java.util.Objects;
 
 public class Tree {
 
-    private final String  key;
-    private final Integer value;
-
-    private final String parentKey;
-
-    private final boolean hasParent;
     private final boolean hasChildren;
-
-    private boolean isLastChild;
-
+    private final boolean hasParent;
+    private final String key;
+    private final String parentKey;
+    private final Integer value;
     private List<Tree> children;
+    private boolean isLastChild;
 
     public Tree(String key, Integer value, String parentKey, boolean hasParent, boolean hasChildren) {
         this.key = key;
@@ -74,6 +70,11 @@ public class Tree {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(key, hasParent, hasChildren);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -83,27 +84,14 @@ public class Tree {
         }
         Tree tree = (Tree) o;
 
-        return hasParent == tree.hasParent &&
-                hasChildren == tree.hasChildren &&
-                Objects.equals(key, tree.key) &&
-                Objects.equals(parentKey, tree.parentKey) &&
-                Objects.equals(value, tree.value);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(key, hasParent, hasChildren);
+        return hasParent == tree.hasParent && hasChildren == tree.hasChildren && Objects.equals(key, tree.key) &&
+               Objects.equals(parentKey, tree.parentKey) && Objects.equals(value, tree.value);
     }
 
     @Override
     public String toString() {
-        return "Tree{" +
-                "key='" + key + '\'' +
-                ", value=" + value +
-                ", parentKey='" + parentKey + '\'' +
-                ", hasParent=" + hasParent +
-                ", hasChildren=" + hasChildren +
-                ", children=" + children +
-                "}\n";
+        return "Tree{" + "key='" + key + '\'' + ", value=" + value + ", parentKey='" + parentKey + '\'' +
+               ", hasParent=" + hasParent + ", hasChildren=" + hasChildren + ", children=" + children + "}\n";
     }
+
 }

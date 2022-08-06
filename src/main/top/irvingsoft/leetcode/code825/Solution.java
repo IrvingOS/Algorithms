@@ -11,7 +11,8 @@ import java.util.Arrays;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(new Solution().numFriendRequestsCountSort(new int[]{15, 15, 15, 15, 16, 16, 16, 16, 16, 17}));
+        System.out.println(
+                new Solution().numFriendRequestsCountSort(new int[]{15, 15, 15, 15, 16, 16, 16, 16, 16, 17}));
     }
 
     /**
@@ -94,4 +95,5 @@ public class Solution {
         }
         return lo;
     }
+
 }

@@ -3,15 +3,6 @@ package top.irvingsoft.leetcode.code146;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * LRU 缓存机制
- *
- * @author TimeChaser
- * @since 2021/11/14 16:09
- */
-public class Solution {
-}
-
 class LRUCacheLinkedHashMap extends LinkedHashMap<Integer, Integer> {
 
     private final int capacity;
@@ -33,4 +24,15 @@ class LRUCacheLinkedHashMap extends LinkedHashMap<Integer, Integer> {
     protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
         return super.size() > capacity;
     }
+
+}
+
+/**
+ * LRU 缓存机制
+ *
+ * @author TimeChaser
+ * @since 2021/11/14 16:09
+ */
+public class Solution {
+
 }

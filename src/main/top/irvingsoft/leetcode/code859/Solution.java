@@ -47,4 +47,5 @@ public class Solution {
             return second != -1 && s.charAt(first) == goal.charAt(second) && s.charAt(second) == goal.charAt(first);
         }
     }
+
 }

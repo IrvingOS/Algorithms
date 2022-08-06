@@ -24,4 +24,5 @@ public class Solution {
         result = Math.max(result, right - left);
         return result;
     }
+
 }

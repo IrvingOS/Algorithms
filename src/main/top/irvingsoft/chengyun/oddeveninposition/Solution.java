@@ -10,6 +10,11 @@ import java.util.Arrays;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+
+        System.out.println(Arrays.toString(process(new int[]{1, 2, 4, 5, 6, 1, 12, 9, 7, 1, 66})));
+    }
+
     public static int[] process(int[] nums) {
 
         int length = nums.length;
@@ -40,8 +45,4 @@ public class Solution {
         nums[index2] = temp;
     }
 
-    public static void main(String[] args) {
-
-        System.out.println(Arrays.toString(process(new int[]{1, 2, 4, 5, 6, 1, 12, 9, 7, 1, 66})));
-    }
 }

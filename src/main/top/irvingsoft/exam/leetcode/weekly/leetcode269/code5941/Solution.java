@@ -86,6 +86,7 @@ public class Solution {
     }
 
     class UnionFind {
+
         public int[] father;
 
         public UnionFind(int len) {
@@ -111,5 +112,7 @@ public class Solution {
         public void split(int x) {
             father[x] = x;
         }
+
     }
+
 }

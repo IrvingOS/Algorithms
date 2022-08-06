@@ -9,14 +9,15 @@ import java.util.*;
  * @since 2022/1/23 11:54
  */
 public class Solution {
+
 }
 
 class StockPrice {
 
     private final Map<Integer, Integer> map;
-    private final Queue<int[]>          maxQueue;
-    private final Queue<int[]>          minQueue;
-    private       int                   curTimestamp;
+    private final Queue<int[]> maxQueue;
+    private final Queue<int[]> minQueue;
+    private int curTimestamp;
 
     public StockPrice() {
         map = new HashMap<>();
@@ -58,5 +59,6 @@ class StockPrice {
         maxQueue.offer(new int[]{timestamp, price});
         minQueue.offer(new int[]{timestamp, price});
     }
+
 }
 

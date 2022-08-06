@@ -6,24 +6,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-/**
- * 打乱数组
- *
- * @author TimeChaser
- * @since 2021/11/22 11:39
- */
-public class Solution {
-
-    public static void main(String[] args) {
-        Random random = new Random();
-        System.out.println(random.nextInt(100));
-        List<Integer> list = new ArrayList<>();
-    }
-}
-
 class RandomShuffle {
 
-    private final int[]  nums;
+    private final int[] nums;
     private final Random random;
 
     public RandomShuffle(int[] nums) {
@@ -56,4 +41,21 @@ class RandomShuffle {
         }
         return shuffled;
     }
+
+}
+
+/**
+ * 打乱数组
+ *
+ * @author TimeChaser
+ * @since 2021/11/22 11:39
+ */
+public class Solution {
+
+    public static void main(String[] args) {
+        Random random = new Random();
+        System.out.println(random.nextInt(100));
+        List<Integer> list = new ArrayList<>();
+    }
+
 }

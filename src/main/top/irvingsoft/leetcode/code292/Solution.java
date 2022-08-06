@@ -20,4 +20,5 @@ public class Solution {
         System.out.println(canWinNim(2));
         System.out.println(canWinNim(4));
     }
+
 }

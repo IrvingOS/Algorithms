@@ -28,18 +28,6 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
     }
 
     @Override
-    public Set<Entry<K, V>> entrySet() {
-        HashSet<Entry<K, V>> set = new HashSet<>();
-        for (LinkedList<MapEntry<K, V>> bucket : buckets) {
-            if (bucket == null) {
-                continue;
-            }
-            set.addAll(bucket);
-        }
-        return set;
-    }
-
-    @Override
     public V get(Object key) {
         int index = Math.abs(key.hashCode()) % SIZE;
         if (buckets[index] == null) {
@@ -78,4 +66,17 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
         }
         return oldValue;
     }
+
+    @Override
+    public Set<Entry<K, V>> entrySet() {
+        HashSet<Entry<K, V>> set = new HashSet<>();
+        for (LinkedList<MapEntry<K, V>> bucket : buckets) {
+            if (bucket == null) {
+                continue;
+            }
+            set.addAll(bucket);
+        }
+        return set;
+    }
+
 }

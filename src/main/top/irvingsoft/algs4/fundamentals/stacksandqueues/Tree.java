@@ -11,11 +11,11 @@ import java.io.FilenameFilter;
  */
 public class Tree {
 
-    private static String         rootPath   = null;
-    private static boolean        directOnly = false;
-    private static boolean        hidden     = false;
-    private static int            level      = -1;
-    private static FilenameFilter filter     = null;
+    private static boolean directOnly = false;
+    private static FilenameFilter filter = null;
+    private static boolean hidden = false;
+    private static int level = -1;
+    private static String rootPath = null;
 
     public static void main(String[] args) {
         for (int i = 0; i < args.length; i++) {
@@ -87,4 +87,5 @@ public class Tree {
             }
         }
     }
+
 }

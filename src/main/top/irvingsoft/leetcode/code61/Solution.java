@@ -10,6 +10,20 @@ import top.irvingsoft.structure.ListNode;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        ListNode node = new ListNode(1);
+        node.next = new ListNode(2);
+        node.next.next = new ListNode(3);
+        node.next.next.next = new ListNode(4);
+        node.next.next.next.next = new ListNode(5);
+        ListNode listNode = rotateRight(node, 7);
+        while (listNode != null) {
+            System.out.println(listNode.val);
+            listNode = listNode.next;
+        }
+
+    }
+
     public static ListNode rotateRight(ListNode head, int k) {
         int length = 0;
         ListNode cur = head;
@@ -43,17 +57,4 @@ public class Solution {
         return pre;
     }
 
-    public static void main(String[] args) {
-        ListNode node = new ListNode(1);
-        node.next = new ListNode(2);
-        node.next.next = new ListNode(3);
-        node.next.next.next = new ListNode(4);
-        node.next.next.next.next = new ListNode(5);
-        ListNode listNode = rotateRight(node, 7);
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
-        }
-
-    }
 }

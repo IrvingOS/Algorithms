@@ -41,6 +41,7 @@ public class Solution {
     }
 
     static class UnionFind {
+
         private final int[] parent;
         private final int[] size;
         private final int[] sum;
@@ -86,5 +87,7 @@ public class Solution {
             }
             return true;
         }
+
     }
+
 }

@@ -32,4 +32,5 @@ public class Solution {
             dfs(node.right, cur * 10 + node.val);
         }
     }
+
 }

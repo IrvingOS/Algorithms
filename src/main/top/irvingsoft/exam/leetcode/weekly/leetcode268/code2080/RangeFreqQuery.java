@@ -12,8 +12,8 @@ import java.util.TreeMap;
  */
 public class RangeFreqQuery {
 
+    private final Map<Integer, Integer> initialMap;
     private final Map<Integer, TreeMap<Integer, Integer>> map;
-    private final Map<Integer, Integer>                   initialMap;
 
     public RangeFreqQuery(int[] arr) {
         this.map = new HashMap<>();
@@ -22,11 +22,12 @@ public class RangeFreqQuery {
         for (int i = 0; i < arr.length; i++) {
             map.computeIfAbsent(arr[i], t -> new TreeMap<>(this.initialMap)).put(i, map.get(arr[i]).size());
         }
-//        System.out.println(map);
+        //        System.out.println(map);
     }
 
     public int query(int left, int right, int value) {
-        return map.computeIfAbsent(value, t -> new TreeMap<>(this.initialMap)).floorEntry(right).getValue()
-                - map.get(value).lowerEntry(left).getValue();
+        return map.computeIfAbsent(value, t -> new TreeMap<>(this.initialMap)).floorEntry(right).getValue() -
+               map.get(value).lowerEntry(left).getValue();
     }
+
 }

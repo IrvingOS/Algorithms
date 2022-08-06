@@ -112,12 +112,15 @@ public class Solution {
     }
 
     static class Trie {
-        Trie[]  children;
+
+        Trie[] children;
         boolean isWord;
 
         public Trie() {
             children = new Trie[26];
             isWord = false;
         }
+
     }
+
 }

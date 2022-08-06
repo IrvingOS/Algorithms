@@ -99,4 +99,5 @@ class LinkedListTest {
         }
         System.out.println(linkedList);
     }
+
 }

@@ -8,6 +8,11 @@ import java.util.HashMap;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+
+        System.out.println(maxLengthEqualK(new int[]{1, -2, 1, 1, 1}, 0));
+    }
+
     /**
      * max length of the subarray sum = k
      * <p>
@@ -59,8 +64,4 @@ public class Solution {
         return res;
     }
 
-    public static void main(String[] args) {
-
-        System.out.println(maxLengthEqualK(new int[]{1, -2, 1, 1, 1}, 0));
-    }
 }

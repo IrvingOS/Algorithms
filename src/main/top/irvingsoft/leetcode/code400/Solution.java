@@ -20,4 +20,5 @@ public class Solution {
         // x 为目标数字，n 为目标数字的第 n[1, len - 1] 位，为 0 时表示最后一位
         return n == 0 ? (int) (x % 10) : (int) ((x + 1) / (int) (Math.pow(10, len - n)) % 10);
     }
+
 }

@@ -13,4 +13,5 @@ public abstract class AbstractParent extends Parent {
     public AbstractParent(String id, Integer count) {
         super(id);
     }
+
 }

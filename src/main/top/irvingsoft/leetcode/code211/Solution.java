@@ -13,6 +13,77 @@ public class Solution {
 
 }
 
+class Trie {
+
+    private final Trie[] children;
+    private boolean isEnd;
+
+    public Trie() {
+        this.children = new Trie[26];
+        this.isEnd = false;
+    }
+
+    public Trie[] getChildren() {
+        return this.children;
+    }
+
+    public void insert(String word) {
+        Trie node = this;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            int index = ch - 'a';
+            if (node.children[index] == null) {
+                node.children[index] = new Trie();
+            }
+            node = node.children[index];
+        }
+        node.isEnd = true;
+    }
+
+    public boolean isEnd() {
+        return this.isEnd;
+    }
+
+}
+
+class WordDictionary {
+
+    private final Trie root;
+
+    public WordDictionary() {
+        this.root = new Trie();
+    }
+
+    public void addWord(String word) {
+        root.insert(word);
+    }
+
+    public boolean search(String word) {
+        return dfs(word, 0, root);
+    }
+
+    private boolean dfs(String word, int index, Trie node) {
+        if (index == word.length()) {
+            return node.isEnd();
+        }
+        char ch = word.charAt(index);
+        if (Character.isLetter(ch)) {
+            int childIndex = ch - 'a';
+            Trie child = node.getChildren()[childIndex];
+            return child != null && dfs(word, index + 1, child);
+        } else {
+            for (int i = 0; i < 26; i++) {
+                Trie child = node.getChildren()[i];
+                if (child != null && dfs(word, index + 1, child)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+}
+
 class WordDictionaryList {
 
     private final List<String> dict;
@@ -52,73 +123,5 @@ class WordDictionaryList {
         }
         return false;
     }
-}
 
-class WordDictionary {
-
-    private final Trie root;
-
-    public WordDictionary() {
-        this.root = new Trie();
-    }
-
-    public void addWord(String word) {
-        root.insert(word);
-    }
-
-    public boolean search(String word) {
-        return dfs(word, 0, root);
-    }
-
-    private boolean dfs(String word, int index, Trie node) {
-        if (index == word.length()) {
-            return node.isEnd();
-        }
-        char ch = word.charAt(index);
-        if (Character.isLetter(ch)) {
-            int childIndex = ch - 'a';
-            Trie child = node.getChildren()[childIndex];
-            return child != null && dfs(word, index + 1, child);
-        } else {
-            for (int i = 0; i < 26; i++) {
-                Trie child = node.getChildren()[i];
-                if (child != null && dfs(word, index + 1, child)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-}
-
-class Trie {
-
-    private final Trie[]  children;
-    private       boolean isEnd;
-
-    public Trie() {
-        this.children = new Trie[26];
-        this.isEnd = false;
-    }
-
-    public Trie[] getChildren() {
-        return this.children;
-    }
-
-    public void insert(String word) {
-        Trie node = this;
-        for (int i = 0; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            int index = ch - 'a';
-            if (node.children[index] == null) {
-                node.children[index] = new Trie();
-            }
-            node = node.children[index];
-        }
-        node.isEnd = true;
-    }
-
-    public boolean isEnd() {
-        return this.isEnd;
-    }
 }

@@ -56,6 +56,8 @@ public class ThreeSumFast {
 
     public static void main(String[] args) {
         System.out.println(count(new int[]{1, 4, 6, -4, 0, -3, -3, 7, -4}));
-        System.out.println(countSorted(new int[]{-9, -9, -8, -8, -7, -6, -5, -5, -3, -3, -1, 0, 0, 1, 3, 3, 3, 4, 7, 7}));
+        System.out.println(
+                countSorted(new int[]{-9, -9, -8, -8, -7, -6, -5, -5, -3, -3, -1, 0, 0, 1, 3, 3, 3, 4, 7, 7}));
     }
+
 }

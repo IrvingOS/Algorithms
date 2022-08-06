@@ -15,7 +15,6 @@ public class Solution {
      * <p>
      * 于是，此题的求解可以装换成：长度为 n 的数组，每次选一个数减少 1，最少需要多少次使得每个元素都相等
      *
-     * @author TimeChaser
      * @since 2021/10/26 11:23
      */
     public static int minMoves(int[] nums) {
@@ -26,4 +25,5 @@ public class Solution {
         }
         return result;
     }
+
 }

@@ -13,7 +13,7 @@ public class LinkedQueue<Item> implements Iterable<Item> {
 
     private Node first;
     private Node last;
-    private int  n;
+    private int n;
 
     public LinkedQueue() {
         first = null;
@@ -112,11 +112,6 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         return s.toString();
     }
 
-    private class Node {
-        private Item item;
-        private Node next;
-    }
-
     private class LinkedIterator implements Iterator<Item> {
 
         private Node cur;
@@ -141,5 +136,14 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
+    private class Node {
+
+        private Item item;
+        private Node next;
+
+    }
+
 }

@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class Solution {
 
-    private static final String[]               DICT     = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private static final String[] DICT = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     private static final Map<Character, String> DICT_MAP = new HashMap<Character, String>() {{
         put('2', "abc");
         put('3', "def");
@@ -53,6 +53,10 @@ public class Solution {
         return result;
     }
 
+    public static void main(String[] args) {
+        System.out.println(letterCombinationsBacktrack("223"));
+    }
+
     private static void backtrack(ArrayList<String> result, String digits, int index, StringBuilder combination) {
         if (index == digits.length()) {
             result.add(combination.toString());
@@ -68,7 +72,4 @@ public class Solution {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(letterCombinationsBacktrack("223"));
-    }
 }

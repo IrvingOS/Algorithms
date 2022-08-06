@@ -17,6 +17,18 @@ import java.util.Set;
  */
 public class Solution {
 
+    public static boolean hasCycleFastAndSlow(ListNode head) {
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean hasCycleHash(ListNode head) {
 
         Set<ListNode> listNodeHashSet = new HashSet<>();
@@ -29,15 +41,4 @@ public class Solution {
         return false;
     }
 
-    public static boolean hasCycleFastAndSlow(ListNode head) {
-        ListNode slow = head, fast = head;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if (slow == fast) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

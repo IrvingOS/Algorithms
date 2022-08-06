@@ -14,6 +14,12 @@ import java.util.Arrays;
  */
 public class IntegerMove {
 
+    public static void main(String[] args) {
+        int[] ints = {6, -10, 4, -3, 5, -2, -1, 0, 1, -9};
+        move(ints);
+        System.out.println(Arrays.toString(ints));
+    }
+
     public static void move(int[] arr) {
 
         int begin = 0, end = arr.length - 1;
@@ -37,9 +43,4 @@ public class IntegerMove {
         arr[b] = temp;
     }
 
-    public static void main(String[] args) {
-        int[] ints = {6, -10, 4, -3, 5, -2, -1, 0, 1, -9};
-        move(ints);
-        System.out.println(Arrays.toString(ints));
-    }
 }

@@ -23,7 +23,6 @@ public class InsertSort implements IArraySort {
     /**
      * 向有序部分中插入元素
      *
-     * @author TimeChaser
      * @since 2021/10/22 22:39
      */
     @Override
@@ -42,4 +41,5 @@ public class InsertSort implements IArraySort {
         }
         return arr;
     }
+
 }

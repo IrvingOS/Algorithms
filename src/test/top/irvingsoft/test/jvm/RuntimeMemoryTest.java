@@ -24,4 +24,5 @@ public class RuntimeMemoryTest {
         System.out.println("total = " + totalMemory + " Byte\t" + totalMemory / 1024.0 / 1024 + " MB");
         System.out.println("free = " + freeMemory + " Byte\t" + freeMemory / 1024.0 / 1024 + " MB");
     }
+
 }

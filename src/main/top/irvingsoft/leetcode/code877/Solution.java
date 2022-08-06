@@ -9,4 +9,5 @@ public class Solution {
     public static boolean stoneGame(int[] piles) {
         return true;
     }
+
 }

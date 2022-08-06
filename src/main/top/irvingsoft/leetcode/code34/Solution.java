@@ -34,9 +34,11 @@ public class Solution {
     public int[] searchRange(int[] nums, int target) {
         int leftIndex = binarySearch(nums, target, true);
         int rightIndex = binarySearch(nums, target, false) - 1;
-        if (leftIndex <= rightIndex && rightIndex < nums.length && nums[leftIndex] == target && nums[rightIndex] == target) {
+        if (leftIndex <= rightIndex && rightIndex < nums.length && nums[leftIndex] == target &&
+            nums[rightIndex] == target) {
             return new int[]{leftIndex, rightIndex};
         }
         return new int[]{-1, -1};
     }
+
 }

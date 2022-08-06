@@ -8,6 +8,12 @@ import java.util.Arrays;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+
+        int[] ints = {1, 2, 5, 9};
+        System.out.println(Arrays.toString(plusOne(ints)));
+    }
+
     public static int[] plusOne(int[] digits) {
         for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] != 9) {
@@ -24,9 +30,4 @@ public class Solution {
         return ints;
     }
 
-    public static void main(String[] args) {
-
-        int[] ints = {1, 2, 5, 9};
-        System.out.println(Arrays.toString(plusOne(ints)));
-    }
 }

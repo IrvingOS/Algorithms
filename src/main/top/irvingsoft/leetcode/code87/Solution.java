@@ -11,9 +11,9 @@ import java.util.Map;
  */
 public class Solution {
 
-    private static String    str1;
-    private static String    str2;
     private static int[][][] dp;
+    private static String str1;
+    private static String str2;
 
     public static boolean isScramble(String s1, String s2) {
         int n = s1.length();
@@ -21,6 +21,30 @@ public class Solution {
         str2 = s2;
         dp = new int[n][n][n + 1];
         return dfs(0, 0, n);
+    }
+
+    public static void main(String[] args) {
+        //        System.out.println(isScramble("great", "rgeat"));
+        //        System.out.println(isScramble("great", "rgeat"));
+        System.out.println(isScramble("great", "trega"));
+    }
+
+    private static boolean checkIfSimilar(int i1, int i2, int length) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = i1; i < i1 + length; i++) {
+            char ch = str1.charAt(i);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        for (int i = i2; i < i2 + length; i++) {
+            char ch = str2.charAt(i);
+            map.put(ch, map.getOrDefault(ch, 0) - 1);
+        }
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static boolean dfs(int i1, int i2, int length) {
@@ -49,27 +73,4 @@ public class Solution {
         return false;
     }
 
-    private static boolean checkIfSimilar(int i1, int i2, int length) {
-        Map<Character, Integer> map = new HashMap<>();
-        for (int i = i1; i < i1 + length; i++) {
-            char ch = str1.charAt(i);
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
-        }
-        for (int i = i2; i < i2 + length; i++) {
-            char ch = str2.charAt(i);
-            map.put(ch, map.getOrDefault(ch, 0) - 1);
-        }
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            if (entry.getValue() != 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static void main(String[] args) {
-//        System.out.println(isScramble("great", "rgeat"));
-//        System.out.println(isScramble("great", "rgeat"));
-        System.out.println(isScramble("great", "trega"));
-    }
 }

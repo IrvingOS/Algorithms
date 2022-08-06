@@ -24,4 +24,5 @@ public class Solution {
         System.out.println(convertToTitle(701));
         System.out.println(convertToTitle(2147483647));
     }
+
 }

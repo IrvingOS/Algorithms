@@ -23,4 +23,5 @@ public class Solution {
         }
         return dfs(a.left, b.left) && dfs(a.right, b.right);
     }
+
 }

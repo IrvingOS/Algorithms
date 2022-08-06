@@ -78,6 +78,30 @@ public class Solution {
         return result;
     }
 
+    public static void main(String[] args) {
+        System.out.println(
+                fullJustify(new String[]{"This", "is", "an", "example", "of", "text", "justification."}, 16));
+        System.out.println(fullJustify(new String[]{"What", "must", "be", "acknowledgment", "shall", "be"}, 16));
+        System.out.println(fullJustify(new String[]{"Science",
+                                                    "is",
+                                                    "what",
+                                                    "we",
+                                                    "understand",
+                                                    "well",
+                                                    "enough",
+                                                    "to",
+                                                    "explain",
+                                                    "to",
+                                                    "a",
+                                                    "computer.",
+                                                    "Art",
+                                                    "is",
+                                                    "everything",
+                                                    "else",
+                                                    "we",
+                                                    "do"}, 20));
+    }
+
     private static void processSpace(int spaceCharCount, int[] space) {
         int index = 0;
         while (spaceCharCount-- > 0) {
@@ -88,9 +112,4 @@ public class Solution {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(fullJustify(new String[]{"This", "is", "an", "example", "of", "text", "justification."}, 16));
-        System.out.println(fullJustify(new String[]{"What", "must", "be", "acknowledgment", "shall", "be"}, 16));
-        System.out.println(fullJustify(new String[]{"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"}, 20));
-    }
 }

@@ -8,12 +8,18 @@ package top.irvingsoft.chengyun.recursionandynamic;
  */
 public class MinCoins {
 
+    public static void main(String[] args) {
+
+        int[] ints = {5, 2, 3, 5};
+        System.out.println(minCoins1(ints, 20));
+        System.out.println(minCoins3(ints, 2));
+    }
+
     /**
      * 0/1 背包问题
      * <p>
      * 数组内的元素均只有其各自一个
      *
-     * @author TimeChaser
      * @since 2021/9/25 21:54
      */
     public static int minCoins1(int[] arr, int aim) {
@@ -75,7 +81,6 @@ public class MinCoins {
      * <p>
      * 数组内的元素均有无数个
      *
-     * @author TimeChaser
      * @since 2021/9/25 21:52
      */
     public static int minCoins3(int[] arr, int aim) {
@@ -136,10 +141,4 @@ public class MinCoins {
         return dp[aim] != max ? dp[aim] : -1;
     }
 
-    public static void main(String[] args) {
-
-        int[] ints = {5, 2, 3, 5};
-        System.out.println(minCoins1(ints, 20));
-        System.out.println(minCoins3(ints, 2));
-    }
 }

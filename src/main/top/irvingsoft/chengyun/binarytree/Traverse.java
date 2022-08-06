@@ -10,55 +10,6 @@ import java.util.Stack;
  */
 public class Traverse {
 
-    public static void preOrderRecur(Node head) {
-
-        if (head == null) {
-            return;
-        }
-        System.out.print(head.value + " ");
-        preOrderRecur(head.left);
-        preOrderRecur(head.right);
-    }
-
-    public static void inOrderRecur(Node head) {
-
-        if (head == null) {
-            return;
-        }
-        inOrderRecur(head.left);
-        System.out.print(head.value + " ");
-        inOrderRecur(head.right);
-    }
-
-    public static void posOrderRecur(Node head) {
-
-        if (head == null) {
-            return;
-        }
-        posOrderRecur(head.left);
-        posOrderRecur(head.right);
-        System.out.print(head.value + " ");
-    }
-
-    public static void preOrder(Node head) {
-
-        System.out.println("Pre-Order: ");
-        if (head != null) {
-            Stack<Node> stack = new Stack<>();
-            stack.add(head);
-            while (!stack.isEmpty()) {
-                head = stack.pop();
-                System.out.print(head.value + " ");
-                if (head.right != null) {
-                    stack.push(head.right);
-                }
-                if (head.left != null) {
-                    stack.push(head.left);
-                }
-            }
-        }
-    }
-
     public static void inOrder(Node head) {
 
         System.out.println("In-Order: ");
@@ -75,6 +26,16 @@ public class Traverse {
                 }
             }
         }
+    }
+
+    public static void inOrderRecur(Node head) {
+
+        if (head == null) {
+            return;
+        }
+        inOrderRecur(head.left);
+        System.out.print(head.value + " ");
+        inOrderRecur(head.right);
     }
 
     public static void posOrder1(Node head) {
@@ -120,4 +81,44 @@ public class Traverse {
             }
         }
     }
+
+    public static void posOrderRecur(Node head) {
+
+        if (head == null) {
+            return;
+        }
+        posOrderRecur(head.left);
+        posOrderRecur(head.right);
+        System.out.print(head.value + " ");
+    }
+
+    public static void preOrder(Node head) {
+
+        System.out.println("Pre-Order: ");
+        if (head != null) {
+            Stack<Node> stack = new Stack<>();
+            stack.add(head);
+            while (!stack.isEmpty()) {
+                head = stack.pop();
+                System.out.print(head.value + " ");
+                if (head.right != null) {
+                    stack.push(head.right);
+                }
+                if (head.left != null) {
+                    stack.push(head.left);
+                }
+            }
+        }
+    }
+
+    public static void preOrderRecur(Node head) {
+
+        if (head == null) {
+            return;
+        }
+        System.out.print(head.value + " ");
+        preOrderRecur(head.left);
+        preOrderRecur(head.right);
+    }
+
 }

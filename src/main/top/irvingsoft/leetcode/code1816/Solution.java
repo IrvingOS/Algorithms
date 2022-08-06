@@ -23,4 +23,5 @@ public class Solution {
         }
         return s.substring(0, end);
     }
+
 }

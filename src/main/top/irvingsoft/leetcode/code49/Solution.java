@@ -21,13 +21,14 @@ public class Solution {
         return new ArrayList<>(map.values());
     }
 
+    public static void main(String[] args) {
+        System.out.println(groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
+    }
+
     public static String sort(String str) {
         char[] chars = str.toCharArray();
         Arrays.sort(chars);
         return new String(chars);
     }
 
-    public static void main(String[] args) {
-        System.out.println(groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
-    }
 }

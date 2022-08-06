@@ -13,9 +13,9 @@ import java.util.Queue;
  */
 public class DogCatQueue {
 
-    private final Queue<PetEnterQueue> dogQueue;
     private final Queue<PetEnterQueue> catQueue;
-    private       long                 count;
+    private final Queue<PetEnterQueue> dogQueue;
+    private long count;
 
     public DogCatQueue() {
         this.dogQueue = new LinkedList<>();
@@ -81,8 +81,8 @@ public class DogCatQueue {
         }
 
         return this.dogQueue.peek().getCount() < this.catQueue.peek().getCount() ?
-                this.dogQueue.poll().getPet() :
-                this.catQueue.poll().getPet();
+               this.dogQueue.poll().getPet() :
+               this.catQueue.poll().getPet();
     }
 
     public Cat pollCat() {
@@ -100,4 +100,5 @@ public class DogCatQueue {
         }
         return (Dog) this.dogQueue.poll().getPet();
     }
+
 }

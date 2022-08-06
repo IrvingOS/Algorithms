@@ -108,10 +108,11 @@ public class Palindrome {
         head.next.next.next.next.next = new Node(3);
         head.next.next.next.next.next.next = new Node(2);
         head.next.next.next.next.next.next.next = new Node(1);
-//        head.next.next.next.next.next.next.next.next = new Node(1);
+        //        head.next.next.next.next.next.next.next.next = new Node(1);
 
         System.out.println(isPalindrome1(head));
         System.out.println(isPalindrome2(head));
         System.out.println(isPalindrome3(head));
     }
+
 }

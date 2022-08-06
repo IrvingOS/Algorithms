@@ -8,6 +8,10 @@ package top.irvingsoft.leetcode.code598;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+
+    }
+
     public static int maxCount(int m, int n, int[][] ops) {
         int minI = m;
         int minJ = n;
@@ -18,7 +22,4 @@ public class Solution {
         return minI * minJ;
     }
 
-    public static void main(String[] args) {
-
-    }
 }

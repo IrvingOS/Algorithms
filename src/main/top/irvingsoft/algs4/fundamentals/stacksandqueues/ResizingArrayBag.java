@@ -14,7 +14,7 @@ public class ResizingArrayBag<Item> implements Iterable<Item> {
     private static final int INIT_CAPACITY = 8;
 
     private Item[] a;
-    private int    n;
+    private int n;
 
     public ResizingArrayBag() {
         n = 0;
@@ -89,5 +89,7 @@ public class ResizingArrayBag<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
 }

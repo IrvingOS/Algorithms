@@ -27,4 +27,5 @@ public class Solution {
         System.out.println(lengthOfLastWord("   fly me   to   the moon  "));
         System.out.println(lengthOfLastWord("luffy is still joyboy"));
     }
+
 }

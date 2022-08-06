@@ -14,16 +14,6 @@ public class TCPClient {
 
     public static String EXIT = "exit";
 
-    public static boolean validatePort(String s) {
-        char[] chars = s.toCharArray();
-        for (char aChar : chars) {
-            if (!Character.isDigit(aChar)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static void main(String[] args) {
 
         if (validatePort(args[1])) {
@@ -75,4 +65,15 @@ public class TCPClient {
             }
         }
     }
+
+    public static boolean validatePort(String s) {
+        char[] chars = s.toCharArray();
+        for (char aChar : chars) {
+            if (!Character.isDigit(aChar)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

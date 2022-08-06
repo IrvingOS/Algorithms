@@ -29,18 +29,6 @@ public class Solution {
         return max + 1;
     }
 
-    private static int backtrack(int i, int j, int count, int target, int border, int[][] nums) {
-        if (i == border || j == border) {
-            return count;
-        }
-        for (int n = i; n < border; n++) {
-            if (nums[n][j] == target) {
-                return backtrack(n + 1, n, count + 1, target, border, nums);
-            }
-        }
-        return count;
-    }
-
     public static int longestSubsequenceHash(int[] arr, int difference) {
         int ans = 0;
         HashMap<Integer, Integer> dp = new HashMap<>();
@@ -56,4 +44,17 @@ public class Solution {
         System.out.println(longestSubsequence(new int[]{1, 3, 5, 7}, 1));
         System.out.println(longestSubsequence(new int[]{1, 6, 7, 8, 9, 3, 10, 2, 11}, 1));
     }
+
+    private static int backtrack(int i, int j, int count, int target, int border, int[][] nums) {
+        if (i == border || j == border) {
+            return count;
+        }
+        for (int n = i; n < border; n++) {
+            if (nums[n][j] == target) {
+                return backtrack(n + 1, n, count + 1, target, border, nums);
+            }
+        }
+        return count;
+    }
+
 }

@@ -8,6 +8,13 @@ package top.irvingsoft.leetcode.code62;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(uniquePaths(3, 7));
+        System.out.println(uniquePaths(3, 2));
+        System.out.println(uniquePaths(7, 3));
+        System.out.println(uniquePaths(3, 3));
+    }
+
     public static int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
         for (int i = 0; i < m; i++) {
@@ -24,10 +31,4 @@ public class Solution {
         return dp[m - 1][n - 1];
     }
 
-    public static void main(String[] args) {
-        System.out.println(uniquePaths(3, 7));
-        System.out.println(uniquePaths(3, 2));
-        System.out.println(uniquePaths(7, 3));
-        System.out.println(uniquePaths(3, 3));
-    }
 }

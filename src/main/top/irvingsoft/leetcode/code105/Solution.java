@@ -13,6 +13,8 @@ import java.util.Map;
  */
 public class Solution {
 
+    private Map<Integer, Integer> inorderMap = new HashMap<>();
+
     public TreeNode buildTreeIteration(int[] preorder, int[] inorder) {
         int n = preorder.length;
         int inorderIndex = 0;
@@ -36,8 +38,6 @@ public class Solution {
         return root;
     }
 
-    private Map<Integer, Integer> inorderMap = new HashMap<>();
-
     public TreeNode buildTreeRecursion(int[] preorder, int[] inorder) {
         int n = preorder.length;
         for (int i = 0; i < n; i++) {
@@ -58,4 +58,5 @@ public class Solution {
         node.right = dfs(preorder, preLeft + leftSize + 1, preRight, inorderIndex + 1);
         return node;
     }
+
 }

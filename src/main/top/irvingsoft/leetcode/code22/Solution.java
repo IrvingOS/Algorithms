@@ -11,12 +11,6 @@ import java.util.List;
  */
 public class Solution {
 
-    public static List<String> generateParenthesis(int n) {
-        ArrayList<String> result = new ArrayList<>();
-        generate(new StringBuilder(), 0, 0, n, result);
-        return result;
-    }
-
     public static void generate(StringBuilder sb, int left, int right, int max, List<String> result) {
         if (sb.length() == max * 2) {
             result.add(String.valueOf(sb));
@@ -32,6 +26,12 @@ public class Solution {
             generate(sb, left, right + 1, max, result);
             sb.deleteCharAt(sb.length() - 1);
         }
+    }
+
+    public static List<String> generateParenthesis(int n) {
+        ArrayList<String> result = new ArrayList<>();
+        generate(new StringBuilder(), 0, 0, n, result);
+        return result;
     }
 
     public static List<String> generateParenthesisDynamic(int n) {
@@ -61,4 +61,5 @@ public class Solution {
     public static void main(String[] args) {
         System.out.println(generateParenthesis(3));
     }
+
 }

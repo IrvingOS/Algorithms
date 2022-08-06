@@ -9,8 +9,8 @@ package top.irvingsoft.leetcode.code1034;
 public class Solution {
 
     private final int[][] directions = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
-    private       int     m;
-    private       int     n;
+    private int m;
+    private int n;
 
     public int[][] colorBorder(int[][] grid, int row, int col, int color) {
         m = grid.length;
@@ -25,7 +25,8 @@ public class Solution {
         for (int[] direction : directions) {
             int nextRow = row + direction[0];
             int nextCol = col + direction[1];
-            if (nextRow >= 0 && nextRow < m && nextCol >= 0 && nextCol < n && grid[row][col] == grid[nextRow][nextCol] && !visited[nextRow][nextCol]) {
+            if (nextRow >= 0 && nextRow < m && nextCol >= 0 && nextCol < n &&
+                grid[row][col] == grid[nextRow][nextCol] && !visited[nextRow][nextCol]) {
                 dfs(grid, visited, nextRow, nextCol, color);
             }
             if (nextRow >= 0 && nextRow < m && nextCol >= 0 && nextCol < n && visited[nextRow][nextCol]) {
@@ -36,4 +37,5 @@ public class Solution {
             grid[row][col] = color;
         }
     }
+
 }

@@ -15,57 +15,6 @@ public class Solution {
     private static ListNode frontPointer;
 
     /**
-     * 将链表转换成数组后用双指针（首尾指针）
-     *
-     * @author TimeChaser
-     * @since 2021/4/12 10:41
-     */
-    public static boolean isPalindromeToList(ListNode head) {
-
-        ArrayList<Integer> valList = new ArrayList<>();
-        ListNode currentNode = head;
-        while (currentNode != null) {
-            valList.add(currentNode.val);
-            currentNode = currentNode.next;
-        }
-
-        int front = 0, back = valList.size() - 1;
-        while (front < back) {
-            if (!valList.get(front).equals(valList.get(back))) {
-                return false;
-            }
-            front++;
-            back--;
-        }
-
-        return true;
-    }
-
-    /**
-     * 递归。用外部指针指向头部，直到递归到尾部时开始首尾比较
-     *
-     * @author TimeChaser
-     * @since 2021/4/12 10:42
-     */
-    public static boolean isPalindromeRecursion(ListNode head) {
-        frontPointer = head;
-        return recursivelyCheck(head);
-    }
-
-    private static boolean recursivelyCheck(ListNode currentNode) {
-        if (currentNode != null) {
-            if (!recursivelyCheck(currentNode.next)) {
-                return false;
-            }
-            if (frontPointer.val != currentNode.val) {
-                return false;
-            }
-            frontPointer = frontPointer.next;
-        }
-        return true;
-    }
-
-    /**
      * 快慢指针
      * <p>
      * 1. 找到前半部分链表的尾结点
@@ -74,7 +23,6 @@ public class Solution {
      * 4. 恢复链表
      * 5. 返回结果
      *
-     * @author TimeChaser
      * @since 2021/4/12 10:44
      */
     public static boolean isPalindromeFastAndSlowPointer(ListNode head) {
@@ -99,6 +47,46 @@ public class Solution {
         return true;
     }
 
+    /**
+     * 递归。用外部指针指向头部，直到递归到尾部时开始首尾比较
+     *
+     * @since 2021/4/12 10:42
+     */
+    public static boolean isPalindromeRecursion(ListNode head) {
+        frontPointer = head;
+        return recursivelyCheck(head);
+    }
+
+    /**
+     * 将链表转换成数组后用双指针（首尾指针）
+     *
+     * @since 2021/4/12 10:41
+     */
+    public static boolean isPalindromeToList(ListNode head) {
+
+        ArrayList<Integer> valList = new ArrayList<>();
+        ListNode currentNode = head;
+        while (currentNode != null) {
+            valList.add(currentNode.val);
+            currentNode = currentNode.next;
+        }
+
+        int front = 0, back = valList.size() - 1;
+        while (front < back) {
+            if (!valList.get(front).equals(valList.get(back))) {
+                return false;
+            }
+            front++;
+            back--;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+    }
+
     private static ListNode endOfFirstHalf(ListNode head) {
 
         ListNode fast = head, slow = head;
@@ -107,6 +95,19 @@ public class Solution {
             slow = slow.next;
         }
         return slow;
+    }
+
+    private static boolean recursivelyCheck(ListNode currentNode) {
+        if (currentNode != null) {
+            if (!recursivelyCheck(currentNode.next)) {
+                return false;
+            }
+            if (frontPointer.val != currentNode.val) {
+                return false;
+            }
+            frontPointer = frontPointer.next;
+        }
+        return true;
     }
 
     private static ListNode reverseList(ListNode head) {
@@ -121,7 +122,4 @@ public class Solution {
         return prev;
     }
 
-    public static void main(String[] args) {
-
-    }
 }

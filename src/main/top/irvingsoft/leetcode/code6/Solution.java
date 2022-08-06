@@ -18,7 +18,9 @@ public class Solution {
             return s;
         }
         int length = s.length();
-        int numLines = length % (numRows * 2 - 2) == 0 ? (length / (numRows * 2 - 2)) * (numRows - 1) : (length / (numRows * 2 - 2) + 1) * (numRows - 1);
+        int numLines = length % (numRows * 2 - 2) == 0 ?
+                       (length / (numRows * 2 - 2)) * (numRows - 1) :
+                       (length / (numRows * 2 - 2) + 1) * (numRows - 1);
         int cycle = length % (numRows * 2 - 2) == 0 ? length / (numRows * 2 - 2) : length / (numRows * 2 - 2) + 1;
         char[][] chars = new char[numRows][numLines];
         int index = 0;
@@ -96,4 +98,5 @@ public class Solution {
         System.out.println(convertRowSort("PAYPALISHIRING", 4));
         System.out.println(convertRowSort("PAYPALISHIRING", 5));
     }
+
 }

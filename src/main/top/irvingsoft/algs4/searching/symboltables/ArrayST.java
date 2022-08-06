@@ -13,10 +13,10 @@ import java.util.Queue;
  */
 public class ArrayST<Key extends Comparable<Key>, Value> {
 
-    private final int     capacity;
-    private       Key[]   keys;
-    private       Value[] values;
-    private       int     n;
+    private final int capacity;
+    private Key[] keys;
+    private int n;
+    private Value[] values;
 
     public ArrayST() {
         this(8);
@@ -119,4 +119,5 @@ public class ArrayST<Key extends Comparable<Key>, Value> {
         this.keys = tempKeys;
         this.values = tempValues;
     }
+
 }

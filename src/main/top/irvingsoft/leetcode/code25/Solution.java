@@ -19,6 +19,27 @@ import java.util.List;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+
+        Node node = new Node(5);
+        node.next = new Node(3);
+        node.next.next = new Node(6);
+        node.next.next.next = new Node(7);
+        node.next.next.next.next = new Node(9);
+        node.next.next.next.next.next = new Node(2);
+        Node tail = node.next.next.next.next.next;
+        print(reverseKGroupList(node, 2));
+        System.out.println();
+        print(reverseKGroupNode(node, 2));
+    }
+
+    public static void print(Node head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }
+
     public static Node reverseKGroupList(Node head, int k) {
 
         ArrayList<Integer> integerList = new ArrayList<>();
@@ -40,21 +61,6 @@ public class Solution {
             tail = tail.next;
         }
         return head.next;
-    }
-
-    public static void reverseList(List<Integer> integerList, int start, int end) {
-
-        int middle = (end - start) / 2 + start;
-        for (int i = start; i <= middle; i++) {
-            Integer integer = integerList.get(i);
-            if ((end - start) % 2 == 0) {
-                integerList.set(i, integerList.get(middle * 2 - i));
-                integerList.set(middle * 2 - i, integer);
-            } else {
-                integerList.set(i, integerList.get(middle * 2 + 1 - i));
-                integerList.set(middle * 2 + 1 - i, integer);
-            }
-        }
     }
 
     public static Node reverseKGroupNode(Node head, int k) {
@@ -89,6 +95,21 @@ public class Solution {
         return hair.next;
     }
 
+    public static void reverseList(List<Integer> integerList, int start, int end) {
+
+        int middle = (end - start) / 2 + start;
+        for (int i = start; i <= middle; i++) {
+            Integer integer = integerList.get(i);
+            if ((end - start) % 2 == 0) {
+                integerList.set(i, integerList.get(middle * 2 - i));
+                integerList.set(middle * 2 - i, integer);
+            } else {
+                integerList.set(i, integerList.get(middle * 2 + 1 - i));
+                integerList.set(middle * 2 + 1 - i, integer);
+            }
+        }
+    }
+
     public static void reverseList(Node head, Node tail) {
 
         Node last = null, current = head;
@@ -101,24 +122,4 @@ public class Solution {
         tail.next = last;
     }
 
-    public static void print(Node head) {
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
-        }
-    }
-
-    public static void main(String[] args) {
-
-        Node node = new Node(5);
-        node.next = new Node(3);
-        node.next.next = new Node(6);
-        node.next.next.next = new Node(7);
-        node.next.next.next.next = new Node(9);
-        node.next.next.next.next.next = new Node(2);
-        Node tail = node.next.next.next.next.next;
-        print(reverseKGroupList(node, 2));
-        System.out.println();
-        print(reverseKGroupNode(node, 2));
-    }
 }

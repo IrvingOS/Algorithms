@@ -12,11 +12,11 @@ import java.util.Random;
  */
 public class Solution {
 
-    private final int                   m;
-    private final int                   n;
+    private final int m;
     private final Map<Integer, Integer> map;
-    private final Random                random;
-    private       int                   total;
+    private final int n;
+    private final Random random;
+    private int total;
 
     public Solution(int m, int n) {
         this.m = m;
@@ -37,5 +37,6 @@ public class Solution {
         total = m * n;
         map.clear();
     }
+
 }
 

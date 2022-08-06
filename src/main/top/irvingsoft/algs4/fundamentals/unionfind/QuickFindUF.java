@@ -11,7 +11,7 @@ package top.irvingsoft.algs4.fundamentals.unionfind;
 public class QuickFindUF {
 
     private final int[] id;
-    private       int   count;
+    private int count;
 
     public QuickFindUF(int n) {
         count = n;
@@ -46,4 +46,5 @@ public class QuickFindUF {
         }
         count--;
     }
+
 }

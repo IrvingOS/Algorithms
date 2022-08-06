@@ -29,8 +29,10 @@ public class NestedBuild {
         for (String dict : DICTIONARY.keySet()) {
             String[] splits = dict.split("\\.");
             for (int i = 0; i < splits.length; i++) {
-                if (!treeIsContains(treeList, splits[i], i == splits.length - 1 ? DICTIONARY.get(dict) : null, i != 0 ? splits[i - 1] : null, i, splits.length)) {
-                    Tree tree = new Tree(splits[i], i == splits.length - 1 ? DICTIONARY.get(dict) : null, i != 0 ? splits[i - 1] : null, i != 0, i != splits.length - 1);
+                if (!treeIsContains(treeList, splits[i], i == splits.length - 1 ? DICTIONARY.get(dict) : null,
+                                    i != 0 ? splits[i - 1] : null, i, splits.length)) {
+                    Tree tree = new Tree(splits[i], i == splits.length - 1 ? DICTIONARY.get(dict) : null,
+                                         i != 0 ? splits[i - 1] : null, i != 0, i != splits.length - 1);
                     if (i < splits.length - 1) {
                         tree.initChildren();
                     }
@@ -39,30 +41,28 @@ public class NestedBuild {
             }
         }
 
-//        System.out.println(treeList);
-        treeList.forEach(
-                tree -> {
-                    String parentKey = tree.getParentKey();
-                    if (parentKey == null && !tree.isHasParent()) {
-                        nestedList.add(tree);
-                        return;
-                    }
-                    for (Tree parent : treeList) {
-                        if (parent.isContains(tree.getKey())) {
-                            continue;
-                        }
-                        if (parent.getKey().equals(parentKey) && parent.isHasChildren()) {
-                            for (Tree child : parent.getChildren()) {
-                                child.setLastChild(false);
-                            }
-                            tree.setLastChild(true);
-                            parent.getChildren().add(tree);
-                            return;
-                        }
-                    }
+        //        System.out.println(treeList);
+        treeList.forEach(tree -> {
+            String parentKey = tree.getParentKey();
+            if (parentKey == null && !tree.isHasParent()) {
+                nestedList.add(tree);
+                return;
+            }
+            for (Tree parent : treeList) {
+                if (parent.isContains(tree.getKey())) {
+                    continue;
                 }
-        );
-//        System.out.println(nestedList);
+                if (parent.getKey().equals(parentKey) && parent.isHasChildren()) {
+                    for (Tree child : parent.getChildren()) {
+                        child.setLastChild(false);
+                    }
+                    tree.setLastChild(true);
+                    parent.getChildren().add(tree);
+                    return;
+                }
+            }
+        });
+        //        System.out.println(nestedList);
 
         buffer.append("{\n");
         for (Tree tree : nestedList) {
@@ -74,14 +74,9 @@ public class NestedBuild {
         System.out.println(buffer);
     }
 
-    private static boolean treeIsContains(ArrayList<Tree> treeList, String key, Integer value, String parentKey, int index, int length) {
-        return treeList.contains(new Tree(key, value, parentKey, index != 0, index != length - 1));
-    }
-
     /**
      * String.repeat(int); 方法从 Jdk 11 开始引入
      *
-     * @author TimeChaser
      * @since 2021/3/6 2:08
      */
 
@@ -109,6 +104,12 @@ public class NestedBuild {
             }
         }
     }
+
+    private static boolean treeIsContains(ArrayList<Tree> treeList, String key, Integer value, String parentKey,
+                                          int index, int length) {
+        return treeList.contains(new Tree(key, value, parentKey, index != 0, index != length - 1));
+    }
+
 }
 
 

@@ -13,11 +13,11 @@ import java.util.Map;
  */
 public class Solution {
 
+    private Map<Integer, Integer> postorderMap = new HashMap<>();
+
     public TreeNode constructFromPrePostIteration(int[] preorder, int[] postorder) {
         return null;
     }
-
-    private Map<Integer, Integer> postorderMap = new HashMap<>();
 
     public TreeNode constructFromPrePostRecursion(int[] preorder, int[] postorder) {
         int n = preorder.length;
@@ -43,4 +43,5 @@ public class Solution {
         node.right = dfs(preorder, nextPreLeft + leftSize + 1, preRight, postorderIndex + 1);
         return node;
     }
+
 }

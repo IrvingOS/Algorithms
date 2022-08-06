@@ -15,8 +15,8 @@ import java.util.Queue;
  */
 public class SequentialSearchST<Key extends Comparable<Key>, Value> {
 
-    private Node first;
     private Node cache;
+    private Node first;
 
     public Key ceiling(Key key) {
         if (key == null) {
@@ -231,14 +231,17 @@ public class SequentialSearchST<Key extends Comparable<Key>, Value> {
     }
 
     private class Node {
-        private final Key   key;
-        private       Value value;
-        private       Node  next;
+
+        private final Key key;
+        private Node next;
+        private Value value;
 
         public Node(Key key, Value value, Node next) {
             this.key = key;
             this.value = value;
             this.next = next;
         }
+
     }
+
 }

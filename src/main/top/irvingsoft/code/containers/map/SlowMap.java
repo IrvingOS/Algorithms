@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class SlowMap<K, V> extends AbstractMap<K, V> {
 
-    private final List<K> keys   = new ArrayList<>();
+    private final List<K> keys = new ArrayList<>();
     private final List<V> values = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -19,17 +19,6 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
         System.out.println(stringStringSlowMap);
         System.out.println(stringStringSlowMap.get("CONGO"));
         System.out.println(stringStringSlowMap.entrySet());
-    }
-
-    @Override
-    public Set<Entry<K, V>> entrySet() {
-        Set<Entry<K, V>> set = new HashSet<>();
-        Iterator<K> kIterator = keys.iterator();
-        Iterator<V> vIterator = values.iterator();
-        while (kIterator.hasNext()) {
-            set.add(new MapEntry<>(kIterator.next(), vIterator.next()));
-        }
-        return set;
     }
 
     @Override
@@ -51,4 +40,16 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
         }
         return oldValue;
     }
+
+    @Override
+    public Set<Entry<K, V>> entrySet() {
+        Set<Entry<K, V>> set = new HashSet<>();
+        Iterator<K> kIterator = keys.iterator();
+        Iterator<V> vIterator = values.iterator();
+        while (kIterator.hasNext()) {
+            set.add(new MapEntry<>(kIterator.next(), vIterator.next()));
+        }
+        return set;
+    }
+
 }

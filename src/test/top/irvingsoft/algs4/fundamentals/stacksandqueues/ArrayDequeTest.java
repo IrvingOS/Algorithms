@@ -7,7 +7,7 @@ import java.util.Random;
 class ArrayDequeTest {
 
     private ArrayDeque<Integer> deque;
-    private boolean             init;
+    private boolean init;
 
     @Test
     void isEmpty() {
@@ -108,4 +108,5 @@ class ArrayDequeTest {
         System.out.println(deque);
         init = true;
     }
+
 }

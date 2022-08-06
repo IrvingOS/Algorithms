@@ -6,7 +6,7 @@ public class MaxPQTest {
 
     public static void main(String[] args) {
         Random random = new Random();
-//        MaxPQ<User> pq = new MaxPQ<>(Comparator.comparing(o -> o.id));
+        //        MaxPQ<User> pq = new MaxPQ<>(Comparator.comparing(o -> o.id));
         MaxPQ<User> pq = new MaxPQ<>();
         pq.insert(new User(random.nextInt(100), "qqq"));
         pq.insert(new User(random.nextInt(100), "www"));
@@ -19,7 +19,8 @@ public class MaxPQTest {
     }
 
     static class User implements Comparable<User> {
-        int    id;
+
+        int id;
         String name;
 
         public User(int id, String name) {
@@ -34,10 +35,9 @@ public class MaxPQTest {
 
         @Override
         public String toString() {
-            return "User{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    '}';
+            return "User{" + "id=" + id + ", name='" + name + '\'' + '}';
         }
+
     }
+
 }

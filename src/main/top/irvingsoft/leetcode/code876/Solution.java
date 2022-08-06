@@ -16,4 +16,5 @@ public class Solution {
         }
         return slow;
     }
+
 }

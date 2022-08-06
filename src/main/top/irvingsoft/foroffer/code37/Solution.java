@@ -53,7 +53,7 @@ public class Solution {
                 }
             }
         }
-//        System.out.println(list);
+        //        System.out.println(list);
         StringBuilder sb = new StringBuilder();
         sb.append('[');
         sb.append(']');
@@ -72,4 +72,5 @@ public class Solution {
             build(node.right, values, rightIndex);
         }
     }
+
 }

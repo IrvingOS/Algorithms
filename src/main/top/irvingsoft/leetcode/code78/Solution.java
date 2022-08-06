@@ -11,12 +11,6 @@ import java.util.List;
  */
 public class Solution {
 
-    public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        backtrack(0, nums, new ArrayList<>(), result);
-        return result;
-    }
-
     public static void backtrack(int cur, int[] nums, List<Integer> combination, List<List<Integer>> result) {
         if (cur == nums.length) {
             result.add(new ArrayList<>(combination));
@@ -31,4 +25,11 @@ public class Solution {
     public static void main(String[] args) {
         System.out.println(subsets(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 10, 0}));
     }
+
+    public static List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(0, nums, new ArrayList<>(), result);
+        return result;
+    }
+
 }

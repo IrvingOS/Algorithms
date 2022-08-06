@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class Solution {
 
-    private int n;
-    private long maxScore;
-    private int result;
     private List<Integer>[] children;
+    private long maxScore;
+    private int n;
+    private int result;
 
     public int countHighestScoreNodes(int[] parents) {
         n = parents.length;
@@ -51,4 +51,5 @@ public class Solution {
         }
         return n - remain;
     }
+
 }

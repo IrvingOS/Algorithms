@@ -35,6 +35,11 @@ public class Solution {
         return dp[m][n];
     }
 
+    public static void main(String[] args) {
+        System.out.println(isMatch("aaa", "ab*a*c*a"));
+        System.out.println(isMatch("aaa", "a*."));
+    }
+
     private static boolean matches(String s, String p, int i, int j) {
         if (i == 0) {
             return false;
@@ -45,8 +50,4 @@ public class Solution {
         return s.charAt(i - 1) == p.charAt(j - 1);
     }
 
-    public static void main(String[] args) {
-        System.out.println(isMatch("aaa", "ab*a*c*a"));
-        System.out.println(isMatch("aaa", "a*."));
-    }
 }

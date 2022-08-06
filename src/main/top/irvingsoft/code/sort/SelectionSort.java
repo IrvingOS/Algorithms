@@ -23,7 +23,6 @@ public class SelectionSort implements IArraySort {
     /**
      * 依次从无序部分选出最小的数交换到有序部分的末尾
      *
-     * @author TimeChaser
      * @since 2021/10/22 22:40
      */
     @Override
@@ -40,4 +39,5 @@ public class SelectionSort implements IArraySort {
         }
         return arr;
     }
+
 }

@@ -18,4 +18,5 @@ public class Solution {
         }
         return t[n];
     }
+
 }

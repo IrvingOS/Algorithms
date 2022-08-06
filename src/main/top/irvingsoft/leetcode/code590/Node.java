@@ -9,8 +9,9 @@ import java.util.List;
  * @since 2022/3/12 8:41 AM
  */
 public class Node {
-    public int val;
+
     public List<Node> children;
+    public int val;
 
     public Node() {
     }
@@ -23,4 +24,5 @@ public class Node {
         val = _val;
         children = _children;
     }
+
 };

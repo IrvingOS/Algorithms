@@ -39,4 +39,5 @@ public class Solution {
         System.out.println(detectCapitalUse("Google"));
         System.out.println(detectCapitalUse("FlaG"));
     }
+
 }

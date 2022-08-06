@@ -9,9 +9,9 @@ package top.irvingsoft.algs4.fundamentals.dataabstraction;
 public class Date {
 
     private static final int[] DAYS = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    private final        int   month;
-    private final        int   day;
-    private final        int   year;
+    private final int day;
+    private final int month;
+    private final int year;
 
     public Date(int month, int day, int year) {
         if (!isValid(month, day, year)) {
@@ -105,6 +105,11 @@ public class Date {
     }
 
     @Override
+    public int hashCode() {
+        return day + 31 * month + 31 * 12 * year;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
@@ -119,8 +124,4 @@ public class Date {
         return this.month == that.month && this.day == that.day && this.year == that.year;
     }
 
-    @Override
-    public int hashCode() {
-        return day + 31 * month + 31 * 12 * year;
-    }
 }

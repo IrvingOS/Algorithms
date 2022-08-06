@@ -5,22 +5,11 @@ import top.irvingsoft.structure.TreeNode;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author TimeChaser
- * @since 2021/11/18 10:10
- */
-public class SecondSolution {
-
-    public int kthSmallest(TreeNode root, int k) {
-        BinarySearchTree binarySearchTree = new BinarySearchTree(root);
-        return binarySearchTree.kthSmallest(k);
-    }
-}
-
 @SuppressWarnings("all")
 class BinarySearchTree {
-    private final TreeNode root;
+
     private final Map<TreeNode, Integer> nodeNum;
+    private final TreeNode root;
 
     public BinarySearchTree(TreeNode root) {
         this.root = root;
@@ -55,4 +44,18 @@ class BinarySearchTree {
     private int getNodeNum(TreeNode node) {
         return nodeNum.getOrDefault(node, 0);
     }
+
+}
+
+/**
+ * @author TimeChaser
+ * @since 2021/11/18 10:10
+ */
+public class SecondSolution {
+
+    public int kthSmallest(TreeNode root, int k) {
+        BinarySearchTree binarySearchTree = new BinarySearchTree(root);
+        return binarySearchTree.kthSmallest(k);
+    }
+
 }

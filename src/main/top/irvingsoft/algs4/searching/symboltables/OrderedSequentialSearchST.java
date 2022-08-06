@@ -14,7 +14,7 @@ import java.util.Queue;
 public class OrderedSequentialSearchST<Key extends Comparable<Key>, Value> {
 
     private Node first;
-    private int  n;
+    private int n;
 
     public boolean contains(Key key) {
         return get(key) != null;
@@ -118,9 +118,10 @@ public class OrderedSequentialSearchST<Key extends Comparable<Key>, Value> {
     }
 
     private class Node {
-        private Key   key;
+
+        private Key key;
+        private Node next;
         private Value value;
-        private Node  next;
 
         public Node() {
         }
@@ -130,5 +131,7 @@ public class OrderedSequentialSearchST<Key extends Comparable<Key>, Value> {
             this.value = value;
             this.next = next;
         }
+
     }
+
 }

@@ -2,19 +2,10 @@ package top.irvingsoft.leetcode.code155;
 
 import java.util.Stack;
 
-/**
- * 最小栈
- *
- * @author TimeChaser
- * @since 2021/11/14 20:24
- */
-public class Solution {
-}
-
 class MinStack {
 
-    private final Stack<Integer> stack;
     private final Stack<Integer> minStack;
+    private final Stack<Integer> stack;
 
     public MinStack() {
         this.stack = new Stack<>();
@@ -42,4 +33,15 @@ class MinStack {
     public int top() {
         return this.stack.peek();
     }
+
+}
+
+/**
+ * 最小栈
+ *
+ * @author TimeChaser
+ * @since 2021/11/14 20:24
+ */
+public class Solution {
+
 }

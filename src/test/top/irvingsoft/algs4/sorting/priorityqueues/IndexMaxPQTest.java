@@ -41,4 +41,5 @@ public class IndexMaxPQTest {
         }
         merge(streams);
     }
+
 }

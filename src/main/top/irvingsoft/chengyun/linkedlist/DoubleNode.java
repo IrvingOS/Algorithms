@@ -8,9 +8,9 @@ package top.irvingsoft.chengyun.linkedlist;
  */
 public class DoubleNode {
 
-    public int        value;
     public DoubleNode last;
     public DoubleNode next;
+    public int value;
 
     public DoubleNode(int data) {
         this.value = data;
@@ -18,10 +18,7 @@ public class DoubleNode {
 
     @Override
     public String toString() {
-        return "DoubleNode{" +
-                "value=" + value +
-                ", last=" + last +
-                ", next=" + next +
-                '}';
+        return "DoubleNode{" + "value=" + value + ", last=" + last + ", next=" + next + '}';
     }
+
 }

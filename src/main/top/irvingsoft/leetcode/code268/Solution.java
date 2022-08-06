@@ -8,6 +8,13 @@ package top.irvingsoft.leetcode.code268;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(missingNumber(new int[]{3, 0, 1}));
+        System.out.println(missingNumber(new int[]{0, 1}));
+        System.out.println(missingNumberAnother(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
+        System.out.println(missingNumberAnother(new int[]{0}));
+    }
+
     public static int missingNumber(int[] nums) {
         int xor = 0;
         int n = nums.length;
@@ -30,10 +37,4 @@ public class Solution {
         return total - sum;
     }
 
-    public static void main(String[] args) {
-        System.out.println(missingNumber(new int[]{3, 0, 1}));
-        System.out.println(missingNumber(new int[]{0, 1}));
-        System.out.println(missingNumberAnother(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
-        System.out.println(missingNumberAnother(new int[]{0}));
-    }
 }

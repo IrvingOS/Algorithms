@@ -23,135 +23,6 @@ public class Stacks {
         put('^', 3);
     }};
 
-    /**
-     * Is the popped sequence valid?
-     *
-     * @param pushed pushed sequence
-     * @param popped popped sequence
-     * @return boolean
-     */
-    public static <T> boolean validateStackSequences(T[] pushed, T[] popped) {
-        Stack<T> stack = new Stack<>();
-        int indexOfPopped = 0;
-        for (T t : pushed) {
-            stack.push(t);
-            while (!stack.isEmpty() && stack.peek().equals(popped[indexOfPopped])) {
-                stack.pop();
-                indexOfPopped++;
-            }
-        }
-        return stack.isEmpty();
-    }
-
-    /**
-     * Are parentheses valid?
-     *
-     * @param str parentheses
-     * @return boolean
-     */
-    public static boolean isValidParentheses(String str) {
-        Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            switch (ch) {
-                case '(':
-                case '{':
-                case '[':
-                    stack.push(ch);
-                    break;
-                case ')':
-                    if (stack.pop() != '(') {
-                        return false;
-                    }
-                    break;
-                case '}':
-                    if (stack.pop() != '{') {
-                        return false;
-                    }
-                    break;
-                case ']':
-                    if (stack.pop() != '[') {
-                        return false;
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-        return stack.isEmpty();
-    }
-
-    /**
-     * Compute arithmetic expression.
-     *
-     * @param str arithmetic expression, should be complete brackets.
-     * @return double
-     */
-    public static double calculateCompleteExpression(String str) {
-        int n = str.length();
-        Stack<Character> ops = new Stack<>();
-        Stack<Double> values = new Stack<>();
-        for (int i = 0; i < n; i++) {
-            char ch = str.charAt(i);
-            if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-                ops.push(ch);
-            } else if (ch == ')') {
-                Character op = ops.pop();
-                Double value = values.pop();
-                if (op == '+') {
-                    value = values.pop() + value;
-                } else if (op == '-') {
-                    value = values.pop() - value;
-                } else if (op == '*') {
-                    value = values.pop() * value;
-                } else if (op == '/') {
-                    value = values.pop() / value;
-                }
-                values.push(value);
-            } else if ((ch >= '0' && ch <= '9') || ch == '.') {
-                int lo = i;
-                while (i < n && ((str.charAt(i) >= '0' && str.charAt(i) <= '9') || str.charAt(i) == '.')) {
-                    i++;
-                }
-                values.push(Double.parseDouble(str.substring(lo, i)));
-            }
-        }
-        return values.pop();
-    }
-
-    public static double calculateAddAndSub(String str) {
-        Stack<Double> ops = new Stack<>();
-        ops.push(1.0);
-        double sign = 1;
-        double result = 0;
-        int n = str.length();
-        int i = 0;
-        while (i < n) {
-            if (str.charAt(i) == ' ') {
-                i++;
-            } else if (str.charAt(i) == '+') {
-                sign = ops.peek();
-                i++;
-            } else if (str.charAt(i) == '-') {
-                sign = -ops.peek();
-                i++;
-            } else if (str.charAt(i) == '(') {
-                ops.push(sign);
-                i++;
-            } else if (str.charAt(i) == ')') {
-                ops.pop();
-                i++;
-            } else {
-                int lo = i;
-                while (i < n && ((str.charAt(i) >= '0' && str.charAt(i) <= '9') || str.charAt(i) == '.')) {
-                    i++;
-                }
-                result += sign * Double.parseDouble(str.substring(lo, i));
-            }
-        }
-        return result;
-    }
-
     public static double calculate(String str) {
         char[] array = str.replace(" ", "").toCharArray();
         int n = array.length;
@@ -202,27 +73,75 @@ public class Stacks {
         return nums.pop();
     }
 
-    private static void calculate(Stack<Double> nums, Stack<Character> ops) {
-        if (nums.isEmpty() || nums.size() < 2 || ops.isEmpty()) {
-            return;
+    public static double calculateAddAndSub(String str) {
+        Stack<Double> ops = new Stack<>();
+        ops.push(1.0);
+        double sign = 1;
+        double result = 0;
+        int n = str.length();
+        int i = 0;
+        while (i < n) {
+            if (str.charAt(i) == ' ') {
+                i++;
+            } else if (str.charAt(i) == '+') {
+                sign = ops.peek();
+                i++;
+            } else if (str.charAt(i) == '-') {
+                sign = -ops.peek();
+                i++;
+            } else if (str.charAt(i) == '(') {
+                ops.push(sign);
+                i++;
+            } else if (str.charAt(i) == ')') {
+                ops.pop();
+                i++;
+            } else {
+                int lo = i;
+                while (i < n && ((str.charAt(i) >= '0' && str.charAt(i) <= '9') || str.charAt(i) == '.')) {
+                    i++;
+                }
+                result += sign * Double.parseDouble(str.substring(lo, i));
+            }
         }
-        double b = nums.pop(), a = nums.pop();
-        char op = ops.pop();
-        double ans = 0;
-        if (op == '+') {
-            ans = a + b;
-        } else if (op == '-') {
-            ans = a - b;
-        } else if (op == '*') {
-            ans = a * b;
-        } else if (op == '/') {
-            ans = a / b;
-        } else if (op == '^') {
-            ans = Math.pow(a, b);
-        } else if (op == '%') {
-            ans = a % b;
+        return result;
+    }
+
+    /**
+     * Compute arithmetic expression.
+     *
+     * @param str arithmetic expression, should be complete brackets.
+     * @return double
+     */
+    public static double calculateCompleteExpression(String str) {
+        int n = str.length();
+        Stack<Character> ops = new Stack<>();
+        Stack<Double> values = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            char ch = str.charAt(i);
+            if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+                ops.push(ch);
+            } else if (ch == ')') {
+                Character op = ops.pop();
+                Double value = values.pop();
+                if (op == '+') {
+                    value = values.pop() + value;
+                } else if (op == '-') {
+                    value = values.pop() - value;
+                } else if (op == '*') {
+                    value = values.pop() * value;
+                } else if (op == '/') {
+                    value = values.pop() / value;
+                }
+                values.push(value);
+            } else if ((ch >= '0' && ch <= '9') || ch == '.') {
+                int lo = i;
+                while (i < n && ((str.charAt(i) >= '0' && str.charAt(i) <= '9') || str.charAt(i) == '.')) {
+                    i++;
+                }
+                values.push(Double.parseDouble(str.substring(lo, i)));
+            }
         }
-        nums.push(ans);
+        return values.pop();
     }
 
     /**
@@ -262,4 +181,86 @@ public class Stacks {
         }
         return combinations.pop();
     }
+
+    /**
+     * Are parentheses valid?
+     *
+     * @param str parentheses
+     * @return boolean
+     */
+    public static boolean isValidParentheses(String str) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            switch (ch) {
+                case '(':
+                case '{':
+                case '[':
+                    stack.push(ch);
+                    break;
+                case ')':
+                    if (stack.pop() != '(') {
+                        return false;
+                    }
+                    break;
+                case '}':
+                    if (stack.pop() != '{') {
+                        return false;
+                    }
+                    break;
+                case ']':
+                    if (stack.pop() != '[') {
+                        return false;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    /**
+     * Is the popped sequence valid?
+     *
+     * @param pushed pushed sequence
+     * @param popped popped sequence
+     * @return boolean
+     */
+    public static <T> boolean validateStackSequences(T[] pushed, T[] popped) {
+        Stack<T> stack = new Stack<>();
+        int indexOfPopped = 0;
+        for (T t : pushed) {
+            stack.push(t);
+            while (!stack.isEmpty() && stack.peek().equals(popped[indexOfPopped])) {
+                stack.pop();
+                indexOfPopped++;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    private static void calculate(Stack<Double> nums, Stack<Character> ops) {
+        if (nums.isEmpty() || nums.size() < 2 || ops.isEmpty()) {
+            return;
+        }
+        double b = nums.pop(), a = nums.pop();
+        char op = ops.pop();
+        double ans = 0;
+        if (op == '+') {
+            ans = a + b;
+        } else if (op == '-') {
+            ans = a - b;
+        } else if (op == '*') {
+            ans = a * b;
+        } else if (op == '/') {
+            ans = a / b;
+        } else if (op == '^') {
+            ans = Math.pow(a, b);
+        } else if (op == '%') {
+            ans = a % b;
+        }
+        nums.push(ans);
+    }
+
 }

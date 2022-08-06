@@ -34,4 +34,5 @@ public class Solution {
         }
         return next != null ? (next.left != null ? next.left : next.right) : null;
     }
+
 }

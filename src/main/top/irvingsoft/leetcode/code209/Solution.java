@@ -23,4 +23,5 @@ public class Solution {
         }
         return minLen != Integer.MAX_VALUE ? minLen : 0;
     }
+
 }

@@ -50,4 +50,5 @@ public class AnotherSolution {
         nums[i] = nums[j];
         nums[j] = temp;
     }
+
 }

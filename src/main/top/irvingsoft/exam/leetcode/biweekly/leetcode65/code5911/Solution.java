@@ -1,22 +1,12 @@
 package top.irvingsoft.exam.leetcode.biweekly.leetcode65.code5911;
 
-/**
- * 模拟行走机器人 ⅱ
- *
- * @author TimeChaser
- * @since 2021/11/13 22:39
- */
-public class Solution {
-
-}
-
 class Robot {
 
-    private final int     maxX;
-    private final int     maxY;
-    private       int     x;
-    private       int     y;
-    private       DIREnum dirEnum;
+    private final int maxX;
+    private final int maxY;
+    private DIREnum dirEnum;
+    private int x;
+    private int y;
 
     public Robot(int width, int height) {
         this.x = 0;
@@ -36,10 +26,8 @@ class Robot {
 
     public void move(int num) {
         if (num > (this.maxX + 1) * 2 + (this.maxY - 1) * 2) {
-            if ((this.x == 0 && this.y == 0)
-                    || (this.x == 0 && this.y == this.maxY)
-                    || (this.x == this.maxX && this.y == 0)
-                    || (this.x == this.maxX && this.y == this.maxY)) {
+            if ((this.x == 0 && this.y == 0) || (this.x == 0 && this.y == this.maxY) ||
+                (this.x == this.maxX && this.y == 0) || (this.x == this.maxX && this.y == this.maxY)) {
                 this.dirEnum = this.dirEnum.getPre();
             }
         }
@@ -68,10 +56,8 @@ class Robot {
         }*/
 
         for (int i = 0; i < num; i++) {
-            if (this.x + this.dirEnum.x > this.maxX
-                    || this.x + this.dirEnum.x < 0
-                    || this.y + this.dirEnum.y > this.maxY
-                    || this.y + this.dirEnum.y < 0) {
+            if (this.x + this.dirEnum.x > this.maxX || this.x + this.dirEnum.x < 0 ||
+                this.y + this.dirEnum.y > this.maxY || this.y + this.dirEnum.y < 0) {
                 this.dirEnum = this.dirEnum.getNext();
             }
             this.x += this.dirEnum.x;
@@ -84,14 +70,11 @@ class Robot {
         /**
          * 方向枚举
          */
-        East("East", 1, 0),
-        North("North", 0, 1),
-        West("West", -1, 0),
-        South("South", 0, -1);
+        East("East", 1, 0), North("North", 0, 1), West("West", -1, 0), South("South", 0, -1);
 
         private final String dir;
-        private final int    x;
-        private final int    y;
+        private final int x;
+        private final int y;
 
         DIREnum(String dir, int x, int y) {
             this.dir = dir;
@@ -131,4 +114,15 @@ class Robot {
             return East;
         }
     }
+
+}
+
+/**
+ * 模拟行走机器人 ⅱ
+ *
+ * @author TimeChaser
+ * @since 2021/11/13 22:39
+ */
+public class Solution {
+
 }

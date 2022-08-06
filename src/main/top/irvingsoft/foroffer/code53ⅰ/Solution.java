@@ -11,7 +11,8 @@ public class Solution {
     public int search(int[] nums, int target) {
         int leftIndex = binarySearch(nums, target, true);
         int rightIndex = binarySearch(nums, target, false) - 1;
-        if (leftIndex <= rightIndex && rightIndex < nums.length && nums[leftIndex] == target && nums[rightIndex] == target) {
+        if (leftIndex <= rightIndex && rightIndex < nums.length && nums[leftIndex] == target &&
+            nums[rightIndex] == target) {
             return rightIndex - leftIndex + 1;
         }
         return 0;
@@ -32,4 +33,5 @@ public class Solution {
         }
         return result;
     }
+
 }

@@ -8,41 +8,14 @@ package top.irvingsoft.chengyun.linkedlist;
  */
 public class ReversePartList {
 
-    public static Node reversePartList(Node head, int from, int to) {
+    public static void main(String[] args) {
 
-        int len = 0;
-        Node cur = head;
-        Node fPre = null;
-        Node tPos = null;
-        // 遍历长度的同时，定位好反转部分前置结点和后置结点
-        while (cur != null) {
-            len++;
-            fPre = len == from - 1 ? cur : fPre;
-            tPos = len == to + 1 ? cur : tPos;
-            cur = cur.next;
-        }
-        if (from > to || from < 1 || to > len) {
-            return head;
-        }
-        // 复制过后，cur 为需要反转的部分链反转前的头结点
-        cur = fPre == null ? head : fPre.next;
-        Node node = cur.next;
-        // 反转前的头结点为反转后的尾结点，不如直接将后缀拼接到反转前的头结点之后，并从下一个结点开始翻转
-        cur.next = tPos;
-        Node next = null;
-        while (node != tPos) {
-            next = node.next;
-            node.next = cur;
-            cur = node;
-            node = next;
-        }
-        // 如果前缀不为空，则进行拼接
-        if (fPre != null) {
-            fPre.next = cur;
-            return head;
-        }
-        // 前缀为空，则直接返回反转后的头结点
-        return cur;
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next = new Node(5);
+        System.out.println(reversePartList(head, 1, 4).toString());
     }
 
     public static DoubleNode reversePartList(DoubleNode head, int from, int to) {
@@ -82,13 +55,41 @@ public class ReversePartList {
         return cur;
     }
 
-    public static void main(String[] args) {
+    public static Node reversePartList(Node head, int from, int to) {
 
-        Node head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(4);
-        head.next.next.next.next = new Node(5);
-        System.out.println(reversePartList(head, 1, 4).toString());
+        int len = 0;
+        Node cur = head;
+        Node fPre = null;
+        Node tPos = null;
+        // 遍历长度的同时，定位好反转部分前置结点和后置结点
+        while (cur != null) {
+            len++;
+            fPre = len == from - 1 ? cur : fPre;
+            tPos = len == to + 1 ? cur : tPos;
+            cur = cur.next;
+        }
+        if (from > to || from < 1 || to > len) {
+            return head;
+        }
+        // 复制过后，cur 为需要反转的部分链反转前的头结点
+        cur = fPre == null ? head : fPre.next;
+        Node node = cur.next;
+        // 反转前的头结点为反转后的尾结点，不如直接将后缀拼接到反转前的头结点之后，并从下一个结点开始翻转
+        cur.next = tPos;
+        Node next = null;
+        while (node != tPos) {
+            next = node.next;
+            node.next = cur;
+            cur = node;
+            node = next;
+        }
+        // 如果前缀不为空，则进行拼接
+        if (fPre != null) {
+            fPre.next = cur;
+            return head;
+        }
+        // 前缀为空，则直接返回反转后的头结点
+        return cur;
     }
+
 }

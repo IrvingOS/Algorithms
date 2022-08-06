@@ -25,4 +25,5 @@ public class Solution {
         }
         return daysOfWeek[(days + 3) % 7];
     }
+
 }

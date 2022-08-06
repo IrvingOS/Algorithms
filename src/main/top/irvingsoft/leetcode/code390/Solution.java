@@ -12,7 +12,7 @@ public class Solution {
         int count = n;
         int k = 0, step = 1;
         int a1 = 1, an = n;
-        while(count > 1) {
+        while (count > 1) {
             if (k % 2 == 0) {
                 a1 += step;
                 an -= count % 2 != 0 ? step : 0;
@@ -26,4 +26,5 @@ public class Solution {
         }
         return a1;
     }
+
 }

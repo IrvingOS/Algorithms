@@ -18,4 +18,5 @@ public class QuickSort implements IArraySort {
     public int[] sort(int[] sourceArray) {
         return sourceArray;
     }
+
 }

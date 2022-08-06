@@ -80,7 +80,8 @@ public class Solution {
                 state = transfer.get(state).get(type);
             }
         }
-        return state == State.STATE_INTEGER || state == State.STATE_POINT || state == State.STATE_FRACTION || state == State.STATE_EXP_NUMBER || state == State.STATE_END;
+        return state == State.STATE_INTEGER || state == State.STATE_POINT || state == State.STATE_FRACTION ||
+               state == State.STATE_EXP_NUMBER || state == State.STATE_END;
     }
 
     public boolean isNumberReg(String s) {
@@ -103,25 +104,12 @@ public class Solution {
         }
     }
 
-    enum State {
-        STATE_INITIAL,
-        STATE_INT_SIGN,
-        STATE_INTEGER,
-        STATE_POINT,
-        STATE_POINT_WITHOUT_INT,
-        STATE_FRACTION,
-        STATE_EXP,
-        STATE_EXP_SIGN,
-        STATE_EXP_NUMBER,
-        STATE_END
+    enum CharType {
+        CHAR_NUMBER, CHAR_EXP, CHAR_POINT, CHAR_SIGN, CHAR_SPACE, CHAR_ILLEGAL
     }
 
-    enum CharType {
-        CHAR_NUMBER,
-        CHAR_EXP,
-        CHAR_POINT,
-        CHAR_SIGN,
-        CHAR_SPACE,
-        CHAR_ILLEGAL
+    enum State {
+        STATE_INITIAL, STATE_INT_SIGN, STATE_INTEGER, STATE_POINT, STATE_POINT_WITHOUT_INT, STATE_FRACTION, STATE_EXP, STATE_EXP_SIGN, STATE_EXP_NUMBER, STATE_END
     }
+
 }

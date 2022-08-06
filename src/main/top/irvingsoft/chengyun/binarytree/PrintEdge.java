@@ -8,6 +8,13 @@ package top.irvingsoft.chengyun.binarytree;
  */
 public class PrintEdge {
 
+    public static int getHeight(Node head, int l) {
+        if (head == null) {
+            return l;
+        }
+        return Math.max(getHeight(head.left, l + 1), getHeight(head.right, l + 1));
+    }
+
     public static void printEdge1(Node head) {
 
         if (head == null) {
@@ -27,36 +34,6 @@ public class PrintEdge {
         }
     }
 
-    public static int getHeight(Node head, int l) {
-        if (head == null) {
-            return l;
-        }
-        return Math.max(getHeight(head.left, l + 1), getHeight(head.right, l + 1));
-    }
-
-    public static void setEdgeMap(Node head, int l, Node[][] edgeMap) {
-
-        if (head == null) {
-            return;
-        }
-        edgeMap[l][0] = edgeMap[l][0] == null ? head : edgeMap[l][0];
-        edgeMap[l][1] = head;
-        setEdgeMap(head.left, l + 1, edgeMap);
-        setEdgeMap(head.right, l + 1, edgeMap);
-    }
-
-    public static void printLeafNotInMap(Node head, int l, Node[][] edgeMap) {
-
-        if (head == null) {
-            return;
-        }
-        if (head.left == null && head.right == null && head != edgeMap[l][0] && head != edgeMap[l][1]) {
-            System.out.println(head.value + " ");
-        }
-        printLeafNotInMap(head.left, l + 1, edgeMap);
-        printLeafNotInMap(head.right, l + 1, edgeMap);
-    }
-
     public static void printEdge2(Node head) {
 
         if (head == null) {
@@ -69,6 +46,18 @@ public class PrintEdge {
         } else {
             printEdge2(head.left != null ? head.left : head.right);
         }
+    }
+
+    public static void printLeafNotInMap(Node head, int l, Node[][] edgeMap) {
+
+        if (head == null) {
+            return;
+        }
+        if (head.left == null && head.right == null && head != edgeMap[l][0] && head != edgeMap[l][1]) {
+            System.out.println(head.value + " ");
+        }
+        printLeafNotInMap(head.left, l + 1, edgeMap);
+        printLeafNotInMap(head.right, l + 1, edgeMap);
     }
 
     public static void printLeftEdge(Node head, boolean print) {
@@ -94,4 +83,16 @@ public class PrintEdge {
             System.out.println(head.value + " ");
         }
     }
+
+    public static void setEdgeMap(Node head, int l, Node[][] edgeMap) {
+
+        if (head == null) {
+            return;
+        }
+        edgeMap[l][0] = edgeMap[l][0] == null ? head : edgeMap[l][0];
+        edgeMap[l][1] = head;
+        setEdgeMap(head.left, l + 1, edgeMap);
+        setEdgeMap(head.right, l + 1, edgeMap);
+    }
+
 }

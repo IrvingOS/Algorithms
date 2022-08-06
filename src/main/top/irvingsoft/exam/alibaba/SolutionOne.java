@@ -64,4 +64,5 @@ public class SolutionOne {
         }
         return count;
     }
+
 }

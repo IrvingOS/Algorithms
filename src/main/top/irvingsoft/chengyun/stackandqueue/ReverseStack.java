@@ -81,4 +81,5 @@ public class ReverseStack {
         reverse(stack);
         stack.push(data);
     }
+
 }

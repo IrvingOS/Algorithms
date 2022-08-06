@@ -1,19 +1,12 @@
 package top.irvingsoft.leetcode.code460;
 
-/**
- * @author TimeChaser
- * @since 2022/3/16 3:17 PM
- */
-public class BestSolution {
-}
-
 class BestLFUCache {
-    public int cap;
-    public int size;
-    public int minFreq;
-    Node[] keyMap;
-    Node[] freqMap;
 
+    public int cap;
+    public int minFreq;
+    public int size;
+    Node[] freqMap;
+    Node[] keyMap;
 
     public BestLFUCache(int capacity) {
         this.cap = capacity;
@@ -88,10 +81,11 @@ class BestLFUCache {
     }
 
     public class Node {
-        public int key;
-        public int value;
+
         public int freq;
+        public int key;
         public Node prev, next;
+        public int value;
 
         public Node() {
         }
@@ -102,16 +96,26 @@ class BestLFUCache {
             this.freq = 1;
         }
 
-        public void remove() { // 将当前节点删除
-            this.prev.next = next;
-            this.next.prev = prev;
-        }
-
         public void add(Node n) { // 将当前节点插入到 n 之后
             this.prev = n;
             this.next = n.next;
             n.next = this;
             this.next.prev = this;
         }
+
+        public void remove() { // 将当前节点删除
+            this.prev.next = next;
+            this.next.prev = prev;
+        }
+
     }
+
+}
+
+/**
+ * @author TimeChaser
+ * @since 2022/3/16 3:17 PM
+ */
+public class BestSolution {
+
 }

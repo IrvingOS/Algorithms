@@ -18,7 +18,8 @@ public class Solution {
         if (root == null) {
             return true;
         }
-        return Math.abs(maxDepth(root.left) - maxDepth(root.right)) <= 1 && isBalancedTopDown(root.left) && isBalancedTopDown(root.right);
+        return Math.abs(maxDepth(root.left) - maxDepth(root.right)) <= 1 && isBalancedTopDown(root.left) &&
+               isBalancedTopDown(root.right);
     }
 
     private int height(TreeNode node) {
@@ -39,4 +40,5 @@ public class Solution {
         }
         return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
     }
+
 }

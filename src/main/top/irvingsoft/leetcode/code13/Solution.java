@@ -13,6 +13,14 @@ package top.irvingsoft.leetcode.code13;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(romanToInt("III"));
+        System.out.println(romanToInt("IV"));
+        System.out.println(romanToInt("IX"));
+        System.out.println(romanToInt("LVIII"));
+        System.out.println(romanToInt("MCMXCIV"));
+    }
+
     public static int romanToInt(String s) {
 
         int result = 0;
@@ -50,14 +58,6 @@ public class Solution {
             default:
                 return 0;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(romanToInt("III"));
-        System.out.println(romanToInt("IV"));
-        System.out.println(romanToInt("IX"));
-        System.out.println(romanToInt("LVIII"));
-        System.out.println(romanToInt("MCMXCIV"));
     }
 
 }

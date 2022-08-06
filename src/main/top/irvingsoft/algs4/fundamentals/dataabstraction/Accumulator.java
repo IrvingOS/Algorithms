@@ -8,9 +8,9 @@ package top.irvingsoft.algs4.fundamentals.dataabstraction;
  */
 public class Accumulator {
 
-    private int    n   = 0;
+    private double mu = 0.0;
+    private int n = 0;
     private double sum = 0.0;
-    private double mu  = 0.0;
 
     public Accumulator() {
     }
@@ -45,4 +45,5 @@ public class Accumulator {
     public String toString() {
         return "n = " + n + ", mean = " + mean() + ", stddev = " + stddev();
     }
+
 }

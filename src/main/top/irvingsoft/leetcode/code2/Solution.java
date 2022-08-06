@@ -9,6 +9,7 @@ import top.irvingsoft.structure.ListNode;
  * @since 2021/3/6 2:26
  */
 public class Solution {
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         ListNode head = null, tail = null;
@@ -61,4 +62,5 @@ public class Solution {
         }
         return head.next;
     }
+
 }

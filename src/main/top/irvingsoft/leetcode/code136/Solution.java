@@ -15,4 +15,5 @@ public class Solution {
         }
         return xor;
     }
+
 }

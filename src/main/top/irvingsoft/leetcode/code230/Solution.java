@@ -31,4 +31,5 @@ public class Solution {
         }
         return root != null ? root.val : -1;
     }
+
 }

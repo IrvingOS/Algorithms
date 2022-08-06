@@ -8,9 +8,9 @@ package top.irvingsoft.leetcode.code105;
  */
 public class TreeNode {
 
-    int      val;
     TreeNode left;
     TreeNode right;
+    int val;
 
     TreeNode() {
     }
@@ -24,4 +24,5 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
 }

@@ -13,6 +13,7 @@ import java.util.Set;
  * @since 2021/3/6 2:25
  */
 public class Solution {
+
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
         Set<Integer>[] sets = new HashSet[numCourses];
         int[] dCount = new int[numCourses];
@@ -87,6 +88,7 @@ public class Solution {
 
         System.out.println(canFinish(numCourses, ints));
     }
+
 }
 /**
  * 8

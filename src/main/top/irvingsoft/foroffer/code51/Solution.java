@@ -135,4 +135,5 @@ public class Solution {
         int crossPairs = mergeAndCount(nums, left, mid, right, temp);
         return leftPairs + rightPairs + crossPairs;
     }
+
 }

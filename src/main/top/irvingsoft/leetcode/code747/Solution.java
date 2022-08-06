@@ -25,4 +25,5 @@ public class Solution {
         }
         return nums[b] == 0 ? a : nums[a] / nums[b] >= 2 ? a : -1;
     }
+
 }

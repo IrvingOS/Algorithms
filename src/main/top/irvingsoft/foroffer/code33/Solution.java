@@ -38,7 +38,8 @@ public class Solution {
             }
             rightMax = Math.max(rightMax, postorder[i + 1]);
         }
-        return verify(postorder, left, leftEnd, min, postorder[right])
-                && verify(postorder, leftEnd + 1, right - 1, postorder[right], rightMax);
+        return verify(postorder, left, leftEnd, min, postorder[right]) &&
+               verify(postorder, leftEnd + 1, right - 1, postorder[right], rightMax);
     }
+
 }

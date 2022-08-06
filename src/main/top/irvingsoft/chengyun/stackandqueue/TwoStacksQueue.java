@@ -12,8 +12,8 @@ import java.util.Stack;
  */
 public class TwoStacksQueue {
 
-    private final Stack<Integer> stackPush;
     private final Stack<Integer> stackPop;
+    private final Stack<Integer> stackPush;
 
     public TwoStacksQueue() {
 

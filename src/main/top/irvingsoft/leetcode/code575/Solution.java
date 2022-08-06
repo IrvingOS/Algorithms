@@ -51,4 +51,5 @@ public class Solution {
         System.out.println(distributeCandies(new int[]{1, 1}));
         System.out.println(distributeCandiesAnother(new int[]{0, 0, 14, 0, 10, 0, 0, 0}));
     }
+
 }

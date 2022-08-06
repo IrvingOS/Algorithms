@@ -31,4 +31,5 @@ public class SpringDetector {
         detectorSpring(Groundhog.class);
         detectorSpring(Groundhog2.class);
     }
+
 }

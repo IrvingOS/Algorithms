@@ -14,9 +14,9 @@ public class ResizingArrayQueue<Item> implements Iterable<Item> {
     private static final int INIT_CAPACITY = 8;
 
     private Item[] a;
-    private int    n;
-    private int    first;
-    private int    last;
+    private int first;
+    private int last;
+    private int n;
 
     public ResizingArrayQueue() {
         a = (Item[]) new Object[INIT_CAPACITY];
@@ -124,5 +124,7 @@ public class ResizingArrayQueue<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
     }
+
 }

@@ -3,16 +3,6 @@ package top.irvingsoft.leetcode.code677;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 键值映射
- *
- * @author TimeChaser
- * @since 2021/11/14 8:51
- */
-public class Solution {
-
-}
-
 class MapSum {
 
     private final Map<String, Integer> map;
@@ -34,6 +24,7 @@ class MapSum {
         }
         return sum;
     }
+
 }
 
 class MapSumHash {
@@ -58,12 +49,13 @@ class MapSumHash {
     public int sum(String prefix) {
         return prefixMap.getOrDefault(prefix, 0);
     }
+
 }
 
 class MapSumTrie {
 
-    private final TrieNode             root;
     private final Map<String, Integer> map;
+    private final TrieNode root;
 
     public MapSumTrie() {
         this.root = new TrieNode();
@@ -95,7 +87,20 @@ class MapSumTrie {
     }
 
     public class TrieNode {
-        int        val  = 0;
+
         TrieNode[] next = new TrieNode[26];
+        int val = 0;
+
     }
+
+}
+
+/**
+ * 键值映射
+ *
+ * @author TimeChaser
+ * @since 2021/11/14 8:51
+ */
+public class Solution {
+
 }

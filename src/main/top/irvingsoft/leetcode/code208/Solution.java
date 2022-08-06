@@ -7,12 +7,13 @@ package top.irvingsoft.leetcode.code208;
  * @since 2021/10/26 12:07
  */
 public class Solution {
+
 }
 
 class Trie {
 
-    private final Trie[]  children;
-    private       boolean isEnd;
+    private final Trie[] children;
+    private boolean isEnd;
 
     public Trie() {
         this.children = new Trie[26];
@@ -61,4 +62,5 @@ class Trie {
         }
         return node;
     }
+
 }

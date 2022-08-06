@@ -13,12 +13,18 @@ import java.util.Scanner;
  */
 public class TCPServer extends Thread {
 
-    public static final String       EXIT = "exit";
-    private static      ServerSocket serverSocket;
+    public static final String EXIT = "exit";
+    private static ServerSocket serverSocket;
 
     public TCPServer(int port) throws IOException {
         serverSocket = new ServerSocket(port);
         serverSocket.setSoTimeout(10000000);
+    }
+
+    public static void main(String[] args) throws IOException {
+        if (validatePort(args[0])) {
+            new TCPServer(Integer.parseInt(args[0])).start();
+        }
     }
 
     public static boolean validatePort(String s) {
@@ -29,12 +35,6 @@ public class TCPServer extends Thread {
             }
         }
         return true;
-    }
-
-    public static void main(String[] args) throws IOException {
-        if (validatePort(args[0])) {
-            new TCPServer(Integer.parseInt(args[0])).start();
-        }
     }
 
     @Override
@@ -100,4 +100,5 @@ public class TCPServer extends Thread {
             }
         }
     }
+
 }

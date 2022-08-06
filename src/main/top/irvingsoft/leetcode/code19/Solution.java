@@ -8,14 +8,6 @@ import top.irvingsoft.structure.ListNode;
  */
 public class Solution {
 
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode pre = findFromEnd(dummy, n + 1);
-        pre.next = pre.next.next;
-        return dummy.next;
-    }
-
     public static ListNode findFromEnd(ListNode head, int k) {
         ListNode fast = head;
         for (int i = 0; i < k; i++) {
@@ -27,6 +19,14 @@ public class Solution {
             fast = fast.next;
         }
         return slow;
+    }
+
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = findFromEnd(dummy, n + 1);
+        pre.next = pre.next.next;
+        return dummy.next;
     }
 
     public static ListNode removeNthFromEndAnother(ListNode head, int n) {
@@ -50,4 +50,5 @@ public class Solution {
         }
         return head;
     }
+
 }

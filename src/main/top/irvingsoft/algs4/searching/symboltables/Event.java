@@ -11,4 +11,5 @@ public class Event {
     public Event(String s) {
         event = s;
     }
+
 }

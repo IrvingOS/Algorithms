@@ -12,10 +12,42 @@ import java.util.List;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(removeInvalidParenthesesRecursion(")d))"));
+    }
+
+    public static List<String> removeInvalidParenthesesDfs(String s) {
+        ArrayList<String> result = new ArrayList<>();
+        HashSet<String> curSet = new HashSet<>();
+
+        curSet.add(s);
+        while (true) {
+            for (String str : curSet) {
+                if (isValid(str)) {
+                    result.add(str);
+                }
+            }
+            if (result.size() > 0) {
+                return result;
+            }
+            HashSet<String> nextSet = new HashSet<>();
+            for (String str : curSet) {
+                for (int i = 0; i < str.length(); i++) {
+                    if (i > 0 && str.charAt(i) == str.charAt(i - 1)) {
+                        continue;
+                    }
+                    if (str.charAt(i) == '(' || str.charAt(i) == ')') {
+                        nextSet.add(str.substring(0, i) + str.substring(i + 1));
+                    }
+                }
+            }
+            curSet = nextSet;
+        }
+    }
+
     /**
      * 回溯 + 剪枝
      *
-     * @author TimeChaser
      * @since 2021/10/27 18:42
      */
     public static List<String> removeInvalidParenthesesRecursion(String s) {
@@ -76,35 +108,6 @@ public class Solution {
         }
     }
 
-    public static List<String> removeInvalidParenthesesDfs(String s) {
-        ArrayList<String> result = new ArrayList<>();
-        HashSet<String> curSet = new HashSet<>();
-
-        curSet.add(s);
-        while (true) {
-            for (String str : curSet) {
-                if (isValid(str)) {
-                    result.add(str);
-                }
-            }
-            if (result.size() > 0) {
-                return result;
-            }
-            HashSet<String> nextSet = new HashSet<>();
-            for (String str : curSet) {
-                for (int i = 0; i < str.length(); i++) {
-                    if (i > 0 && str.charAt(i) == str.charAt(i - 1)) {
-                        continue;
-                    }
-                    if (str.charAt(i) == '(' || str.charAt(i) == ')') {
-                        nextSet.add(str.substring(0, i) + str.substring(i + 1));
-                    }
-                }
-            }
-            curSet = nextSet;
-        }
-    }
-
     private static boolean isValid(String str) {
         int leftCount = 0;
         for (int i = 0; i < str.length(); i++) {
@@ -120,7 +123,4 @@ public class Solution {
         return leftCount == 0;
     }
 
-    public static void main(String[] args) {
-        System.out.println(removeInvalidParenthesesRecursion(")d))"));
-    }
 }

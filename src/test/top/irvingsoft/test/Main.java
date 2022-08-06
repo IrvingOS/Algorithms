@@ -159,11 +159,11 @@ public class Main {
         System.out.println(result);
     }*/
 
-    private static int n;
+    private static int count;
     private static int k1;
     private static int k2;
     private static int maxSum;
-    private static int count;
+    private static int n;
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

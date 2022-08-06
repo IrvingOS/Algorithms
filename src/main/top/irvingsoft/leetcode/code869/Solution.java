@@ -12,10 +12,13 @@ import java.util.Set;
  */
 public class Solution {
 
-    public static boolean reorderedPowerOf2Permutation(int n) {
-        char[] str = String.valueOf(n).toCharArray();
-        Arrays.sort(str);
-        return permutation(0, 0, new boolean[str.length], str);
+    public static boolean isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(reorderedPowerOf2Hash(64));
     }
 
     public static boolean permutation(int index, int value, boolean[] status, char[] str) {
@@ -23,9 +26,7 @@ public class Solution {
             return isPowerOfTwo(value);
         }
         for (int i = 0; i < str.length; i++) {
-            if (status[i]
-                    || (value == 0 && str[i] == '0')
-                    || (i > 0 && str[i] == str[i - 1] && status[i - 1])) {
+            if (status[i] || (value == 0 && str[i] == '0') || (i > 0 && str[i] == str[i - 1] && status[i - 1])) {
                 continue;
             }
             status[i] = true;
@@ -37,20 +38,16 @@ public class Solution {
         return false;
     }
 
-    public static boolean isPowerOfTwo(int n) {
-        return n > 0 && (n & (n - 1)) == 0;
-    }
-
     public static boolean reorderedPowerOf2Hash(int n) {
         HashSet<String> set = new HashSet<>();
         init(set);
         return set.contains(countDigits(n));
     }
 
-    private static void init(Set<String> set) {
-        for (int i = 1; i <= 1e9; i <<= 1) {
-            set.add(countDigits(i));
-        }
+    public static boolean reorderedPowerOf2Permutation(int n) {
+        char[] str = String.valueOf(n).toCharArray();
+        Arrays.sort(str);
+        return permutation(0, 0, new boolean[str.length], str);
     }
 
     private static String countDigits(int n) {
@@ -63,8 +60,10 @@ public class Solution {
         return new String(count);
     }
 
-    public static void main(String[] args) {
-
-        System.out.println(reorderedPowerOf2Hash(64));
+    private static void init(Set<String> set) {
+        for (int i = 1; i <= 1e9; i <<= 1) {
+            set.add(countDigits(i));
+        }
     }
+
 }

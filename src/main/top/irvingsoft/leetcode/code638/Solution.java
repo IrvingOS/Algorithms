@@ -23,29 +23,6 @@ public class Solution {
 
     private static final Map<List<Integer>, Integer> CACHE = new HashMap<>();
 
-    public static int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
-        int n = price.size();
-        ArrayList<List<Integer>> realSpecial = new ArrayList<>();
-        for (List<Integer> sp : special) {
-            boolean overflow = false;
-            int originalCost = 0;
-            for (int i = 0; i < n; i++) {
-                if (sp.get(i) > needs.get(i)) {
-                    overflow = true;
-                    break;
-                }
-                originalCost += sp.get(i) * price.get(i);
-            }
-            if (overflow) {
-                continue;
-            }
-            if (originalCost > sp.get(n)) {
-                realSpecial.add(sp);
-            }
-        }
-        return dfs(price, realSpecial, needs, n);
-    }
-
     public static int dfs(List<Integer> price, List<List<Integer>> special, List<Integer> needs, int n) {
         if (!CACHE.containsKey(needs)) {
             int minCost = 0;
@@ -69,4 +46,28 @@ public class Solution {
         }
         return CACHE.get(needs);
     }
+
+    public static int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
+        int n = price.size();
+        ArrayList<List<Integer>> realSpecial = new ArrayList<>();
+        for (List<Integer> sp : special) {
+            boolean overflow = false;
+            int originalCost = 0;
+            for (int i = 0; i < n; i++) {
+                if (sp.get(i) > needs.get(i)) {
+                    overflow = true;
+                    break;
+                }
+                originalCost += sp.get(i) * price.get(i);
+            }
+            if (overflow) {
+                continue;
+            }
+            if (originalCost > sp.get(n)) {
+                realSpecial.add(sp);
+            }
+        }
+        return dfs(price, realSpecial, needs, n);
+    }
+
 }

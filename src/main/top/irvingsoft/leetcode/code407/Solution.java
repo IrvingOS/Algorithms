@@ -13,49 +13,9 @@ import java.util.Queue;
  */
 public class Solution {
 
-    /**
-     * 最小堆
-     * <p>
-     * 先将矩形的四周入优先级队列，然后从外向中心靠拢
-     * <p>
-     * 最小堆优先级队列保证了容量的有效性
-     */
-    public static int trapRainWaterMinimumHeap(int[][] heightMap) {
-        if (heightMap.length <= 2 || heightMap[0].length <= 2) {
-            return 0;
-        }
-        int m = heightMap.length;
-        int n = heightMap[0].length;
-        boolean[][] visit = new boolean[m][n];
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
-                    pq.offer(new int[]{i * n + j, heightMap[i][j]});
-                    visit[i][j] = true;
-                }
-            }
-        }
-        int result = 0;
-        // 方向指示，从当前优先级队列的队头结点向四周扩散
-        int[] dirs = {-1, 0, 1, 0, -1};
-        while (!pq.isEmpty()) {
-            int[] curr = pq.poll();
-            for (int k = 0; k < 4; k++) {
-                int nx = curr[0] / n + dirs[k];
-                int ny = curr[0] % n + dirs[k + 1];
-                if (nx >= 0 && nx < m && ny >= 0 && ny < n && !visit[nx][ny]) {
-                    // 队头结点比当前结点高，获得雨水容量
-                    if (curr[1] > heightMap[nx][ny]) {
-                        result += curr[1] - heightMap[nx][ny];
-                    }
-                    // 当前结点入队列，高度取原结点和当前结点的最高值
-                    pq.offer(new int[]{nx * n + ny, Math.max(heightMap[nx][ny], curr[1])});
-                    visit[nx][ny] = true;
-                }
-            }
-        }
-        return result;
+    public static void main(String[] args) {
+        int[][] ints = {{3, 3, 3, 3, 3}, {3, 2, 2, 2, 3}, {3, 2, 1, 2, 3}, {3, 2, 2, 2, 3}, {3, 3, 3, 3, 3}};
+        System.out.println(trapRainWaterMinimumHeap(ints));
     }
 
     public static int trapRainWaterBFS(int[][] heightMap) {
@@ -111,8 +71,49 @@ public class Solution {
         return res;
     }
 
-    public static void main(String[] args) {
-        int[][] ints = {{3, 3, 3, 3, 3}, {3, 2, 2, 2, 3}, {3, 2, 1, 2, 3}, {3, 2, 2, 2, 3}, {3, 3, 3, 3, 3}};
-        System.out.println(trapRainWaterMinimumHeap(ints));
+    /**
+     * 最小堆
+     * <p>
+     * 先将矩形的四周入优先级队列，然后从外向中心靠拢
+     * <p>
+     * 最小堆优先级队列保证了容量的有效性
+     */
+    public static int trapRainWaterMinimumHeap(int[][] heightMap) {
+        if (heightMap.length <= 2 || heightMap[0].length <= 2) {
+            return 0;
+        }
+        int m = heightMap.length;
+        int n = heightMap[0].length;
+        boolean[][] visit = new boolean[m][n];
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
+                    pq.offer(new int[]{i * n + j, heightMap[i][j]});
+                    visit[i][j] = true;
+                }
+            }
+        }
+        int result = 0;
+        // 方向指示，从当前优先级队列的队头结点向四周扩散
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!pq.isEmpty()) {
+            int[] curr = pq.poll();
+            for (int k = 0; k < 4; k++) {
+                int nx = curr[0] / n + dirs[k];
+                int ny = curr[0] % n + dirs[k + 1];
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n && !visit[nx][ny]) {
+                    // 队头结点比当前结点高，获得雨水容量
+                    if (curr[1] > heightMap[nx][ny]) {
+                        result += curr[1] - heightMap[nx][ny];
+                    }
+                    // 当前结点入队列，高度取原结点和当前结点的最高值
+                    pq.offer(new int[]{nx * n + ny, Math.max(heightMap[nx][ny], curr[1])});
+                    visit[nx][ny] = true;
+                }
+            }
+        }
+        return result;
     }
+
 }

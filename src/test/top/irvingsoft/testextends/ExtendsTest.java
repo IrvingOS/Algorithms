@@ -10,4 +10,5 @@ public class ExtendsTest {
         Parent child2 = new Child("2");
         System.out.println(child1.compareTo(child2));
     }
+
 }

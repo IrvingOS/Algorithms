@@ -17,4 +17,5 @@ public class Solution {
         int dayDays = (weeks + 1 + weeks + days) * days / 2;
         return weekDays + dayDays;
     }
+
 }

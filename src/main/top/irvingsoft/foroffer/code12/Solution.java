@@ -50,7 +50,7 @@ public class Solution {
         }
         board[i][j] = '\0';
         boolean res = dfs(board, word, i + 1, j, k + 1) || dfs(board, word, i - 1, j, k + 1) ||
-                dfs(board, word, i, j + 1, k + 1) || dfs(board, word, i, j - 1, k + 1);
+                      dfs(board, word, i, j + 1, k + 1) || dfs(board, word, i, j - 1, k + 1);
         board[i][j] = word[k];
         return res;
     }
@@ -61,9 +61,10 @@ public class Solution {
         }
         int i = 0;
         while (i < towards.length) {
-            if (m + towards[i][0] >= 0 && m + towards[i][0] < board.length
-                    && n + towards[i][1] >= 0 && n + towards[i][1] < board[0].length) {
-                if (!status[m + towards[i][0]][n + towards[i][1]] && board[m + towards[i][0]][n + towards[i][1]] == word[index]) {
+            if (m + towards[i][0] >= 0 && m + towards[i][0] < board.length && n + towards[i][1] >= 0 &&
+                n + towards[i][1] < board[0].length) {
+                if (!status[m + towards[i][0]][n + towards[i][1]] &&
+                    board[m + towards[i][0]][n + towards[i][1]] == word[index]) {
                     status[m + towards[i][0]][n + towards[i][1]] = true;
                     if (backtrack(m + towards[i][0], n + towards[i][1], index + 1, word, board, status)) {
                         return true;
@@ -75,4 +76,5 @@ public class Solution {
         }
         return false;
     }
+
 }

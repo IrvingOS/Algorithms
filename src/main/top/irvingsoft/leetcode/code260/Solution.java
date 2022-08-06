@@ -12,6 +12,31 @@ import java.util.Map;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(singleNumberBitOperate(new int[]{2, 1, 2, 3, 5, 1})));
+    }
+
+    public static int[] singleNumberBitOperate(int[] nums) {
+        int xor = 0;
+        for (int num : nums) {
+            xor ^= num;
+        }
+        // xor = 3 ^ 5
+        // 计算出一个可以将两个只出现一次的数分成两组的值
+        // 这里也可以通过 while 循环配合位运算，将初始值的为 1 的 lsb 不断左移计算出第一个 xor & lsb != 0 的值即为 lsb
+        int lsb = xor == Integer.MIN_VALUE ? xor : xor & -xor;
+        int num1 = 0, num2 = 0;
+        for (int num : nums) {
+            // 通过异或运算，排除每组中重复出现的值
+            if ((num & lsb) != 0) {
+                num1 ^= num;
+            } else {
+                num2 ^= num;
+            }
+        }
+        return new int[]{num1, num2};
+    }
+
     public static int[] singleNumberHash(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
@@ -49,28 +74,4 @@ public class Solution {
         return new int[]{num1, num2};
     }
 
-    public static int[] singleNumberBitOperate(int[] nums) {
-        int xor = 0;
-        for (int num : nums) {
-            xor ^= num;
-        }
-        // xor = 3 ^ 5
-        // 计算出一个可以将两个只出现一次的数分成两组的值
-        // 这里也可以通过 while 循环配合位运算，将初始值的为 1 的 lsb 不断左移计算出第一个 xor & lsb != 0 的值即为 lsb
-        int lsb = xor == Integer.MIN_VALUE ? xor : xor & -xor;
-        int num1 = 0, num2 = 0;
-        for (int num : nums) {
-            // 通过异或运算，排除每组中重复出现的值
-            if ((num & lsb) != 0) {
-                num1 ^= num;
-            } else {
-                num2 ^= num;
-            }
-        }
-        return new int[]{num1, num2};
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(singleNumberBitOperate(new int[]{2, 1, 2, 3, 5, 1})));
-    }
 }

@@ -33,7 +33,8 @@ public class Solution {
             return;
         }
         for (int i = 0; i < digits.length; i++) {
-            if (status[i] || (i > 0 && !status[i - 1] && digits[i] == digits[i - 1]) || (length == 0 && digits[i] == 0)) {
+            if (status[i] || (i > 0 && !status[i - 1] && digits[i] == digits[i - 1]) ||
+                (length == 0 && digits[i] == 0)) {
                 continue;
             }
             status[i] = true;
@@ -41,4 +42,5 @@ public class Solution {
             status[i] = false;
         }
     }
+
 }

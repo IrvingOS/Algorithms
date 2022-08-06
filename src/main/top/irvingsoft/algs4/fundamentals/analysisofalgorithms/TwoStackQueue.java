@@ -50,4 +50,5 @@ public class TwoStackQueue<T> {
         }
         return stackOut.pop();
     }
+
 }

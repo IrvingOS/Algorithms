@@ -12,7 +12,7 @@ public class WeightedQuickUnionUF {
 
     private final int[] id;
     private final int[] weight;
-    private       int   count;
+    private int count;
 
     public WeightedQuickUnionUF(int n) {
         count = n;
@@ -54,4 +54,5 @@ public class WeightedQuickUnionUF {
         }
         count--;
     }
+
 }

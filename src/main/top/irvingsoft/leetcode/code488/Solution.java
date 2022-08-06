@@ -14,12 +14,43 @@ import java.util.Set;
 public class Solution {
 
     private static final Map<String, Map<String, Integer>> MAP = new HashMap<>();
-    private static       int                               originalLength;
+    private static int originalLength;
 
     public static int findMinStep(String board, String hand) {
         originalLength = hand.length();
         int result = dfs(board, hand);
         return result == Integer.MAX_VALUE ? -1 : result;
+    }
+
+    public static void main(String[] args) {
+        //        System.out.println(findMinStep("WRRBBW", "RB"));
+        //        System.out.println(findMinStep("WWRRBBWW", "WRBRW"));
+        //        System.out.println(findMinStep("G", "GGGGG"));
+        //        System.out.println(findMinStep("RBYYBBRRB", "YRBGB"));
+        //        System.out.println(findMinStep("WWRRBBWW", "WRBRW"));
+        //        System.out.println(findMinStep("WR",
+        //                "WWRR"));
+        System.out.println(findMinStep("RRWWRRBBRR", "WB"));
+    }
+
+    /**
+     * 向 board 中每个字符后依次插入字符并处理
+     *
+     * @param board board
+     * @param ch    插入的字符
+     * @return java.lang.String[]
+     */
+    private static String[] checkIn(String board, Character ch) {
+        Set<String> result = new HashSet<>();
+        StringBuilder sb = new StringBuilder(board);
+        for (int i = 0; i < sb.length(); i++) {
+            StringBuilder temp = new StringBuilder(board);
+            temp.insert(i + 1, ch);
+            process(temp);
+            // 将插入并处理后的字符串加入结果集
+            result.add(temp.toString());
+        }
+        return result.toArray(new String[0]);
     }
 
     private static int dfs(String board, String hand) {
@@ -56,26 +87,6 @@ public class Solution {
         handMap.put(hand, min);
         MAP.put(board, handMap);
         return min;
-    }
-
-    /**
-     * 向 board 中每个字符后依次插入字符并处理
-     *
-     * @param board board
-     * @param ch    插入的字符
-     * @return java.lang.String[]
-     */
-    private static String[] checkIn(String board, Character ch) {
-        Set<String> result = new HashSet<>();
-        StringBuilder sb = new StringBuilder(board);
-        for (int i = 0; i < sb.length(); i++) {
-            StringBuilder temp = new StringBuilder(board);
-            temp.insert(i + 1, ch);
-            process(temp);
-            // 将插入并处理后的字符串加入结果集
-            result.add(temp.toString());
-        }
-        return result.toArray(new String[0]);
     }
 
     /**
@@ -117,15 +128,4 @@ public class Solution {
         process(sb);
     }
 
-    public static void main(String[] args) {
-//        System.out.println(findMinStep("WRRBBW", "RB"));
-//        System.out.println(findMinStep("WWRRBBWW", "WRBRW"));
-//        System.out.println(findMinStep("G", "GGGGG"));
-//        System.out.println(findMinStep("RBYYBBRRB", "YRBGB"));
-//        System.out.println(findMinStep("WWRRBBWW", "WRBRW"));
-//        System.out.println(findMinStep("WR",
-//                "WWRR"));
-        System.out.println(findMinStep("RRWWRRBBRR",
-                "WB"));
-    }
 }

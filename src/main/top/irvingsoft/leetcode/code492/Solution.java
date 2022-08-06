@@ -23,4 +23,5 @@ public class Solution {
         System.out.println(Arrays.toString(constructRectangle(18)));
         System.out.println(Arrays.toString(constructRectangle(19)));
     }
+
 }

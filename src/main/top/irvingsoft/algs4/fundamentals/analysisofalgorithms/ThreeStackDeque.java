@@ -10,9 +10,9 @@ import java.util.Stack;
 public class ThreeStackDeque<T> {
 
     private final Stack<T> stackFirst;
-    private final Stack<T> stackMiddle;
     private final Stack<T> stackLast;
-    private       int      n;
+    private final Stack<T> stackMiddle;
+    private int n;
 
     public ThreeStackDeque() {
         stackFirst = new Stack<>();
@@ -99,4 +99,5 @@ public class ThreeStackDeque<T> {
         n--;
         return stackLast.pop();
     }
+
 }
