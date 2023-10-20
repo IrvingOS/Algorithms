@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 func lengthOfLongestSubstring(s string) int {
 	m := map[byte]int{}
