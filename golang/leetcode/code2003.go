@@ -1,15 +1,17 @@
 package main
 
+/*在多叉树中确定一条链表，从链表的末端节点开始到根节点 dfs*/
 func smallestMissingValueSubtree(parents []int, nums []int) []int {
-	n := len(parents)
-	result := make([]int, n)
+	m := len(parents)
+	result := make([]int, m)
 	maxNum := 0
 	indexOfOne := -1
 	child := map[int][]int{}
 
-	for i := 0; i < n; i++ {
+	for i := 0; i < m; i++ {
 		/*默认置为 1*/
 		result[i] = 1
+		/*最大的基因*/
 		if nums[i] > maxNum {
 			maxNum = nums[i]
 		}
@@ -18,12 +20,7 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 			indexOfOne = i
 		}
 		/*构建子节点 map*/
-		parent := parents[i]
-		if leaf, ok := child[parent]; ok {
-			child[parent] = append(leaf, i)
-		} else {
-			child[parent] = []int{i}
-		}
+		child[parents[i]] = append(child[parents[i]], i)
 	}
 
 	if indexOfOne == -1 {
@@ -31,55 +28,48 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 		return result
 	}
 
-	size := maxNum + 1
-	set := UnionFoundSet{
-		End:         make([]int, size),
-		UnionStatus: make([]bool, size),
+	n := maxNum + 2
+	visited := make([]bool, m)
+	gens := make([]bool, n)
+
+	var dfs func(node int)
+	dfs = func(node int) {
+		if visited[node] {
+			return
+		}
+		visited[node] = true
+		gens[nums[node]] = true
+		for _, i := range child[node] {
+			dfs(i)
+		}
 	}
 
 	cur := indexOfOne
-	dfs(cur, &result, nums, child, &set)
-	result[cur] = set.Find()
-	for {
-		parent := parents[cur]
-		if parent == -1 {
-			break
+	gen := 2
+	for cur != -1 {
+		dfs(cur)
+		for gens[gen] {
+			gen++
 		}
-		leaf := child[parent]
-		for i := 0; i < len(leaf); i++ {
-			if leaf[i] != cur {
-				dfs(leaf[i], &result, nums, child, &set)
-			}
-		}
-		set.Union(nums[parent])
-		result[parent] = set.Find()
-		cur = parent
+		result[cur] = gen
+		cur = parents[cur]
 	}
-	return result
-}
 
-func dfs(cur int, result *[]int, nums []int, child map[int][]int, set *UnionFoundSet) {
-	leaf, ok := child[cur]
-	if ok {
-		for i := 0; i < len(leaf); i++ {
-			dfs(leaf[i], result, nums, child, set)
-		}
-	}
-	set.Union(nums[cur])
+	return result
 }
 
 type UnionFoundSet struct {
 	End         []int
 	UnionStatus []bool
+	Index       int
 }
 
 func (us UnionFoundSet) Find() int {
-	i := 2
 	for {
-		if i == len(us.UnionStatus) || !us.UnionStatus[i] {
-			return i
+		if us.Index == len(us.UnionStatus) || !us.UnionStatus[us.Index] {
+			return us.Index
 		}
-		i = us.End[i] + 1
+		us.Index = us.End[us.Index] + 1
 	}
 }
 
