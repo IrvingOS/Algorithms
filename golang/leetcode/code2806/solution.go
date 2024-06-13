@@ -1,4 +1,4 @@
-package code3067
+package code2806
 
 func accountBalanceAfterPurchase(purchaseAmount int) int {
 	a := purchaseAmount / 10
