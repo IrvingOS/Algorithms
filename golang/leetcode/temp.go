@@ -70,3 +70,92 @@ func countOfPeaks(nums []int, queries [][]int) []int {
 //[7,1,6,6]
 //[1, 3, 6, 7]
 //[2, 2, 3, 5, 7, 8, 9, 9, 10, 10]
+
+func maxHeightOfTriangle(red int, blue int) int {
+	m, n := min(red, blue), max(red, blue)
+	cur1 := 1
+	useN := true
+	for {
+		if useN && n < cur1 {
+			break
+		} else if !useN && m < cur1 {
+			break
+		}
+		if useN {
+			n -= cur1
+		} else {
+			m -= cur1
+		}
+		useN = !useN
+		cur1++
+	}
+
+	m, n = min(red, blue), max(red, blue)
+	cur2 := 1
+	useN = false
+	for {
+		if useN && n < cur2 {
+			break
+		} else if !useN && m < cur2 {
+			break
+		}
+		if useN {
+			n -= cur2
+		} else {
+			m -= cur2
+		}
+		useN = !useN
+		cur2++
+	}
+	return max(cur1, cur2) - 1
+}
+
+// nums = [1,2,3,4,5], k = 2
+//
+//	1,0,1,0,1
+//
+// 1 1 1 1
+// 5
+// nums = [1,4,2,3,1,4], k = 3
+//
+//	1,1,2,0,1,1
+//
+// 2,0,2,1,2
+// 4
+// nums = [1,2,3,10,2], k = 6
+//
+//	1,2,3,4,2
+//
+// 2,5,1,0
+// 3
+func maximumLength(nums []int, k int) int {
+	res := 0
+	n := len(nums)
+	arr := make([]int, n-1)
+	for i := 0; i < n-1; i++ {
+		arr[i] = (nums[i] + nums[i+1]) % k
+	}
+
+	var dfs func(l, r, cur int, s []int)
+	dfs = func(l, r, cur int, s []int) {
+		if l == r {
+			res = max(cur+1, res)
+		} else if l > r {
+			res = max(cur, res)
+			return
+		} else {
+			if s[l] == s[r] {
+				dfs(l+1, r-1, cur+2, s)
+			} else {
+				dfs(l+1, r, cur, s)
+				dfs(l+1, r-1, cur, s)
+				dfs(l, r-1, cur, s)
+			}
+		}
+	}
+
+	dfs(0, n-1, 0, nums)
+	dfs(0, n-2, 0, arr)
+
+	return res + 1
+}
