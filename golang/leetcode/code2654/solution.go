@@ -1,4 +1,4 @@
-package main
+package code2654
 
 import (
 	"math"

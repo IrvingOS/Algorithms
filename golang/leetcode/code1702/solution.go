@@ -1,4 +1,4 @@
-package main
+package code1702
 
 func maximumBinaryString(binary string) string {
 	n := len(binary)

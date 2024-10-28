@@ -1,35 +1,28 @@
-package code3180
+package code3181
 
 import (
+	"math/big"
 	"sort"
 )
 
 func maxTotalReward(rewardValues []int) int {
 	var singleRewardValue []int
 	visited := make(map[int]bool)
-	for _, v := range rewardValues {
-		_, ok := visited[v]
-		if !ok {
-			singleRewardValue = append(singleRewardValue, v)
-			visited[v] = true
+	for _, x := range rewardValues {
+		if _, ok := visited[x]; !ok {
+			singleRewardValue = append(singleRewardValue, x)
+			visited[x] = true
 		}
 	}
 	sort.Ints(singleRewardValue)
-	dp := make([]bool, singleRewardValue[len(singleRewardValue)-1]*2)
-	dp[0] = true
-	res := 0
-	for i, v := range singleRewardValue {
-		if i > 0 && singleRewardValue[i-1] == v {
-			continue
-		}
-		for j := 2*v - 1; j >= v; j-- {
-			dp[j] = dp[j] || dp[j-v]
-			if dp[j] {
-				if j > res {
-					res = j
-				}
-			}
-		}
+	f0, f1 := big.NewInt(1), big.NewInt(0)
+	for _, x := range singleRewardValue {
+		mask, one := big.NewInt(0), big.NewInt(1)
+		mask.Sub(mask.Lsh(one, uint(x)), one)
+		// 计算 f 的高 x 位
+		f1.Lsh(f1.And(f0, mask), uint(x))
+		f0.Or(f0, f1)
 	}
-	return res
+	// f0 初始为 1，结果去掉初始的位宽
+	return f0.BitLen() - 1
 }
