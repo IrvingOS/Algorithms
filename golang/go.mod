@@ -1,3 +1,3 @@
-module algorithms
+module main
 
 go 1.22
