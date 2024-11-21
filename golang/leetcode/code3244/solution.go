@@ -1,4 +1,4 @@
-package code3243
+package code3244
 
 func shortestDistanceAfterQueries(n int, queries [][]int) []int {
 	right := make([]int, n)
