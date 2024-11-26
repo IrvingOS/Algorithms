@@ -14,7 +14,6 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	queue := [][2]int{{k - 1, 0}}
 	costs := make([]int, n)
 	costs[k-1] = -1
-	maxCost := 0
 	for len(queue) != 0 {
 		step := queue[0]
 		cur, cost := step[0], step[1]
@@ -26,6 +25,7 @@ func networkDelayTime(times [][]int, n int, k int) int {
 		}
 		queue = queue[1:]
 	}
+	maxCost := 0
 	for _, cost := range costs {
 		if cost == 0 {
 			return -1
