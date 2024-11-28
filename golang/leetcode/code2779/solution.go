@@ -2,19 +2,15 @@ package code2779
 
 import "sort"
 
-/*
-注意：此题的目的不是要找到最大的完美值，而是要找到完美序列的最长长度
-相当于找到 diff <= 2*k 内的最长子序列的长度
-*/
+// 最长子序列，与顺序无关，先排序
+// 美丽数组：右边界和左边界的差值不超过 2*k
 func maximumBeauty(nums []int, k int) int {
-	n := len(nums)
 	sort.Ints(nums)
 	res := 0
-	for i, j := 0, 0; i < n; i++ {
-		for nums[i]-nums[j] > 2*k {
-			j++
+	for i, j, n := 0, 1, len(nums); i < n; i++ {
+		for ; j < n && nums[j]-nums[i] <= 2*k; j++ {
 		}
-		res = max(res, i-j+1)
+		res = max(res, j-i)
 	}
 	return res
 }
