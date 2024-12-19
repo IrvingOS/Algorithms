@@ -15,7 +15,7 @@ func maxTotalFruits(fruits [][]int, startPos int, k int) (res int) {
 				}
 				res = max(res, cur)
 			}
-			break
+			return
 		}
 	}
 	return

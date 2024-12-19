@@ -159,3 +159,22 @@ func maximumLength(nums []int, k int) int {
 
 	return res + 1
 }
+
+// [8,5,9,9,8,4]
+// [4,5,8,8,9,9]
+func minOperations(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	res := n
+	for i, j, cnt := 0, 0, make(map[int]int); i < n; i++ {
+		for ; j < n && nums[j]-nums[i] < n; j++ {
+			cnt[nums[j]]++
+		}
+		res = min(res, n-len(cnt))
+		cnt[nums[i]]--
+		if cnt[nums[i]] == 0 {
+			delete(cnt, nums[i])
+		}
+	}
+	return res
+}

@@ -5,29 +5,18 @@ import (
 )
 
 func minOperations(nums []int) int {
+	sort.Ints(nums)
 	n := len(nums)
 	res := n
-	if res == 1 {
-		return 0
-	}
-	sort.Ints(nums)
-	i, j := 0, 1
-	count := make(map[int]int)
-	count[nums[i]]++
-	for j < n {
-		for j < n && nums[i]+n-1 >= nums[j] {
-			count[nums[j]]++
-			j++
+	for i, j, cnt := 0, 0, make(map[int]int); j < n; i++ {
+		for ; j < n && nums[j]-nums[i] < n; j++ {
+			cnt[nums[j]]++
 		}
-		res = min(res, n-len(count))
-		count[nums[i]]--
-		if count[nums[i]] == 0 {
-			delete(count, nums[i])
+		res = min(res, n-len(cnt))
+		cnt[nums[i]]--
+		if cnt[nums[i]] == 0 {
+			delete(cnt, nums[i])
 		}
-		i++
-	}
-	if res == n {
-		return 0
 	}
 	return res
 }
